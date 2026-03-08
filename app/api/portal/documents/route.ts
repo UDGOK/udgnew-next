@@ -5,6 +5,8 @@ import { addConstructionDoc, getConstructionDocs } from "@/lib/db";
 import fs from "fs";
 import path from "path";
 
+export const maxDuration = 60;
+
 /* ─── GET: List all construction documents ─── */
 export async function GET() {
   const session = await getServerSession(authOptions);
@@ -44,9 +46,9 @@ export async function POST(req: Request) {
       );
     }
 
-    // Max 50MB
-    if (file.size > 50 * 1024 * 1024) {
-      return NextResponse.json({ error: "File too large. Max 50MB." }, { status: 400 });
+    // Max 4MB (Vercel serverless body limit is 4.5MB)
+    if (file.size > 4 * 1024 * 1024) {
+      return NextResponse.json({ error: "File too large. Max 4MB per file. Compress PDFs before uploading." }, { status: 400 });
     }
 
     // Create upload directory (Vercel has read-only public/, use /tmp)
@@ -70,7 +72,7 @@ export async function POST(req: Request) {
       name: file.name,
       type: ext.replace(".", ""),
       category,
-      url: IS_VERCEL ? `/api/portal/serve-file?path=portal-uploads/construction-docs/${safeFilename}` : `/portal-uploads/construction-docs/${safeFilename}`,
+      url: IS_VERCEL ? `/api/portal/serve-file?path=portal-uploads/construction-docs/${safeFilename}&name=${encodeURIComponent(file.name)}` : `/portal-uploads/construction-docs/${safeFilename}`,
       uploadedBy: user.email || "",
       uploadedByName: user.name || "",
       uploadedByCompany: (user as { company?: string }).company || "",
@@ -84,6 +86,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true, document: doc });
   } catch (err) {
     console.error("Construction doc upload error:", err);
-    return NextResponse.json({ error: "Upload failed" }, { status: 500 });
+    const message = err instanceof Error ? err.message : "Upload failed";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

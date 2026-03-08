@@ -11,6 +11,7 @@ export async function GET(req: NextRequest) {
   }
 
   const filePath = req.nextUrl.searchParams.get("path");
+  const originalName = req.nextUrl.searchParams.get("name");
   if (!filePath) {
     return NextResponse.json({ error: "Missing path" }, { status: 400 });
   }
@@ -25,6 +26,7 @@ export async function GET(req: NextRequest) {
 
   const buffer = fs.readFileSync(fullPath);
   const ext = path.extname(fullPath).toLowerCase();
+  const displayName = originalName || path.basename(fullPath);
 
   const mimeTypes: Record<string, string> = {
     ".pdf": "application/pdf",
@@ -39,10 +41,15 @@ export async function GET(req: NextRequest) {
     ".dxf": "application/dxf",
   };
 
+  // PDFs and images open inline in browser, other types download
+  const inlineTypes = [".pdf", ".jpg", ".jpeg", ".png"];
+  const disposition = inlineTypes.includes(ext) ? "inline" : "attachment";
+
   return new NextResponse(buffer, {
     headers: {
       "Content-Type": mimeTypes[ext] || "application/octet-stream",
-      "Content-Disposition": `inline; filename="${path.basename(fullPath)}"`,
+      "Content-Disposition": `${disposition}; filename="${displayName}"`,
+      "Cache-Control": "private, max-age=3600",
     },
   });
 }

@@ -32,6 +32,7 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
   const [bidOpen, setBidOpen] = useState(false);
   const [editProject, setEditProject] = useState<BidProject | null>(null);
   const [statusFilter, setStatusFilter] = useState("all");
+  const [previewDoc, setPreviewDoc] = useState<{ url: string; name: string; type: string } | null>(null);
   const isAdmin = user.role === "admin";
 
   const fetchProjects = useCallback(async () => {
@@ -235,6 +236,7 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
             onBid={() => setBidOpen(true)}
             onEdit={() => { setEditProject(selectedProject); setSelectedProject(null); }}
             onDelete={() => { handleDelete(selectedProject.id); }}
+            onPreview={(doc) => setPreviewDoc(doc)}
           />
         )}
       </AnimatePresence>
@@ -250,6 +252,13 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
       <AnimatePresence>
         {editProject && isAdmin && (
           <EditProjectModal project={editProject} onClose={() => setEditProject(null)} onSaved={() => { setEditProject(null); fetchProjects(); }} />
+        )}
+      </AnimatePresence>
+
+      {/* Document Preview Modal */}
+      <AnimatePresence>
+        {previewDoc && (
+          <DocumentPreviewModal doc={previewDoc} onClose={() => setPreviewDoc(null)} />
         )}
       </AnimatePresence>
     </main>
@@ -350,7 +359,7 @@ function EditProjectModal({ project, onClose, onSaved }: { project: BidProject; 
 }
 
 /* ─────────── PROJECT DETAIL MODAL ─────────── */
-function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdit, onDelete }: { project: BidProject; isAdmin: boolean; onClose: () => void; onUpdated: () => void; onBid: () => void; onEdit: () => void; onDelete: () => void }) {
+function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdit, onDelete, onPreview }: { project: BidProject; isAdmin: boolean; onClose: () => void; onUpdated: () => void; onBid: () => void; onEdit: () => void; onDelete: () => void; onPreview: (doc: { url: string; name: string; type: string }) => void }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState("");
@@ -457,7 +466,7 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdi
               <span style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#FF4800" }}>Project Documents</span>
               {isAdmin && (
                 <>
-                  <input ref={fileInputRef} type="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.dxf" onChange={uploadFile} style={{ display: "none" }} />
+                  <input ref={fileInputRef} type="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.dxf,.doc,.docx,.xls,.xlsx" onChange={uploadFile} style={{ display: "none" }} />
                   <button onClick={() => fileInputRef.current?.click()} disabled={uploading} style={{ ...btnPrimary, fontSize: "0.6rem", padding: "0.5rem 1rem" }}>
                     {uploading ? "Uploading…" : "＋ Upload Document"}
                   </button>
@@ -473,18 +482,26 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdi
               </div>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                {project.documents.map(doc => (
-                  <a key={doc.id} href={doc.url} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "0.75rem", padding: "0.85rem 1rem", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", color: "#fff", transition: "border-color 0.2s" }}
-                    onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(255,72,0,0.3)")}
-                    onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)")}>
-                    <span style={{ fontSize: "1.2rem" }}>{getFileIcon(doc.type)}</span>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: "0.85rem", fontWeight: 600 }}>{doc.name}</div>
-                      <div style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.3)", textTransform: "uppercase" }}>{doc.type}</div>
+                {project.documents.map(doc => {
+                  const canPreview = ["pdf", "jpg", "jpeg", "png"].includes(doc.type);
+                  return (
+                    <div key={doc.id}
+                      onClick={() => canPreview ? onPreview({ url: doc.url, name: doc.name, type: doc.type }) : window.open(doc.url, "_blank")}
+                      style={{ display: "flex", alignItems: "center", gap: "0.75rem", padding: "0.85rem 1rem", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", color: "#fff", transition: "border-color 0.2s", cursor: "pointer" }}
+                      onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(255,72,0,0.3)")}
+                      onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)")}>
+                      <span style={{ fontSize: "1.2rem" }}>{getFileIcon(doc.type)}</span>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontSize: "0.85rem", fontWeight: 600 }}>{doc.name}</div>
+                        <div style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.3)", display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                          <span style={{ textTransform: "uppercase" }}>{doc.type}</span>
+                          {canPreview && <span style={{ color: "#FF4800", fontWeight: 700 }}>👁 Preview</span>}
+                        </div>
+                      </div>
+                      <span style={{ fontSize: "0.7rem", color: "#FF4800", fontWeight: 700 }}>{canPreview ? "👁" : "↓"}</span>
                     </div>
-                    <span style={{ fontSize: "0.7rem", color: "#FF4800", fontWeight: 700 }}>↓</span>
-                  </a>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>
@@ -752,6 +769,63 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
           ))}
         </div>
       )}
+    </motion.div>
+  );
+}
+
+/* ─────────── DOCUMENT PREVIEW MODAL ─────────── */
+function DocumentPreviewModal({ doc, onClose }: { doc: { url: string; name: string; type: string }; onClose: () => void }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", onKey); };
+  }, [onClose]);
+
+  const isPdf = doc.type === "pdf";
+  const isImage = ["jpg", "jpeg", "png"].includes(doc.type);
+
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}
+      style={{ position: "fixed", inset: 0, zIndex: 10002, background: "rgba(0,0,0,0.95)", backdropFilter: "blur(16px)", display: "flex", flexDirection: "column", overflow: "hidden" }}>
+
+      {/* Toolbar */}
+      <div onClick={e => e.stopPropagation()} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "1rem 1.5rem", borderBottom: "1px solid rgba(255,255,255,0.1)", flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <span style={{ fontSize: "1.2rem" }}>{isPdf ? "📄" : "🖼️"}</span>
+          <div>
+            <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#fff" }}>{doc.name}</div>
+            <div style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.4)", textTransform: "uppercase" }}>{doc.type} document</div>
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: "0.5rem" }}>
+          <a href={doc.url} target="_blank" rel="noopener noreferrer" style={{ ...btnGhost, fontSize: "0.6rem", padding: "0.5rem 1rem", textDecoration: "none" }}>↓ Download</a>
+          <a href={doc.url} target="_blank" rel="noopener noreferrer" style={{ ...btnGhost, fontSize: "0.6rem", padding: "0.5rem 1rem", textDecoration: "none" }}>⤢ Open in New Tab</a>
+          <button onClick={onClose} style={{ width: "40px", height: "40px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "12px", color: "#fff", fontSize: "1.1rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div onClick={e => e.stopPropagation()} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem", overflow: "auto" }}>
+        {isPdf ? (
+          <iframe
+            src={doc.url}
+            style={{ width: "100%", height: "100%", border: "none", borderRadius: "12px", background: "#fff" }}
+            title={doc.name}
+          />
+        ) : isImage ? (
+          <img
+            src={doc.url}
+            alt={doc.name}
+            style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", borderRadius: "12px" }}
+          />
+        ) : (
+          <div style={{ textAlign: "center", color: "rgba(255,255,255,0.5)" }}>
+            <p>Preview not available for this file type.</p>
+            <a href={doc.url} target="_blank" rel="noopener noreferrer" style={{ color: "#FF4800" }}>Download {doc.name}</a>
+          </div>
+        )}
+      </div>
     </motion.div>
   );
 }
