@@ -4,13 +4,17 @@ import { authOptions } from "@/lib/auth";
 import { Resend } from "resend";
 import { getProjectById } from "@/lib/db";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
   if (!session?.user?.email) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
+
+  if (!process.env.RESEND_API_KEY) {
+    return NextResponse.json({ error: "Email service not configured" }, { status: 503 });
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     const body = await req.json();
