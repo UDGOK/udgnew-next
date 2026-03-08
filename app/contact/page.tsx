@@ -49,7 +49,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
             >
-              <h1 className="text-[clamp(3rem,5vw,5rem)] font-black uppercase tracking-tighter leading-[0.9] drop-shadow-2xl">
+              <h1 className="text-[clamp(2.5rem,5vw,5rem)] font-black uppercase tracking-tighter leading-[1.1] drop-shadow-2xl">
                 Global<br/><span className="text-[#FF4800]">Reach</span>.<br/>Local<br/>Precision.
               </h1>
             </motion.div>

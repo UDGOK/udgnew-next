@@ -28,7 +28,7 @@ const process = [
 const SplitTextReveal = ({ text }: { text: string }) => {
   const words = text.split(" ");
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1.5rem" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.5rem 1rem" }}>
       {words.map((word, i) => (
         <div key={i} style={{ overflow: "hidden" }}>
           <motion.div
@@ -79,7 +79,7 @@ export default function HomeUI() {
             <span style={{ color: "#FF4800", marginRight: "0.5rem" }}>◾</span> Premium Construction Firm
           </motion.div>
 
-          <h1 style={{ fontSize: "clamp(4rem, 10vw, 8rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 0.85, textTransform: "uppercase", marginBottom: "3rem" }}>
+          <h1 style={{ fontSize: "clamp(2.8rem, 10vw, 8rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 0.85, textTransform: "uppercase", marginBottom: "3rem", color: "#fff", textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}>
             <SplitTextReveal text="Building the Future of Healthcare" />
           </h1>
 
@@ -87,7 +87,7 @@ export default function HomeUI() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)", lineHeight: 1.6, color: "#666", maxWidth: "650px", margin: "0 auto 4rem", fontWeight: 500 }}
+            style={{ fontSize: "clamp(1rem, 2vw, 1.4rem)", lineHeight: 1.6, color: "rgba(255,255,255,0.8)", maxWidth: "650px", margin: "0 auto 4rem", fontWeight: 500 }}
           >
             Design-build excellence for medical offices, dental practices, and commercial spaces across Oklahoma and Texas.
           </motion.p>
@@ -129,7 +129,7 @@ export default function HomeUI() {
           </h2>
         </AnimateIn>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "2rem", maxWidth: "1400px", margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "2rem", maxWidth: "1400px", margin: "0 auto" }}>
           {services.map((s, i) => (
             <AnimateIn key={i} delay={i * 0.1}>
               <motion.div

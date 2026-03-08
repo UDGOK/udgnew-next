@@ -516,7 +516,7 @@ function ProjectModal({ project, onClose, projectIndex }: { project: Project; on
           </div>
 
           {/* ── Body ── */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", flex: 1, overflow: "hidden", minHeight: 0 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", flex: 1, overflow: "auto", minHeight: 0 }}>
 
             {/* Left — gallery */}
             <div style={{ display: "flex", flexDirection: "column", borderRight: "3px solid #0B061B", overflow: "hidden" }}>
@@ -701,7 +701,7 @@ function FeaturedProject({ p, onClick }: { p: Project; onClick: () => void }) {
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(11,6,27,0.6) 0%, transparent 50%)" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
 
-        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "4rem 5rem" }}>
+        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 5rem)" }}>
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "2rem" }}>
             <span style={{ background: "#FF4800", color: "#fff", fontSize: "0.6rem", fontWeight: 800, letterSpacing: "0.25em", textTransform: "uppercase", padding: "0.4rem 1rem" }}>Featured Project</span>
             <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase" }}>{p.category} · {p.year} · {p.location}</span>
@@ -791,7 +791,7 @@ function ParallaxGrid({ items, onOpen }: { items: Project[], onOpen: (p: Project
   const col3 = items.filter((_, i) => i % 3 === 2);
 
   return (
-    <div ref={containerRef} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "4rem", alignItems: "flex-start", padding: "6rem 5rem" }}>
+    <div ref={containerRef} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: "clamp(1.5rem, 3vw, 4rem)", alignItems: "flex-start", padding: "clamp(2rem, 5vw, 6rem) clamp(1rem, 4vw, 5rem)" }}>
       <div style={{ display: "flex", flexDirection: "column", gap: "4rem" }}>
         {col1.map((p) => (
           <ProjectCard key={p.id} p={p} index={items.indexOf(p)} onClick={() => onOpen(p, items.indexOf(p))} />
@@ -830,14 +830,14 @@ export default function ProjectsUI() {
       {openProject && <ProjectModal project={openProject} onClose={closeModal} projectIndex={openIndex} />}
 
       {/* Hero */}
-      <section style={{ background: "#0B061B", borderBottom: "4px solid #0B061B", overflow: "hidden", padding: "8rem 5rem 5rem", position: "relative" }}>
+      <section style={{ background: "#0B061B", borderBottom: "4px solid #0B061B", overflow: "hidden", padding: "clamp(5rem, 8vw, 8rem) clamp(1.5rem, 4vw, 5rem) clamp(3rem, 5vw, 5rem)", position: "relative" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1400px", margin: "0 auto" }}>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "3rem" }}>
             <span style={{ width: "32px", height: "2px", background: "#FF4800", display: "inline-block" }} />
             <span style={{ fontSize: "0.6rem", fontWeight: 800, letterSpacing: "0.3em", color: "#FF4800", textTransform: "uppercase" }}>Portfolio</span>
           </motion.div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "4rem", alignItems: "flex-end" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", alignItems: "flex-end" }}>
             <div style={{ overflow: "hidden" }}>
               <motion.h1 initial={{ y: "110%" }} animate={{ y: 0 }} transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }} style={{ fontSize: "clamp(4rem, 10vw, 9rem)", fontWeight: 900, letterSpacing: "-0.06em", lineHeight: 0.82, color: "#fff", textTransform: "uppercase", margin: 0 }}>
                 Our<br /><span style={{ WebkitTextStroke: "2px #FF4800", color: "transparent" }}>Work</span>
@@ -853,7 +853,7 @@ export default function ProjectsUI() {
       </section>
 
       {/* Stats */}
-      <section style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", background: "#fff", borderBottom: "4px solid #0B061B" }}>
+      <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(140px, 50%), 1fr))", background: "#fff", borderBottom: "4px solid #0B061B" }}>
         {STATS.map((s, i) => (
           <div key={i} style={{ padding: "3rem 2rem", textAlign: "center", borderRight: i < 3 ? "4px solid #0B061B" : "none" }}>
             <div style={{ fontSize: "clamp(2.25rem,5vw,3.5rem)", fontWeight: 900, color: i % 2 === 0 ? "#FF4800" : "#0B061B", letterSpacing: "-0.05em", lineHeight: 1, marginBottom: "0.5rem" }}>
@@ -870,7 +870,7 @@ export default function ProjectsUI() {
       <FeaturedProject p={featured} onClick={() => openModal(featured, 0)} />
 
       {/* Filter bar */}
-      <div style={{ borderBottom: "4px solid #0B061B", padding: "0 5rem", background: "#fff", display: "flex", alignItems: "center", gap: 0, overflowX: "auto" }}>
+      <div style={{ borderBottom: "4px solid #0B061B", padding: "0 clamp(1rem, 3vw, 5rem)", background: "#fff", display: "flex", alignItems: "center", gap: 0, overflowX: "auto" }}>
         {CATEGORIES.map((cat) => (
           <motion.button
             key={cat}
@@ -903,13 +903,13 @@ export default function ProjectsUI() {
 
       {/* Performance strip */}
       <AnimateIn>
-        <section style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", background: "#0B061B", borderBottom: "4px solid #0B061B" }}>
+        <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(250px, 100%), 1fr))", background: "#0B061B", borderBottom: "4px solid #0B061B" }}>
           {[
             { n: "01", title: "33% Faster", sub: "Average delivery vs. industry benchmark" },
             { n: "02", title: "6% Lower", sub: "Unit costs vs. comparable bids" },
             { n: "03", title: "<3%", sub: "Change order rate across all projects" },
           ].map((item, i) => (
-            <div key={i} style={{ padding: "4rem 3rem", borderRight: i < 2 ? "4px solid rgba(255,255,255,0.08)" : "none" }}>
+            <div key={i} style={{ padding: "clamp(2rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem)", borderRight: i < 2 ? "4px solid rgba(255,255,255,0.08)" : "none" }}>
               <div style={{ fontSize: "0.6rem", fontWeight: 800, letterSpacing: "0.3em", color: "#FF4800", marginBottom: "1.25rem" }}>{item.n}</div>
               <div style={{ fontSize: "clamp(1.5rem,3vw,2.25rem)", fontWeight: 900, letterSpacing: "-0.04em", color: "#fff", lineHeight: 1, marginBottom: "0.75rem" }}>{item.title}</div>
               <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>{item.sub}</div>
@@ -920,7 +920,7 @@ export default function ProjectsUI() {
 
       {/* CTA */}
       <AnimateIn>
-        <section style={{ display: "grid", gridTemplateColumns: "1fr auto", alignItems: "center", gap: "4rem", padding: "6rem 5rem", borderBottom: "4px solid #0B061B", background: "#fff" }}>
+        <section style={{ display: "grid", gridTemplateColumns: "1fr", alignItems: "center", gap: "2rem", padding: "clamp(3rem, 6vw, 6rem) clamp(1.5rem, 4vw, 5rem)", borderBottom: "4px solid #0B061B", background: "#fff" }}>
           <div>
             <div style={{ fontSize: "0.6rem", fontWeight: 800, letterSpacing: "0.3em", textTransform: "uppercase", color: "#FF4800", marginBottom: "1.5rem" }}>— Start Building</div>
             <h2 style={{ fontSize: "clamp(2.5rem,5vw,4.5rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 0.88, textTransform: "uppercase", margin: 0 }}>
