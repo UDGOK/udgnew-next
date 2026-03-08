@@ -117,7 +117,7 @@ export default function Footer() {
               <LI href="/about">About Us</LI>
               <LI href="/projects">Our Work</LI>
               <LI href="/tools">Tools &amp; Calculators</LI>
-              <LI href="/insights">Insights</LI>
+              <LI href="/resources">Resources</LI>
               <LI href="/subcontractors">Subcontractor Portal</LI>
               <LI href="/contact">Contact</LI>
             </ul>
