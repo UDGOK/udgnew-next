@@ -18,13 +18,14 @@ function ToolModal({ title, onClose, children }: { title: string; onClose: () =>
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         onClick={onClose}
-        style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(11,6,27,0.85)", backdropFilter: "blur(12px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}
+        style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(11,6,27,0.85)", backdropFilter: "blur(12px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem", overflow: "hidden", overscrollBehavior: "contain" }}
       >
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 40, scale: 0.97 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           onClick={(e) => e.stopPropagation()}
-          style={{ background: "#111", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "24px", width: "100%", maxWidth: "600px", maxHeight: "90vh", overflow: "auto", color: "#fff" }}
+          onWheel={(e) => e.stopPropagation()}
+          style={{ background: "#111", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "24px", width: "100%", maxWidth: "600px", maxHeight: "90vh", overflowY: "auto", overscrollBehavior: "contain", color: "#fff" }}
         >
           {/* Header */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "1.5rem 2rem", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
