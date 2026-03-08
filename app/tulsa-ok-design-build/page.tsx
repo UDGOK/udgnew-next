@@ -13,7 +13,7 @@ export default function TulsaDesignBuildPage() {
       label="Tulsa Design-Build"
       title="Design-Build in Tulsa, Oklahoma"
       description="Tulsa's integrated design-build contractor — one team, one contract, and a track record of 100+ delivered projects."
-      imageSrc="/images/tulsa_oklahoma_skyline_centennial_park_daytime.jpg"
+      imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="Design-build contractor Tulsa Oklahoma by UDGOK"
       intro="UDGOK is Tulsa's most experienced design-build contractor. We've delivered over 100 projects across medical, dental, commercial, and retail sectors by keeping design and construction under one roof. Tulsa business owners and developers choose us because we're local — we know the permit offices, the subcontractors, and the neighborhoods where we build."
       stats={[

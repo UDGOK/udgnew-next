@@ -13,7 +13,7 @@ export default function SafetyProgramPage() {
       label="Safety"
       title="Safety Program"
       description="A zero-incident culture built into every project — from preconstruction safety planning through final occupancy."
-      imageSrc="/images/woodside-medical-office-building-exterior.jpg"
+      imageSrc="/images/ai_safety_superintendent.png"
       imageAlt="UDGOK jobsite safety program"
       intro="Safety is not a checkbox at UDGOK — it is a core operating principle. Our safety program is led by a dedicated Safety Director and embedded into every phase of project delivery. We maintain one of the lowest EMR ratings in Oklahoma, and every UDGOK superintendent is OSHA 30 certified. We believe safe projects are better projects."
       stats={[

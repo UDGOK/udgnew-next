@@ -13,7 +13,7 @@ export default function AIRoboticsPage() {
       label="Innovation"
       title="AI & Robotics"
       description="UDGOK is deploying AI and robotics to deliver construction that is faster, more precise, and more transparent than traditional methods."
-      imageSrc="/images/upscale-building-modern.png"
+      imageSrc="/images/ai_commercial_retail_plaza.png"
       imageAlt="AI and robotics in construction by UDGOK"
       intro="The construction industry is being transformed by artificial intelligence, machine learning, and robotic systems. UDGOK is at the forefront of this transformation — deploying AI-powered estimating, robotic total stations for precision layout, drone photogrammetry for progress tracking, and generative design tools that optimize space and cost simultaneously. Our clients benefit from technology that was unimaginable a decade ago."
       stats={[

@@ -777,6 +777,40 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
   );
 }
 
+/* ─────────────────────────── Parallax Masonry Grid ─────────────────────────── */
+function ParallaxGrid({ items, onOpen }: { items: Project[], onOpen: (p: Project, idx: number) => void }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
+  
+  // Create 3D parallax floating effects
+  const col2Y = useTransform(scrollYProgress, [0, 1], [250, -250]);
+  const col3Y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+
+  const col1 = items.filter((_, i) => i % 3 === 0);
+  const col2 = items.filter((_, i) => i % 3 === 1);
+  const col3 = items.filter((_, i) => i % 3 === 2);
+
+  return (
+    <div ref={containerRef} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "4rem", alignItems: "flex-start", padding: "6rem 5rem" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "4rem" }}>
+        {col1.map((p) => (
+          <ProjectCard key={p.id} p={p} index={items.indexOf(p)} onClick={() => onOpen(p, items.indexOf(p))} />
+        ))}
+      </div>
+      <motion.div style={{ display: "flex", flexDirection: "column", gap: "4rem", y: col2Y }}>
+        {col2.map((p) => (
+          <ProjectCard key={p.id} p={p} index={items.indexOf(p)} onClick={() => onOpen(p, items.indexOf(p))} />
+        ))}
+      </motion.div>
+      <motion.div style={{ display: "flex", flexDirection: "column", gap: "4rem", y: col3Y }}>
+        {col3.map((p) => (
+          <ProjectCard key={p.id} p={p} index={items.indexOf(p)} onClick={() => onOpen(p, items.indexOf(p))} />
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
 /* ─────────────────────────── Page ─────────────────────────── */
 export default function ProjectsUI() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -791,7 +825,7 @@ export default function ProjectsUI() {
   const filtered = filteredAll.filter((p) => !p.featured);
 
   return (
-    <>
+    <main className="bg-[#0B061B]">
       {/* Modal */}
       {openProject && <ProjectModal project={openProject} onClose={closeModal} projectIndex={openIndex} />}
 
@@ -862,22 +896,9 @@ export default function ProjectsUI() {
         </div>
       </div>
 
-      {/* Grid */}
-      <section style={{ background: "#fff", borderBottom: "4px solid #0B061B" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
-          {filtered.map((p, i) => (
-            <div
-              key={p.id}
-              style={{
-                gridColumn: p.span === "double" ? "span 2" : "span 1",
-                borderRight: p.span === "double" || (i % 3 === 2) ? "none" : "4px solid #0B061B",
-                borderBottom: "4px solid #0B061B",
-              }}
-            >
-              <ProjectCard p={p} index={i} onClick={() => openModal(p, PROJECTS.findIndex((x) => x.id === p.id))} />
-            </div>
-          ))}
-        </div>
+      {/* 3D Parallax Masonry Grid */}
+      <section style={{ background: "#0B061B", borderBottom: "4px solid white" }}>
+        <ParallaxGrid items={filtered} onOpen={openModal} />
       </section>
 
       {/* Performance strip */}
@@ -920,6 +941,6 @@ export default function ProjectsUI() {
           </div>
         </section>
       </AnimateIn>
-    </>
+    </main>
   );
 }

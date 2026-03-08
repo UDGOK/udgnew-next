@@ -13,7 +13,7 @@ export default function TulsaMedicalPage() {
       label="Tulsa Medical Construction"
       title="Tulsa Medical Construction"
       description="Tulsa's most trusted healthcare construction contractor — 100+ medical and dental facilities built across the metro."
-      imageSrc="/images/tulsa_oklahoma_skyline_centennial_park_daytime.jpg"
+      imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="Tulsa medical construction by UDGOK"
       intro="UDGOK is Tulsa's go-to contractor for healthcare facility construction. From single-operatory dental suites in Broken Arrow to multi-physician medical campuses on the BA Expressway, we've built more healthcare square footage in the Tulsa metro than any other local contractor. Our team knows the inspectors, the subcontractors, and the clinical requirements that make healthcare construction different."
       stats={[

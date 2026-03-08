@@ -13,7 +13,7 @@ export default function DesignBuildPage() {
       label="Design-Build"
       title="Design-Build Delivery"
       description="One contract, one team, zero gaps. UDGOK integrates design and construction for faster delivery and better outcomes."
-      imageSrc="/images/upscale-building-modern.png"
+      imageSrc="/images/ai_commercial_retail_plaza.png"
       imageAlt="Design-build contractor Tulsa by UDGOK"
       intro="Traditional design-bid-build separates your architect and contractor — creating gaps, change orders, and delays. UDGOK's design-build model puts design and construction under one contract and one roof. You get a single point of accountability, real-time cost transparency, and a team that designs what it can actually build."
       stats={[

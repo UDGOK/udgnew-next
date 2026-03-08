@@ -13,7 +13,7 @@ export default function CommunityPage() {
       label="Community"
       title="In The Community"
       description="We don't just build in Oklahoma communities — we're part of them. Sponsorships, giving, and workforce investment that go beyond the jobsite."
-      imageSrc="/images/tulsa_oklahoma_skyline_centennial_park_daytime.jpg"
+      imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="UDGOK community involvement in Tulsa Oklahoma"
       intro="UDGOK was founded in Tulsa and has grown up alongside this community. The medical offices, dental clinics, and commercial centers we build serve our neighbors, employ local trades, and contribute to the economic vitality of every city where we work. We take that responsibility seriously — both on and off the jobsite."
       stats={[

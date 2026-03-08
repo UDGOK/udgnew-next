@@ -13,7 +13,7 @@ export default function TenantImprovementsPage() {
       label="Tenant Improvements"
       title="Tenant Improvements & Build-Outs"
       description="Fast, quality commercial build-outs for medical, dental, retail, and office spaces across Tulsa and Oklahoma."
-      imageSrc="/images/upscale-building-historical.png"
+      imageSrc="/images/ai_commercial_retail_plaza.png"
       imageAlt="Tenant improvements Tulsa by UDGOK"
       intro="Your lease clock is running the moment you sign. UDGOK specializes in fast-track tenant improvement construction — coordinating landlord work, city permits, and specialty trades to deliver your space on time and on budget. We've completed TI projects ranging from 1,000 SF retail suites to 20,000 SF medical campuses."
       stats={[

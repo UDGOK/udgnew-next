@@ -13,7 +13,7 @@ export default function OKCPage() {
       label="Service Area: Oklahoma City"
       title="Medical & Dental Construction in OKC"
       description="Bringing Tulsa's premier healthcare construction expertise to the Oklahoma City metro area."
-      imageSrc="/images/speedway-modern-convenience-store-exterior-daytime.jpg"
+      imageSrc="/images/ai_dallas_medical_hub.png"
       imageAlt="OKC medical construction by UDGOK"
       intro="For years, Oklahoma City providers have asked us to bring our specialized healthcare construction approach to the metro. We've established a dedicated OKC team to deliver the same precision, transparency, and speed that made us Tulsa's top choice for medical and dental builds."
       cta="Contact Our OKC Team →"

@@ -3,21 +3,53 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
 const serviceAreas = [
-  { href: "/dallas-medical-construction", label: "Dallas-Fort Worth (TX)" },
+  { href: "/dallas-medical-construction", label: "Dallas-Fort Worth" },
   { href: "/tulsa-medical-construction", label: "Tulsa Medical" },
   { href: "/tulsa-ok-design-build", label: "Tulsa" },
-  { href: "/broken-arrow-ok-design-build", label: "Broken Arrow" },
-  { href: "/bixby-ok-design-build", label: "Bixby" },
-  { href: "/jenks-ok-design-build", label: "Jenks" },
-  { href: "/owasso-ok-design-build", label: "Owasso" },
-  { href: "/sand-springs-ok-design-build", label: "Sand Springs" },
+  { href: "/oklahoma-city-medical-construction", label: "Oklahoma City" },
 ];
+
+// Content for the spatial blueprint menu
+const menuContent = {
+  services: {
+    title: "Capabilities",
+    items: [
+      { top: "Medical", sub: "Offices & Clinics", href: "/medical-office-design-build-tulsa", img: "/images/ai-medical-exterior.png" },
+      { top: "Dental", sub: "Practices & Suites", href: "/dental-office-construction-tulsa", img: "/images/ai-dental-interior.png" },
+      { top: "Surgical", sub: "Oral & Maxillofacial", href: "/oral-surgeon-office-construction-tulsa", img: "/images/ai-surgery-suite.png" },
+      { top: "Specialty", sub: "Medical Gas Systems", href: "/medical-gas-installation", img: "/images/modern-medical-office-building-exterior-sunny-day.jpg" },
+      { top: "Commercial", sub: "Retail & Build-Outs", href: "/tenant-improvements", img: "/images/ai-construction-mep.png" },
+    ]
+  },
+  company: {
+    title: "The Firm",
+    items: [
+      { top: "Firm", sub: "Our Story & Vision", href: "/about", img: "/images/ai_commercial_retail_plaza.png" },
+      { top: "Safety", sub: "Protocols & Standards", href: "/safety-program", img: "/images/ai_commercial_retail_plaza.png" },
+      { top: "Network", sub: "Partners & Affiliates", href: "/partners", img: "/images/IMG_7623.jpeg" },
+      { top: "Trade", sub: "Subcontractor Portal", href: "/subcontractors", img: "/images/medical-office-design-build.png" },
+    ]
+  },
+  resources: {
+    title: "Intelligence",
+    items: [
+      { top: "Insights", sub: "Knowledge Center", href: "/resources", img: "/images/IMG_7609.jpeg" },
+      { top: "Tools", sub: "Calculators", href: "/tools", img: "/images/tools-hero.png" },
+      { top: "Future", sub: "AI & Robotics", href: "/ai-robotics", img: "/images/ring-futuristic.png" },
+      { top: "Guides", sub: "For Developers", href: "/guide-developers", img: "/images/ai_tulsa_skyline_architecture.png" },
+    ]
+  }
+};
+
+type MenuKey = "services" | "company" | "resources" | null;
 
 export default function Navigation() {
   const pathname = usePathname();
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [activeMenu, setActiveMenu] = useState<MenuKey>(null);
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -30,22 +62,133 @@ export default function Navigation() {
   useEffect(() => {
     setMobileOpen(false);
     setActiveMenu(null);
+    setHoveredItem(null);
   }, [pathname]);
 
   const isActive = (href: string) => pathname === href;
 
+  // Render the fullscreen spatial blueprint overlay
+  const renderBlueprintMenu = () => {
+    if (!activeMenu) return null;
+    const data = menuContent[activeMenu];
+    const activeImage = hoveredItem !== null ? data.items[hoveredItem].img : data.items[0].img;
+
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20, transition: { duration: 0.2 } }}
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        style={{
+          position: "fixed",
+          top: "80px",
+          left: 0,
+          width: "100%",
+          height: "auto",
+          minHeight: "500px",
+          maxHeight: "85vh",
+          background: "#0B061B", // Solid dark ink
+          zIndex: 9999, // Ensure it sits above absolutely everything
+          display: "flex",
+          borderTop: "1px solid rgba(255,255,255,0.05)",
+          borderBottom: "1px solid rgba(255,255,255,0.05)",
+          overflow: "hidden",
+          boxShadow: "0 30px 60px rgba(0,0,0,0.7)"
+        }}
+        onMouseLeave={() => setActiveMenu(null)}
+      >
+        <button 
+          onClick={() => setActiveMenu(null)}
+          title="Close Menu"
+          style={{ position: "absolute", top: "1.5rem", right: "2rem", zIndex: 100, border: "none", background: "rgba(255,255,255,0.05)", color: "#fff", padding: "0.6rem 1.2rem", borderRadius: "100px", fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", cursor: "pointer", transition: "all 0.2s" }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#FF4800"; }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)"; }}
+        >
+          ✕ Close
+        </button>
+        {/* Left Side: Giant Typography Links */}
+        <div style={{ flex: 1, padding: "4rem 8rem", display: "flex", flexDirection: "column", justifyContent: "center", zIndex: 10 }}>
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }} 
+            animate={{ opacity: 1, x: 0 }} 
+            transition={{ delay: 0.1 }}
+            style={{ fontSize: "0.85rem", fontWeight: 800, letterSpacing: "0.3em", textTransform: "uppercase", color: "#FF4800", marginBottom: "3rem" }}
+          >
+            {data.title}
+          </motion.div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            {data.items.map((item, idx) => (
+              <Link 
+                key={idx} 
+                href={item.href}
+                onMouseEnter={() => setHoveredItem(idx)}
+                style={{ textDecoration: "none", display: "block" }}
+              >
+                <div style={{ display: "flex", alignItems: "baseline", gap: "1.5rem", opacity: hoveredItem === null || hoveredItem === idx ? 1 : 0.3, transition: "opacity 0.3s ease", transform: hoveredItem === idx ? "translateX(20px)" : "translateX(0)", transitionProperty: "opacity, transform" }}>
+                  <span style={{ fontSize: "clamp(3rem, 5vw, 6rem)", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.04em", color: "#fff", lineHeight: 0.9, transition: "color 0.3s ease" }}>
+                    {item.top} {hoveredItem === idx && <span style={{ color: "#FF4800", fontSize: "0.6em", verticalAlign: "middle" }}>→</span>}
+                  </span>
+                  <span style={{ fontSize: "1rem", fontWeight: 500, letterSpacing: "0.05em", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
+                    {item.sub}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Service Areas Mini Links at bottom if in services */}
+          {activeMenu === "services" && (
+            <motion.div 
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+              style={{ marginTop: "auto", paddingTop: "4rem", display: "flex", gap: "2rem", flexWrap: "wrap" }}
+            >
+              {serviceAreas.map(a => (
+                <Link key={a.href} href={a.href} style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#FF4800")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
+                  {a.label}
+                </Link>
+              ))}
+            </motion.div>
+          )}
+        </div>
+
+        {/* Right Side: Spatial Image/Blueprint Reveal */}
+        <div style={{ flex: 1, position: "relative", overflow: "hidden", borderLeft: "1px solid rgba(255,255,255,0.05)" }}>
+           {/* Blueprint grid background */}
+           <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "40px 40px", zIndex: 0 }} />
+           
+           <AnimatePresence mode="popLayout">
+             <motion.div
+               key={activeImage}
+               initial={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+               exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)", transition: { duration: 0.2 } }}
+               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+               style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "4rem" }}
+             >
+               <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: "24px", overflow: "hidden", boxShadow: "0 30px 60px rgba(0,0,0,0.5)" }}>
+                 <Image src={activeImage} alt="Project Preview" fill style={{ objectFit: "cover" }} />
+                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(11,6,27,0.8) 0%, transparent 50%)" }} />
+                 {/* Wireframe overlay effect for that blueprint feel */}
+                 <div style={{ position: "absolute", inset: 0, border: "2px solid rgba(255,72,0,0.3)", borderRadius: "24px", mixBlendMode: "overlay" }} />
+               </div>
+             </motion.div>
+           </AnimatePresence>
+        </div>
+      </motion.div>
+    );
+  };
+
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full z-[1000] transition-all duration-300"
+        className="fixed top-0 left-0 w-full transition-all duration-300"
         style={{
-          background: "rgba(20, 20, 25, 0.98)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          borderBottom: scrolled
-            ? "1px solid rgba(255,255,255,0.12)"
-            : "1px solid rgba(255,255,255,0.08)",
-          boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.4)" : "0 2px 20px rgba(0,0,0,0.3)",
+          zIndex: 10000,
+          background: activeMenu ? "#0B061B" : (scrolled ? "rgba(11, 6, 27, 0.98)" : "rgba(255, 72, 0, 0.8)"),
+          backdropFilter: activeMenu ? "none" : "blur(16px)",
+          WebkitBackdropFilter: activeMenu ? "none" : "blur(16px)",
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(255,255,255,0)",
           height: "80px",
         }}
         onMouseLeave={() => setActiveMenu(null)}
@@ -55,7 +198,7 @@ export default function Navigation() {
           className="flex justify-between items-center px-8"
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center z-[1002] logo-glow">
+          <Link href="/" className="flex items-center z-[1002] logo-glow" onClick={() => setActiveMenu(null)}>
             <Image
               src="/images/logo-transparent.png"
               alt="UDGOK - Upscale Development Group"
@@ -76,45 +219,33 @@ export default function Navigation() {
               className={`nav-link-btn ${activeMenu === "services" ? "text-orange" : ""}`}
               onMouseEnter={() => setActiveMenu("services")}
               style={{
-                display: "flex", alignItems: "center", height: "100%",
-                padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500,
-                letterSpacing: "0.05em", textTransform: "uppercase",
-                color: activeMenu === "services" ? "#FF4800" : "rgba(255,255,255,0.85)",
-                textDecoration: "none", background: "none", border: "none",
-                cursor: "pointer", transition: "color 0.2s ease",
+                display: "flex", alignItems: "center", height: "100%", padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase",
+                color: activeMenu === "services" ? "#FF4800" : "rgba(255,255,255,0.85)", textDecoration: "none", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s ease",
               }}
             >
-              Services <ChevronDown />
+              Services
             </button>
 
             <button
               className="nav-link-btn"
               onMouseEnter={() => setActiveMenu("company")}
               style={{
-                display: "flex", alignItems: "center", height: "100%",
-                padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500,
-                letterSpacing: "0.05em", textTransform: "uppercase",
-                color: activeMenu === "company" ? "#FF4800" : "rgba(255,255,255,0.85)",
-                textDecoration: "none", background: "none", border: "none",
-                cursor: "pointer", transition: "color 0.2s ease",
+                display: "flex", alignItems: "center", height: "100%", padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase",
+                color: activeMenu === "company" ? "#FF4800" : "rgba(255,255,255,0.85)", textDecoration: "none", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s ease",
               }}
             >
-              Company <ChevronDown />
+              Company
             </button>
 
             <button
               className="nav-link-btn"
               onMouseEnter={() => setActiveMenu("resources")}
               style={{
-                display: "flex", alignItems: "center", height: "100%",
-                padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500,
-                letterSpacing: "0.05em", textTransform: "uppercase",
-                color: activeMenu === "resources" ? "#FF4800" : "rgba(255,255,255,0.85)",
-                textDecoration: "none", background: "none", border: "none",
-                cursor: "pointer", transition: "color 0.2s ease",
+                display: "flex", alignItems: "center", height: "100%", padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase",
+                color: activeMenu === "resources" ? "#FF4800" : "rgba(255,255,255,0.85)", textDecoration: "none", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s ease",
               }}
             >
-              Resources <ChevronDown />
+              Resources
             </button>
 
             <NavLink href="/contact" active={isActive("/contact")}>
@@ -134,191 +265,61 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Services Dropdown */}
-        <MegaMenu active={activeMenu === "services"}>
-          <div className="mega-sidebar">
-            <div className="mega-title">Core Service</div>
-            <Link href="/design-build" className="mega-link">Design-Build</Link>
-            <p style={{ fontSize: "0.9rem", color: "#666", lineHeight: 1.5 }}>
-              Our integrated approach streamlines project delivery from concept to completion.
-            </p>
-          </div>
-          <div className="mega-grid">
-            <MenuColumn title="Healthcare">
-              <MenuItem href="/medical-office-design-build-tulsa">Medical Office</MenuItem>
-              <MenuItem href="/dental-office-construction-tulsa">Dental Office</MenuItem>
-              <MenuItem href="/oral-surgeon-office-construction-tulsa">Oral Surgery</MenuItem>
-              <MenuItem href="/eye-clinic-construction-tulsa">Eye Clinics</MenuItem>
-              <MenuItem href="/medical-gas-installation">Medical Gas Systems</MenuItem>
-            </MenuColumn>
-            <MenuColumn title="Commercial">
-              <MenuItem href="/tenant-improvements">Tenant Improvements</MenuItem>
-              <MenuItem href="/convenience-store-construction-tulsa">Convenience Stores</MenuItem>
-              <MenuItem href="/shopping-center-construction-tulsa">Shopping Centers</MenuItem>
-              <MenuItem href="/preconstruction">Preconstruction</MenuItem>
-              <MenuItem href="/virtual-design-construction">Virtual Design (VDC)</MenuItem>
-            </MenuColumn>
-            <MenuColumn title="Service Areas">
-              {serviceAreas.map((a) => (
-                <MenuItem key={a.href} href={a.href}>{a.label}</MenuItem>
-              ))}
-            </MenuColumn>
-          </div>
-        </MegaMenu>
-
-        {/* Company Dropdown */}
-        <MegaMenu active={activeMenu === "company"}>
-          <div className="mega-sidebar">
-            <div className="mega-title">About UDGOK</div>
-            <Link href="/about" className="mega-link">Our Story</Link>
-            <Link href="/safety-program" className="menu-item" style={{ display: "block" }}>Safety Program</Link>
-          </div>
-          <div className="mega-grid">
-            <MenuColumn title="Connect">
-              <MenuItem href="/partners">Partners &amp; Affiliations</MenuItem>
-              <MenuItem href="/community">In The Community</MenuItem>
-              <MenuItem href="/subcontractors">Subcontractor Portal</MenuItem>
-            </MenuColumn>
-            <MenuColumn title="Knowledge">
-              <MenuItem href="/resources">Knowledge Center</MenuItem>
-              <MenuItem href="/tools">Calculators &amp; Tools</MenuItem>
-              <MenuItem href="/guide-developers">Developer&apos;s Guide</MenuItem>
-              <MenuItem href="/guide-commercial-brokers">Broker&apos;s Guide</MenuItem>
-            </MenuColumn>
-          </div>
-        </MegaMenu>
-
-        {/* Resources Dropdown */}
-        <MegaMenu active={activeMenu === "resources"}>
-          <div className="mega-sidebar">
-            <div className="mega-title">Innovation</div>
-            <Link href="/ai-robotics" className="mega-link">AI &amp; Robotics</Link>
-            <p style={{ fontSize: "0.9rem", color: "#666", lineHeight: 1.5 }}>
-              Discover how we&apos;re leveraging cutting-edge technology to revolutionize construction.
-            </p>
-          </div>
-          <div className="mega-grid">
-            <MenuColumn title="Resources">
-              <MenuItem href="/resources">Knowledge Center</MenuItem>
-              <MenuItem href="/tools">Calculators &amp; Tools</MenuItem>
-              <MenuItem href="/guide-developers">Developer&apos;s Guide</MenuItem>
-              <MenuItem href="/guide-commercial-brokers">Broker&apos;s Guide</MenuItem>
-              <MenuItem href="/market-intelligence">Market Intelligence</MenuItem>
-            </MenuColumn>
-          </div>
-        </MegaMenu>
+        {/* Inject Spatial Menu inside header so onMouseLeave covers it */}
+        <AnimatePresence>
+          {renderBlueprintMenu()}
+        </AnimatePresence>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (Kept classic sliding overlay for usability) */}
       <div
         className="fixed z-[999] overflow-y-auto"
         style={{
-          top: "80px", left: 0, width: "100%",
-          height: "calc(100vh - 80px)",
-          background: "#0B061B",
-          transform: mobileOpen ? "translateX(0)" : "translateX(100%)",
-          transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-          padding: "2rem",
+          top: "80px", left: 0, width: "100%", height: "calc(100vh - 80px)", background: "#0B061B",
+          transform: mobileOpen ? "translateX(0)" : "translateX(100%)", transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)", padding: "2rem",
         }}
       >
-        <Link href="/" className="mobile-nav-link">Home</Link>
-        <Link href="/projects" className="mobile-nav-link">Work</Link>
-
-        <MobileGroup title="Healthcare">
-          <MobileSubLink href="/medical-office-design-build-tulsa">Medical Office</MobileSubLink>
-          <MobileSubLink href="/dental-office-construction-tulsa">Dental Office</MobileSubLink>
-          <MobileSubLink href="/oral-surgeon-office-construction-tulsa">Oral Surgery</MobileSubLink>
-          <MobileSubLink href="/eye-clinic-construction-tulsa">Eye Clinics</MobileSubLink>
-          <MobileSubLink href="/medical-gas-installation">Medical Gas Systems</MobileSubLink>
-        </MobileGroup>
-
-        <MobileGroup title="Commercial">
-          <MobileSubLink href="/design-build">Design-Build</MobileSubLink>
-          <MobileSubLink href="/tenant-improvements">Tenant Improvements</MobileSubLink>
-          <MobileSubLink href="/convenience-store-construction-tulsa">Convenience Stores</MobileSubLink>
-          <MobileSubLink href="/shopping-center-construction-tulsa">Shopping Centers</MobileSubLink>
-          <MobileSubLink href="/preconstruction">Preconstruction</MobileSubLink>
-        </MobileGroup>
+        <Link href="/" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Home</Link>
+        <Link href="/projects" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Work</Link>
+        
+        {Object.entries(menuContent).map(([key, data]) => (
+          <MobileGroup key={key} title={data.title}>
+            {data.items.map((item, idx) => (
+              <MobileSubLink key={idx} href={item.href} onClick={() => setMobileOpen(false)}>
+                {item.top} <span style={{ opacity: 0.5, fontSize: "0.85em", fontWeight: 400 }}>{item.sub}</span>
+              </MobileSubLink>
+            ))}
+          </MobileGroup>
+        ))}
 
         <MobileGroup title="Service Areas">
           {serviceAreas.map((a) => (
-            <MobileSubLink key={a.href} href={a.href}>{a.label}</MobileSubLink>
+            <MobileSubLink key={a.href} href={a.href} onClick={() => setMobileOpen(false)}>
+              {a.label}
+            </MobileSubLink>
           ))}
         </MobileGroup>
 
-        <MobileGroup title="Company">
-          <MobileSubLink href="/about">About Us</MobileSubLink>
-          <MobileSubLink href="/safety-program">Safety Program</MobileSubLink>
-          <MobileSubLink href="/partners">Partners</MobileSubLink>
-          <MobileSubLink href="/community">Community</MobileSubLink>
-          <MobileSubLink href="/subcontractors">Subcontractor Portal</MobileSubLink>
-        </MobileGroup>
-
-        <MobileGroup title="Resources">
-          <MobileSubLink href="/resources">Knowledge Center</MobileSubLink>
-          <MobileSubLink href="/tools">Calculators &amp; Tools</MobileSubLink>
-          <MobileSubLink href="/guide-developers">Developer&apos;s Guide</MobileSubLink>
-          <MobileSubLink href="/ai-robotics">AI &amp; Robotics</MobileSubLink>
-        </MobileGroup>
-
-        <Link href="/contact" className="mobile-nav-link">Contact</Link>
+        <Link href="/contact" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Contact</Link>
       </div>
 
       <style jsx>{`
-        .mega-sidebar {
-          border-right: 2px solid rgba(0,0,0,0.1);
-          padding-right: 2.5rem;
-        }
-        .mega-title {
-          font-size: 0.85rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          color: #FF4800;
-          margin-bottom: 1.5rem;
-          letter-spacing: 0.15em;
-        }
-        .mega-link {
-          display: block;
-          font-size: 1.4rem;
-          font-weight: 700;
-          color: #0B061B;
-          text-decoration: none;
-          margin-bottom: 1.25rem;
-          transition: color 0.2s, transform 0.2s;
-          line-height: 1.3;
-        }
-        .mega-link:hover { color: #FF4800; transform: translateX(4px); }
-        .mega-grid {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(200px, 1fr));
-          gap: 2.5rem 3rem;
-        }
         .mobile-nav-link {
-          display: block;
-          font-size: 1.5rem;
-          font-weight: 700;
-          color: #fff;
-          text-decoration: none;
-          padding: 1rem 0;
-          border-bottom: 1px solid rgba(255,255,255,0.1);
+          display: block; font-size: 2rem; font-weight: 800; color: #fff; text-decoration: none; padding: 1rem 0;
+          border-bottom: 1px solid rgba(255,255,255,0.1); text-transform: uppercase; letter-spacing: -0.02em;
         }
       `}</style>
     </>
   );
 }
 
-function NavLink({
-  href, active, children,
-}: { href: string; active: boolean; children: React.ReactNode }) {
+function NavLink({ href, active, children }: { href: string; active: boolean; children: React.ReactNode }) {
   return (
     <Link
       href={href}
       style={{
-        display: "flex", alignItems: "center", height: "100%",
-        padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500,
-        letterSpacing: "0.05em", textTransform: "uppercase",
-        color: active ? "#FF4800" : "rgba(255,255,255,0.85)",
-        textDecoration: "none", transition: "color 0.2s ease",
+        display: "flex", alignItems: "center", height: "100%", padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase",
+        color: active ? "#FF4800" : "rgba(255,255,255,0.85)", textDecoration: "none", transition: "color 0.2s ease",
       }}
       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#FF4800"; }}
       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = active ? "#FF4800" : "rgba(255,255,255,0.85)"; }}
@@ -328,104 +329,25 @@ function NavLink({
   );
 }
 
-function MegaMenu({ active, children }: { active: boolean; children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        position: "absolute", top: "80px", left: 0, width: "100%",
-        background: "#ffffff",
-        borderBottom: "1px solid rgba(0,0,0,0.08)",
-        padding: "3rem 0",
-        opacity: active ? 1 : 0,
-        visibility: active ? "visible" : "hidden",
-        transform: active ? "translateY(0)" : "translateY(-10px)",
-        transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-        boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-        zIndex: 999,
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1400px", margin: "0 auto",
-          display: "grid", gridTemplateColumns: "280px 1fr",
-          gap: "4rem", padding: "0 3rem",
-        }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function MenuColumn({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div style={{ minWidth: "220px" }}>
-      <h4 style={{
-        fontSize: "0.85rem", fontWeight: 800, textTransform: "uppercase",
-        color: "#0B061B", marginBottom: "1.5rem", letterSpacing: "0.12em",
-        paddingBottom: "0.75rem", borderBottom: "2px solid #FF4800",
-      }}>
-        {title}
-      </h4>
-      {children}
-    </div>
-  );
-}
-
-function MenuItem({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      style={{
-        display: "block", textDecoration: "none", marginBottom: "0.75rem",
-        color: "#0B061B", fontSize: "1.05rem", fontWeight: 600,
-        padding: "0.5rem 0.75rem", borderRadius: "6px",
-        transition: "all 0.2s ease",
-      }}
-      onMouseEnter={(e) => {
-        const el = e.currentTarget as HTMLElement;
-        el.style.color = "#FF4800";
-        el.style.background = "rgba(255,72,0,0.06)";
-        el.style.transform = "translateX(4px)";
-      }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget as HTMLElement;
-        el.style.color = "#0B061B";
-        el.style.background = "transparent";
-        el.style.transform = "translateX(0)";
-      }}
-    >
-      {children}
-    </Link>
-  );
-}
-
 function MobileGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "1rem 0" }}>
-      <span style={{ display: "block", color: "#FF4800", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.5rem" }}>
+    <div style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "1.5rem 0" }}>
+      <span style={{ display: "block", color: "#FF4800", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>
         {title}
       </span>
-      <div style={{ paddingLeft: "1rem" }}>{children}</div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>{children}</div>
     </div>
   );
 }
 
-function MobileSubLink({ href, children }: { href: string; children: React.ReactNode }) {
+function MobileSubLink({ href, onClick, children }: { href: string; onClick?: () => void; children: React.ReactNode }) {
   return (
     <Link
       href={href}
-      style={{ display: "block", padding: "0.5rem 0", color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: "1rem" }}
+      onClick={onClick}
+      style={{ display: "block", color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: "1.25rem", fontWeight: 600, letterSpacing: "-0.01em" }}
     >
       {children}
     </Link>
-  );
-}
-
-function ChevronDown() {
-  return (
-    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ marginLeft: "0.4rem", marginTop: "1px" }}>
-      <path d="M1 3L5 7L9 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
   );
 }

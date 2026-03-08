@@ -1,16 +1,16 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import MarqueeBanner from "@/components/MarqueeBanner";
-import PageHero from "@/components/PageHero";
 import AnimateIn from "@/components/AnimateIn";
 import CountUp from "@/components/CountUp";
 
 const stats = [
   { number: "10+", label: "Years in Business", orange: false },
   { number: "150+", label: "Projects Completed", orange: true },
-  { number: "50+", label: "Healthcare Clients", orange: false },
+  { number: "3M+", label: "Sq Ft Developed", orange: false },
   { number: "98%", label: "Client Satisfaction", orange: true },
 ];
 
@@ -27,155 +27,165 @@ const timeline = [
   { year: "2019", title: "Dental Division Launch", desc: "Launched dedicated dental construction division after completing 20+ dental offices." },
   { year: "2021", title: "VDC Integration", desc: "Integrated Virtual Design and Construction (BIM/Revit) across all projects." },
   { year: "2023", title: "Texas Expansion", desc: "Licensed in Texas, opening Dallas-Fort Worth as a new service territory." },
-  { year: "2025", title: "AI-Powered Operations", desc: "Deployed AI scheduling, cost modeling, and design optimization for all project types." },
+  { year: "2026", title: "AI-Powered Operations", desc: "Deployed AI scheduling, cost modeling, and design optimization for all project types." },
 ];
 
 export default function AboutUI() {
+  const containerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
+  const yParallax = useTransform(scrollYProgress, [0, 1], [0, 200]);
+
   return (
-    <>
-      <PageHero
-        label="About UDGOK"
-        title="Built on Trust. Delivered with Precision."
-        description="Upscale Development Group is Tulsa's leading design-build firm for medical, dental, and commercial construction — combining AI-powered technology with hands-on expertise."
-        imageSrc="/images/upscale-building-modern.png"
-        imageAlt="UDGOK modern medical building"
-      />
+    <main className="bg-[#0B061B] min-h-screen text-white overflow-hidden">
+      
+      {/* Standard Parallax Hero */}
+      <section ref={containerRef} className="relative h-[85vh] w-full flex flex-col justify-end pb-32 border-b border-white/10">
+        <motion.div 
+          className="absolute inset-0 z-0 origin-top"
+          style={{ y: yParallax }}
+        >
+          <Image 
+            src="/images/ai-about-narrative.png" 
+            alt="Massive construction scale" 
+            fill 
+            className="object-cover scale-105"
+            priority
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B061B] via-[#0B061B]/60 to-[#0B061B]/30 z-0" />
+        
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-12">
+          <AnimateIn>
+            <h1 className="text-[clamp(3rem,6vw,6rem)] font-black tracking-tighter leading-[0.85] uppercase mb-8 drop-shadow-2xl max-w-4xl">
+              A Different Kind of <br/><span className="text-transparent bg-clip-text bg-gradient-to-b from-[#FF4800] to-orange-400">Construction Company</span>
+            </h1>
+            <p className="text-xl md:text-2xl font-medium max-w-3xl leading-relaxed text-white/80 border-l-2 border-[#FF4800] pl-6">
+              We started UDGOK because we saw a gap in the market. Healthcare providers needed a construction partner who truly understood their world. We engineer highly technical medical environments with zero compromise.
+            </p>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* Values Grid - Dark Glassmorphism */}
+      <section className="relative z-20 py-32 px-6 md:px-12 bg-[#0B061B] border-t border-white/10">
+        <div className="max-w-7xl mx-auto">
+          <AnimateIn>
+            <div className="flex items-center gap-4 mb-16">
+              <span className="w-12 h-px bg-[#FF4800]" />
+              <h3 className="text-sm font-bold tracking-[0.2em] uppercase text-[#FF4800]">Core Values</h3>
+            </div>
+          </AnimateIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+            {values.map((v, i) => (
+              <AnimateIn key={v.num} delay={i * 0.1}>
+                <div className="bg-[#0B061B] p-12 md:p-16 h-full flex flex-col items-start group hover:bg-white/5 transition-colors">
+                  <span className="text-[#FF4800] text-sm font-bold tracking-[0.2em] mb-6">{v.num}</span>
+                  <h4 className="text-3xl font-black uppercase tracking-tight mb-4 group-hover:translate-x-2 transition-transform">{v.title}</h4>
+                  <p className="text-white/60 text-lg leading-relaxed">{v.desc}</p>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Stats */}
+      <section className="bg-[#FF4800] text-white">
+        <div className="grid grid-cols-2 lg:grid-cols-4">
+          {stats.map((s, i) => (
+            <AnimateIn key={i} delay={i * 0.1}>
+              <div className={`p-16 text-center border-b lg:border-b-0 border-white/20 ${i % 2 === 0 ? 'border-r' : 'lg:border-r border-white/20'}`}>
+                <div className="text-[clamp(3.5rem,6vw,5rem)] font-black tracking-tighter mb-2 leading-none drop-shadow-md">
+                  <CountUp value={s.number} />
+                </div>
+                <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-80">{s.label}</div>
+              </div>
+            </AnimateIn>
+          ))}
+        </div>
+      </section>
 
       <MarqueeBanner />
 
-      {/* About Intro */}
-      <section style={{ display: "grid", gridTemplateColumns: "6fr 6fr", borderBottom: "4px solid #0B061B" }}>
-        <AnimateIn direction="right">
-          <div style={{ padding: "6rem 4rem", borderRight: "4px solid #0B061B", height: "100%" }}>
-            <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 800, marginBottom: "3rem", lineHeight: 0.9 }}>
-              A Different Kind of Construction Company
-            </h2>
-            <p style={{ fontSize: "1.125rem", lineHeight: 1.7, color: "#666", marginBottom: "1.5rem" }}>
-              We started UDGOK because we saw a gap in the market: healthcare providers needed a construction partner who truly understood their world — the compliance requirements, the operational sensitivities, the life-or-death importance of getting it right.
-            </p>
-            <p style={{ fontSize: "1.125rem", lineHeight: 1.7, color: "#666", marginBottom: "1.5rem" }}>
-              Today we&apos;re Tulsa&apos;s most-trusted design-build contractor for medical and dental practices, with over 150 completed projects and a client retention rate that speaks for itself.
-            </p>
-            <p style={{ fontSize: "1.125rem", lineHeight: 1.7, color: "#666" }}>
-              Every project, regardless of size, gets the same commitment: transparent pricing, precise execution, and a finished product that makes your practice proud.
-            </p>
-          </div>
-        </AnimateIn>
-
-        {/* Values */}
-        <AnimateIn direction="left" delay={0.1}>
-          <div style={{ padding: "6rem 4rem", background: "#0B061B", color: "#fff", height: "100%" }}>
-            <h3 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "3rem", lineHeight: 1 }}>
-              Core Values
-            </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-              {values.map((v, i) => (
-                <AnimateIn key={v.num} delay={i * 0.08}>
-                  <div style={{ paddingBottom: "1.5rem", borderBottom: "1px solid rgba(255,255,255,0.12)" }}>
-                    <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", color: "#FF4800", marginBottom: "0.5rem" }}>{v.num}</div>
-                    <div style={{ fontSize: "1.125rem", fontWeight: 700, textTransform: "uppercase", marginBottom: "0.5rem" }}>{v.title}</div>
-                    <div style={{ fontSize: "0.875rem", lineHeight: 1.6, color: "rgba(255,255,255,0.6)" }}>{v.desc}</div>
-                  </div>
-                </AnimateIn>
-              ))}
-            </div>
-          </div>
-        </AnimateIn>
-      </section>
-
-      {/* Stats */}
-      <section style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", borderBottom: "4px solid #0B061B" }}>
-        {stats.map((s, i) => (
-          <AnimateIn key={i} delay={i * 0.1}>
-            <div style={{ padding: "4rem 2rem", borderRight: i < 3 ? "4px solid #0B061B" : "none", textAlign: "center" }}>
-              <div style={{ fontSize: "clamp(3rem,8vw,5rem)", fontWeight: 900, letterSpacing: "-0.05em", color: s.orange ? "#FF4800" : "#0B061B", marginBottom: "1rem" }}>
-                <CountUp value={s.number} />
-              </div>
-              <div style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "#666" }}>{s.label}</div>
+      {/* Timeline Section */}
+      <section className="py-32 px-6 md:px-12 bg-[#0B061B]">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_2fr] gap-20">
+          <AnimateIn direction="right">
+            <div className="sticky top-40">
+              <h2 className="text-[clamp(3rem,5vw,5rem)] font-black uppercase tracking-tighter leading-[0.9] mb-6">Our <br/><span className="text-[#FF4800]">Timeline</span></h2>
+              <p className="text-white/60 text-lg leading-relaxed">
+                From a small Tulsa startup to the leading specialized healthcare construction firm. A decade of growth built entirely on clinical precision and client trust.
+              </p>
             </div>
           </AnimateIn>
-        ))}
-      </section>
 
-      {/* Timeline */}
-      <section style={{ display: "grid", gridTemplateColumns: "4fr 8fr", borderBottom: "4px solid #0B061B" }}>
-        <AnimateIn direction="right">
-          <div style={{ padding: "4rem", borderRight: "4px solid #0B061B", background: "#0B061B", color: "#fff", height: "100%" }}>
-            <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 900, lineHeight: 0.9, marginBottom: "2rem" }}>Our Journey</h2>
-            <p style={{ fontSize: "1rem", lineHeight: 1.6, color: "rgba(255,255,255,0.6)" }}>
-              From a small Tulsa startup to Oklahoma&apos;s leading healthcare construction firm — a decade of growth through client trust.
-            </p>
-          </div>
-        </AnimateIn>
-        <div>
-          {timeline.map((item, i) => (
-            <AnimateIn key={i} delay={i * 0.07} direction="left">
-              <div style={{ display: "grid", gridTemplateColumns: "2fr 10fr", borderBottom: i < timeline.length - 1 ? "4px solid #0B061B" : "none" }}>
-                <div style={{ padding: "2rem", borderRight: "4px solid #0B061B", fontSize: "1.5rem", fontWeight: 700, color: "#FF4800", display: "flex", alignItems: "center" }}>{item.year}</div>
-                <div style={{ padding: "2rem" }}>
-                  <h3 style={{ fontSize: "1.125rem", fontWeight: 800, marginBottom: "0.5rem" }}>{item.title}</h3>
-                  <p style={{ fontSize: "0.875rem", lineHeight: 1.6, color: "#666", margin: 0 }}>{item.desc}</p>
+          <div className="relative border-l border-white/10 pl-10 md:pl-16">
+            {timeline.map((item, i) => (
+              <AnimateIn key={i} delay={i * 0.1} direction="left">
+                <div className="mb-20 relative group">
+                  <div className="absolute -left-[45px] md:-left-[69px] top-2 w-4 h-4 rounded-full border-2 border-[#0B061B] bg-white group-hover:bg-[#FF4800] group-hover:scale-150 transition-all duration-300" />
+                  <span className="text-[#FF4800] text-2xl font-black tracking-tighter block mb-2">{item.year}</span>
+                  <h3 className="text-2xl font-bold uppercase tracking-tight mb-4">{item.title}</h3>
+                  <p className="text-white/60 text-lg leading-relaxed max-w-2xl">{item.desc}</p>
                 </div>
-              </div>
-            </AnimateIn>
-          ))}
+              </AnimateIn>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section style={{ borderBottom: "4px solid #0B061B" }}>
-        <AnimateIn>
-          <div style={{ borderBottom: "4px solid #0B061B", padding: "3rem 2rem" }}>
-            <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 800, letterSpacing: "-0.03em" }}>Leadership Team</h2>
-          </div>
-        </AnimateIn>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
-          {[
-            { name: "David Young", role: "Founder & CEO", img: "/images/edyoung-1.jpg" },
-            { name: "Operations Team", role: "Project Management", img: "/images/IMG_7602.jpeg" },
-            { name: "Field Crew", role: "Construction Specialists", img: "/images/IMG_7607.jpeg" },
-          ].map((m, i) => (
-            <AnimateIn key={i} delay={i * 0.1}>
-              <motion.div
-                whileHover={{ y: -3 }}
-                transition={{ duration: 0.25 }}
-                style={{ borderRight: i < 2 ? "4px solid #0B061B" : "none", overflow: "hidden", height: "100%" }}
-              >
-                <div style={{ position: "relative", height: "350px", overflow: "hidden" }}>
-                  <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.6 }} style={{ position: "absolute", inset: 0 }}>
-                    <Image src={m.img} alt={m.name} fill style={{ objectFit: "cover", filter: "grayscale(80%) contrast(1.1)", transition: "filter 0.4s" }} />
-                  </motion.div>
-                </div>
-                <div style={{ padding: "1.5rem 2rem", borderTop: "4px solid #0B061B" }}>
-                  <div style={{ fontSize: "1.125rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em", marginBottom: "0.5rem" }}>{m.name}</div>
-                  <div style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#FF4800" }}>{m.role}</div>
-                </div>
-              </motion.div>
-            </AnimateIn>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section style={{ display: "grid", gridTemplateColumns: "8fr 4fr", borderBottom: "4px solid #0B061B" }}>
-        <AnimateIn direction="right">
-          <div style={{ padding: "6rem 4rem", borderRight: "4px solid #0B061B" }}>
-            <h2 style={{ fontSize: "clamp(2.5rem,5vw,4rem)", fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 0.9, marginBottom: "2rem", textTransform: "uppercase" }}>
-              Let&apos;s Build Something <span style={{ color: "#FF4800" }}>Extraordinary</span>
+      {/* Team/Leadership Grid */}
+      <section className="py-32 px-6 md:px-12 bg-[#05020B] border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <AnimateIn>
+            <h2 className="text-[clamp(3.5rem,6vw,6rem)] font-black uppercase tracking-tighter leading-[0.9] mb-16 text-center">
+              The <span className="text-[#FF4800]">Leadership</span>
             </h2>
-            <p style={{ fontSize: "1.125rem", lineHeight: 1.6, color: "#666", maxWidth: "80%" }}>
-              Whether you&apos;re opening your first practice or expanding an established one, UDGOK brings the expertise and integrity your project deserves.
-            </p>
+          </AnimateIn>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { name: "David Young", role: "Founder & CEO", img: "/images/edyoung-1.jpg" },
+              { name: "Operations Team", role: "Project Management", img: "/images/IMG_7602.jpeg" },
+              { name: "Field Crew", role: "Construction Specialists", img: "/images/IMG_7607.jpeg" },
+            ].map((m, i) => (
+              <AnimateIn key={i} delay={i * 0.1}>
+                <div className="group relative overflow-hidden rounded-2xl bg-white/5 aspect-[3/4]">
+                  <Image 
+                    src={m.img} 
+                    alt={m.name} 
+                    fill 
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B061B] via-transparent to-transparent opacity-80" />
+                  <div className="absolute bottom-0 left-0 p-8 w-full">
+                    <div className="text-[#FF4800] text-xs font-bold tracking-[0.2em] uppercase mb-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">{m.role}</div>
+                    <div className="text-2xl font-black uppercase tracking-tight transform group-hover:-translate-y-2 transition-transform duration-300">{m.name}</div>
+                  </div>
+                </div>
+              </AnimateIn>
+            ))}
           </div>
-        </AnimateIn>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "4rem" }}>
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-            <Link href="/contact" style={{ display: "block", padding: "1.5rem 3rem", background: "#FF4800", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", textAlign: "center" }}>
-              Start Your Project →
-            </Link>
-          </motion.div>
         </div>
       </section>
-    </>
+
+      {/* Contact CTA */}
+      <section className="bg-white text-[#0B061B] py-32 px-6 md:px-12 text-center">
+        <AnimateIn>
+          <h2 className="text-[clamp(3rem,6vw,6rem)] font-black uppercase tracking-tighter leading-[0.9] mb-8">
+            Ready to <span className="text-[#FF4800]">Build</span>?
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+            Whether you're opening your first practice or expanding an established one, UDGOK brings the expertise and integrity your project deserves.
+          </p>
+          <Link href="/contact" className="inline-flex items-center justify-center px-10 py-5 bg-[#0B061B] text-white font-bold text-sm tracking-[0.2em] uppercase hover:bg-[#FF4800] transition-colors rounded-full shadow-2xl hover:shadow-[#FF4800]/50">
+            Start Your Project
+          </Link>
+        </AnimateIn>
+      </section>
+
+    </main>
   );
 }

@@ -13,7 +13,7 @@ export default function BrokenArrowPage() {
       label="Broken Arrow"
       title="Construction in Broken Arrow, Oklahoma"
       description="Medical, dental, and commercial construction throughout Broken Arrow — from the Rose District to the BA Expressway corridor."
-      imageSrc="/images/tulsa_oklahoma_skyline_centennial_park_daytime.jpg"
+      imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="Construction contractor Broken Arrow Oklahoma by UDGOK"
       intro="Broken Arrow is one of Oklahoma's fastest-growing cities and one of UDGOK's most active construction markets. From dental suites along the BA Expressway to medical office buildings near St. Francis BA, we've built dozens of healthcare and commercial projects that serve Broken Arrow's growing population. Local knowledge, local subs, local results."
       stats={[

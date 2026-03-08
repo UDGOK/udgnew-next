@@ -13,7 +13,7 @@ export default function ShoppingCenterPage() {
       label="Retail Center Construction"
       title="Shopping Center Construction"
       description="Multi-tenant retail centers, strip plazas, and mixed-use developments built for long-term performance and tenant retention."
-      imageSrc="/images/upscale-building-modern.png"
+      imageSrc="/images/ai_commercial_retail_plaza.png"
       imageAlt="Shopping center construction Tulsa by UDGOK"
       intro="Shopping center development requires a builder who understands retail real estate — tenant mix planning, phased delivery for anchor openings, and shell buildings designed for maximum leasing flexibility. UDGOK delivers multi-tenant retail projects that attract quality tenants and generate strong returns for developers."
       stats={[

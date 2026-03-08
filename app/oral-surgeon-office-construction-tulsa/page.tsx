@@ -13,7 +13,7 @@ export default function OralSurgeonPage() {
       label="Oral Surgery Construction"
       title="Oral Surgery Center Construction"
       description="AAAHC-ready oral surgery suites with medical gas, surgical HVAC, and recovery room design."
-      imageSrc="/images/modern-dental-clinic-treatment-room-blue-design.jpg"
+      imageSrc="/images/ai-surgery-suite.png"
       imageAlt="Oral surgery center construction by UDGOK"
       intro="Oral surgery centers require the highest level of construction precision. From AAAHC accreditation requirements to surgical-grade HVAC and medical gas systems, UDGOK brings the expertise to deliver a facility that passes every inspection and serves your patients safely."
       stats={[

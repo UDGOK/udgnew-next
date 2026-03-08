@@ -13,7 +13,7 @@ export default function MarketIntelligencePage() {
       label="Market Intelligence"
       title="Market Intelligence"
       description="Real construction cost data, subcontractor market conditions, and healthcare real estate trends from a contractor who builds 20+ projects per year in Oklahoma."
-      imageSrc="/images/tulsa_oklahoma_skyline_centennial_park_daytime.jpg"
+      imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="Oklahoma construction market intelligence by UDGOK"
       intro="UDGOK bids and builds 20+ projects per year across Oklahoma and Texas. That means we have more real-time visibility into construction costs, subcontractor capacity, material lead times, and permit timelines than any market report can provide. We share this intelligence with our clients and project partners to help them make smarter development decisions."
       stats={[

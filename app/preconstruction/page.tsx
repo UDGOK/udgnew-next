@@ -13,7 +13,7 @@ export default function PreconstructionPage() {
       label="Preconstruction"
       title="Preconstruction Services"
       description="Early-stage budgeting, constructability review, and value engineering to protect your budget before a shovel hits the ground."
-      imageSrc="/images/woodside-medical-office-building-exterior.jpg"
+      imageSrc="/images/ai_safety_superintendent.png"
       imageAlt="Preconstruction services by UDGOK"
       intro="The decisions made in preconstruction determine 80% of your project's outcome. UDGOK engages early — often at concept or schematic design — to provide real-world cost intelligence, identify constructability issues before they become change orders, and develop schedules that reflect actual conditions in the Tulsa subcontractor market."
       stats={[

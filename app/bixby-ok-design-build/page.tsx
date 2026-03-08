@@ -13,7 +13,7 @@ export default function BixbyPage() {
       label="Bixby"
       title="Construction in Bixby, Oklahoma"
       description="Medical, dental, and commercial construction in Bixby — Tulsa's fastest-growing suburb and one of our most active markets."
-      imageSrc="/images/tulsa_oklahoma_skyline_centennial_park_daytime.jpg"
+      imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="Construction contractor Bixby Oklahoma by UDGOK"
       intro="Bixby's explosive growth along the South Memorial and Lynn Lane corridors has created tremendous demand for medical and commercial construction. UDGOK is active throughout Bixby, building dental offices, urgent care facilities, and retail centers that serve the community's growing population of young families and professionals."
       stats={[

@@ -13,7 +13,7 @@ export default function JenksPage() {
       label="Jenks"
       title="Construction in Jenks, Oklahoma"
       description="Medical, dental, and commercial construction serving Jenks and the South Tulsa corridor."
-      imageSrc="/images/tulsa_oklahoma_skyline_centennial_park_daytime.jpg"
+      imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="Construction contractor Jenks Oklahoma by UDGOK"
       intro="Jenks sits at the heart of Tulsa's South Corridor — one of the metro's most active commercial development zones. UDGOK builds in Jenks regularly, delivering dental offices, medical clinics, and retail build-outs for operators who want quality construction without traveling to downtown Tulsa for a contractor."
       stats={[

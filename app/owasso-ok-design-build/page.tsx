@@ -13,7 +13,7 @@ export default function OwassoPage() {
       label="Owasso"
       title="Construction in Owasso, Oklahoma"
       description="Medical, dental, and commercial construction serving Owasso's rapidly growing north Tulsa metro corridor."
-      imageSrc="/images/tulsa_oklahoma_skyline_centennial_park_daytime.jpg"
+      imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="Construction contractor Owasso Oklahoma by UDGOK"
       intro="Owasso's growth along US-169 and 96th Street has made it one of Oklahoma's most dynamic construction markets. UDGOK brings its full healthcare and commercial construction expertise to Owasso projects — from dental offices serving family neighborhoods to medical clinics anchoring new mixed-use developments along the 169 corridor."
       stats={[

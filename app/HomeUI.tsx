@@ -1,254 +1,233 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import MarqueeBanner from "@/components/MarqueeBanner";
 import AnimateIn from "@/components/AnimateIn";
-import CountUp from "@/components/CountUp";
-
-const stats = [
-  { number: "200+", label: "Projects Completed", orange: true },
-  { number: "10+", label: "Years Experience", orange: false },
-  { number: "$500M+", label: "Project Value", orange: true },
-  { number: "98%", label: "Client Satisfaction", orange: false },
-];
+import ProcessScroll from "@/components/ProcessScroll";
+import ArchitecturalGrid from "@/components/ArchitecturalGrid";
 
 const services = [
-  { code: "01", title: "Medical Office Construction", desc: "Fully compliant medical offices with specialized MEP systems, HIPAA-compliant layouts, and healthcare-grade finishes.", href: "/medical-office-design-build-tulsa" },
-  { code: "02", title: "Dental Office Construction", desc: "Purpose-built dental suites with integrated plumbing, cabinetry, and optimized patient flow design.", href: "/dental-office-construction-tulsa" },
-  { code: "03", title: "Oral Surgery Centers", desc: "Surgical-suite precision for oral surgery practices, including medical gas and advanced HVAC systems.", href: "/oral-surgeon-office-construction-tulsa" },
-  { code: "04", title: "Medical Gas Installation", desc: "Certified NFPA 99 medical gas systems: oxygen, nitrous oxide, vacuum, and compressed air.", href: "/medical-gas-installation" },
-  { code: "05", title: "Design-Build Integration", desc: "Single-source accountability from concept to completion — architecture, engineering, and construction unified.", href: "/design-build" },
-  { code: "06", title: "Tenant Improvements", desc: "Commercial tenant build-outs with precision scheduling and minimal disruption to existing operations.", href: "/tenant-improvements" },
+  { code: "01", title: "Medical Office", desc: "Fully compliant medical offices with specialized MEP systems.", href: "/medical-office-design-build-tulsa", img: "/images/ai-medical-exterior.png" },
+  { code: "02", title: "Dental Clinics", desc: "Purpose-built dental suites with integrated plumbing and custom cabinetry.", href: "/dental-office-construction-tulsa", img: "/images/ai-dental-interior.png" },
+  { code: "03", title: "Oral Surgery", desc: "Surgical-suite precision including certified medical gas systems.", href: "/oral-surgeon-office-construction-tulsa", img: "/images/ai-surgery-suite.png" },
+  { code: "04", title: "Design-Build", desc: "Integrated approach streamlining project delivery from concept to completion.", href: "/design-build", img: "/images/ai-construction-mep.png" },
+  { code: "05", title: "Tenant Build-Out", desc: "Transform existing spaces into functional, beautiful environments.", href: "/tenant-improvements", img: "/images/shopping-center-construction.jpg" },
+  { code: "06", title: "Retail Spaces", desc: "Complete construction including specialized equipment installation.", href: "/convenience-store-construction-tulsa", img: "/images/c-store-construction.jpg" },
 ];
 
-const locations = ["Tulsa, OK", "Broken Arrow", "Bixby", "Jenks", "Owasso", "Oklahoma City", "Dallas–FW, TX", "Sand Springs"];
+const process = [
+  { n: "01", t: "Discovery", d: "Deep analysis of program requirements and site conditions." },
+  { n: "02", t: "Design", d: "Collaborative engineering with accurate cost estimates." },
+  { n: "03", t: "Build", d: "Expert execution with weekly transparency updates." },
+  { n: "04", t: "Commissioning", d: "Complete system walk-throughs and final sign-offs." }
+];
 
-const heroWords = ["Build", "Extra", "Ordin", "ary."];
+// Reusable text reveal for big headings
+const SplitTextReveal = ({ text }: { text: string }) => {
+  const words = text.split(" ");
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1.5rem" }}>
+      {words.map((word, i) => (
+        <div key={i} style={{ overflow: "hidden" }}>
+          <motion.div
+            initial={{ y: "110%" }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
+          >
+            {word === "Future" || word === "Healthcare" || word === "Excellence" || word === "Together." ? (
+               <span style={{ color: "#FF4800" }}>{word}</span>
+            ) : word}
+          </motion.div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default function HomeUI() {
-  return (
-    <>
-      {/* ── HERO ── */}
-      <section style={{ display: "grid", gridTemplateColumns: "5fr 7fr", minHeight: "calc(100vh - 80px)", borderBottom: "4px solid #0B061B" }}>
-        {/* Left */}
-        <div style={{ padding: "6rem 4rem", borderRight: "4px solid #0B061B", display: "flex", flexDirection: "column", justifyContent: "center", background: "#fff", position: "relative", overflow: "hidden" }}>
-          {/* Subtle grid background */}
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(11,6,27,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(11,6,27,0.03) 1px, transparent 1px)", backgroundSize: "40px 40px", pointerEvents: "none" }} />
+  const heroRef = useRef(null);
+  const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroY = useTransform(heroProgress, [0, 1], ["0%", "40%"]);
+  const heroOpacity = useTransform(heroProgress, [0, 1], [1, 0]);
 
+  const pBannerRef = useRef(null);
+  const { scrollYProgress: pBannerProgress } = useScroll({ target: pBannerRef, offset: ["start end", "end start"] });
+  const pBannerY = useTransform(pBannerProgress, [0, 1], ["-20%", "20%"]);
+
+  return (
+    <div style={{ background: "#F7F4F7", color: "#0B061B" }}>
+      {/* ── HIGH-END HERO ── */}
+      <section ref={heroRef} style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+        {/* Parallax Background */}
+        <motion.div style={{ position: "absolute", inset: -50, y: heroY, opacity: heroOpacity, zIndex: 0 }}>
+          <video src="/videos/hero-video.mp4" autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0 }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(11,6,27,0.3) 0%, rgba(247,244,247,1) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+        </motion.div>
+
+        {/* Hero Content */}
+        <div style={{ position: "relative", zIndex: 10, textAlign: "center", padding: "0 2rem", width: "100%", maxWidth: "1200px", marginTop: "4rem" }}>
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            style={{ marginBottom: "2rem" }}
+            initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            style={{ display: "inline-block", marginBottom: "3rem", padding: "0.75rem 1.5rem", background: "rgba(255,255,255,0.8)", backdropFilter: "blur(12px)", border: "1px solid rgba(0,0,0,0.05)", borderRadius: "100px", color: "#0B061B", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase" }}
           >
-            <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.25em", color: "#FF4800", textTransform: "uppercase" }}>
-              ◾ Tulsa, Oklahoma — Est. 2015
-            </span>
+            <span style={{ color: "#FF4800", marginRight: "0.5rem" }}>◾</span> Premium Construction Firm
           </motion.div>
 
-          {/* Staggered word reveal */}
-          <h1 style={{ fontSize: "clamp(3rem, 8vw, 6rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 0.85, textTransform: "uppercase", marginBottom: "3rem" }}>
-            {heroWords.map((word, i) => (
-              <div key={i} style={{ overflow: "hidden" }}>
-                <motion.span
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 + i * 0.08 }}
-                  style={{ display: "block", color: i === 2 ? "#FF4800" : "#0B061B" }}
-                >
-                  {word}
-                </motion.span>
-              </div>
-            ))}
+          <h1 style={{ fontSize: "clamp(4rem, 10vw, 8rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 0.85, textTransform: "uppercase", marginBottom: "3rem" }}>
+            <SplitTextReveal text="Building the Future of Healthcare" />
           </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-            style={{ fontSize: "1.125rem", lineHeight: 1.7, color: "#666", marginBottom: "3rem", maxWidth: "440px" }}
+            transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)", lineHeight: 1.6, color: "#666", maxWidth: "650px", margin: "0 auto 4rem", fontWeight: 500 }}
           >
-            AI-powered Design-Build for medical, dental, and commercial construction across Oklahoma and Texas. From concept to certificate of occupancy, we deliver on time and on budget.
+            Design-build excellence for medical offices, dental practices, and commercial spaces across Oklahoma and Texas.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.65 }}
-            style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
+            transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap" }}
           >
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: "1rem", padding: "1.25rem 2.5rem", background: "#FF4800", color: "#fff", textDecoration: "none", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                Start Your Project →
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link href="/contact" style={{ display: "inline-flex", padding: "1.25rem 3rem", background: "#0B061B", color: "#fff", textDecoration: "none", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", borderRadius: "2px" }}>
+                Start Your Project
               </Link>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <Link href="/projects" style={{ display: "inline-flex", alignItems: "center", gap: "1rem", padding: "1.25rem 2.5rem", background: "transparent", color: "#0B061B", textDecoration: "none", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", border: "2px solid #0B061B" }}>
-                View Work
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link href="/projects" style={{ display: "inline-flex", padding: "1.25rem 3rem", background: "rgba(255,255,255,0.5)", backdropFilter: "blur(10px)", border: "1px solid rgba(0,0,0,0.1)", color: "#0B061B", textDecoration: "none", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", borderRadius: "2px" }}>
+                Explore Work
               </Link>
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Right — hero image */}
-        <div style={{ position: "relative", overflow: "hidden", minHeight: "500px" }}>
-          <motion.div
-            initial={{ scale: 1.06 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
-            style={{ position: "absolute", inset: 0 }}
-          >
-            <Image src="/images/lets-build-extraordinary.png" alt="Medical office construction by UDGOK" fill style={{ objectFit: "cover" }} priority />
-          </motion.div>
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(255,72,0,0.12) 0%, rgba(11,6,27,0.2) 60%)" }} />
-          {/* Grid overlay */}
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            style={{ position: "absolute", bottom: "2rem", right: "2rem", background: "#FF4800", color: "#fff", padding: "0.75rem 1.5rem", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}
-          >
-            Serving OK &amp; TX
-          </motion.span>
-        </div>
       </section>
 
-      <MarqueeBanner />
+      <div style={{ borderTop: "1px solid rgba(0,0,0,0.1)", borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
+        <MarqueeBanner />
+      </div>
 
-      {/* ── STATS ── */}
-      <section style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderBottom: "4px solid #0B061B" }}>
-        {stats.map((s, i) => (
-          <AnimateIn key={i} delay={i * 0.1} style={{ padding: "4rem 2rem", borderRight: i < 3 ? "4px solid #0B061B" : "none", textAlign: "center" }}>
-            <div style={{ fontSize: "clamp(3rem, 8vw, 5rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 1, color: s.orange ? "#FF4800" : "#0B061B", marginBottom: "1rem" }}>
-              <CountUp value={s.number} />
-            </div>
-            <div style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "#666" }}>{s.label}</div>
-          </AnimateIn>
-        ))}
-      </section>
+      {/* ── HIGH-END SERVICES CARDS ── */}
+      <section style={{ padding: "8rem 2rem", background: "#F7F4F7", position: "relative", overflow: "hidden" }}>
+        {/* Animated Blueprint Background */}
+        <ArchitecturalGrid />
 
-      {/* ── SERVICES ── */}
-      <section style={{ borderBottom: "4px solid #0B061B" }}>
-        <AnimateIn style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", borderBottom: "4px solid #0B061B" }}>
-          <div style={{ gridColumn: "span 2", padding: "2rem", borderRight: "4px solid #0B061B", background: "#F7F4F7", display: "flex", alignItems: "center" }}>
-            <span style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#666" }}>Our Services</span>
-          </div>
-          <div style={{ gridColumn: "span 10", padding: "3rem 2rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 800, letterSpacing: "-0.03em" }}>Specialized Construction Services</h2>
-            <Link href="/services" style={{ padding: "0.75rem 2rem", background: "#0B061B", color: "#fff", textDecoration: "none", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", whiteSpace: "nowrap" }}>All Services →</Link>
-          </div>
+        <div style={{ position: "relative", zIndex: 10 }}>
+          <AnimateIn style={{ textAlign: "center", marginBottom: "6rem" }}>
+          <span style={{ fontSize: "0.75rem", fontWeight: 800, letterSpacing: "0.2em", color: "#FF4800", textTransform: "uppercase", display: "block", marginBottom: "1.5rem" }}>Our Expertise</span>
+          <h2 style={{ fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.05em", lineHeight: 0.9 }}>
+            Specialized<br />Construction
+          </h2>
         </AnimateIn>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "2rem", maxWidth: "1400px", margin: "0 auto" }}>
           {services.map((s, i) => (
-            <AnimateIn key={i} delay={i * 0.07}>
-              <motion.div whileHover={{ background: "#F7F4F7" }} transition={{ duration: 0.2 }}>
-                <Link href={s.href} style={{ display: "block", padding: "3rem 2.5rem", borderRight: (i + 1) % 3 !== 0 ? "4px solid #0B061B" : "none", borderBottom: i < 3 ? "4px solid #0B061B" : "none", textDecoration: "none", color: "#0B061B" }}>
-                  <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", color: "#FF4800", marginBottom: "1.5rem" }}>{s.code}</div>
-                  <motion.div whileHover={{ width: "60px" }} style={{ width: "40px", height: "4px", background: "#FF4800", marginBottom: "1.5rem", transition: "width 0.3s ease" }} />
-                  <h3 style={{ fontSize: "1.25rem", fontWeight: 800, marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "-0.02em" }}>{s.title}</h3>
-                  <p style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "#666", margin: 0 }}>{s.desc}</p>
+            <AnimateIn key={i} delay={i * 0.1}>
+              <motion.div
+                whileHover="hover"
+                initial="initial"
+                style={{ position: "relative", height: "450px", overflow: "hidden", borderRadius: "16px", background: "#0B061B" }}
+              >
+                <motion.div
+                  variants={{ initial: { scale: 1 }, hover: { scale: 1.05 } }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ position: "absolute", inset: 0 }}
+                >
+                  <Image src={s.img} alt={s.title} fill style={{ objectFit: "cover", opacity: 0.6 }} />
+                </motion.div>
+                
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(11,6,27,0.9) 0%, rgba(11,6,27,0.2) 50%, rgba(11,6,27,0) 100%)" }} />
+                
+                <Link href={s.href} style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "2.5rem", color: "#fff", textDecoration: "none" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                    <span style={{ fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.2em", color: "#FF4800" }}>{s.code}</span>
+                    <motion.div variants={{ initial: { opacity: 0, x: -10 }, hover: { opacity: 1, x: 0 } }} transition={{ duration: 0.3 }}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </motion.div>
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: "2rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.03em", marginBottom: "1rem", lineHeight: 1 }}>{s.title}</h3>
+                    <motion.div variants={{ initial: { height: 0, opacity: 0 }, hover: { height: "auto", opacity: 1 } }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }} style={{ overflow: "hidden" }}>
+                      <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", margin: 0, lineHeight: 1.6 }}>{s.desc}</p>
+                    </motion.div>
+                  </div>
                 </Link>
               </motion.div>
             </AnimateIn>
           ))}
         </div>
+        </div>
       </section>
 
-      {/* ── SERVICE AREAS BANNER ── */}
-      <AnimateIn style={{ display: "grid", gridTemplateColumns: "auto 1fr", borderBottom: "4px solid #0B061B", minHeight: "80px" }}>
-        <div style={{ padding: "1.5rem 2rem", borderRight: "4px solid #0B061B", background: "#0B061B", color: "#fff", display: "flex", alignItems: "center" }}>
-          <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", whiteSpace: "nowrap" }}>📍 Service Areas</span>
-        </div>
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}>
-          {locations.map((loc, i) => (
-            <span key={loc} style={{ padding: "1.5rem 2rem", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", borderRight: i < locations.length - 1 ? "2px solid rgba(11,6,27,0.15)" : "none", color: "#0B061B" }}>{loc}</span>
-          ))}
-        </div>
-      </AnimateIn>
-
-      {/* ── PROJECTS CTA ── */}
-      <section style={{ display: "grid", gridTemplateColumns: "7fr 5fr", borderBottom: "4px solid #0B061B", minHeight: "400px" }}>
-        <div style={{ position: "relative", overflow: "hidden" }}>
-          <motion.div
-            initial={{ scale: 1.05 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            style={{ position: "absolute", inset: 0 }}
-          >
-            <Image src="/images/medical-office-design-build.png" alt="Medical office project" fill style={{ objectFit: "cover" }} />
-          </motion.div>
-          <div style={{ position: "absolute", inset: 0, background: "rgba(11,6,27,0.5)" }} />
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
-        </div>
-        <AnimateIn direction="left" style={{ padding: "5rem 4rem", borderLeft: "4px solid #0B061B", display: "flex", flexDirection: "column", justifyContent: "center", background: "#0B061B", color: "#fff" }}>
-          <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.2em", color: "#FF4800", textTransform: "uppercase", marginBottom: "2rem" }}>Our Work</span>
-          <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 0.9, marginBottom: "2rem" }}>
-            Built for Healthcare.<br /><span style={{ color: "#FF4800" }}>Built to Last.</span>
+      {/* ── PARALLAX PORTFOLIO BANNER ── */}
+      <section ref={pBannerRef} style={{ position: "relative", minHeight: "80vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+        <motion.div style={{ position: "absolute", inset: -100, y: pBannerY }}>
+          <Image src="/images/medical-office-design-build.png" alt="Medical office project" fill style={{ objectFit: "cover" }} />
+        </motion.div>
+        <div style={{ position: "absolute", inset: 0, background: "rgba(11,6,27,0.6)", backdropFilter: "blur(4px)" }} />
+        
+        <AnimateIn style={{ position: "relative", zIndex: 10, textAlign: "center", color: "#fff", padding: "2rem" }}>
+          <h2 style={{ fontSize: "clamp(3rem,8vw,7rem)", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.05em", lineHeight: 0.85, marginBottom: "3rem" }}>
+             Built for Healthcare.<br />Built to <span style={{ color: "#FF4800", fontStyle: "italic" }}>Last.</span>
           </h2>
-          <p style={{ fontSize: "1rem", lineHeight: 1.7, color: "rgba(255,255,255,0.65)", marginBottom: "3rem" }}>
-            Explore our portfolio of completed medical, dental, and commercial construction projects across Oklahoma and Texas.
-          </p>
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} style={{ alignSelf: "flex-start" }}>
-            <Link href="/projects" style={{ display: "inline-flex", alignItems: "center", gap: "1rem", padding: "1.25rem 2.5rem", background: "#FF4800", color: "#fff", textDecoration: "none", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              View Projects →
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link href="/projects" style={{ display: "inline-flex", padding: "1.5rem 4rem", background: "#fff", color: "#0B061B", textDecoration: "none", fontSize: "0.85rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", borderRadius: "100px" }}>
+              Explore Portfolio
             </Link>
           </motion.div>
         </AnimateIn>
       </section>
 
-      {/* ── PROCESS ── */}
-      <section style={{ borderBottom: "4px solid #0B061B" }}>
-        <AnimateIn style={{ borderBottom: "4px solid #0B061B", padding: "3rem 2rem" }}>
-          <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 800, letterSpacing: "-0.03em" }}>Our Design-Build Process</h2>
-        </AnimateIn>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
-          {[
-            { n: "01", t: "Discovery", d: "We study your program, site, and budget to align goals before any design begins." },
-            { n: "02", t: "Design", d: "Our in-house architects develop construction-ready documents in tandem with cost estimates." },
-            { n: "03", t: "Construction", d: "Self-perform crews and vetted subs execute to tight schedules with weekly owner updates." },
-            { n: "04", t: "Commissioning", d: "We walk every system—MEP, medical gas, IT—before handing you the keys." },
-          ].map((step, i) => (
-            <AnimateIn key={i} delay={i * 0.1} style={{ padding: "4rem 2.5rem", borderRight: i < 3 ? "4px solid #0B061B" : "none" }}>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-              >
-                <div style={{ fontSize: "3rem", fontWeight: 900, color: "#FF4800", marginBottom: "1.5rem", letterSpacing: "-0.05em" }}>{step.n}</div>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, marginBottom: "1rem", textTransform: "uppercase" }}>{step.t}</h3>
-                <p style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "#666", margin: 0 }}>{step.d}</p>
-              </motion.div>
-            </AnimateIn>
-          ))}
+      <ProcessScroll />
+
+      {/* ── HIGH-END TESTIMONIAL ── */}
+      <section style={{ padding: "8rem 2rem", background: "#0B061B", color: "#fff", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "-10vh", right: "-10vw", width: "60vw", height: "60vw", background: "radial-gradient(circle, rgba(255,72,0,0.15) 0%, rgba(11,6,27,0) 70%)", borderRadius: "50%" }} />
+        
+        <div style={{ maxWidth: "1000px", margin: "0 auto", position: "relative", zIndex: 10 }}>
+          <AnimateIn>
+            <div style={{ fontSize: "6rem", color: "#FF4800", lineHeight: 0.5, marginBottom: "2rem", opacity: 0.5 }}>&ldquo;</div>
+            <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.4, marginBottom: "4rem" }}>
+              UDGOK made our dental practice build-out completely seamless. Their deep understanding of specialized healthcare requirements—from precise plumbing to medical gases—saved us months of delays.
+            </h2>
+            <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+              <div style={{ width: "60px", height: "60px", borderRadius: "50%", background: "#333", overflow: "hidden", position: "relative" }}>
+                 <Image src="/images/office-building-tulsa.jpg" alt="Dr Miller" fill style={{ objectFit: "cover", filter: "grayscale(100%)" }} />
+              </div>
+              <div>
+                <div style={{ fontSize: "1rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#fff" }}>Dr. James Miller</div>
+                <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Tulsa, OK</div>
+              </div>
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section style={{ display: "grid", gridTemplateColumns: "8fr 4fr", borderBottom: "4px solid #0B061B" }}>
-        <AnimateIn style={{ padding: "6rem 4rem", borderRight: "4px solid #0B061B" }}>
-          <h2 style={{ fontSize: "clamp(2.5rem,5vw,5rem)", fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 0.9, marginBottom: "2rem", textTransform: "uppercase" }}>
-            Ready to start<br />your <span style={{ color: "#FF4800" }}>project?</span>
+      <section style={{ padding: "8rem 2rem", background: "#fff", color: "#0B061B", textAlign: "center", borderTop: "1px solid rgba(0,0,0,0.1)" }}>
+        <AnimateIn>
+          <h2 style={{ fontSize: "clamp(3.5rem,8vw,8rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 0.85, textTransform: "uppercase", marginBottom: "3rem" }}>
+            <SplitTextReveal text="Let's Build Together." />
           </h2>
-          <p style={{ fontSize: "1.125rem", lineHeight: 1.7, color: "#666", maxWidth: "600px" }}>
-            Reach out for a free consultation. We serve medical and commercial clients from initial planning through final occupancy.
+          <p style={{ fontSize: "1.25rem", fontWeight: 500, color: "#666", maxWidth: "600px", margin: "0 auto 4rem" }}>
+            Ready to break ground in Oklahoma or Texas? Reach out today for a discovery session.
           </p>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link href="/contact" style={{ display: "inline-flex", padding: "1.5rem 4rem", background: "#FF4800", color: "#fff", textDecoration: "none", fontSize: "0.85rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", borderRadius: "100px" }}>
+              Start the Conversation
+            </Link>
+          </motion.div>
         </AnimateIn>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "4rem", flexDirection: "column", gap: "1.5rem" }}>
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} style={{ width: "100%" }}>
-            <Link href="/contact" style={{ display: "block", padding: "1.5rem 3rem", background: "#FF4800", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", textAlign: "center", width: "100%" }}>
-              Get a Free Estimate
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} style={{ width: "100%" }}>
-            <Link href="tel:+19185203823" style={{ display: "block", padding: "1.5rem", background: "#0B061B", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.05em", textAlign: "center", width: "100%" }}>
-              (918) 520-3823
-            </Link>
-          </motion.div>
-        </div>
       </section>
-    </>
+    </div>
   );
 }

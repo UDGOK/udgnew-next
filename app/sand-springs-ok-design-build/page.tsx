@@ -13,7 +13,7 @@ export default function SandSpringsPage() {
       label="Sand Springs"
       title="Construction in Sand Springs, Oklahoma"
       description="Medical, dental, and commercial construction serving Sand Springs and the West Tulsa market."
-      imageSrc="/images/tulsa_oklahoma_skyline_centennial_park_daytime.jpg"
+      imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="Construction contractor Sand Springs Oklahoma by UDGOK"
       intro="Sand Springs and the West Tulsa corridor represent an underserved but growing construction market. UDGOK is active in Sand Springs, bringing the same high-quality medical and commercial construction that has made us Tulsa's most trusted builder to the west side of the metro. From highway-visible medical clinics to tenant improvements in Sand Springs commercial centers, we deliver."
       stats={[

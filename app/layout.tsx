@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollUI from "@/components/ScrollUI";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,9 +46,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
         <div className="grain-overlay" />
-        <Navigation />
-        <main className="pt-[80px]">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Navigation />
+          <main className="pt-[80px]">{children}</main>
+          <Footer />
+        </SmoothScroll>
         <ScrollUI />
       </body>
     </html>

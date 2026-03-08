@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
-import MarqueeBanner from "@/components/MarqueeBanner";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import AnimateIn from "@/components/AnimateIn";
 
 const healthcare = [
   { code: "01", title: "Medical Office Construction", desc: "Fully compliant medical offices with specialized MEP, HIPAA-compliant layouts, and healthcare-grade finishes.", href: "/medical-office-design-build-tulsa" },
@@ -19,75 +21,104 @@ const commercial = [
   { code: "11", title: "Virtual Design & Construction", desc: "BIM modeling, clash detection, and digital twin technology for complex projects.", href: "/virtual-design-construction" },
 ];
 
-function ServiceCard({ code, title, desc, href }: { code: string; title: string; desc: string; href: string }) {
-  return (
-    <Link href={href} style={{ display: "block", padding: "3rem 2.5rem", textDecoration: "none", color: "#0B061B", transition: "background 0.2s", borderBottom: "4px solid #0B061B" }}
-      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#F7F4F7")}
-      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "transparent")}>
-      <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", color: "#FF4800", marginBottom: "1.5rem" }}>{code}</div>
-      <div style={{ width: "40px", height: "4px", background: "#FF4800", marginBottom: "1.5rem" }} />
-      <h3 style={{ fontSize: "1.2rem", fontWeight: 800, marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "-0.02em" }}>{title}</h3>
-      <p style={{ fontSize: "0.875rem", lineHeight: 1.7, color: "#666", margin: 0 }}>{desc}</p>
-      <div style={{ marginTop: "1.5rem", fontSize: "0.8rem", fontWeight: 700, color: "#FF4800", letterSpacing: "0.05em" }}>Learn More →</div>
-    </Link>
-  );
-}
-
 export default function ServicesUI() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
+  const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
+
   return (
-    <>
-      <section style={{ background: "#0B061B", padding: "8rem 4rem 6rem", borderBottom: "4px solid #0B061B" }}>
-        <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.25em", color: "#FF4800", textTransform: "uppercase" }}>◾ What We Build</span>
-        <h1 style={{ fontSize: "clamp(3rem,7vw,6rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 0.85, textTransform: "uppercase", color: "#fff", marginTop: "2rem", marginBottom: "2rem" }}>
-          All<br /><span style={{ color: "#FF4800" }}>Services</span>
-        </h1>
-        <p style={{ fontSize: "1.125rem", lineHeight: 1.7, color: "rgba(255,255,255,0.6)", maxWidth: "600px" }}>
-          From single-operatory dental suites to multi-physician medical campuses — UDGOK delivers specialized construction across every healthcare and commercial sector we serve.
-        </p>
-      </section>
-      <MarqueeBanner />
-      <section style={{ borderBottom: "4px solid #0B061B" }}>
-        <div style={{ padding: "3rem 2rem", borderBottom: "4px solid #0B061B", display: "flex", alignItems: "center", gap: "2rem" }}>
-          <span style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>Healthcare</span>
-          <h2 style={{ fontSize: "clamp(1.75rem,3vw,2.5rem)", fontWeight: 800, letterSpacing: "-0.03em" }}>Healthcare Construction</h2>
+    <main className="bg-[#0B061B] min-h-screen text-white overflow-hidden pb-32" ref={containerRef}>
+      
+      {/* Dynamic Header */}
+      <section className="relative pt-40 pb-20 px-6 lg:px-12 border-b border-white/10 overflow-hidden min-h-[50vh] flex flex-col justify-end">
+        <motion.div className="absolute inset-0 z-0 opacity-20 pointer-events-none" style={{ y: yParallax, backgroundImage: "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+        
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <AnimateIn>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="w-12 h-px bg-[#FF4800]" />
+              <span className="text-[#FF4800] text-xs font-bold tracking-[0.2em] uppercase">What We Build</span>
+            </div>
+            <h1 className="text-[clamp(3.5rem,7vw,6.5rem)] font-black uppercase tracking-tighter leading-[0.85] mb-8 drop-shadow-2xl">
+              All<br /><span className="text-transparent bg-clip-text bg-gradient-to-b from-[#FF4800] to-orange-400">Services</span>
+            </h1>
+            <p className="text-xl md:text-2xl font-medium max-w-3xl leading-relaxed text-white/70 border-l-2 border-[#FF4800] pl-6">
+              From single-operatory dental suites to multi-physician medical campuses — UDGOK delivers specialized construction across every healthcare and commercial sector.
+            </p>
+          </AnimateIn>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
+      </section>
+
+      {/* Healthcare Section */}
+      <section className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 pt-32">
+        <AnimateIn>
+          <div className="flex items-center gap-6 mb-16">
+            <span className="text-[#FF4800] text-sm font-black tracking-[0.2em] uppercase">Healthcare</span>
+            <div className="h-px bg-white/20 flex-grow" />
+          </div>
+        </AnimateIn>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {healthcare.map((s, i) => (
-            <div key={i} style={{ borderRight: (i + 1) % 3 !== 0 ? "4px solid #0B061B" : "none" }}>
-              <ServiceCard {...s} />
-            </div>
+            <AnimateIn key={i} delay={i * 0.1} direction="up">
+              <Link href={s.href} className="block group h-full p-10 outline-none focus-visible:ring-2 ring-[#FF4800] rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all">
+                <div className="text-[#FF4800] text-sm font-black tracking-[0.2em] mb-4">{s.code}</div>
+                <div className="w-10 h-1 bg-[#FF4800] mb-8 group-hover:w-16 transition-all duration-300" />
+                <h3 className="text-2xl font-black uppercase tracking-tight leading-tight mb-4 group-hover:text-[#FF4800] transition-colors">{s.title}</h3>
+                <p className="text-sm text-white/60 leading-relaxed mb-8">{s.desc}</p>
+                <div className="flex items-center text-[#FF4800] text-xs font-bold tracking-[0.2em] uppercase group-hover:translate-x-2 transition-transform">
+                  Explore <span className="ml-2">→</span>
+                </div>
+              </Link>
+            </AnimateIn>
           ))}
         </div>
       </section>
-      <section style={{ borderBottom: "4px solid #0B061B" }}>
-        <div style={{ padding: "3rem 2rem", borderBottom: "4px solid #0B061B", display: "flex", alignItems: "center", gap: "2rem" }}>
-          <span style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>Commercial</span>
-          <h2 style={{ fontSize: "clamp(1.75rem,3vw,2.5rem)", fontWeight: 800, letterSpacing: "-0.03em" }}>Commercial Construction</h2>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
+
+      {/* Commercial Section */}
+      <section className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 pt-32">
+        <AnimateIn>
+          <div className="flex items-center gap-6 mb-16">
+            <span className="text-[#FF4800] text-sm font-black tracking-[0.2em] uppercase">Commercial</span>
+            <div className="h-px bg-white/20 flex-grow" />
+          </div>
+        </AnimateIn>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {commercial.map((s, i) => (
-            <div key={i} style={{ borderRight: (i + 1) % 3 !== 0 ? "4px solid #0B061B" : "none" }}>
-              <ServiceCard {...s} />
-            </div>
+            <AnimateIn key={i} delay={i * 0.1} direction="up">
+              <Link href={s.href} className="block group h-full p-10 outline-none focus-visible:ring-2 ring-[#FF4800] rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all">
+                <div className="text-[#FF4800] text-sm font-black tracking-[0.2em] mb-4">{s.code}</div>
+                <div className="w-10 h-1 bg-[#FF4800] mb-8 group-hover:w-16 transition-all duration-300" />
+                <h3 className="text-2xl font-black uppercase tracking-tight leading-tight mb-4 group-hover:text-[#FF4800] transition-colors">{s.title}</h3>
+                <p className="text-sm text-white/60 leading-relaxed mb-8">{s.desc}</p>
+                <div className="flex items-center text-[#FF4800] text-xs font-bold tracking-[0.2em] uppercase group-hover:translate-x-2 transition-transform">
+                  Explore <span className="ml-2">→</span>
+                </div>
+              </Link>
+            </AnimateIn>
           ))}
         </div>
       </section>
-      <section style={{ display: "grid", gridTemplateColumns: "8fr 4fr", borderBottom: "4px solid #0B061B" }}>
-        <div style={{ padding: "5rem 4rem", borderRight: "4px solid #0B061B" }}>
-          <h2 style={{ fontSize: "clamp(2.5rem,5vw,4rem)", fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 0.9, textTransform: "uppercase", marginBottom: "1.5rem" }}>
-            Not sure where<br />to <span style={{ color: "#FF4800" }}>start?</span>
-          </h2>
-          <p style={{ fontSize: "1.1rem", color: "#666", lineHeight: 1.6 }}>Tell us about your project and we&apos;ll match you with the right service and team.</p>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "3rem", flexDirection: "column", gap: "1rem" }}>
-          <Link href="/contact" style={{ display: "block", width: "100%", padding: "1.25rem", background: "#FF4800", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", textAlign: "center" }}>
-            Start Your Project →
-          </Link>
-          <Link href="tel:+19185203823" style={{ display: "block", width: "100%", padding: "1.25rem", background: "#0B061B", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: "0.85rem", textAlign: "center" }}>
-            (918) 520-3823
-          </Link>
-        </div>
+
+      {/* CTA Strip */}
+      <section className="mt-32 max-w-7xl mx-auto px-6 lg:px-12">
+        <AnimateIn>
+          <div className="bg-gradient-to-r from-[#FF4800] to-orange-600 rounded-3xl p-12 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10 bg-[url('/images/ai_subcontractor_network.png')] bg-cover mix-blend-overlay" />
+            <div className="relative z-10 w-full lg:w-1/2">
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-4">Not Sure Where to Start?</h2>
+              <p className="text-white/90 text-lg font-medium">Tell us about your project and we&apos;ll match you with the right preconstruction service and team.</p>
+            </div>
+            <div className="relative z-10 w-full lg:w-auto flex-shrink-0">
+              <Link href="/contact" className="inline-flex w-full lg:w-auto cursor-pointer items-center justify-center rounded-full bg-[#0B061B] hover:bg-black px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase text-white transition-colors shadow-2xl">
+                Start Your Project →
+              </Link>
+            </div>
+          </div>
+        </AnimateIn>
       </section>
-    </>
+
+    </main>
   );
 }

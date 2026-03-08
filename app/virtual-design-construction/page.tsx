@@ -13,7 +13,7 @@ export default function VDCPage() {
       label="Virtual Design & Construction"
       title="Virtual Design & Construction (VDC)"
       description="Advanced BIM modeling, clash detection, and digital twin technology that reduces RFIs, accelerates schedules, and improves field coordination."
-      imageSrc="/images/upscale-building-modern.png"
+      imageSrc="/images/ai_commercial_retail_plaza.png"
       imageAlt="Virtual Design and Construction VDC by UDGOK"
       intro="UDGOK's VDC team uses Building Information Modeling to build your project virtually before we build it physically. We detect and resolve MEP clashes, coordinate structure with finishes, and produce shop drawings that eliminate field surprises. The result is fewer RFIs, fewer change orders, and a faster path to certificate of occupancy."
       stats={[

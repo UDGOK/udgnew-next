@@ -13,7 +13,7 @@ export default function DallasMedicalPage() {
       label="Dallas-Fort Worth"
       title="Dallas-Fort Worth Medical Construction"
       description="UDGOK brings Oklahoma's most trusted medical and dental construction expertise to the Dallas-Fort Worth metroplex."
-      imageSrc="/images/upscale-building-modern.png"
+      imageSrc="/images/ai_commercial_retail_plaza.png"
       imageAlt="Dallas-Fort Worth medical construction by UDGOK"
       intro="UDGOK is expanding its award-winning healthcare construction practice into the Dallas-Fort Worth market. DFW's rapidly growing medical corridor demands a builder with deep clinical expertise — not just a commercial GC who occasionally builds doctor offices. We bring NFPA 99 medical gas knowledge, AAAHC surgical suite experience, and over 100 completed healthcare facilities to every DFW project."
       stats={[

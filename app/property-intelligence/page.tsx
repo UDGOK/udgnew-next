@@ -13,7 +13,7 @@ export default function PropertyIntelligencePage() {
       label="Data & Insights"
       title="Property Intelligence"
       description="Don't guess on site selection. We use AI and GIS data to evaluate sites for zoning, utilities, demographics, and construction feasibility before you sign a lease or purchase land."
-      imageSrc="/images/speedway-modern-convenience-store-exterior-daytime.jpg"
+      imageSrc="/images/ai_dallas_medical_hub.png"
       imageAlt="UDGOK Property Intelligence"
       intro="The wrong piece of land can break a healthcare project. At UDGOK, we evaluate sites for medical viability: Are utilities sized for medical gas? Is there enough parking for clinical capacity? Our team assesses zoning, structural capacity, and demographics to ensure your location supports a thriving practice."
       cta="Request a Site Evaluation →"
