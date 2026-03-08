@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { signOut } from "next-auth/react";
 import { motion, AnimatePresence } from "framer-motion";
+import { upload } from "@vercel/blob/client";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -376,19 +377,33 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdi
     if (!file) return;
     setUploading(true);
     setUploadError("");
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("projectId", project.id);
     try {
-      const res = await fetch("/api/portal/upload", { method: "POST", body: fd });
+      // Upload directly to Vercel Blob (bypasses 4.5MB serverless limit)
+      const blob = await upload(file.name, file, {
+        access: "public",
+        handleUploadUrl: "/api/portal/blob-upload",
+      });
+
+      // Save metadata to our API
+      const ext = file.name.split(".").pop()?.toLowerCase() || "";
+      const res = await fetch("/api/portal/upload", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          projectId: project.id,
+          blobUrl: blob.url,
+          fileName: file.name,
+          fileType: ext,
+        }),
+      });
       if (!res.ok) {
         const d = await res.json();
-        setUploadError(d.error || "Upload failed");
+        setUploadError(d.error || "Failed to save document");
       } else {
         onUpdated();
       }
-    } catch { 
-      setUploadError("Network error during upload");
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : "Upload failed");
     }
     setUploading(false);
     if (fileInputRef.current) fileInputRef.current.value = "";
@@ -625,13 +640,27 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
     const file = fileRef.current?.files?.[0];
     if (!file) { setUploadError("Please select a file"); return; }
     setUploading(true); setUploadError(""); setUploadSuccess("");
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("category", category);
-    fd.append("notes", notes);
-    if (projectId) fd.append("projectId", projectId);
     try {
-      const res = await fetch("/api/portal/documents", { method: "POST", body: fd });
+      // Upload directly to Vercel Blob
+      const blob = await upload(file.name, file, {
+        access: "public",
+        handleUploadUrl: "/api/portal/blob-upload",
+      });
+
+      // Save metadata to our API
+      const ext = file.name.split(".").pop()?.toLowerCase() || "";
+      const res = await fetch("/api/portal/documents", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          blobUrl: blob.url,
+          fileName: file.name,
+          fileType: ext,
+          category,
+          notes,
+          projectId,
+        }),
+      });
       if (!res.ok) {
         const d = await res.json();
         setUploadError(d.error || "Upload failed");
@@ -642,7 +671,7 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
         fetchDocs();
         setTimeout(() => setUploadSuccess(""), 3000);
       }
-    } catch { setUploadError("Network error"); }
+    } catch (err) { setUploadError(err instanceof Error ? err.message : "Upload failed"); }
     setUploading(false);
   };
 
