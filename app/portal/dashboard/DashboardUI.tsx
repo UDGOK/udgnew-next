@@ -15,6 +15,14 @@ interface ConstructionDocItem { id: string; name: string; type: string; category
 const inputStyle: React.CSSProperties = { width: "100%", padding: "0.85rem 1rem", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "12px", color: "#fff", fontSize: "0.95rem", outline: "none", fontFamily: "inherit" };
 const labelStyle: React.CSSProperties = { display: "block", marginBottom: "0.4rem", fontWeight: 700, fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" };
 const btnPrimary: React.CSSProperties = { padding: "0.85rem 1.5rem", background: "#FF4800", color: "#fff", fontWeight: 800, fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", border: "none", borderRadius: "12px", cursor: "pointer", fontFamily: "inherit" };
+const btnDanger: React.CSSProperties = { ...btnPrimary, background: "#E53935" };
+const btnGhost: React.CSSProperties = { ...btnPrimary, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)" };
+
+const STATUS_OPTIONS = [
+  { value: "active", label: "Active", color: "#00A842", bg: "rgba(0,168,66,0.1)" },
+  { value: "upcoming", label: "Upcoming", color: "#FF9800", bg: "rgba(255,152,0,0.1)" },
+  { value: "closed", label: "Closed", color: "#E53935", bg: "rgba(229,57,53,0.1)" },
+];
 
 export default function DashboardUI({ user }: { user: UserInfo }) {
   const [projects, setProjects] = useState<BidProject[]>([]);
@@ -22,6 +30,8 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
   const [activeView, setActiveView] = useState<"projects" | "create" | "documents">("projects");
   const [selectedProject, setSelectedProject] = useState<BidProject | null>(null);
   const [bidOpen, setBidOpen] = useState(false);
+  const [editProject, setEditProject] = useState<BidProject | null>(null);
+  const [statusFilter, setStatusFilter] = useState("all");
   const isAdmin = user.role === "admin";
 
   const fetchProjects = useCallback(async () => {
@@ -34,6 +44,28 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
   }, []);
 
   useEffect(() => { fetchProjects(); }, [fetchProjects]);
+
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this project? This cannot be undone.")) return;
+    try {
+      await fetch(`/api/portal/projects?id=${id}`, { method: "DELETE" });
+      setSelectedProject(null);
+      fetchProjects();
+    } catch { /* empty */ }
+  };
+
+  const handleStatusChange = async (id: string, status: string) => {
+    try {
+      await fetch("/api/portal/projects", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, status }),
+      });
+      fetchProjects();
+    } catch { /* empty */ }
+  };
+
+  const filteredProjects = statusFilter === "all" ? projects : projects.filter(p => p.status === statusFilter);
 
   return (
     <main style={{ minHeight: "100vh", background: "#0B061B", color: "#fff" }}>
@@ -68,11 +100,11 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem", marginBottom: "2rem" }}>
           <div>
             <h1 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.04em", margin: 0, lineHeight: 1 }}>
-              {activeView === "projects" ? "Current Projects" : activeView === "documents" ? "Construction Documents" : "Create Project"}
+              {activeView === "projects" ? "Projects" : activeView === "documents" ? "Construction Documents" : "Create Project"}
             </h1>
             <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.4)", marginTop: "0.5rem" }}>
               {activeView === "projects"
-                ? (isAdmin ? "Manage active bid projects and upload documents" : "Browse active projects and submit your bids")
+                ? (isAdmin ? "Manage projects — edit, delete, change status, upload documents" : "Browse projects and submit your bids")
                 : activeView === "documents"
                 ? "Upload and manage lien waivers, insurance certificates, pay applications, and more"
                 : "Add a new project for subcontractors to bid on"}
@@ -87,47 +119,106 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
           </div>
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects View */}
         {activeView === "projects" && (
-          loading ? (
-            <div style={{ textAlign: "center", padding: "4rem", color: "rgba(255,255,255,0.3)" }}>Loading projects…</div>
-          ) : projects.length === 0 ? (
-            <div style={{ textAlign: "center", padding: "6rem 2rem", background: "rgba(255,255,255,0.02)", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.06)" }}>
-              <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>📂</div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, textTransform: "uppercase", marginBottom: "0.5rem" }}>No Active Projects</h3>
-              <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.9rem" }}>{isAdmin ? "Create your first project to get started." : "Check back soon for new bid opportunities."}</p>
+          <>
+            {/* Status Filter Pills */}
+            <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+              {[{ value: "all", label: "All", color: "#fff" }, ...STATUS_OPTIONS].map(s => {
+                const count = s.value === "all" ? projects.length : projects.filter(p => p.status === s.value).length;
+                return (
+                  <button key={s.value} onClick={() => setStatusFilter(s.value)} style={{
+                    padding: "0.45rem 1rem", borderRadius: "20px", border: "1px solid",
+                    borderColor: statusFilter === s.value ? s.color : "rgba(255,255,255,0.1)",
+                    background: statusFilter === s.value ? `${s.color}22` : "transparent",
+                    color: statusFilter === s.value ? s.color : "rgba(255,255,255,0.5)",
+                    fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
+                    cursor: "pointer", fontFamily: "inherit",
+                  }}>
+                    {s.label} ({count})
+                  </button>
+                );
+              })}
             </div>
-          ) : (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(360px, 100%), 1fr))", gap: "1.5rem" }}>
-              {projects.map((p, i) => (
-                <motion.div
-                  key={p.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.06 }}
-                  onClick={() => setSelectedProject(p)}
-                  style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "20px", padding: "1.75rem", cursor: "pointer", transition: "border-color 0.2s, transform 0.2s" }}
-                  whileHover={{ scale: 1.01, borderColor: "rgba(255,72,0,0.3)" }}
-                >
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
-                    <span style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#FF4800", background: "rgba(255,72,0,0.1)", padding: "0.3rem 0.75rem", borderRadius: "6px" }}>{p.category || "General"}</span>
-                    <span style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: p.status === "active" ? "#00A842" : "#E53935" }}>{p.status}</span>
-                  </div>
-                  <h3 style={{ fontSize: "1.25rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em", marginBottom: "0.5rem", lineHeight: 1.1 }}>{p.title}</h3>
-                  <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.5, marginBottom: "1rem", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{p.description}</p>
-                  <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", fontSize: "0.7rem", color: "rgba(255,255,255,0.35)" }}>
-                    {p.location && <span>📍 {p.location}</span>}
-                    {p.deadline && <span>📅 {p.deadline}</span>}
-                    {p.documents.length > 0 && <span>📎 {p.documents.length} docs</span>}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          )
+
+            {loading ? (
+              <div style={{ textAlign: "center", padding: "4rem", color: "rgba(255,255,255,0.3)" }}>Loading projects…</div>
+            ) : filteredProjects.length === 0 ? (
+              <div style={{ textAlign: "center", padding: "6rem 2rem", background: "rgba(255,255,255,0.02)", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.06)" }}>
+                <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>📂</div>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: 800, textTransform: "uppercase", marginBottom: "0.5rem" }}>No Projects Found</h3>
+                <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.9rem" }}>{isAdmin ? "Create your first project to get started." : "Check back soon for new bid opportunities."}</p>
+              </div>
+            ) : (
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(360px, 100%), 1fr))", gap: "1.5rem" }}>
+                {filteredProjects.map((p, i) => {
+                  const statusInfo = STATUS_OPTIONS.find(s => s.value === p.status) || STATUS_OPTIONS[0];
+                  return (
+                    <motion.div
+                      key={p.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.06 }}
+                      onClick={() => setSelectedProject(p)}
+                      style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "20px", padding: "1.75rem", cursor: "pointer", transition: "border-color 0.2s, transform 0.2s", position: "relative" }}
+                      whileHover={{ scale: 1.01, borderColor: "rgba(255,72,0,0.3)" }}
+                    >
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
+                        <span style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#FF4800", background: "rgba(255,72,0,0.1)", padding: "0.3rem 0.75rem", borderRadius: "6px" }}>{p.category || "General"}</span>
+                        <span style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: statusInfo.color, background: statusInfo.bg, padding: "0.3rem 0.75rem", borderRadius: "6px" }}>{statusInfo.label}</span>
+                      </div>
+                      <h3 style={{ fontSize: "1.25rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "-0.02em", marginBottom: "0.5rem", lineHeight: 1.1 }}>{p.title}</h3>
+                      <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.5, marginBottom: "1rem", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{p.description}</p>
+                      <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", fontSize: "0.7rem", color: "rgba(255,255,255,0.35)" }}>
+                        {p.location && <span>📍 {p.location}</span>}
+                        {p.deadline && <span>📅 {p.deadline}</span>}
+                        {p.budgetRange && <span>💰 {p.budgetRange}</span>}
+                        {p.documents.length > 0 && <span>📎 {p.documents.length} docs</span>}
+                      </div>
+
+                      {/* Quick Status Toggle (Admin) */}
+                      {isAdmin && (
+                        <div style={{ display: "flex", gap: "0.4rem", marginTop: "1rem", paddingTop: "1rem", borderTop: "1px solid rgba(255,255,255,0.06)" }} onClick={e => e.stopPropagation()}>
+                          {STATUS_OPTIONS.map(s => (
+                            <button key={s.value} onClick={() => handleStatusChange(p.id, s.value)} style={{
+                              padding: "0.3rem 0.6rem", borderRadius: "6px", border: "1px solid",
+                              borderColor: p.status === s.value ? s.color : "rgba(255,255,255,0.08)",
+                              background: p.status === s.value ? s.bg : "transparent",
+                              color: p.status === s.value ? s.color : "rgba(255,255,255,0.3)",
+                              fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
+                              cursor: "pointer", fontFamily: "inherit",
+                            }}>
+                              {s.label}
+                            </button>
+                          ))}
+                          <button onClick={() => { setEditProject(p); }} style={{
+                            marginLeft: "auto", padding: "0.3rem 0.6rem", borderRadius: "6px",
+                            border: "1px solid rgba(255,255,255,0.08)", background: "transparent",
+                            color: "rgba(255,255,255,0.4)", fontSize: "0.55rem", fontWeight: 700,
+                            letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", fontFamily: "inherit",
+                          }}>
+                            ✏️ Edit
+                          </button>
+                          <button onClick={() => handleDelete(p.id)} style={{
+                            padding: "0.3rem 0.6rem", borderRadius: "6px",
+                            border: "1px solid rgba(229,57,53,0.2)", background: "transparent",
+                            color: "#E53935", fontSize: "0.55rem", fontWeight: 700,
+                            letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", fontFamily: "inherit",
+                          }}>
+                            🗑️ Delete
+                          </button>
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </div>
+            )}
+          </>
         )}
 
         {/* Create Project (Admin) */}
-        {activeView === "create" && isAdmin && <CreateProjectForm onCreated={() => { setActiveView("projects"); fetchProjects(); }} />}
+        {activeView === "create" && isAdmin && <ProjectForm onDone={() => { setActiveView("projects"); fetchProjects(); }} />}
 
         {/* Construction Documents */}
         {activeView === "documents" && <ConstructionDocsSection user={user} isAdmin={isAdmin} projects={projects} />}
@@ -136,7 +227,15 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
       {/* Project Detail Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <ProjectDetailModal project={selectedProject} isAdmin={isAdmin} onClose={() => setSelectedProject(null)} onUpdated={fetchProjects} onBid={() => setBidOpen(true)} />
+          <ProjectDetailModal
+            project={selectedProject}
+            isAdmin={isAdmin}
+            onClose={() => setSelectedProject(null)}
+            onUpdated={() => { fetchProjects(); }}
+            onBid={() => setBidOpen(true)}
+            onEdit={() => { setEditProject(selectedProject); setSelectedProject(null); }}
+            onDelete={() => { handleDelete(selectedProject.id); }}
+          />
         )}
       </AnimatePresence>
 
@@ -146,13 +245,29 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
           <BidModal project={selectedProject} user={user} onClose={() => setBidOpen(false)} />
         )}
       </AnimatePresence>
+
+      {/* Edit Project Modal */}
+      <AnimatePresence>
+        {editProject && isAdmin && (
+          <EditProjectModal project={editProject} onClose={() => setEditProject(null)} onSaved={() => { setEditProject(null); fetchProjects(); }} />
+        )}
+      </AnimatePresence>
     </main>
   );
 }
 
-/* ─────────── CREATE PROJECT FORM (Admin) ─────────── */
-function CreateProjectForm({ onCreated }: { onCreated: () => void }) {
-  const [form, setForm] = useState({ title: "", description: "", location: "", category: "", scope: "", budgetRange: "", deadline: "" });
+/* ─────────── PROJECT FORM (Create/Edit) ─────────── */
+function ProjectForm({ onDone, initial }: { onDone: () => void; initial?: BidProject }) {
+  const [form, setForm] = useState({
+    title: initial?.title || "",
+    description: initial?.description || "",
+    location: initial?.location || "",
+    category: initial?.category || "",
+    scope: initial?.scope || "",
+    budgetRange: initial?.budgetRange || "",
+    deadline: initial?.deadline || "",
+    status: initial?.status || "active",
+  });
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
@@ -161,9 +276,11 @@ function CreateProjectForm({ onCreated }: { onCreated: () => void }) {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault(); setSaving(true); setError("");
     try {
-      const res = await fetch("/api/portal/projects", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
+      const method = initial ? "PUT" : "POST";
+      const body = initial ? { id: initial.id, ...form } : form;
+      const res = await fetch("/api/portal/projects", { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
       if (!res.ok) { const d = await res.json(); setError(d.error); }
-      else { onCreated(); }
+      else { onDone(); }
     } catch { setError("Network error"); }
     setSaving(false);
   };
@@ -183,14 +300,57 @@ function CreateProjectForm({ onCreated }: { onCreated: () => void }) {
           <div><label style={labelStyle}>Bid Deadline</label><input type="date" style={inputStyle} value={form.deadline} onChange={e => update("deadline", e.target.value)} /></div>
         </div>
         <div><label style={labelStyle}>Scope of Work</label><textarea style={{ ...inputStyle, minHeight: "80px", resize: "vertical" }} value={form.scope} onChange={e => update("scope", e.target.value)} placeholder="Electric, HVAC, plumbing…" /></div>
-        <button type="submit" disabled={saving} style={{ ...btnPrimary, width: "100%", opacity: saving ? 0.6 : 1 }}>{saving ? "Creating…" : "Create Project"}</button>
+        {/* Status Selector */}
+        <div>
+          <label style={labelStyle}>Project Status</label>
+          <div style={{ display: "flex", gap: "0.5rem" }}>
+            {STATUS_OPTIONS.map(s => (
+              <button key={s.value} type="button" onClick={() => update("status", s.value)} style={{
+                flex: 1, padding: "0.75rem", borderRadius: "12px", border: "2px solid",
+                borderColor: form.status === s.value ? s.color : "rgba(255,255,255,0.08)",
+                background: form.status === s.value ? s.bg : "rgba(255,255,255,0.02)",
+                color: form.status === s.value ? s.color : "rgba(255,255,255,0.4)",
+                fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
+                cursor: "pointer", fontFamily: "inherit", transition: "all 0.2s",
+              }}>
+                {s.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        <button type="submit" disabled={saving} style={{ ...btnPrimary, width: "100%", opacity: saving ? 0.6 : 1 }}>{saving ? "Saving…" : initial ? "Update Project" : "Create Project"}</button>
       </form>
     </motion.div>
   );
 }
 
+/* ─────────── EDIT PROJECT MODAL ─────────── */
+function EditProjectModal({ project, onClose, onSaved }: { project: BidProject; onClose: () => void; onSaved: () => void }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", onKey); };
+  }, [onClose]);
+
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}
+      style={{ position: "fixed", inset: 0, zIndex: 10001, background: "rgba(11,6,27,0.9)", backdropFilter: "blur(12px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem", overflowY: "auto" }}>
+      <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 30 }}
+        onClick={e => e.stopPropagation()}
+        style={{ width: "100%", maxWidth: "720px", maxHeight: "90vh", overflowY: "auto", overscrollBehavior: "contain" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1rem" }}>
+          <h2 style={{ fontSize: "1.2rem", fontWeight: 900, textTransform: "uppercase", color: "#fff", letterSpacing: "-0.02em" }}>Edit Project</h2>
+          <button onClick={onClose} style={{ width: "40px", height: "40px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "12px", color: "#fff", fontSize: "1.1rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+        </div>
+        <ProjectForm initial={project} onDone={onSaved} />
+      </motion.div>
+    </motion.div>
+  );
+}
+
 /* ─────────── PROJECT DETAIL MODAL ─────────── */
-function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid }: { project: BidProject; isAdmin: boolean; onClose: () => void; onUpdated: () => void; onBid: () => void }) {
+function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdit, onDelete }: { project: BidProject; isAdmin: boolean; onClose: () => void; onUpdated: () => void; onBid: () => void; onEdit: () => void; onDelete: () => void }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState("");
@@ -232,6 +392,8 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid }: { p
     return "📎";
   };
 
+  const statusInfo = STATUS_OPTIONS.find(s => s.value === project.status) || STATUS_OPTIONS[0];
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}
       style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(11,6,27,0.85)", backdropFilter: "blur(12px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem", overflow: "hidden", overscrollBehavior: "contain" }}>
@@ -242,8 +404,19 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid }: { p
         {/* Header */}
         <div style={{ padding: "1.75rem 2rem", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <span style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>{project.category || "Project"}</span>
-            <button onClick={onClose} style={{ width: "40px", height: "40px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "12px", color: "#fff", fontSize: "1.1rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+              <span style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>{project.category || "Project"}</span>
+              <span style={{ fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: statusInfo.color, background: statusInfo.bg, padding: "0.2rem 0.5rem", borderRadius: "4px" }}>{statusInfo.label}</span>
+            </div>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              {isAdmin && (
+                <>
+                  <button onClick={onEdit} style={{ ...btnGhost, fontSize: "0.55rem", padding: "0.4rem 0.75rem" }}>✏️ Edit</button>
+                  <button onClick={onDelete} style={{ ...btnDanger, fontSize: "0.55rem", padding: "0.4rem 0.75rem" }}>🗑️ Delete</button>
+                </>
+              )}
+              <button onClick={onClose} style={{ width: "40px", height: "40px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "12px", color: "#fff", fontSize: "1.1rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+            </div>
           </div>
           <h2 style={{ fontSize: "1.6rem", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.03em", margin: "0.75rem 0 0" }}>{project.title}</h2>
         </div>
@@ -255,7 +428,8 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid }: { p
               { label: "Location", val: project.location },
               { label: "Budget Range", val: project.budgetRange },
               { label: "Deadline", val: project.deadline },
-              { label: "Status", val: project.status },
+              { label: "Status", val: statusInfo.label },
+              { label: "Created", val: project.createdAt ? new Date(project.createdAt).toLocaleDateString() : "" },
             ].filter(x => x.val).map((x, i) => (
               <div key={i} style={{ padding: "1rem", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)" }}>
                 <div style={{ fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "0.3rem" }}>{x.label}</div>
@@ -315,9 +489,19 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid }: { p
             )}
           </div>
 
-          {/* Submit Bid Button (non-admin) */}
+          {/* Submit Bid Button (non-admin, active projects only) */}
           {!isAdmin && project.status === "active" && (
             <button onClick={onBid} style={{ ...btnPrimary, width: "100%" }}>Submit Your Bid →</button>
+          )}
+          {!isAdmin && project.status === "upcoming" && (
+            <div style={{ padding: "1rem", textAlign: "center", background: "rgba(255,152,0,0.1)", borderRadius: "12px", color: "#FF9800", fontSize: "0.85rem", fontWeight: 600 }}>
+              This project is coming soon — bidding is not yet open
+            </div>
+          )}
+          {!isAdmin && project.status === "closed" && (
+            <div style={{ padding: "1rem", textAlign: "center", background: "rgba(229,57,53,0.1)", borderRadius: "12px", color: "#E53935", fontSize: "0.85rem", fontWeight: 600 }}>
+              Bidding is closed for this project
+            </div>
           )}
         </div>
       </motion.div>
@@ -448,6 +632,9 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
   const filtered = filterCat === "all" ? docs : docs.filter(d => d.category === filterCat);
   const getCatIcon = (cat: string) => DOC_CATEGORIES.find(c => c.value === cat)?.icon || "📎";
   const getCatLabel = (cat: string) => DOC_CATEGORIES.find(c => c.value === cat)?.label || cat;
+
+  void isAdmin; // available for future admin-only features
+  void user;
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>

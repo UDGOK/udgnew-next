@@ -33,7 +33,7 @@ export interface BidProject {
   scope: string;
   budgetRange: string;
   deadline: string;
-  status: "active" | "closed";
+  status: "active" | "upcoming" | "closed";
   documents: ProjectDoc[];
   createdAt: string;
 }
@@ -113,6 +113,23 @@ export function addProject(project: BidProject) {
 
 export function getProjectById(id: string): BidProject | undefined {
   return getProjects().find(p => p.id === id);
+}
+
+export function updateProject(id: string, updates: Partial<BidProject>) {
+  const projects = getProjects();
+  const idx = projects.findIndex(p => p.id === id);
+  if (idx !== -1) {
+    projects[idx] = { ...projects[idx], ...updates, id };
+    saveProjects(projects);
+    return projects[idx];
+  }
+  return null;
+}
+
+export function deleteProject(id: string) {
+  const projects = getProjects();
+  const filtered = projects.filter(p => p.id !== id);
+  saveProjects(filtered);
 }
 
 export function addDocToProject(projectId: string, doc: ProjectDoc) {
