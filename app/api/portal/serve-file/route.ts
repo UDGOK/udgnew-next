@@ -1,12 +1,11 @@
 import { NextResponse, NextRequest } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { auth } from "@clerk/nextjs/server";
 import fs from "fs";
 import path from "path";
 
 export async function GET(req: NextRequest) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const { userId } = await auth();
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -16,7 +15,6 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Missing path" }, { status: 400 });
   }
 
-  // Sanitize path to prevent directory traversal
   const sanitized = filePath.replace(/\.\./g, "").replace(/^\//, "");
   const fullPath = path.join("/tmp", sanitized);
 
@@ -41,7 +39,6 @@ export async function GET(req: NextRequest) {
     ".dxf": "application/dxf",
   };
 
-  // PDFs and images open inline in browser, other types download
   const inlineTypes = [".pdf", ".jpg", ".jpeg", ".png"];
   const disposition = inlineTypes.includes(ext) ? "inline" : "attachment";
 

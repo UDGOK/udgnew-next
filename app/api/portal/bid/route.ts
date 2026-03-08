@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { Resend } from "resend";
 import { getProjectById } from "@/lib/db";
 
 export async function POST(req: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const { userId } = await auth();
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -25,7 +24,10 @@ export async function POST(req: Request) {
     }
 
     const project = getProjectById(projectId);
-    const user = session.user as { name?: string; email?: string; company?: string };
+    const user = await currentUser();
+    const email = user?.emailAddresses?.[0]?.emailAddress || "";
+    const name = `${user?.firstName || ""} ${user?.lastName || ""}`.trim() || email;
+    const company = (user?.publicMetadata?.company as string) || "N/A";
 
     await resend.emails.send({
       from: "UDGOK Bid Portal <onboarding@resend.dev>",
@@ -35,9 +37,9 @@ export async function POST(req: Request) {
         <h2>New Bid Submission</h2>
         <table style="border-collapse: collapse; width: 100%;">
           <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Project</td><td style="padding: 8px; border: 1px solid #ddd;">${project?.title || projectId}</td></tr>
-          <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Bidder</td><td style="padding: 8px; border: 1px solid #ddd;">${user.name || "N/A"}</td></tr>
-          <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Company</td><td style="padding: 8px; border: 1px solid #ddd;">${user.company || "N/A"}</td></tr>
-          <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td><td style="padding: 8px; border: 1px solid #ddd;">${user.email}</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Bidder</td><td style="padding: 8px; border: 1px solid #ddd;">${name}</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Company</td><td style="padding: 8px; border: 1px solid #ddd;">${company}</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td><td style="padding: 8px; border: 1px solid #ddd;">${email}</td></tr>
           ${bidAmount ? `<tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Bid Amount</td><td style="padding: 8px; border: 1px solid #ddd;">$${bidAmount}</td></tr>` : ""}
           <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Message</td><td style="padding: 8px; border: 1px solid #ddd;">${message}</td></tr>
         </table>

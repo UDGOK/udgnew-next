@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -76,16 +77,18 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <div className="grain-overlay" />
-        <SmoothScroll>
-          <Navigation />
-          <main className="pt-[80px]">{children}</main>
-          <Footer />
-        </SmoothScroll>
-        <ScrollUI />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${inter.variable} font-sans antialiased`}>
+          <div className="grain-overlay" />
+          <SmoothScroll>
+            <Navigation />
+            <main className="pt-[80px]">{children}</main>
+            <Footer />
+          </SmoothScroll>
+          <ScrollUI />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

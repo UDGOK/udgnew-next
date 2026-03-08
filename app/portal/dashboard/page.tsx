@@ -1,7 +1,7 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import DashboardUI from "./DashboardUI";
+import { isAdmin } from "@/lib/db";
 
 export const metadata = {
   title: "Bid Portal Dashboard | UDGOK",
@@ -9,12 +9,24 @@ export const metadata = {
 };
 
 export default async function DashboardPage() {
-  const session = await getServerSession(authOptions);
-  if (!session) {
+  const { userId } = await auth();
+  if (!userId) {
     redirect("/portal");
   }
 
-  const user = session.user as { name?: string; email?: string; role?: string; company?: string };
+  const user = await currentUser();
+  const email = user?.emailAddresses?.[0]?.emailAddress || "";
+  const name = `${user?.firstName || ""} ${user?.lastName || ""}`.trim() || email;
+  const role = isAdmin(email) ? "admin" : "bidder";
 
-  return <DashboardUI user={{ name: user.name || "", email: user.email || "", role: user.role || "bidder", company: user.company || "" }} />;
+  return (
+    <DashboardUI
+      user={{
+        name,
+        email,
+        role,
+        company: (user?.publicMetadata?.company as string) || "",
+      }}
+    />
+  );
 }

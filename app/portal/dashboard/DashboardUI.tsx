@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { signOut } from "next-auth/react";
+import { useClerk } from "@clerk/nextjs";
 import { motion, AnimatePresence } from "framer-motion";
 import { upload } from "@vercel/blob/client";
 import Link from "next/link";
@@ -26,6 +26,7 @@ const STATUS_OPTIONS = [
 ];
 
 export default function DashboardUI({ user }: { user: UserInfo }) {
+  const { signOut } = useClerk();
   const [projects, setProjects] = useState<BidProject[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeView, setActiveView] = useState<"projects" | "create" | "documents">("projects");
@@ -90,7 +91,7 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
             <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "linear-gradient(135deg, #FF4800, #FF7043)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.85rem", fontWeight: 900, color: "#fff" }}>
               {user.name.charAt(0).toUpperCase()}
             </div>
-            <button onClick={() => signOut({ callbackUrl: "/portal" })} style={{ padding: "0.5rem 1rem", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "10px", color: "rgba(255,255,255,0.6)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", fontFamily: "inherit" }}>
+            <button onClick={() => signOut({ redirectUrl: "/portal" })} style={{ padding: "0.5rem 1rem", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "10px", color: "rgba(255,255,255,0.6)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", fontFamily: "inherit" }}>
               Logout
             </button>
           </div>

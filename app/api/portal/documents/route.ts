@@ -1,14 +1,12 @@
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { addConstructionDoc, getConstructionDocs } from "@/lib/db";
 
 export const maxDuration = 60;
 
-/* ─── GET: List all construction documents ─── */
 export async function GET() {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const { userId } = await auth();
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -16,10 +14,9 @@ export async function GET() {
   return NextResponse.json(docs);
 }
 
-/* ─── POST: Save construction document metadata (file already uploaded to Vercel Blob) ─── */
 export async function POST(req: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const { userId } = await auth();
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -31,7 +28,9 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    const user = session.user as { name?: string; email?: string; company?: string };
+    const user = await currentUser();
+    const email = user?.emailAddresses?.[0]?.emailAddress || "";
+    const name = `${user?.firstName || ""} ${user?.lastName || ""}`.trim();
 
     const doc = {
       id: crypto.randomUUID(),
@@ -39,9 +38,9 @@ export async function POST(req: Request) {
       type: fileType || "pdf",
       category: category || "other",
       url: blobUrl,
-      uploadedBy: user.email || "",
-      uploadedByName: user.name || "",
-      uploadedByCompany: (user as { company?: string }).company || "",
+      uploadedBy: email,
+      uploadedByName: name,
+      uploadedByCompany: (user?.publicMetadata?.company as string) || "",
       projectId: projectId || undefined,
       notes: notes || undefined,
       uploadedAt: new Date().toISOString(),

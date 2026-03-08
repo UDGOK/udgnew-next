@@ -1,39 +1,29 @@
-import { SignIn } from "@clerk/nextjs";
-import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
+import { SignUp } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Bid Portal | UDGOK",
-  description: "Sign in to the UDGOK Subcontractor Bid Portal to view projects and submit bids.",
+  title: "Create Account | UDGOK Bid Portal",
+  description: "Create an account to access the UDGOK Subcontractor Bid Portal.",
 };
 
-export default async function PortalPage() {
-  const { userId } = await auth();
-  if (userId) {
-    redirect("/portal/dashboard");
-  }
-
+export default function SignUpPage() {
   return (
     <main style={{ minHeight: "100vh", background: "#0B061B", display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem 1rem" }}>
-      {/* Background grid */}
       <div style={{ position: "fixed", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
 
       <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: "520px" }}>
-        {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
           <Link href="/">
             <Image src="/images/logo-transparent.png" alt="UDGOK" width={160} height={60} style={{ height: "50px", width: "auto", objectFit: "contain", margin: "0 auto" }} />
           </Link>
           <div style={{ marginTop: "1.5rem", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", color: "#FF4800" }}>
-            Subcontractor Bid Portal
+            Create Account
           </div>
         </div>
 
-        {/* Clerk Sign In */}
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <SignIn
+          <SignUp
             appearance={{
               elements: {
                 rootBox: { width: "100%" },
@@ -45,26 +35,15 @@ export default async function PortalPage() {
                 formButtonPrimary: { background: "#FF4800", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", borderRadius: "14px" },
                 footerAction: { color: "rgba(255,255,255,0.4)" },
                 footerActionLink: { color: "#FF4800" },
-                identityPreview: { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)" },
-                identityPreviewText: { color: "#fff" },
-                identityPreviewEditButton: { color: "#FF4800" },
-                formFieldInputShowPasswordButton: { color: "rgba(255,255,255,0.5)" },
-                dividerLine: { borderColor: "rgba(255,255,255,0.1)" },
-                dividerText: { color: "rgba(255,255,255,0.3)" },
-                socialButtonsBlockButton: { border: "1px solid rgba(255,255,255,0.12)", color: "#fff" },
-                socialButtonsBlockButtonText: { color: "#fff" },
-                alertText: { color: "#E53935" },
-                formFieldSuccessText: { color: "#00A842" },
               },
             }}
             routing="path"
-            path="/portal"
-            signUpUrl="/portal/sign-up"
+            path="/portal/sign-up"
+            signInUrl="/portal"
             forceRedirectUrl="/portal/dashboard"
           />
         </div>
 
-        {/* Footer */}
         <div style={{ textAlign: "center", marginTop: "2rem", fontSize: "0.75rem", color: "rgba(255,255,255,0.25)" }}>
           © {new Date().getFullYear()} UDGOK. Access restricted to authorized contractors.
         </div>

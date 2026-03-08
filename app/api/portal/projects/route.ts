@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { getProjects, addProject, isAdmin, updateProject, deleteProject } from "@/lib/db";
 
-// GET — list all projects (any authenticated user)
 export async function GET() {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email) {
+  const { userId } = await auth();
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -14,10 +12,15 @@ export async function GET() {
   return NextResponse.json(projects);
 }
 
-// POST — create a new project (admin only)
 export async function POST(req: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email || !isAdmin(session.user.email)) {
+  const { userId } = await auth();
+  if (!userId) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const user = await currentUser();
+  const email = user?.emailAddresses?.[0]?.emailAddress || "";
+  if (!isAdmin(email)) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
@@ -51,10 +54,15 @@ export async function POST(req: Request) {
   }
 }
 
-// PUT — update an existing project (admin only)
 export async function PUT(req: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email || !isAdmin(session.user.email)) {
+  const { userId } = await auth();
+  if (!userId) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const user = await currentUser();
+  const email = user?.emailAddresses?.[0]?.emailAddress || "";
+  if (!isAdmin(email)) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
@@ -78,10 +86,15 @@ export async function PUT(req: Request) {
   }
 }
 
-// DELETE — delete a project (admin only)
 export async function DELETE(req: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.email || !isAdmin(session.user.email)) {
+  const { userId } = await auth();
+  if (!userId) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const user = await currentUser();
+  const email = user?.emailAddresses?.[0]?.emailAddress || "";
+  if (!isAdmin(email)) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
