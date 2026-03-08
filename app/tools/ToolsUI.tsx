@@ -159,16 +159,55 @@ function RoofingCalc() {
 }
 
 /* ─────────────────── PROPERTY INTELLIGENCE ─────────────────── */
+interface NominatimResult { place_id: number; display_name: string; type: string; }
+
 function PropertyIntelligenceCalc() {
   const [address, setAddress] = useState("");
   const [radius, setRadius] = useState("5");
   const [loading, setLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState<NominatimResult[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [fetchingAddr, setFetchingAddr] = useState(false);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [result, setResult] = useState<{population: number; medianIncome: number; medianAge: number; housingUnits: number; educationBachPlus: number } | null>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) setShowSuggestions(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  // Debounced autocomplete via Nominatim
+  const handleAddressChange = (val: string) => {
+    setAddress(val);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (val.length < 3) { setSuggestions([]); setShowSuggestions(false); return; }
+    setFetchingAddr(true);
+    debounceRef.current = setTimeout(async () => {
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&countrycodes=us&limit=6&q=${encodeURIComponent(val)}`, { headers: { "Accept-Language": "en" } });
+        const data: NominatimResult[] = await res.json();
+        setSuggestions(data);
+        setShowSuggestions(data.length > 0);
+      } catch { setSuggestions([]); }
+      setFetchingAddr(false);
+    }, 400);
+  };
+
+  const selectSuggestion = (s: NominatimResult) => {
+    setAddress(s.display_name);
+    setSuggestions([]);
+    setShowSuggestions(false);
+  };
 
   const lookup = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulated demographics — in production this calls the Census API
+    setShowSuggestions(false);
     setTimeout(() => {
       const pop = Math.floor(Math.random() * 80000 + 20000);
       setResult({
@@ -185,7 +224,54 @@ function PropertyIntelligenceCalc() {
   return (
     <form onSubmit={lookup} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
       <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, margin: "0 0 0.5rem" }}>Get population-weighted demographic data for any US location. Analyze Census data including population, median income, age, and housing within a custom radius.</p>
-      <div><label style={labelStyle}>Address or City, State</label><input type="text" required placeholder="e.g. Tulsa, OK" style={inputStyle} value={address} onChange={e => setAddress(e.target.value)} /></div>
+
+      {/* Address Autocomplete */}
+      <div ref={wrapperRef} style={{ position: "relative" }}>
+        <label style={labelStyle}>Address or City, State</label>
+        <div style={{ position: "relative" }}>
+          <input
+            type="text" required autoComplete="off"
+            placeholder="Start typing an address…"
+            style={inputStyle}
+            value={address}
+            onChange={e => handleAddressChange(e.target.value)}
+            onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
+          />
+          {fetchingAddr && (
+            <div style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", width: "18px", height: "18px", border: "2px solid rgba(255,72,0,0.3)", borderTop: "2px solid #FF4800", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+          )}
+        </div>
+
+        {/* Suggestion Dropdown */}
+        {showSuggestions && (
+          <div style={{
+            position: "absolute", top: "100%", left: 0, right: 0, zIndex: 50, marginTop: "4px",
+            background: "#1a1a2e", border: "1px solid rgba(255,72,0,0.25)", borderRadius: "14px",
+            overflow: "hidden", boxShadow: "0 12px 40px rgba(0,0,0,0.5)",
+          }}>
+            {suggestions.map((s) => (
+              <button
+                key={s.place_id} type="button"
+                onClick={() => selectSuggestion(s)}
+                style={{
+                  display: "flex", alignItems: "flex-start", gap: "0.75rem", width: "100%",
+                  padding: "0.85rem 1rem", background: "transparent", border: "none",
+                  borderBottom: "1px solid rgba(255,255,255,0.05)", color: "#fff",
+                  fontSize: "0.85rem", textAlign: "left", cursor: "pointer",
+                  fontFamily: "inherit", transition: "background 0.15s",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,72,0,0.08)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+              >
+                <span style={{ color: "#FF4800", fontSize: "1rem", flexShrink: 0, marginTop: "1px" }}>📍</span>
+                <span style={{ lineHeight: 1.4, color: "rgba(255,255,255,0.85)" }}>{s.display_name}</span>
+              </button>
+            ))}
+            <div style={{ padding: "0.5rem 1rem", fontSize: "0.6rem", color: "rgba(255,255,255,0.25)", textAlign: "right" }}>Powered by OpenStreetMap</div>
+          </div>
+        )}
+      </div>
+
       <div><label style={labelStyle}>Search Radius (miles)</label><select style={inputStyle} value={radius} onChange={e => setRadius(e.target.value)}><option value="1">1 Mile</option><option value="3">3 Miles</option><option value="5">5 Miles</option><option value="10">10 Miles</option><option value="25">25 Miles</option></select></div>
       <button type="submit" style={btnStyle} disabled={loading}>{loading ? "Analyzing Census Data…" : "Run Analysis"}</button>
       {result && (

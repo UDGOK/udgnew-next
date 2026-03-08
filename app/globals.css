@@ -143,6 +143,9 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes spin-loader {
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 @keyframes glowPulse {
   0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
