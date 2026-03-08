@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { isAdmin, addDocToProject } from "@/lib/db";
+import { isAdmin, addDocToProjectAsync } from "@/lib/db";
 
 export const maxDuration = 60;
 
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       uploadedAt: new Date().toISOString(),
     };
 
-    addDocToProject(projectId, doc);
+    await addDocToProjectAsync(projectId, doc);
 
     return NextResponse.json({ success: true, document: doc });
   } catch (err) {

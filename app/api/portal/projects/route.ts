@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { getProjects, addProject, isAdmin, updateProject, deleteProject } from "@/lib/db";
+import { getProjectsAsync, addProjectAsync, isAdmin, updateProjectAsync, deleteProjectAsync } from "@/lib/db";
 
 export async function GET() {
   const { userId } = await auth();
@@ -8,7 +8,7 @@ export async function GET() {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const projects = getProjects();
+  const projects = await getProjectsAsync();
   return NextResponse.json(projects);
 }
 
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
       createdAt: new Date().toISOString(),
     };
 
-    addProject(project);
+    await addProjectAsync(project);
     return NextResponse.json(project);
   } catch (err) {
     console.error("Create project error:", err);
@@ -74,7 +74,7 @@ export async function PUT(req: Request) {
       return NextResponse.json({ error: "Project ID is required" }, { status: 400 });
     }
 
-    const updated = updateProject(id, updates);
+    const updated = await updateProjectAsync(id, updates);
     if (!updated) {
       return NextResponse.json({ error: "Project not found" }, { status: 404 });
     }
@@ -106,7 +106,7 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ error: "Project ID is required" }, { status: 400 });
     }
 
-    deleteProject(id);
+    await deleteProjectAsync(id);
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Delete project error:", err);

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { addConstructionDoc, getConstructionDocs } from "@/lib/db";
+import { addConstructionDocAsync, getConstructionDocsAsync } from "@/lib/db";
 
 export const maxDuration = 60;
 
@@ -10,7 +10,7 @@ export async function GET() {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const docs = getConstructionDocs();
+  const docs = await getConstructionDocsAsync();
   return NextResponse.json(docs);
 }
 
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
       uploadedAt: new Date().toISOString(),
     };
 
-    addConstructionDoc(doc);
+    await addConstructionDocAsync(doc);
 
     return NextResponse.json({ success: true, document: doc });
   } catch (err) {
