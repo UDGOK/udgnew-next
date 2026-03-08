@@ -65,6 +65,16 @@ export default function Navigation() {
     setHoveredItem(null);
   }, [pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   const isActive = (href: string) => pathname === href;
 
   // Render the fullscreen spatial blueprint overlay
@@ -271,44 +281,103 @@ export default function Navigation() {
         </AnimatePresence>
       </header>
 
-      {/* Mobile Menu (Kept classic sliding overlay for usability) */}
-      <div
-        className="fixed z-[999] overflow-y-auto"
-        style={{
-          top: "80px", left: 0, width: "100%", height: "calc(100vh - 80px)", background: "#0B061B",
-          transform: mobileOpen ? "translateX(0)" : "translateX(100%)", transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)", padding: "2rem",
-        }}
-      >
-        <Link href="/" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Home</Link>
-        <Link href="/projects" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Work</Link>
-        
-        {Object.entries(menuContent).map(([key, data]) => (
-          <MobileGroup key={key} title={data.title}>
-            {data.items.map((item, idx) => (
-              <MobileSubLink key={idx} href={item.href} onClick={() => setMobileOpen(false)}>
-                {item.top} <span style={{ opacity: 0.5, fontSize: "0.85em", fontWeight: 400 }}>{item.sub}</span>
-              </MobileSubLink>
-            ))}
-          </MobileGroup>
-        ))}
+      {/* ── Premium Fullscreen Mobile Menu ── */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ position: "fixed", inset: 0, zIndex: 10001, background: "#0B061B", overflowY: "auto", overscrollBehavior: "contain" }}
+          >
+            {/* Mobile Header */}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "80px", padding: "0 1.5rem", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+              <Link href="/" onClick={() => setMobileOpen(false)} className="logo-glow">
+                <Image src="/images/logo-transparent.png" alt="UDGOK" width={120} height={44} style={{ height: "44px", width: "auto", objectFit: "contain" }} priority />
+              </Link>
+              <button
+                onClick={() => setMobileOpen(false)}
+                aria-label="Close menu"
+                style={{ width: "44px", height: "44px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "12px", color: "#fff", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
+              >✕</button>
+            </div>
 
-        <MobileGroup title="Service Areas">
-          {serviceAreas.map((a) => (
-            <MobileSubLink key={a.href} href={a.href} onClick={() => setMobileOpen(false)}>
-              {a.label}
-            </MobileSubLink>
-          ))}
-        </MobileGroup>
+            {/* Menu Content */}
+            <nav style={{ padding: "1.5rem" }}>
+              {/* Top-Level Links */}
+              {[
+                { href: "/", label: "Home" },
+                { href: "/projects", label: "Work" },
+              ].map((link, i) => (
+                <motion.div key={link.href} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 * i, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    style={{ display: "block", fontSize: "2rem", fontWeight: 800, color: isActive(link.href) ? "#FF4800" : "#fff", textDecoration: "none", padding: "1rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", textTransform: "uppercase", letterSpacing: "-0.02em" }}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
 
-        <Link href="/contact" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Contact</Link>
-      </div>
+              {/* Accordion Sections */}
+              {Object.entries(menuContent).map(([key, data], gi) => (
+                <MobileAccordion key={key} title={data.title} delay={0.1 + gi * 0.05}>
+                  {data.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.85rem 0", color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: "1.1rem", fontWeight: 600, borderBottom: "1px solid rgba(255,255,255,0.04)" }}
+                    >
+                      <span>{item.top} <span style={{ opacity: 0.4, fontWeight: 400, fontSize: "0.9em" }}>{item.sub}</span></span>
+                      <span style={{ color: "#FF4800", fontSize: "0.9rem" }}>→</span>
+                    </Link>
+                  ))}
+                </MobileAccordion>
+              ))}
 
-      <style jsx>{`
-        .mobile-nav-link {
-          display: block; font-size: 2rem; font-weight: 800; color: #fff; text-decoration: none; padding: 1rem 0;
-          border-bottom: 1px solid rgba(255,255,255,0.1); text-transform: uppercase; letter-spacing: -0.02em;
-        }
-      `}</style>
+              {/* Service Areas Accordion */}
+              <MobileAccordion title="Service Areas" delay={0.25}>
+                {serviceAreas.map((a) => (
+                  <Link
+                    key={a.href}
+                    href={a.href}
+                    onClick={() => setMobileOpen(false)}
+                    style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.85rem 0", color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: "1.1rem", fontWeight: 600, borderBottom: "1px solid rgba(255,255,255,0.04)" }}
+                  >
+                    <span>{a.label}</span>
+                    <span style={{ color: "#FF4800", fontSize: "0.9rem" }}>→</span>
+                  </Link>
+                ))}
+              </MobileAccordion>
+
+              {/* Contact Link */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.4 }}>
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  style={{ display: "block", fontSize: "2rem", fontWeight: 800, color: isActive("/contact") ? "#FF4800" : "#fff", textDecoration: "none", padding: "1rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", textTransform: "uppercase", letterSpacing: "-0.02em" }}
+                >
+                  Contact
+                </Link>
+              </motion.div>
+
+              {/* CTA Button */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} style={{ marginTop: "2rem" }}>
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  style={{ display: "block", textAlign: "center", padding: "1.25rem", background: "#FF4800", color: "#fff", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", borderRadius: "16px" }}
+                >
+                  Start Your Project →
+                </Link>
+              </motion.div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
@@ -329,25 +398,30 @@ function NavLink({ href, active, children }: { href: string; active: boolean; ch
   );
 }
 
-function MobileGroup({ title, children }: { title: string; children: React.ReactNode }) {
+function MobileAccordion({ title, delay = 0, children }: { title: string; delay?: number; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
   return (
-    <div style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "1.5rem 0" }}>
-      <span style={{ display: "block", color: "#FF4800", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>
-        {title}
-      </span>
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>{children}</div>
-    </div>
-  );
-}
-
-function MobileSubLink({ href, onClick, children }: { href: string; onClick?: () => void; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      onClick={onClick}
-      style={{ display: "block", color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: "1.25rem", fontWeight: 600, letterSpacing: "-0.01em" }}
-    >
-      {children}
-    </Link>
+    <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay, duration: 0.4, ease: [0.16, 1, 0.3, 1] }} style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "1rem 0", background: "none", border: "none", cursor: "pointer", fontFamily: "inherit" }}
+      >
+        <span style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>{title}</span>
+        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.25 }} style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.8rem" }}>▼</motion.span>
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            style={{ overflow: "hidden", paddingLeft: "0.5rem" }}
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
