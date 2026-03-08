@@ -38,13 +38,30 @@ export interface BidProject {
   createdAt: string;
 }
 
-/* ─── Paths ─── */
-const DATA_DIR = path.join(process.cwd(), "data");
+/* ─── Paths (Vercel uses /tmp for writable storage) ─── */
+const IS_VERCEL = !!process.env.VERCEL;
+const SEED_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = IS_VERCEL ? "/tmp/data" : SEED_DIR;
 const USERS_FILE = path.join(DATA_DIR, "users.json");
 const PROJECTS_FILE = path.join(DATA_DIR, "projects.json");
 
 function ensureDir() {
   if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+
+  // On Vercel, copy seed files from bundled data/ → /tmp/data/ on first access
+  if (IS_VERCEL) {
+    for (const file of ["users.json", "projects.json", "construction-docs.json"]) {
+      const dest = path.join(DATA_DIR, file);
+      if (!fs.existsSync(dest)) {
+        const seed = path.join(SEED_DIR, file);
+        if (fs.existsSync(seed)) {
+          fs.copyFileSync(seed, dest);
+        } else {
+          fs.writeFileSync(dest, "[]");
+        }
+      }
+    }
+  }
 }
 
 /* ─── Users ─── */

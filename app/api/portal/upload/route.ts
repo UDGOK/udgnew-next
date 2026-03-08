@@ -32,8 +32,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "File too large. Max 50MB." }, { status: 400 });
     }
 
-    // Create upload directory
-    const uploadDir = path.join(process.cwd(), "public", "portal-uploads", projectId);
+    // Create upload directory (Vercel has read-only public/, use /tmp)
+    const IS_VERCEL = !!process.env.VERCEL;
+    const baseDir = IS_VERCEL ? "/tmp" : path.join(process.cwd(), "public");
+    const uploadDir = path.join(baseDir, "portal-uploads", projectId);
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
@@ -49,7 +51,7 @@ export async function POST(req: Request) {
       id: crypto.randomUUID(),
       name: file.name,
       type: ext.replace(".", ""),
-      url: `/portal-uploads/${projectId}/${safeFilename}`,
+      url: IS_VERCEL ? `/api/portal/serve-file?path=portal-uploads/${projectId}/${safeFilename}` : `/portal-uploads/${projectId}/${safeFilename}`,
       uploadedAt: new Date().toISOString(),
     };
 
