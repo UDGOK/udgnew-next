@@ -28,7 +28,7 @@ export async function POST(req: Request): Promise<NextResponse> {
             "application/dxf",
             "application/octet-stream",
           ],
-          maximumSizeInBytes: 50 * 1024 * 1024,
+          maximumSizeInBytes: 500 * 1024 * 1024, // 500MB for large construction docs
         };
       },
       onUploadCompleted: async () => {},
