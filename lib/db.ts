@@ -106,3 +106,38 @@ export function addDocToProject(projectId: string, doc: ProjectDoc) {
     saveProjects(projects);
   }
 }
+
+/* ─── Construction Documents (Lien Waivers, Insurance, Pay Apps, etc.) ─── */
+export interface ConstructionDoc {
+  id: string;
+  name: string;
+  type: string;         // file extension
+  category: string;     // "lien-waiver" | "insurance" | "pay-application" | "change-order" | "safety" | "other"
+  url: string;
+  uploadedBy: string;   // email
+  uploadedByName: string;
+  uploadedByCompany: string;
+  projectId?: string;   // optional — link to a specific project
+  notes?: string;
+  uploadedAt: string;
+}
+
+const CONSTRUCTION_DOCS_FILE = path.join(DATA_DIR, "construction-docs.json");
+
+export function getConstructionDocs(): ConstructionDoc[] {
+  ensureDir();
+  if (!fs.existsSync(CONSTRUCTION_DOCS_FILE)) { fs.writeFileSync(CONSTRUCTION_DOCS_FILE, "[]"); return []; }
+  return JSON.parse(fs.readFileSync(CONSTRUCTION_DOCS_FILE, "utf-8"));
+}
+
+export function saveConstructionDocs(docs: ConstructionDoc[]) {
+  ensureDir();
+  fs.writeFileSync(CONSTRUCTION_DOCS_FILE, JSON.stringify(docs, null, 2));
+}
+
+export function addConstructionDoc(doc: ConstructionDoc) {
+  const docs = getConstructionDocs();
+  docs.push(doc);
+  saveConstructionDocs(docs);
+}
+

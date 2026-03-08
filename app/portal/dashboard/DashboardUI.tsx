@@ -9,6 +9,7 @@ import Image from "next/image";
 interface ProjectDoc { id: string; name: string; type: string; url: string; uploadedAt: string; }
 interface BidProject { id: string; title: string; description: string; location: string; category: string; scope: string; budgetRange: string; deadline: string; status: string; documents: ProjectDoc[]; createdAt: string; }
 interface UserInfo { name: string; email: string; role: string; company: string; }
+interface ConstructionDocItem { id: string; name: string; type: string; category: string; url: string; uploadedBy: string; uploadedByName: string; uploadedByCompany: string; projectId?: string; notes?: string; uploadedAt: string; }
 
 /* ─── Shared styles ─── */
 const inputStyle: React.CSSProperties = { width: "100%", padding: "0.85rem 1rem", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "12px", color: "#fff", fontSize: "0.95rem", outline: "none", fontFamily: "inherit" };
@@ -18,7 +19,7 @@ const btnPrimary: React.CSSProperties = { padding: "0.85rem 1.5rem", background:
 export default function DashboardUI({ user }: { user: UserInfo }) {
   const [projects, setProjects] = useState<BidProject[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeView, setActiveView] = useState<"projects" | "create">("projects");
+  const [activeView, setActiveView] = useState<"projects" | "create" | "documents">("projects");
   const [selectedProject, setSelectedProject] = useState<BidProject | null>(null);
   const [bidOpen, setBidOpen] = useState(false);
   const isAdmin = user.role === "admin";
@@ -63,27 +64,27 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
       </header>
 
       <div style={{ position: "relative", zIndex: 1, maxWidth: "1400px", margin: "0 auto", padding: "2rem 1.5rem 4rem" }}>
-        {/* Page Title + Admin Tabs */}
+        {/* Page Title + Tabs */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem", marginBottom: "2rem" }}>
           <div>
             <h1 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.04em", margin: 0, lineHeight: 1 }}>
-              {activeView === "projects" ? "Current Projects" : "Create Project"}
+              {activeView === "projects" ? "Current Projects" : activeView === "documents" ? "Construction Documents" : "Create Project"}
             </h1>
             <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.4)", marginTop: "0.5rem" }}>
               {activeView === "projects"
                 ? (isAdmin ? "Manage active bid projects and upload documents" : "Browse active projects and submit your bids")
+                : activeView === "documents"
+                ? "Upload and manage lien waivers, insurance certificates, pay applications, and more"
                 : "Add a new project for subcontractors to bid on"}
             </p>
           </div>
-          {isAdmin && (
-            <div style={{ display: "flex", gap: "0.5rem" }}>
-              {(["projects", "create"] as const).map(v => (
-                <button key={v} onClick={() => setActiveView(v)} style={{ ...btnPrimary, background: activeView === v ? "#FF4800" : "rgba(255,255,255,0.05)", fontSize: "0.65rem", padding: "0.7rem 1.2rem" }}>
-                  {v === "projects" ? "📋 Projects" : "＋ New Project"}
-                </button>
-              ))}
-            </div>
-          )}
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+            <button onClick={() => setActiveView("projects")} style={{ ...btnPrimary, background: activeView === "projects" ? "#FF4800" : "rgba(255,255,255,0.05)", fontSize: "0.65rem", padding: "0.7rem 1.2rem" }}>📋 Projects</button>
+            <button onClick={() => setActiveView("documents")} style={{ ...btnPrimary, background: activeView === "documents" ? "#FF4800" : "rgba(255,255,255,0.05)", fontSize: "0.65rem", padding: "0.7rem 1.2rem" }}>📁 Documents</button>
+            {isAdmin && (
+              <button onClick={() => setActiveView("create")} style={{ ...btnPrimary, background: activeView === "create" ? "#FF4800" : "rgba(255,255,255,0.05)", fontSize: "0.65rem", padding: "0.7rem 1.2rem" }}>＋ New Project</button>
+            )}
+          </div>
         </div>
 
         {/* Projects Grid */}
@@ -127,6 +128,9 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
 
         {/* Create Project (Admin) */}
         {activeView === "create" && isAdmin && <CreateProjectForm onCreated={() => { setActiveView("projects"); fetchProjects(); }} />}
+
+        {/* Construction Documents */}
+        {activeView === "documents" && <ConstructionDocsSection user={user} isAdmin={isAdmin} projects={projects} />}
       </div>
 
       {/* Project Detail Modal */}
@@ -375,6 +379,192 @@ function BidModal({ project, user, onClose }: { project: BidProject; user: UserI
           )}
         </div>
       </motion.div>
+    </motion.div>
+  );
+}
+
+/* ─────────── CONSTRUCTION DOCUMENTS SECTION ─────────── */
+const DOC_CATEGORIES = [
+  { value: "lien-waiver", label: "Lien Waiver", icon: "📜" },
+  { value: "insurance", label: "Insurance Certificate", icon: "🛡️" },
+  { value: "pay-application", label: "Pay Application", icon: "💰" },
+  { value: "change-order", label: "Change Order", icon: "🔄" },
+  { value: "safety", label: "Safety Report", icon: "⚠️" },
+  { value: "w9", label: "W-9 / Tax Form", icon: "📋" },
+  { value: "contract", label: "Subcontract", icon: "📝" },
+  { value: "other", label: "Other", icon: "📎" },
+];
+
+function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; isAdmin: boolean; projects: BidProject[] }) {
+  const [docs, setDocs] = useState<ConstructionDocItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+  const [uploadSuccess, setUploadSuccess] = useState("");
+  const [filterCat, setFilterCat] = useState("all");
+  const [showUpload, setShowUpload] = useState(false);
+  const [category, setCategory] = useState("lien-waiver");
+  const [notes, setNotes] = useState("");
+  const [projectId, setProjectId] = useState("");
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  const fetchDocs = useCallback(async () => {
+    try {
+      const res = await fetch("/api/portal/documents");
+      const data = await res.json();
+      setDocs(Array.isArray(data) ? data : []);
+    } catch { /* empty */ }
+    setLoading(false);
+  }, []);
+
+  useEffect(() => { fetchDocs(); }, [fetchDocs]);
+
+  const handleUpload = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const file = fileRef.current?.files?.[0];
+    if (!file) { setUploadError("Please select a file"); return; }
+    setUploading(true); setUploadError(""); setUploadSuccess("");
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("category", category);
+    fd.append("notes", notes);
+    if (projectId) fd.append("projectId", projectId);
+    try {
+      const res = await fetch("/api/portal/documents", { method: "POST", body: fd });
+      if (!res.ok) {
+        const d = await res.json();
+        setUploadError(d.error || "Upload failed");
+      } else {
+        setUploadSuccess("Document uploaded successfully");
+        setNotes(""); setProjectId("");
+        if (fileRef.current) fileRef.current.value = "";
+        fetchDocs();
+        setTimeout(() => setUploadSuccess(""), 3000);
+      }
+    } catch { setUploadError("Network error"); }
+    setUploading(false);
+  };
+
+  const filtered = filterCat === "all" ? docs : docs.filter(d => d.category === filterCat);
+  const getCatIcon = (cat: string) => DOC_CATEGORIES.find(c => c.value === cat)?.icon || "📎";
+  const getCatLabel = (cat: string) => DOC_CATEGORIES.find(c => c.value === cat)?.label || cat;
+
+  return (
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+      {/* Upload Toggle */}
+      <div style={{ display: "flex", gap: "1rem", alignItems: "center", marginBottom: "1.5rem", flexWrap: "wrap" }}>
+        <button onClick={() => setShowUpload(!showUpload)} style={{ ...btnPrimary, fontSize: "0.65rem", padding: "0.7rem 1.2rem" }}>
+          {showUpload ? "✕ Close" : "＋ Upload Document"}
+        </button>
+        {uploadSuccess && <span style={{ color: "#00A842", fontSize: "0.85rem", fontWeight: 600 }}>✓ {uploadSuccess}</span>}
+      </div>
+
+      {/* Upload Form */}
+      <AnimatePresence>
+        {showUpload && (
+          <motion.form
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            onSubmit={handleUpload}
+            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "20px", padding: "1.75rem", marginBottom: "1.5rem", overflow: "hidden" }}
+          >
+            {uploadError && <div style={{ marginBottom: "1rem", padding: "0.75rem", background: "rgba(229,57,53,0.1)", borderRadius: "10px", color: "#E53935", fontSize: "0.85rem" }}>{uploadError}</div>}
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+              <div>
+                <label style={labelStyle}>Document Category *</label>
+                <select value={category} onChange={e => setCategory(e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}>
+                  {DOC_CATEGORIES.map(c => (
+                    <option key={c.value} value={c.value} style={{ background: "#111" }}>{c.icon} {c.label}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label style={labelStyle}>Related Project (Optional)</label>
+                <select value={projectId} onChange={e => setProjectId(e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}>
+                  <option value="" style={{ background: "#111" }}>— None —</option>
+                  {projects.map(p => (
+                    <option key={p.id} value={p.id} style={{ background: "#111" }}>{p.title}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div style={{ marginBottom: "1rem" }}>
+              <label style={labelStyle}>File *</label>
+              <input ref={fileRef} type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,.dwg,.dxf" style={{ ...inputStyle, cursor: "pointer", padding: "0.65rem 1rem" }} />
+            </div>
+
+            <div style={{ marginBottom: "1rem" }}>
+              <label style={labelStyle}>Notes (Optional)</label>
+              <input style={inputStyle} value={notes} onChange={e => setNotes(e.target.value)} placeholder="e.g. Partial lien waiver for Draw #3" />
+            </div>
+
+            <button type="submit" disabled={uploading} style={{ ...btnPrimary, width: "100%", opacity: uploading ? 0.6 : 1 }}>
+              {uploading ? "Uploading…" : "Upload Document"}
+            </button>
+          </motion.form>
+        )}
+      </AnimatePresence>
+
+      {/* Category Filter Pills */}
+      <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+        <button onClick={() => setFilterCat("all")} style={{ padding: "0.45rem 1rem", borderRadius: "20px", border: "1px solid", borderColor: filterCat === "all" ? "#FF4800" : "rgba(255,255,255,0.1)", background: filterCat === "all" ? "rgba(255,72,0,0.15)" : "transparent", color: filterCat === "all" ? "#FF4800" : "rgba(255,255,255,0.5)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", fontFamily: "inherit" }}>
+          All ({docs.length})
+        </button>
+        {DOC_CATEGORIES.map(c => {
+          const count = docs.filter(d => d.category === c.value).length;
+          if (count === 0) return null;
+          return (
+            <button key={c.value} onClick={() => setFilterCat(c.value)} style={{ padding: "0.45rem 1rem", borderRadius: "20px", border: "1px solid", borderColor: filterCat === c.value ? "#FF4800" : "rgba(255,255,255,0.1)", background: filterCat === c.value ? "rgba(255,72,0,0.15)" : "transparent", color: filterCat === c.value ? "#FF4800" : "rgba(255,255,255,0.5)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", fontFamily: "inherit" }}>
+              {c.icon} {c.label} ({count})
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Document List */}
+      {loading ? (
+        <div style={{ textAlign: "center", padding: "4rem", color: "rgba(255,255,255,0.3)" }}>Loading documents…</div>
+      ) : filtered.length === 0 ? (
+        <div style={{ textAlign: "center", padding: "4rem 2rem", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px dashed rgba(255,255,255,0.1)" }}>
+          <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>📁</div>
+          <h3 style={{ fontWeight: 800, textTransform: "uppercase", fontSize: "1rem", marginBottom: "0.5rem" }}>No Documents Yet</h3>
+          <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.85rem" }}>Upload lien waivers, insurance certificates, pay applications, and more.</p>
+        </div>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+          {filtered.sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()).map((doc, i) => (
+            <motion.a
+              key={doc.id}
+              href={doc.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.03 }}
+              style={{ display: "flex", alignItems: "center", gap: "1rem", padding: "1rem 1.25rem", background: "rgba(255,255,255,0.03)", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", color: "#fff", transition: "border-color 0.2s" }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(255,72,0,0.3)")}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)")}
+            >
+              <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>{getCatIcon(doc.category)}</span>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.2rem", flexWrap: "wrap" }}>
+                  <span style={{ fontSize: "0.9rem", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{doc.name}</span>
+                  <span style={{ fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#FF4800", background: "rgba(255,72,0,0.1)", padding: "0.2rem 0.5rem", borderRadius: "4px", flexShrink: 0 }}>{getCatLabel(doc.category)}</span>
+                </div>
+                <div style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.35)", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                  <span>{doc.uploadedByName || doc.uploadedBy}{doc.uploadedByCompany ? ` · ${doc.uploadedByCompany}` : ""}</span>
+                  <span>{new Date(doc.uploadedAt).toLocaleDateString()}</span>
+                  {doc.notes && <span style={{ fontStyle: "italic" }}>{doc.notes}</span>}
+                </div>
+              </div>
+              <span style={{ fontSize: "0.8rem", color: "#FF4800", fontWeight: 700, flexShrink: 0 }}>↓</span>
+            </motion.a>
+          ))}
+        </div>
+      )}
     </motion.div>
   );
 }
