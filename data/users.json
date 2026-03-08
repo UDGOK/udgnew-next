@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "id": "215431c7-5640-4787-9b8f-9f20aeebf850",
+    "email": "yasir@udgok.com",
+    "passwordHash": "$2b$12$HfAzno0p2qwf9v7gJCbrzOEX1EJtwAulyBghQi2Q5izXjrrxJ/1xK",
+    "name": "yasir jahangir",
+    "company": "Upscale Development Group",
+    "phone": "9185203823",
+    "trade": "General Contractor",
+    "licenseNumber": "",
+    "state": "OK",
+    "role": "admin",
+    "createdAt": "2026-03-08T19:26:42.928Z"
+  }
+]

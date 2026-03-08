@@ -189,6 +189,7 @@ function CreateProjectForm({ onCreated }: { onCreated: () => void }) {
 function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid }: { project: BidProject; isAdmin: boolean; onClose: () => void; onUpdated: () => void; onBid: () => void }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -201,13 +202,21 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid }: { p
     const file = e.target.files?.[0];
     if (!file) return;
     setUploading(true);
+    setUploadError("");
     const fd = new FormData();
     fd.append("file", file);
     fd.append("projectId", project.id);
     try {
-      await fetch("/api/portal/upload", { method: "POST", body: fd });
-      onUpdated();
-    } catch { /* empty */ }
+      const res = await fetch("/api/portal/upload", { method: "POST", body: fd });
+      if (!res.ok) {
+        const d = await res.json();
+        setUploadError(d.error || "Upload failed");
+      } else {
+        onUpdated();
+      }
+    } catch { 
+      setUploadError("Network error during upload");
+    }
     setUploading(false);
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
@@ -277,6 +286,8 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid }: { p
                 </>
               )}
             </div>
+
+            {uploadError && <div style={{ marginBottom: "1rem", padding: "0.75rem", background: "rgba(229,57,53,0.1)", borderRadius: "10px", color: "#E53935", fontSize: "0.85rem" }}>{uploadError}</div>}
 
             {project.documents.length === 0 ? (
               <div style={{ padding: "2rem", textAlign: "center", background: "rgba(255,255,255,0.02)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.3)", fontSize: "0.85rem" }}>
