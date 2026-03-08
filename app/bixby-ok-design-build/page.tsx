@@ -1,0 +1,36 @@
+import type { Metadata } from "next";
+import ServicePage from "@/components/ServicePage";
+
+export const metadata: Metadata = {
+  title: "Design-Build Contractor Bixby OK | UDGOK",
+  description: "Medical and commercial construction contractor in Bixby, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects in one of Tulsa's fastest-growing suburbs.",
+  alternates: { canonical: "https://udgok.com/bixby-ok-design-build" },
+};
+
+export default function BixbyPage() {
+  return (
+    <ServicePage
+      label="Bixby"
+      title="Construction in Bixby, Oklahoma"
+      description="Medical, dental, and commercial construction in Bixby — Tulsa's fastest-growing suburb and one of our most active markets."
+      imageSrc="/images/tulsa_oklahoma_skyline_centennial_park_daytime.jpg"
+      imageAlt="Construction contractor Bixby Oklahoma by UDGOK"
+      intro="Bixby's explosive growth along the South Memorial and Lynn Lane corridors has created tremendous demand for medical and commercial construction. UDGOK is active throughout Bixby, building dental offices, urgent care facilities, and retail centers that serve the community's growing population of young families and professionals."
+      stats={[
+        { n: "15+", l: "Bixby Projects" },
+        { n: "Top 10", l: "Fastest Growing OK City" },
+        { n: "Medical", l: "& Commercial" },
+        { n: "Local", l: "Team" },
+      ]}
+      features={[
+        { icon: "🦷", title: "Dental Offices", desc: "Modern dental suites designed for Bixby's growing family demographic along major commercial corridors." },
+        { icon: "🏥", title: "Medical Clinics", desc: "Primary care and specialty clinics positioned to serve Bixby's rapidly expanding residential base." },
+        { icon: "🏬", title: "Retail Build-Outs", desc: "Tenant improvements and ground-up retail for Bixby's active commercial development pipeline." },
+        { icon: "⛽", title: "Convenience & Food Service", desc: "C-store and QSR construction along South Memorial and other high-traffic Bixby corridors." },
+        { icon: "🏗️", title: "Ground-Up Projects", desc: "Site acquisition support, design-build delivery, and construction management for new Bixby developments." },
+        { icon: "📋", title: "Bixby Permit Support", desc: "Established relationships with Bixby city staff for efficient permitting and inspections." },
+      ]}
+      cta="Build in Bixby →"
+    />
+  );
+}

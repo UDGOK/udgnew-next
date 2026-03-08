@@ -1,0 +1,308 @@
+/**
+ * UDGOK Text Overlap and Visual Fixes
+ * Ensures text is always readable over images and backgrounds
+ */
+
+/* ========================================
+   GENERAL TEXT PROTECTION
+   ======================================== */
+
+/* Ensure text containers have proper backgrounds */
+.hero-content,
+.page-hero-content,
+.chatbot-intro,
+.predictions-intro,
+.features-intro,
+.vision-content,
+.report-intro,
+.timeline-intro,
+.commitments-intro,
+.cta-content,
+.featured-info {
+    position: relative;
+    z-index: 2;
+    background-color: var(--plaster-white, #F5F5F5);
+}
+
+/* Dark background sections */
+.features-intro,
+.report-intro,
+.timeline-intro,
+.predictions-visual,
+.chatbot-demo {
+    background-color: var(--ink-black, #0A0A0A);
+}
+
+/* Ensure images don't overlap text */
+.hero-visual,
+.page-hero-visual,
+.vision-visual,
+.featured-visual,
+.project-image-wrapper {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Text overlay protection for cards with images */
+.project-info,
+.service-info,
+.video-info,
+.team-info {
+    position: relative;
+    z-index: 2;
+    background-color: var(--plaster-white, #F5F5F5);
+}
+
+/* ========================================
+   HERO SECTION FIXES
+   ======================================== */
+.hero {
+    position: relative;
+}
+
+.hero-content {
+    padding: 6rem;
+    min-height: 100%;
+}
+
+.hero-content h1,
+.hero-content p {
+    position: relative;
+    z-index: 3;
+}
+
+/* ========================================
+   PAGE HERO FIXES
+   ======================================== */
+.page-hero-content {
+    padding: 4rem;
+}
+
+.page-hero-content h1 {
+    position: relative;
+    z-index: 3;
+    text-shadow: none;
+}
+
+/* ========================================
+   CARD OVERLAY FIXES
+   ======================================== */
+.project-card,
+.service-card,
+.video-card,
+.team-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card .project-info,
+.service-card .service-info,
+.video-card .video-info,
+.team-card .team-info {
+    padding: 2rem;
+    background: var(--plaster-white, #F5F5F5);
+}
+
+/* ========================================
+   MARKET SECTION FIXES
+   ======================================== */
+.market-data-label,
+.market-data-title,
+.market-index-card {
+    position: relative;
+    z-index: 2;
+}
+
+.market-index-card {
+    background: var(--plaster-white, #F5F5F5);
+}
+
+/* ========================================
+   SECTION HEADER FIXES
+   ======================================== */
+.section-header,
+.faq-header,
+.video-hub-header,
+.market-data-header {
+    position: relative;
+    z-index: 2;
+    background: var(--plaster-white, #F5F5F5);
+}
+
+.section-label,
+.faq-label,
+.video-hub-label,
+.market-data-label {
+    background: var(--ink-black, #0A0A0A);
+    color: var(--plaster-white, #F5F5F5);
+}
+
+/* ========================================
+   CHAT/CHATBOT FIXES
+   ======================================== */
+.chat-container {
+    position: relative;
+    z-index: 2;
+    background: var(--plaster-white, #F5F5F5);
+}
+
+.chat-messages {
+    background: var(--plaster-white, #F5F5F5);
+}
+
+.chat-message-content {
+    padding: 1rem 1.5rem;
+}
+
+/* ========================================
+   PREDICTION SECTION FIXES
+   ======================================== */
+.prediction-chart,
+.prediction-stat {
+    position: relative;
+    z-index: 2;
+    background: var(--plaster-white, #F5F5F5);
+}
+
+/* ========================================
+   FEATURED PROJECT FIXES
+   ======================================== */
+.featured-info {
+    background: var(--ink-black, #0A0A0A);
+    color: var(--plaster-white, #F5F5F5);
+}
+
+.featured-description {
+    color: var(--concrete-mid, #B0B0B0);
+}
+
+/* ========================================
+   MOBILE RESPONSIVE FIXES
+   ======================================== */
+@media (max-width: 768px) {
+    .hero-content,
+    .page-hero-content {
+        padding: 2rem;
+    }
+
+    .hero-content p,
+    .page-hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Ensure stacked sections have proper backgrounds */
+    .hero,
+    .page-hero {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-visual,
+    .page-hero-visual {
+        order: -1;
+        max-height: 40vh;
+    }
+
+    /* Project cards on mobile */
+    .project-card,
+    .service-card {
+        margin-bottom: 0;
+    }
+
+    .project-info,
+    .service-info {
+        padding: 1.5rem;
+    }
+}
+
+/* ========================================
+   Z-INDEX HIERARCHY
+   ======================================== */
+header {
+    z-index: 1000;
+}
+
+.dropdown-menu {
+    z-index: 999;
+}
+
+.cursor {
+    z-index: 10000;
+}
+
+/* Ensure modals/overlays are above content */
+.modal,
+.overlay {
+    z-index: 9000;
+}
+
+/* ========================================
+   TEXT READABILITY ENHANCEMENTS
+   ======================================== */
+
+/* Add subtle text shadow for better readability if needed */
+.display-text,
+.section-title {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure contrast on hover states */
+nav a:hover,
+.hero-cta:hover,
+.btn-submit:hover {
+    color: var(--plaster-white, #F5F5F5);
+}
+
+/* ========================================
+   STAT SECTION FIXES
+   ======================================== */
+.stats-grid {
+    background: var(--plaster-white, #F5F5F5);
+}
+
+.stat-item {
+    background: var(--plaster-white, #F5F5F5);
+    position: relative;
+    z-index: 2;
+}
+
+/* ========================================
+   FAQ SECTION FIXES
+   ======================================== */
+.faq-section {
+    background: var(--plaster-white, #F5F5F5);
+}
+
+.faq-item {
+    background: var(--plaster-white, #F5F5F5);
+}
+
+.faq-question {
+    background: transparent;
+}
+
+.faq-question:hover {
+    background: var(--concrete-light, #E8E8E8);
+}
+
+.faq-answer {
+    background: var(--plaster-white, #F5F5F5);
+}
+
+/* ========================================
+   FOOTER FIXES
+   ======================================== */
+footer {
+    position: relative;
+    z-index: 2;
+    background: var(--ink-black, #0A0A0A);
+}
+
+.footer-main,
+.footer-bottom {
+    position: relative;
+    z-index: 2;
+}

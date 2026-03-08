@@ -1,0 +1,122 @@
+/* Shim for Tailwind classes used in Location Pages to match Industrial Design */
+
+/* Layout & Grid */
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.gap-4 { gap: 1rem; }
+.gap-8 { gap: 2rem; }
+.gap-12 { gap: 3rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+.space-y-2 > * + * { margin-top: 0.5rem; }
+.space-x-4 > * + * { margin-left: 1rem; }
+
+/* Flexbox */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+
+/* Position */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+
+/* Spacing */
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.px-8 { padding-left: 2rem; padding-right: 2rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mr-2 { margin-right: 0.5rem; }
+.pl-4 { padding-left: 1rem; }
+.pt-8 { padding-top: 2rem; }
+
+/* Typography */
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+.text-4xl { font-size: 2.25rem; }
+.font-bold { font-weight: 700; }
+.leading-tight { line-height: 1.25; }
+.text-center { text-align: center; }
+
+/* Colors - Mapped to Industrial Vars */
+.text-white { color: var(--plaster-white); }
+.text-primary { color: var(--ink-black); }
+.text-secondary { color: var(--concrete-dark); }
+.text-accent { color: var(--industrial-orange); }
+.text-gray-200 { color: #E5E7EB; }
+.text-gray-400 { color: #9CA3AF; }
+.text-gray-500 { color: var(--concrete-dark); }
+.text-gray-600 { color: var(--concrete-dark); }
+.text-gray-900 { color: var(--ink-black); }
+
+.bg-white { background-color: var(--plaster-white); }
+.bg-black { background-color: #000; }
+.bg-gray-50 { background-color: var(--concrete-light); }
+.bg-gray-100 { background-color: var(--concrete-light); }
+.bg-primary { background-color: var(--ink-black); } /* Industrial Primary is Black/Dark */
+.bg-secondary { background-color: var(--ink-black); } /* Map legacy secondary to black */
+.bg-accent { background-color: var(--industrial-orange); }
+
+/* Borders */
+.border-t { border-top: 1px solid; }
+.border-l-2 { border-left-width: 2px; border-left-style: solid; }
+.border-l-4 { border-left-width: 4px; border-left-style: solid; }
+.border-accent { border-color: var(--industrial-orange); }
+.border-gray-700 { border-color: #374151; }
+.rounded { border-radius: 0; } /* Industrial style = square corners */
+.rounded-lg { border-radius: 0; } /* Industrial style = square corners */
+
+/* Effects */
+.opacity-60 { opacity: 0.6; }
+.shadow-lg { box-shadow: none; border: var(--border-thick); } /* Industrial feel */
+.shadow-sm { box-shadow: none; border: var(--border-thin); }
+.bg-cover { background-size: cover; }
+.bg-center { background-position: center; }
+.transition { transition: all 0.2s; }
+.group:hover .group-open\:rotate-180 { transform: rotate(180deg); }
+
+/* Responsive Overrides (Simple) */
+@media (min-width: 768px) {
+    .md\:text-6xl { font-size: 3.75rem; }
+    .md\:text-2xl { font-size: 1.5rem; }
+    .md\:flex-row { flex-direction: row; }
+    .md\:w-1\/2 { width: 50%; }
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 640px) {
+    .sm\:flex-row { flex-direction: row; }
+}
+
+/* Hover States */
+.hover\:bg-orange-600:hover { background-color: var(--ink-black); } /* Darken on hover */
+.hover\:bg-gray-100:hover { background-color: var(--concrete-mid); }
+.hover\:text-white:hover { color: var(--plaster-white); }
+.hover\:text-accent:hover { color: var(--industrial-orange); }
+
+/* Icons */
+.fa-building, .fa-shopping-bag, .fa-utensils, .fa-dumbbell, .fa-map-marker-alt, .fa-phone, .fa-envelope {
+    color: var(--industrial-orange);
+}
+
+/* Fix for regex replaced hover classes */
+.hover\:bg-accent:hover { background-color: var(--ink-black); }
+.hover\:text-accent:hover { color: var(--industrial-orange); }
