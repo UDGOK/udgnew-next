@@ -1,0 +1,63 @@
+import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { isAdmin, addDocToProject } from "@/lib/db";
+import fs from "fs";
+import path from "path";
+
+export async function POST(req: Request) {
+  const session = await getServerSession(authOptions);
+  if (!session?.user?.email || !isAdmin(session.user.email)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
+  try {
+    const formData = await req.formData();
+    const file = formData.get("file") as File | null;
+    const projectId = formData.get("projectId") as string | null;
+
+    if (!file || !projectId) {
+      return NextResponse.json({ error: "File and projectId are required" }, { status: 400 });
+    }
+
+    // Validate file type
+    const allowed = [".pdf", ".jpg", ".jpeg", ".png", ".dwg", ".dxf"];
+    const ext = path.extname(file.name).toLowerCase();
+    if (!allowed.includes(ext)) {
+      return NextResponse.json({ error: `File type ${ext} not allowed. Allowed: ${allowed.join(", ")}` }, { status: 400 });
+    }
+
+    // Max 50MB
+    if (file.size > 50 * 1024 * 1024) {
+      return NextResponse.json({ error: "File too large. Max 50MB." }, { status: 400 });
+    }
+
+    // Create upload directory
+    const uploadDir = path.join(process.cwd(), "public", "portal-uploads", projectId);
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+
+    // Write file
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const safeFilename = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
+    const filePath = path.join(uploadDir, safeFilename);
+    fs.writeFileSync(filePath, buffer);
+
+    // Add doc reference to project
+    const doc = {
+      id: crypto.randomUUID(),
+      name: file.name,
+      type: ext.replace(".", ""),
+      url: `/portal-uploads/${projectId}/${safeFilename}`,
+      uploadedAt: new Date().toISOString(),
+    };
+
+    addDocToProject(projectId, doc);
+
+    return NextResponse.json({ success: true, document: doc });
+  } catch (err) {
+    console.error("Upload error:", err);
+    return NextResponse.json({ error: "Upload failed" }, { status: 500 });
+  }
+}

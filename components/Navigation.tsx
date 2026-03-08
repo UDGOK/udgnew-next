@@ -263,6 +263,17 @@ export default function Navigation() {
             </NavLink>
           </nav>
 
+          {/* Bid Portal Pill */}
+          <Link
+            href="/portal"
+            className="hidden lg:flex"
+            style={{ alignItems: "center", gap: "0.4rem", padding: "0.5rem 1rem", background: "rgba(255,72,0,0.08)", border: "1px solid rgba(255,72,0,0.2)", borderRadius: "100px", textDecoration: "none", color: "rgba(255,255,255,0.75)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", transition: "all 0.2s", marginRight: "0.5rem" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,72,0,0.15)"; e.currentTarget.style.borderColor = "rgba(255,72,0,0.5)"; e.currentTarget.style.color = "#FF4800"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,72,0,0.08)"; e.currentTarget.style.borderColor = "rgba(255,72,0,0.2)"; e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
+          >
+            🔒 Bid Portal
+          </Link>
+
           {/* Mobile Toggle */}
           <button
             className="lg:hidden flex flex-col gap-1.5 p-2 z-[1002]"
@@ -364,8 +375,19 @@ export default function Navigation() {
                 </Link>
               </motion.div>
 
+              {/* Bid Portal */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.33, duration: 0.4 }}>
+                <Link
+                  href="/portal"
+                  onClick={() => setMobileOpen(false)}
+                  style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "1.3rem", fontWeight: 800, color: "#FF4800", textDecoration: "none", padding: "1rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", textTransform: "uppercase", letterSpacing: "-0.02em" }}
+                >
+                  🔒 Bid Portal
+                </Link>
+              </motion.div>
+
               {/* CTA Button */}
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} style={{ marginTop: "2rem" }}>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.38 }} style={{ marginTop: "2rem" }}>
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}

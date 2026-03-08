@@ -453,7 +453,9 @@ function ProjectModal({ project, onClose, projectIndex }: { project: Project; on
           background: "rgba(11,6,27,0.85)",
           backdropFilter: "blur(8px)",
           display: "flex", alignItems: "center", justifyContent: "center",
-          padding: "2rem",
+          padding: "1rem",
+          overflow: "hidden",
+          overscrollBehavior: "contain",
         }}
       >
         <motion.div
@@ -462,15 +464,18 @@ function ProjectModal({ project, onClose, projectIndex }: { project: Project; on
           exit={{ opacity: 0, y: 40, scale: 0.97 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
           onClick={(e) => e.stopPropagation()}
+          onWheel={(e) => e.stopPropagation()}
           style={{
             background: "#fff",
             width: "100%",
             maxWidth: "1200px",
             maxHeight: "90vh",
-            overflow: "hidden",
+            overflowY: "auto",
+            overscrollBehavior: "contain",
             display: "flex",
             flexDirection: "column",
             boxShadow: "0 40px 120px rgba(0,0,0,0.6)",
+            borderRadius: "16px",
           }}
         >
           {/* ── Header ── */}
@@ -516,12 +521,12 @@ function ProjectModal({ project, onClose, projectIndex }: { project: Project; on
           </div>
 
           {/* ── Body ── */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", flex: 1, overflow: "auto", minHeight: 0 }}>
+          <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
 
-            {/* Left — gallery */}
-            <div style={{ display: "flex", flexDirection: "column", borderRight: "3px solid #0B061B", overflow: "hidden" }}>
+            {/* Gallery */}
+            <div style={{ display: "flex", flexDirection: "column", overflow: "hidden" }}>
               {/* Main image */}
-              <div style={{ position: "relative", flex: 1, overflow: "hidden", background: "#0B061B", minHeight: 0 }}>
+              <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", overflow: "hidden", background: "#0B061B", flexShrink: 0 }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeImg}
