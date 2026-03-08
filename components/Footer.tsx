@@ -171,7 +171,7 @@ export default function Footer() {
         </div>
       </footer>
 
-      {/* JSON-LD Schema */}
+      {/* JSON-LD Schema — LocalBusiness */}
       <Script id="schema-local-business" type="application/ld+json">{`
         {
           "@context": "https://schema.org",
@@ -180,7 +180,14 @@ export default function Footer() {
           "alternateName": "UDGOK",
           "url": "https://udgok.com",
           "logo": "https://udgok.com/images/logo.png",
-          "description": "Tulsa-based Design-Build construction firm specializing in medical offices, dental clinics, and commercial buildings.",
+          "description": "Tulsa-based AI-powered Design-Build construction firm specializing in medical offices, dental clinics, oral surgery centers, eye clinics, and commercial buildings across Oklahoma and North Texas.",
+          "foundingDate": "2015",
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "minValue": 10,
+            "maxValue": 50
+          },
+          "priceRange": "$$$$",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "7739 E 38th Street, Ste F",
@@ -189,15 +196,75 @@ export default function Footer() {
             "postalCode": "74145",
             "addressCountry": "US"
           },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 36.1039,
+            "longitude": -95.8903
+          },
           "telephone": "+1-918-520-3823",
           "email": "projects@udgok.com",
           "openingHours": "Mo-Fr 07:00-18:00",
-          "areaServed": ["Tulsa", "Broken Arrow", "Bixby", "Jenks", "Owasso", "Oklahoma City", "Dallas", "Plano"],
+          "areaServed": [
+            {"@type": "City", "name": "Tulsa", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
+            {"@type": "City", "name": "Broken Arrow", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
+            {"@type": "City", "name": "Bixby", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
+            {"@type": "City", "name": "Jenks", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
+            {"@type": "City", "name": "Owasso", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
+            {"@type": "City", "name": "Sand Springs", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
+            {"@type": "City", "name": "Oklahoma City", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
+            {"@type": "City", "name": "Dallas", "containedInPlace": {"@type": "State", "name": "Texas"}},
+            {"@type": "City", "name": "Plano", "containedInPlace": {"@type": "State", "name": "Texas"}}
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Construction Services",
+            "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Medical Office Design-Build", "url": "https://udgok.com/medical-office-design-build-tulsa"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dental Office Construction", "url": "https://udgok.com/dental-office-construction-tulsa"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Oral Surgery Center Construction", "url": "https://udgok.com/oral-surgeon-office-construction-tulsa"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Eye Clinic Construction", "url": "https://udgok.com/eye-clinic-construction-tulsa"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Medical Gas Installation", "url": "https://udgok.com/medical-gas-installation"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Tenant Improvements", "url": "https://udgok.com/tenant-improvements"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Virtual Design & Construction (VDC)", "url": "https://udgok.com/virtual-design-construction"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Preconstruction Services", "url": "https://udgok.com/preconstruction"}}
+            ]
+          },
           "sameAs": [
             "https://www.linkedin.com/company/upscale-development-group",
             "https://www.facebook.com/udgok",
             "https://www.instagram.com/udgok"
+          ],
+          "knowsAbout": [
+            "Medical office construction",
+            "Dental clinic design-build",
+            "Healthcare facility construction",
+            "Medical gas installation and certification",
+            "Commercial construction management",
+            "BIM and virtual design construction",
+            "ADA compliance for healthcare facilities",
+            "HVAC systems for medical environments"
           ]
+        }
+      `}</Script>
+
+      {/* JSON-LD Schema — WebSite with SearchAction */}
+      <Script id="schema-website" type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "UDGOK — Upscale Development Group",
+          "url": "https://udgok.com",
+          "description": "AI-Powered Medical and Dental Design-Build Construction in Oklahoma and Texas.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Upscale Development Group",
+            "url": "https://udgok.com"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://udgok.com/resources?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
         }
       `}</Script>
     </>

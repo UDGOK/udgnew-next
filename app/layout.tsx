@@ -15,11 +15,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "UDGOK — AI-Powered Medical & Dental Design-Build",
+    default: "UDGOK — AI-Powered Medical & Dental Design-Build | Tulsa, OK",
     template: "%s | UDGOK",
   },
   description:
-    "Upscale Development Group specializes in medical office construction, dental office builds, oral surgery centers, and medical gas installation in Tulsa, Oklahoma City, Broken Arrow, Bixby, Jenks, and Dallas.",
+    "Upscale Development Group specializes in medical office construction, dental office builds, oral surgery centers, and medical gas installation in Tulsa, Oklahoma City, Broken Arrow, Bixby, Jenks, and Dallas. Licensed Oklahoma general contractor.",
   keywords: [
     "medical office construction Tulsa",
     "dental office build out Oklahoma",
@@ -27,6 +27,16 @@ export const metadata: Metadata = {
     "medical gas installation",
     "healthcare construction Oklahoma City",
     "design-build contractor Tulsa",
+    "commercial construction Oklahoma",
+    "tenant improvement Tulsa",
+    "dental clinic construction Broken Arrow",
+    "medical office Bixby OK",
+    "construction company Jenks OK",
+    "healthcare design-build Dallas",
+    "preconstruction services Oklahoma",
+    "virtual design construction",
+    "eye clinic construction Tulsa",
+    "convenience store construction",
   ],
   openGraph: {
     title: "Upscale Development Group | Medical & Dental Construction Specialists",
@@ -34,9 +44,32 @@ export const metadata: Metadata = {
       "AI-Powered Design-Build firm specializing in medical, dental, and oral surgery center construction across Oklahoma and Texas.",
     type: "website",
     locale: "en_US",
+    siteName: "UDGOK — Upscale Development Group",
+    url: "https://udgok.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "UDGOK — AI-Powered Medical & Dental Design-Build",
+    description:
+      "Tulsa's trusted Design-Build partner for medical offices, dental clinics, and commercial construction. Serving Oklahoma and North Texas.",
+  },
+  alternates: {
+    canonical: "https://udgok.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: { icon: "/favicon.svg" },
   metadataBase: new URL("https://udgok.com"),
+  category: "construction",
 };
 
 export default function RootLayout({
