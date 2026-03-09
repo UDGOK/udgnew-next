@@ -35,6 +35,7 @@ export default function JenksPage() {
       description="Medical, dental, and commercial construction serving Jenks and the South Tulsa corridor."
       imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="Construction contractor Jenks Oklahoma by UDGOK"
+      tldr="UDGOK provides design-build construction services in Jenks, Oklahoma — a growing city of 24,000+ at the heart of the South Tulsa corridor. We build dental offices, medical clinics, and commercial spaces along Jenks's Riverside Drive, Main Street, and major commercial developments. Jenks's high household incomes and family demographics make it a prime market for dental and medical practice construction."
       intro="Jenks sits at the heart of Tulsa's South Corridor — one of the metro's most active commercial development zones. UDGOK builds in Jenks regularly, delivering dental offices, medical clinics, and retail build-outs for operators who want quality construction without traveling to downtown Tulsa for a contractor."
       stats={[
         { n: "South", l: "Tulsa Corridor Experts" },
@@ -49,6 +50,12 @@ export default function JenksPage() {
         { icon: "🏗️", title: "New Construction", desc: "Ground-up design-build for commercial properties in Jenks with full site-to-CO delivery." },
         { icon: "🔄", title: "Occupied Renovations", desc: "Phased renovations that keep your practice or business operational throughout construction." },
         { icon: "📋", title: "Jenks Permit Coordination", desc: "Direct relationships with Jenks city staff for smooth plan review and inspection scheduling." },
+      ]}
+      faqs={[
+        { q: "How much does commercial construction cost in Jenks, Oklahoma?", a: "Commercial construction in Jenks costs are in line with the Tulsa metro: medical offices $150–$350/sq ft, dental offices $140–$280/sq ft, and retail build-outs $80–$150/sq ft. Jenks's South Tulsa location offers access to affluent demographics with competitive lease rates." },
+        { q: "What makes Jenks a good location for a dental or medical practice?", a: "Jenks has a median household income above the Oklahoma average, a growing population of young families, proximity to South Tulsa and Riverside, and excellent schools (Jenks Public Schools is one of the top-rated districts in the state). These demographics support strong patient demand for dental and medical services." },
+        { q: "How long does it take to get a building permit in Jenks?", a: "Jenks building permits typically process in 2–3 weeks for commercial projects. The city has a responsive development services department that works efficiently with experienced contractors like UDGOK." },
+        { q: "Does UDGOK build restaurants and retail in Jenks?", a: "Yes. We handle tenant improvements and ground-up construction for restaurants, retail shops, and professional offices in Jenks's commercial corridors including Aquarium Drive, Main Street, and Riverside Parkway." },
       ]}
       cta="Build in Jenks →"
     />

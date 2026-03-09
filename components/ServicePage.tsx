@@ -1,13 +1,15 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import MarqueeBanner from "@/components/MarqueeBanner";
 import AnimateIn from "@/components/AnimateIn";
 import CountUp from "@/components/CountUp";
 
 interface Feature { icon: string; title: string; desc: string; }
+interface FAQ { q: string; a: string; }
 interface ServicePageProps {
   label: string;
   title: string;
@@ -18,9 +20,18 @@ interface ServicePageProps {
   features: Feature[];
   cta?: string;
   stats?: { n: string; l: string }[];
+  /** 2-3 sentence speakable TL;DR that an AI can quote verbatim */
+  tldr?: string;
+  /** Question-and-answer pairs rendered as an FAQ section with auto JSON-LD */
+  faqs?: FAQ[];
+  /** Deep-content sections with Q&A-style headings */
+  sections?: { heading: string; body: string }[];
 }
 
-export default function ServicePage({ label, title, description, imageSrc, imageAlt, intro, features, cta = "Start Your Project →", stats }: ServicePageProps) {
+export default function ServicePage({
+  label, title, description, imageSrc, imageAlt, intro, features,
+  cta = "Start Your Project →", stats, tldr, faqs, sections,
+}: ServicePageProps) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 300]);
@@ -28,6 +39,21 @@ export default function ServicePage({ label, title, description, imageSrc, image
 
   return (
     <main className="bg-[#0B061B] min-h-screen text-white overflow-hidden pb-0">
+
+      {/* FAQ JSON-LD (auto-generated when faqs prop provided) */}
+      {faqs && faqs.length > 0 && (
+        <Script id="schema-faq-auto" type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          })}
+        </Script>
+      )}
       
       {/* 1. Epic Parallax Hero */}
       <section ref={containerRef} className="relative h-[85vh] w-full flex items-end justify-center overflow-hidden border-b border-white/10">
@@ -64,6 +90,29 @@ export default function ServicePage({ label, title, description, imageSrc, image
       </section>
 
       <MarqueeBanner />
+
+      {/* ── TL;DR Speakable Summary ── */}
+      {tldr && (
+        <section className="border-b border-white/10">
+          <div className="max-w-5xl mx-auto px-6 md:px-12 py-16">
+            <AnimateIn>
+              <div
+                data-speakable="true"
+                className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-10"
+              >
+                <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#FF4800] to-transparent" />
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="w-2 h-2 rounded-full bg-[#FF4800] animate-pulse" />
+                  <span className="text-[0.65rem] font-bold tracking-[0.25em] uppercase text-[#FF4800]">Quick Answer</span>
+                </div>
+                <p className="text-lg md:text-xl text-white/80 leading-relaxed font-medium">
+                  {tldr}
+                </p>
+              </div>
+            </AnimateIn>
+          </div>
+        </section>
+      )}
 
       {/* 2. Blueprint Engineering Grid */}
       <section className="relative py-32 border-b border-white/10">
@@ -140,6 +189,33 @@ export default function ServicePage({ label, title, description, imageSrc, image
         </div>
       </section>
 
+      {/* ── Deep Content Sections (Q&A-style headings) ── */}
+      {sections && sections.length > 0 && (
+        <section className="py-24 border-b border-white/10">
+          <div className="max-w-4xl mx-auto px-6 md:px-12">
+            <AnimateIn>
+              <div className="flex items-center gap-4 mb-16">
+                <span className="w-8 h-px bg-[#FF4800]" />
+                <span className="text-[#FF4800] text-xs font-bold tracking-[0.2em] uppercase">In-Depth Guide</span>
+              </div>
+            </AnimateIn>
+            {sections.map((s, i) => (
+              <AnimateIn key={i} delay={i * 0.05}>
+                <div className="mb-16 last:mb-0">
+                  <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6 text-white leading-snug">
+                    {s.heading}
+                  </h2>
+                  <div
+                    className="text-white/60 text-base md:text-lg leading-relaxed space-y-4 [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:space-y-2 [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:space-y-2 [&>table]:w-full [&>table]:border-collapse [&_th]:bg-[#FF4800]/20 [&_th]:text-left [&_th]:px-4 [&_th]:py-3 [&_th]:text-sm [&_th]:font-bold [&_th]:uppercase [&_th]:tracking-wider [&_th]:text-white/80 [&_td]:px-4 [&_td]:py-3 [&_td]:border-t [&_td]:border-white/10 [&_td]:text-white/60"
+                    dangerouslySetInnerHTML={{ __html: s.body }}
+                  />
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* 4. Process Timeline */}
       <section className="py-32 bg-[#05020B] px-6 md:px-12 relative overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 relative z-10">
@@ -178,6 +254,30 @@ export default function ServicePage({ label, title, description, imageSrc, image
         </div>
       </section>
 
+      {/* ── FAQ Accordion ── */}
+      {faqs && faqs.length > 0 && (
+        <section className="py-24 px-6 md:px-12 border-b border-white/10 bg-[#0B061B]">
+          <div className="max-w-4xl mx-auto">
+            <AnimateIn>
+              <div className="flex items-center gap-4 mb-4">
+                <span className="w-8 h-px bg-[#FF4800]" />
+                <span className="text-[#FF4800] text-xs font-bold tracking-[0.2em] uppercase">Common Questions</span>
+              </div>
+              <h2 className="text-[clamp(2.5rem,4vw,4rem)] font-black uppercase tracking-tighter leading-[0.9] mb-16">
+                Frequently <span className="text-[#FF4800]">Asked</span>
+              </h2>
+            </AnimateIn>
+            <div className="space-y-4">
+              {faqs.map((faq, i) => (
+                <AnimateIn key={i} delay={i * 0.05}>
+                  <FAQItem q={faq.q} a={faq.a} />
+                </AnimateIn>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 5. Cyber-Physical CTA */}
       <section className="bg-white text-[#0B061B] py-32 px-6 md:px-12 text-center rounded-t-[3rem] -mt-10 relative z-20">
         <AnimateIn>
@@ -202,5 +302,39 @@ export default function ServicePage({ label, title, description, imageSrc, image
       </section>
 
     </main>
+  );
+}
+
+/* ── FAQ Accordion Item ── */
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div
+      className="border border-white/10 rounded-2xl overflow-hidden bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-8 py-6 text-left cursor-pointer"
+      >
+        <span className="text-base md:text-lg font-semibold text-white/90 pr-8 leading-snug">{q}</span>
+        <motion.span
+          animate={{ rotate: open ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="text-[#FF4800] text-2xl font-bold flex-shrink-0"
+        >
+          +
+        </motion.span>
+      </button>
+      <motion.div
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="overflow-hidden"
+      >
+        <p className="px-8 pb-6 text-white/60 text-base leading-relaxed">
+          {a}
+        </p>
+      </motion.div>
+    </div>
   );
 }
