@@ -365,6 +365,8 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdi
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState("");
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadFileName, setUploadFileName] = useState("");
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -378,12 +380,26 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdi
     if (!file) return;
     setUploading(true);
     setUploadError("");
+    setUploadProgress(0);
+    setUploadFileName(file.name);
     try {
+      // Simulate progress during blob upload
+      const progressInterval = setInterval(() => {
+        setUploadProgress(prev => {
+          if (prev >= 85) { clearInterval(progressInterval); return 85; }
+          const increment = file.size > 10 * 1024 * 1024 ? 2 : file.size > 1024 * 1024 ? 5 : 10;
+          return Math.min(prev + increment, 85);
+        });
+      }, 300);
+
       // Upload directly to Vercel Blob (bypasses 4.5MB serverless limit)
       const blob = await upload(file.name, file, {
         access: "public",
         handleUploadUrl: "/api/portal/blob-upload",
       });
+
+      clearInterval(progressInterval);
+      setUploadProgress(90);
 
       // Save metadata to our API
       const ext = file.name.split(".").pop()?.toLowerCase() || "";
@@ -397,16 +413,22 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdi
           fileType: ext,
         }),
       });
+
+      setUploadProgress(100);
+
       if (!res.ok) {
         const d = await res.json();
         setUploadError(d.error || "Failed to save document");
       } else {
+        await new Promise(r => setTimeout(r, 500));
         onUpdated();
       }
     } catch (err) {
       setUploadError(err instanceof Error ? err.message : "Upload failed");
     }
     setUploading(false);
+    setUploadProgress(0);
+    setUploadFileName("");
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
@@ -489,6 +511,22 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdi
                 </>
               )}
             </div>
+
+            {/* Upload Progress Bar */}
+            {uploading && (
+              <div style={{ marginBottom: "1rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+                  <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>Uploading: {uploadFileName}</span>
+                  <span style={{ fontSize: "0.75rem", color: "#FF4800", fontWeight: 800 }}>{uploadProgress}%</span>
+                </div>
+                <div style={{ width: "100%", height: "6px", background: "rgba(255,255,255,0.06)", borderRadius: "3px", overflow: "hidden" }}>
+                  <div style={{ width: `${uploadProgress}%`, height: "100%", background: "linear-gradient(90deg, #FF4800, #FF7043)", borderRadius: "3px", transition: "width 0.3s ease" }} />
+                </div>
+                <div style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.3)", marginTop: "0.35rem" }}>
+                  {uploadProgress < 85 ? "Uploading file to cloud storage…" : uploadProgress < 100 ? "Saving document metadata…" : "Complete!"}
+                </div>
+              </div>
+            )}
 
             {uploadError && <div style={{ marginBottom: "1rem", padding: "0.75rem", background: "rgba(229,57,53,0.1)", borderRadius: "10px", color: "#E53935", fontSize: "0.85rem" }}>{uploadError}</div>}
 
@@ -618,6 +656,8 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState("");
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadFileName, setUploadFileName] = useState("");
   const [filterCat, setFilterCat] = useState("all");
   const [showUpload, setShowUpload] = useState(false);
   const [category, setCategory] = useState("lien-waiver");
@@ -641,12 +681,25 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
     const file = fileRef.current?.files?.[0];
     if (!file) { setUploadError("Please select a file"); return; }
     setUploading(true); setUploadError(""); setUploadSuccess("");
+    setUploadProgress(0); setUploadFileName(file.name);
     try {
+      // Simulate progress during blob upload
+      const progressInterval = setInterval(() => {
+        setUploadProgress(prev => {
+          if (prev >= 85) { clearInterval(progressInterval); return 85; }
+          const increment = file.size > 10 * 1024 * 1024 ? 2 : file.size > 1024 * 1024 ? 5 : 10;
+          return Math.min(prev + increment, 85);
+        });
+      }, 300);
+
       // Upload directly to Vercel Blob
       const blob = await upload(file.name, file, {
         access: "public",
         handleUploadUrl: "/api/portal/blob-upload",
       });
+
+      clearInterval(progressInterval);
+      setUploadProgress(90);
 
       // Save metadata to our API
       const ext = file.name.split(".").pop()?.toLowerCase() || "";
@@ -662,6 +715,9 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
           projectId,
         }),
       });
+
+      setUploadProgress(100);
+
       if (!res.ok) {
         const d = await res.json();
         setUploadError(d.error || "Upload failed");
@@ -669,11 +725,12 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
         setUploadSuccess("Document uploaded successfully");
         setNotes(""); setProjectId("");
         if (fileRef.current) fileRef.current.value = "";
+        await new Promise(r => setTimeout(r, 500));
         fetchDocs();
         setTimeout(() => setUploadSuccess(""), 3000);
       }
     } catch (err) { setUploadError(err instanceof Error ? err.message : "Upload failed"); }
-    setUploading(false);
+    setUploading(false); setUploadProgress(0); setUploadFileName("");
   };
 
   const filtered = filterCat === "all" ? docs : docs.filter(d => d.category === filterCat);
@@ -734,6 +791,22 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
               <label style={labelStyle}>Notes (Optional)</label>
               <input style={inputStyle} value={notes} onChange={e => setNotes(e.target.value)} placeholder="e.g. Partial lien waiver for Draw #3" />
             </div>
+
+            {/* Upload Progress Bar */}
+            {uploading && (
+              <div style={{ marginBottom: "1rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+                  <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>Uploading: {uploadFileName}</span>
+                  <span style={{ fontSize: "0.75rem", color: "#FF4800", fontWeight: 800 }}>{uploadProgress}%</span>
+                </div>
+                <div style={{ width: "100%", height: "6px", background: "rgba(255,255,255,0.06)", borderRadius: "3px", overflow: "hidden" }}>
+                  <div style={{ width: `${uploadProgress}%`, height: "100%", background: "linear-gradient(90deg, #FF4800, #FF7043)", borderRadius: "3px", transition: "width 0.3s ease" }} />
+                </div>
+                <div style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.3)", marginTop: "0.35rem" }}>
+                  {uploadProgress < 85 ? "Uploading file to cloud storage…" : uploadProgress < 100 ? "Saving document metadata…" : "Complete!"}
+                </div>
+              </div>
+            )}
 
             <button type="submit" disabled={uploading} style={{ ...btnPrimary, width: "100%", opacity: uploading ? 0.6 : 1 }}>
               {uploading ? "Uploading…" : "Upload Document"}
