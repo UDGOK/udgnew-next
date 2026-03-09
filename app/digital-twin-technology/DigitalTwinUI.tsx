@@ -212,8 +212,8 @@ export default function DigitalTwinUI() {
           <Section delay={0.2}>
             <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.06)", position: "relative" }}>
               <Image
-                src="/images/digital-twin-guide-2026.png"
-                alt="Digital Twin Technology infographic showing Physical World to Digital Twin connection"
+                src="/images/digital-twin-industries.jpg"
+                alt="Digital Twin Technology transforming industries: Manufacturing, Healthcare, Smart Cities, and Energy"
                 width={600}
                 height={400}
                 style={{ width: "100%", height: "auto", display: "block" }}
@@ -251,8 +251,8 @@ export default function DigitalTwinUI() {
         <Section>
           <div style={{ borderRadius: "24px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.06)", position: "relative" }}>
             <Image
-              src="/images/ai_digital_twin_hologram_1772982805616.png"
-              alt="Field superintendent using Digital Twin holographic BIM model on construction site"
+              src="/images/digital-twin-2026-guide.jpg"
+              alt="The 2026 Guide to Digital Twin Technology — UDGOK Intelligence overview of Texas, Oklahoma, and California applications"
               width={1100}
               height={600}
               style={{ width: "100%", height: "auto", display: "block" }}
