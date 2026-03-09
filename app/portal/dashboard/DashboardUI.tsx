@@ -2,9 +2,52 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useClerk } from "@clerk/nextjs";
 import { motion, AnimatePresence } from "framer-motion";
-import { upload } from "@vercel/blob/client";
 import Link from "next/link";
 import Image from "next/image";
+
+/* ─── XHR upload with real progress ─── */
+function uploadFileToBlob(
+  file: File,
+  onProgress: (pct: number) => void
+): Promise<{ url: string }> {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    const formData = new FormData();
+    formData.append("file", file);
+
+    xhr.upload.addEventListener("progress", (e) => {
+      if (e.lengthComputable) {
+        const pct = Math.round((e.loaded / e.total) * 85); // 0-85% for upload
+        onProgress(pct);
+      }
+    });
+
+    xhr.addEventListener("load", () => {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try {
+          const data = JSON.parse(xhr.responseText);
+          resolve(data);
+        } catch {
+          reject(new Error("Invalid response from server"));
+        }
+      } else {
+        try {
+          const err = JSON.parse(xhr.responseText);
+          reject(new Error(err.error || `Upload failed (${xhr.status})`));
+        } catch {
+          reject(new Error(`Upload failed with status ${xhr.status}`));
+        }
+      }
+    });
+
+    xhr.addEventListener("error", () => reject(new Error("Network error during upload")));
+    xhr.addEventListener("timeout", () => reject(new Error("Upload timed out")));
+    xhr.timeout = 300000; // 5 minutes
+
+    xhr.open("POST", "/api/portal/blob-upload");
+    xhr.send(formData);
+  });
+}
 
 /* ─── Types ─── */
 interface ProjectDoc { id: string; name: string; type: string; url: string; uploadedAt: string; }
@@ -383,26 +426,9 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdi
     setUploadProgress(0);
     setUploadFileName(file.name);
     try {
-      // Simulate progress during blob upload
-      const progressInterval = setInterval(() => {
-        setUploadProgress(prev => {
-          if (prev >= 85) { clearInterval(progressInterval); return 85; }
-          const increment = file.size > 10 * 1024 * 1024 ? 2 : file.size > 1024 * 1024 ? 5 : 10;
-          return Math.min(prev + increment, 85);
-        });
-      }, 300);
+      // Upload file to Vercel Blob with real progress
+      const blob = await uploadFileToBlob(file, setUploadProgress);
 
-      // Upload directly to Vercel Blob with timeout
-      const uploadPromise = upload(file.name, file, {
-        access: "public",
-        handleUploadUrl: "/api/portal/blob-upload",
-      });
-      const timeoutPromise = new Promise<never>((_, reject) =>
-        setTimeout(() => reject(new Error("Upload timed out — please try again or use a smaller file")), 60000)
-      );
-      const blob = await Promise.race([uploadPromise, timeoutPromise]);
-
-      clearInterval(progressInterval);
       setUploadProgress(90);
 
       // Save metadata to our API
@@ -687,26 +713,9 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
     setUploading(true); setUploadError(""); setUploadSuccess("");
     setUploadProgress(0); setUploadFileName(file.name);
     try {
-      // Simulate progress during blob upload
-      const progressInterval = setInterval(() => {
-        setUploadProgress(prev => {
-          if (prev >= 85) { clearInterval(progressInterval); return 85; }
-          const increment = file.size > 10 * 1024 * 1024 ? 2 : file.size > 1024 * 1024 ? 5 : 10;
-          return Math.min(prev + increment, 85);
-        });
-      }, 300);
+      // Upload file to Vercel Blob with real progress
+      const blob = await uploadFileToBlob(file, setUploadProgress);
 
-      // Upload directly to Vercel Blob with timeout
-      const uploadPromise = upload(file.name, file, {
-        access: "public",
-        handleUploadUrl: "/api/portal/blob-upload",
-      });
-      const timeoutPromise = new Promise<never>((_, reject) =>
-        setTimeout(() => reject(new Error("Upload timed out — please try again or use a smaller file")), 60000)
-      );
-      const blob = await Promise.race([uploadPromise, timeoutPromise]);
-
-      clearInterval(progressInterval);
       setUploadProgress(90);
 
       // Save metadata to our API
