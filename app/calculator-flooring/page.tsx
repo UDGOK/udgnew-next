@@ -1,4 +1,5 @@
 "use client";
+import { HowToJsonLd } from "@/components/JsonLd";
 import { useState } from "react";
 import PageHero from "@/components/PageHero";
 
@@ -32,6 +33,12 @@ export default function FlooringCalculator() {
 
   return (
     <>
+      <HowToJsonLd
+        name="Flooring Material Calculator"
+        description="Estimate square footage of flooring material needed for rooms including waste."
+        steps={[{"name":"Enter Room Dimensions","text":"Enter the room length and width in feet."},{"name":"Get Result","text":"Click Calculate for total square footage with 10% waste factor."}]}
+        totalTime="PT2M"
+      />
       <PageHero label="Construction Tools" title="Commercial Flooring Calculator" description="Estimate the total square footage and boxes needed for commercial flooring." />
       <section style={{ maxWidth: "800px", margin: "4rem auto", padding: "0 2rem" }}>
         <form onSubmit={calculate} style={{ display: "flex", flexDirection: "column", gap: "2rem", background: "#F7F4F7", padding: "3rem", borderLeft: "4px solid #FF4800" }}>

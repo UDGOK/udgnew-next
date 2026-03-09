@@ -1,4 +1,5 @@
 "use client";
+import { HowToJsonLd } from "@/components/JsonLd";
 import { useState } from "react";
 import PageHero from "@/components/PageHero";
 
@@ -23,6 +24,12 @@ export default function PaintingCalculator() {
 
   return (
     <>
+      <HowToJsonLd
+        name="Paint Coverage Calculator"
+        description="Calculate gallons of paint needed for a room based on wall area and coverage rate."
+        steps={[{"name":"Enter Wall Dimensions","text":"Enter the total wall area or room dimensions."},{"name":"Select Paint Type","text":"Choose the paint type for coverage rate calculation."},{"name":"Get Result","text":"Click Calculate to see gallons of paint needed including a coat factor."}]}
+        totalTime="PT2M"
+      />
       <PageHero label="Construction Tools" title="Paint Calculator" description="Estimate the gallons of paint needed for your commercial space." />
       <section style={{ maxWidth: "800px", margin: "4rem auto", padding: "0 2rem" }}>
         <form onSubmit={calculate} style={{ display: "flex", flexDirection: "column", gap: "2rem", background: "#F7F4F7", padding: "3rem", borderLeft: "4px solid #FF4800" }}>

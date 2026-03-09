@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Tenant Improvements Tulsa Oklahoma | UDGOK",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function TenantImprovementsPage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Tenant Improvement Construction"
+        description="Commercial tenant improvement and build-out services in Tulsa. Office, medical, retail, and restaurant space renovations."
+        url="https://udgok.com/tenant-improvements"
+      />
+      <ServicePage
       label="Tenant Improvements"
       title="Tenant Improvements & Build-Outs"
       description="Fast, quality commercial build-outs for medical, dental, retail, and office spaces across Tulsa and Oklahoma."
@@ -32,5 +39,6 @@ export default function TenantImprovementsPage() {
       ]}
       cta="Get a TI Estimate →"
     />
+    </>
   );
 }

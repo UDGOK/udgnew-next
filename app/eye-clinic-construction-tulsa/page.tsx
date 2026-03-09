@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Eye Clinic Construction Tulsa Oklahoma",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function EyeClinicPage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Eye Clinic Construction"
+        description="Ophthalmology and optometry clinic construction in Tulsa with specialized exam lanes, procedure rooms, and optical dispensaries."
+        url="https://udgok.com/eye-clinic-construction-tulsa"
+      />
+      <ServicePage
       label="Eye Clinic Construction"
       title="Eye Clinic & Ophthalmology Construction"
       description="Precision-built optometry offices and surgical eye centers with dark rooms, laser suites, and specialized lighting design."
@@ -31,5 +38,6 @@ export default function EyeClinicPage() {
         { icon: "♿", title: "ADA & Accessibility", desc: "Full ADA-compliant design including accessible exam lanes, restrooms, and patient flow corridors." },
       ]}
     />
+    </>
   );
 }

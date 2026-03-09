@@ -1,4 +1,5 @@
 "use client";
+import { HowToJsonLd } from "@/components/JsonLd";
 import { useState } from "react";
 import PageHero from "@/components/PageHero";
 
@@ -35,6 +36,12 @@ export default function BrickCalculator() {
 
   return (
     <>
+      <HowToJsonLd
+        name="Brick Quantity Calculator"
+        description="Estimate the number of bricks needed for walls and structures based on dimensions."
+        steps={[{"name":"Enter Wall Dimensions","text":"Enter the wall length and height in feet."},{"name":"Select Brick Size","text":"Choose standard or engineering brick size."},{"name":"Get Result","text":"Click Calculate to see the total bricks needed including waste factor."}]}
+        totalTime="PT2M"
+      />
       <PageHero label="Construction Tools" title="Brick Calculator" description="Estimate the number of bricks and mortar required for a wall." />
       <section style={{ maxWidth: "800px", margin: "4rem auto", padding: "0 2rem" }}>
         <form onSubmit={calculate} style={{ display: "flex", flexDirection: "column", gap: "2rem", background: "#F7F4F7", padding: "3rem", borderLeft: "4px solid #FF4800" }}>

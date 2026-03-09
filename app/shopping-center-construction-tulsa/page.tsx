@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Shopping Center Construction Tulsa Oklahoma | UDGOK",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function ShoppingCenterPage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Shopping Center Construction"
+        description="Retail shopping center and strip mall construction in Tulsa. New builds, renovations, and tenant spaces."
+        url="https://udgok.com/shopping-center-construction-tulsa"
+      />
+      <ServicePage
       label="Retail Center Construction"
       title="Shopping Center Construction"
       description="Multi-tenant retail centers, strip plazas, and mixed-use developments built for long-term performance and tenant retention."
@@ -32,5 +39,6 @@ export default function ShoppingCenterPage() {
       ]}
       cta="Develop Your Retail Center →"
     />
+    </>
   );
 }

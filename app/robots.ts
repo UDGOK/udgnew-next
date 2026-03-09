@@ -8,6 +8,16 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/portal/dashboard/"],
       },
+      // ── Traditional Search ──
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+      },
+      {
+        userAgent: "Bingbot",
+        allow: "/",
+      },
+      // ── Generative AI Engines ──
       {
         userAgent: "GPTBot",
         allow: "/",
@@ -19,6 +29,10 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/portal/dashboard/"],
       },
       {
+        userAgent: "Google-Extended",
+        allow: "/",
+      },
+      {
         userAgent: "PerplexityBot",
         allow: "/",
       },
@@ -27,7 +41,19 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
       {
-        userAgent: "Googlebot",
+        userAgent: "anthropic-ai",
+        allow: "/",
+      },
+      {
+        userAgent: "Amazonbot",
+        allow: "/",
+      },
+      {
+        userAgent: "Applebot-Extended",
+        allow: "/",
+      },
+      {
+        userAgent: "cohere-ai",
         allow: "/",
       },
     ],

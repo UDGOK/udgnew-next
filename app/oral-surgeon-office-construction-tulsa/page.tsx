@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Oral Surgeon Office Construction Tulsa",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function OralSurgeonPage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Oral Surgery Center Construction"
+        description="Specialized oral surgery center construction in Tulsa, Oklahoma including sedation suites, surgical operatories, and recovery areas."
+        url="https://udgok.com/oral-surgeon-office-construction-tulsa"
+      />
+      <ServicePage
       label="Oral Surgery Construction"
       title="Oral Surgery Center Construction"
       description="AAAHC-ready oral surgery suites with medical gas, surgical HVAC, and recovery room design."
@@ -31,5 +38,6 @@ export default function OralSurgeonPage() {
         { icon: "🔐", title: "Drug Storage Compliance", desc: "DEA-compliant controlled substance storage with proper safe rooms and audit trails built in." },
       ]}
     />
+    </>
   );
 }

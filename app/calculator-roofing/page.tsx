@@ -1,4 +1,5 @@
 "use client";
+import { HowToJsonLd } from "@/components/JsonLd";
 import { useState } from "react";
 import PageHero from "@/components/PageHero";
 
@@ -31,6 +32,12 @@ export default function RoofingCalculator() {
 
   return (
     <>
+      <HowToJsonLd
+        name="Roofing Material Calculator"
+        description="Calculate squares of roofing material needed based on roof dimensions and pitch."
+        steps={[{"name":"Enter Roof Dimensions","text":"Enter the roof length and width in feet."},{"name":"Select Roof Pitch","text":"Choose the roof pitch factor for accurate square footage."},{"name":"Get Result","text":"Click Calculate to see roofing squares needed with waste factor."}]}
+        totalTime="PT2M"
+      />
       <PageHero label="Construction Tools" title="Roofing Calculator" description="Estimate roofing squares and bundles based on footprint area and roof pitch." />
       <section style={{ maxWidth: "800px", margin: "4rem auto", padding: "0 2rem" }}>
         <form onSubmit={calculate} style={{ display: "flex", flexDirection: "column", gap: "2rem", background: "#F7F4F7", padding: "3rem", borderLeft: "4px solid #FF4800" }}>

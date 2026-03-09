@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Safety Program | UDGOK Construction",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function SafetyProgramPage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Construction Safety Program"
+        description="OSHA-compliant safety management program for all UDGOK construction projects with zero-incident goal."
+        url="https://udgok.com/safety-program"
+      />
+      <ServicePage
       label="Safety"
       title="Safety Program"
       description="A zero-incident culture built into every project — from preconstruction safety planning through final occupancy."
@@ -32,5 +39,6 @@ export default function SafetyProgramPage() {
       ]}
       cta="Contact Our Safety Team →"
     />
+    </>
   );
 }

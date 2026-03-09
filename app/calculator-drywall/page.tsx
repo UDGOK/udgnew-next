@@ -1,4 +1,5 @@
 "use client";
+import { HowToJsonLd } from "@/components/JsonLd";
 import { useState } from "react";
 import PageHero from "@/components/PageHero";
 
@@ -25,6 +26,12 @@ export default function DrywallCalculator() {
 
   return (
     <>
+      <HowToJsonLd
+        name="Drywall Sheet Calculator"
+        description="Estimate the number of 4x8 drywall sheets needed for walls based on room dimensions."
+        steps={[{"name":"Enter Room Length","text":"Enter the total room length in feet."},{"name":"Enter Room Width","text":"Enter the room width in feet."},{"name":"Enter Wall Height","text":"Enter the wall height in feet (typically 8 or 9 feet)."},{"name":"Get Result","text":"Click Calculate to get the number of 4x8 drywall sheets needed."}]}
+        totalTime="PT2M"
+      />
       <PageHero label="Construction Tools" title="Drywall Calculator" description="Estimate panels, screws, and joint compound needed for commercial framing." />
       <section style={{ maxWidth: "800px", margin: "4rem auto", padding: "0 2rem" }}>
         <form onSubmit={calculate} style={{ display: "flex", flexDirection: "column", gap: "2rem", background: "#F7F4F7", padding: "3rem", borderLeft: "4px solid #FF4800" }}>

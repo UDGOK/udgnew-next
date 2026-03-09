@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Convenience Store Construction Tulsa Oklahoma | UDGOK",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function ConvenienceStorePage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Convenience Store Construction"
+        description="C-store and fuel station construction in Tulsa, Oklahoma. Ground-up builds and renovations for convenience retail."
+        url="https://udgok.com/convenience-store-construction-tulsa"
+      />
+      <ServicePage
       label="C-Store Construction"
       title="Convenience Store Construction"
       description="Ground-up convenience stores, fuel canopies, and remodels for major brands and independent operators across Oklahoma and Texas."
@@ -32,5 +39,6 @@ export default function ConvenienceStorePage() {
       ]}
       cta="Build Your C-Store →"
     />
+    </>
   );
 }

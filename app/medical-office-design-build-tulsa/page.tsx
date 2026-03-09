@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Medical Office Construction Tulsa",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function MedicalOfficePage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Medical Office Design-Build"
+        description="Custom medical office design and construction in Tulsa, Oklahoma. UDGOK builds exam rooms, waiting areas, and procedure suites optimized for patient flow and clinical efficiency."
+        url="https://udgok.com/medical-office-design-build-tulsa"
+      />
+      <ServicePage
       label="Healthcare Construction"
       title="Medical Office Construction"
       description="Purpose-built medical spaces with the compliance, systems, and clinical flow your practice demands."
@@ -31,5 +38,6 @@ export default function MedicalOfficePage() {
         { icon: "📐", title: "Optimized Layout", desc: "Evidence-based clinical flow design that maximizes patient throughput and staff efficiency." },
       ]}
     />
+    </>
   );
 }

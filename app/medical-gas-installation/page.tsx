@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Medical Gas Installation Oklahoma",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function MedicalGasPage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Medical Gas Installation"
+        description="Licensed medical gas installation and certification for dental offices, surgical centers, and healthcare facilities across Oklahoma."
+        url="https://udgok.com/medical-gas-installation"
+      />
+      <ServicePage
       label="Medical Gas Systems"
       title="Medical Gas Installation"
       description="NFPA 99 certified medical gas systems for dental, medical, and surgical facilities across Oklahoma and Texas."
@@ -31,5 +38,6 @@ export default function MedicalGasPage() {
         { icon: "📋", title: "Testing & Certification", desc: "ASSE 6030 verifier testing, cross-connection testing, and third-party certification documentation." },
       ]}
     />
+    </>
   );
 }

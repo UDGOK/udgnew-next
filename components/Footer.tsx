@@ -242,7 +242,23 @@ export default function Footer() {
             "Commercial construction management",
             "BIM and virtual design construction",
             "ADA compliance for healthcare facilities",
-            "HVAC systems for medical environments"
+            "HVAC systems for medical environments",
+            "Oral surgery center construction",
+            "Eye clinic construction",
+            "Convenience store construction",
+            "Shopping center construction",
+            "Preconstruction cost estimation",
+            "General contractor Oklahoma"
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+1-918-520-3823",
+              "contactType": "customer service",
+              "email": "projects@udgok.com",
+              "areaServed": ["US"],
+              "availableLanguage": ["English"]
+            }
           ]
         }
       `}</Script>
@@ -264,6 +280,10 @@ export default function Footer() {
             "@type": "SearchAction",
             "target": "https://udgok.com/resources?q={search_term_string}",
             "query-input": "required name=search_term_string"
+          },
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", "h2", ".hero-subtitle", "[data-speakable]"]
           }
         }
       `}</Script>

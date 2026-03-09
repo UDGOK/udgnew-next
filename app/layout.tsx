@@ -71,6 +71,11 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.svg" },
   metadataBase: new URL("https://udgok.com"),
   category: "construction",
+  other: {
+    "theme-color": "#0B061B",
+    "color-scheme": "dark",
+    "format-detection": "telephone=yes",
+  },
 };
 
 export default function RootLayout({
@@ -79,6 +84,12 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <meta name="theme-color" content="#0B061B" media="(prefers-color-scheme: dark)" />
+          <meta name="theme-color" content="#FF4800" media="(prefers-color-scheme: light)" />
+        </head>
         <body className={`${inter.variable} font-sans antialiased`}>
           <div className="grain-overlay" />
           <SmoothScroll>

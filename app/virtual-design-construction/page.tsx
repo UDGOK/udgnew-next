@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Virtual Design & Construction (VDC) | UDGOK",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function VDCPage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Virtual Design and Construction (VDC/BIM)"
+        description="BIM coordination, 3D modeling, and virtual design construction services for clash detection and project visualization."
+        url="https://udgok.com/virtual-design-construction"
+      />
+      <ServicePage
       label="Virtual Design & Construction"
       title="Virtual Design & Construction (VDC)"
       description="Advanced BIM modeling, clash detection, and digital twin technology that reduces RFIs, accelerates schedules, and improves field coordination."
@@ -32,5 +39,6 @@ export default function VDCPage() {
       ]}
       cta="Explore VDC Capabilities →"
     />
+    </>
   );
 }

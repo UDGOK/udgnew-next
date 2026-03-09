@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Dental Office Construction Tulsa Oklahoma",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function DentalOfficePage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Dental Office Construction"
+        description="Specialized dental clinic construction in Tulsa, Oklahoma. UDGOK builds operatories, sterilization centers, and patient-focused dental spaces."
+        url="https://udgok.com/dental-office-construction-tulsa"
+      />
+      <ServicePage
       label="Dental Construction"
       title="Dental Office Construction"
       description="Purpose-built dental offices with integrated treatment room plumbing, equipment rough-in, and clinical workflow optimization."
@@ -31,5 +38,6 @@ export default function DentalOfficePage() {
         { icon: "🔌", title: "Equipment Power", desc: "Dedicated circuits for panoramic X-ray, CBCT, sterilizers, and compressors properly spec'd." },
       ]}
     />
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
+import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Preconstruction Services Tulsa Oklahoma | UDGOK",
@@ -9,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function PreconstructionPage() {
   return (
-    <ServicePage
+    <>
+      <ServiceJsonLd
+        name="Preconstruction Services"
+        description="Preconstruction estimating, value engineering, and constructability reviews for medical, dental, and commercial projects in Oklahoma."
+        url="https://udgok.com/preconstruction"
+      />
+      <ServicePage
       label="Preconstruction"
       title="Preconstruction Services"
       description="Early-stage budgeting, constructability review, and value engineering to protect your budget before a shovel hits the ground."
@@ -32,5 +39,6 @@ export default function PreconstructionPage() {
       ]}
       cta="Engage Preconstruction →"
     />
+    </>
   );
 }
