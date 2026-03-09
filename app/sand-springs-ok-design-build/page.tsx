@@ -35,7 +35,8 @@ export default function SandSpringsPage() {
       description="Medical, dental, and commercial construction serving Sand Springs and the West Tulsa market."
       imageSrc="/images/ai_tulsa_skyline_architecture.png"
       imageAlt="Construction contractor Sand Springs Oklahoma by UDGOK"
-      intro="Sand Springs and the West Tulsa corridor represent an underserved but growing construction market. UDGOK is active in Sand Springs, bringing the same high-quality medical and commercial construction that has made us Tulsa's most trusted builder to the west side of the metro. From highway-visible medical clinics to tenant improvements in Sand Springs commercial centers, we deliver."
+      tldr="UDGOK provides design-build construction in Sand Springs, Oklahoma — a city of 20,000+ along US-412 on Tulsa's western border. Sand Springs offers competitive construction and lease costs compared to central Tulsa, with direct highway access to the Tulsa metro. We build dental offices, medical clinics, and commercial projects with the same quality standards as our Tulsa builds."
+      intro="Sand Springs and the West Tulsa corridor represent an underserved but growing construction market. UDGOK is active in Sand Springs, bringing the same high-quality medical and commercial construction that has made us Tulsa's most trusted builder to the west side of the metro."
       stats={[
         { n: "West", l: "Tulsa Corridor" },
         { n: "All", l: "Project Types" },
@@ -49,6 +50,12 @@ export default function SandSpringsPage() {
         { icon: "🏗️", title: "New Construction", desc: "Ground-up commercial development along US-412 and key Sand Springs commercial nodes." },
         { icon: "🔄", title: "Renovations & Remodels", desc: "Occupied-space renovations for existing businesses and practices looking to upgrade." },
         { icon: "📋", title: "Sand Springs Permits", desc: "Working knowledge of Sand Springs city permitting and inspection processes for fast approvals." },
+      ]}
+      faqs={[
+        { q: "Does UDGOK build in Sand Springs, Oklahoma?", a: "Yes. Sand Springs is approximately 10 miles west of our Tulsa office. We serve Sand Springs with the same team, subcontractor network, and quality standards as our Tulsa projects." },
+        { q: "How much does construction cost in Sand Springs?", a: "Construction costs in Sand Springs are generally 5–10% lower than central Tulsa due to competitive land and site costs. Medical offices run $140–$300/sq ft, dental offices $130–$260/sq ft, and commercial build-outs $75–$140/sq ft." },
+        { q: "Is Sand Springs a good location for a medical practice?", a: "Yes. Sand Springs has a stable population of 20,000+ and serves as a healthcare hub for the west Tulsa corridor. Lower lease rates and construction costs compared to central Tulsa allow practices to invest more in equipment and patient experience." },
+        { q: "What commercial areas does UDGOK serve in Sand Springs?", a: "We build along US-412 (Sand Springs Expressway), Main Street, and throughout Sand Springs's commercial districts. Our proximity means project managers can be on-site daily with minimal travel time." },
       ]}
       cta="Build in Sand Springs →"
     />
