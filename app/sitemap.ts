@@ -50,6 +50,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "bixby-ok-design-build",
     "jenks-ok-design-build",
     "owasso-ok-design-build",
+    "sapulpa-ok-design-build",
+    "haskell-ok-design-build",
     "sand-springs-ok-design-build",
     "oklahoma-city-medical-construction",
     "dallas-medical-construction",

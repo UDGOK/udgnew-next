@@ -4,6 +4,26 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Design-Build Contractor Jenks OK | UDGOK",
   description: "Medical and commercial construction in Jenks, Oklahoma. UDGOK serves Jenks's growing healthcare and commercial market with design-build, tenant improvements, and ground-up construction.",
+  keywords: [
+    "construction company Jenks OK",
+    "general contractor Jenks Oklahoma",
+    "design-build contractor Jenks",
+    "dental office construction Jenks OK",
+    "medical office construction Jenks",
+    "commercial construction Jenks Oklahoma",
+    "tenant improvement Jenks OK",
+    "medical clinic build-out Jenks",
+    "healthcare construction Jenks OK",
+    "dental clinic Jenks Oklahoma",
+    "South Tulsa corridor construction",
+    "Riverside corridor contractor Jenks",
+  ],
+  openGraph: {
+    title: "Design-Build Contractor Jenks OK | UDGOK",
+    description: "Medical, dental, and commercial construction serving Jenks and the South Tulsa corridor.",
+    url: "https://udgok.com/jenks-ok-design-build",
+    type: "website",
+  },
   alternates: { canonical: "https://udgok.com/jenks-ok-design-build" },
 };
 

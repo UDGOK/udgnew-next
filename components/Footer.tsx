@@ -105,6 +105,8 @@ export default function Footer() {
               <LI href="/bixby-ok-design-build">Bixby, OK</LI>
               <LI href="/jenks-ok-design-build">Jenks, OK</LI>
               <LI href="/owasso-ok-design-build">Owasso, OK</LI>
+              <LI href="/sapulpa-ok-design-build">Sapulpa, OK</LI>
+              <LI href="/haskell-ok-design-build">Haskell, OK</LI>
               <LI href="/oklahoma-city-medical-construction">Oklahoma City</LI>
               <LI href="/dallas-medical-construction">Dallas / Plano, TX</LI>
             </ul>
@@ -210,6 +212,8 @@ export default function Footer() {
             {"@type": "City", "name": "Bixby", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
             {"@type": "City", "name": "Jenks", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
             {"@type": "City", "name": "Owasso", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
+            {"@type": "City", "name": "Sapulpa", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
+            {"@type": "City", "name": "Haskell", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
             {"@type": "City", "name": "Sand Springs", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
             {"@type": "City", "name": "Oklahoma City", "containedInPlace": {"@type": "State", "name": "Oklahoma"}},
             {"@type": "City", "name": "Dallas", "containedInPlace": {"@type": "State", "name": "Texas"}},

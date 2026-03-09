@@ -4,6 +4,26 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Design-Build Contractor Broken Arrow OK | UDGOK",
   description: "Design-build and medical construction contractor serving Broken Arrow, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects throughout Broken Arrow and the Rose District.",
+  keywords: [
+    "construction company Broken Arrow OK",
+    "general contractor Broken Arrow Oklahoma",
+    "design-build contractor Broken Arrow",
+    "dental office construction Broken Arrow OK",
+    "medical office construction Broken Arrow",
+    "commercial construction Broken Arrow Oklahoma",
+    "tenant improvement Broken Arrow OK",
+    "medical clinic build-out Broken Arrow",
+    "healthcare construction Broken Arrow OK",
+    "dental clinic Broken Arrow Oklahoma",
+    "Rose District construction Broken Arrow",
+    "BA Expressway commercial construction",
+  ],
+  openGraph: {
+    title: "Design-Build Contractor Broken Arrow OK | UDGOK",
+    description: "Medical, dental, and commercial construction throughout Broken Arrow — from the Rose District to the BA Expressway corridor.",
+    url: "https://udgok.com/broken-arrow-ok-design-build",
+    type: "website",
+  },
   alternates: { canonical: "https://udgok.com/broken-arrow-ok-design-build" },
 };
 

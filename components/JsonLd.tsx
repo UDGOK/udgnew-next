@@ -13,6 +13,12 @@ const ORG = {
 const AREA_SERVED = [
   { "@type": "City", name: "Tulsa", containedInPlace: { "@type": "State", name: "Oklahoma" } },
   { "@type": "City", name: "Broken Arrow", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+  { "@type": "City", name: "Bixby", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+  { "@type": "City", name: "Jenks", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+  { "@type": "City", name: "Owasso", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+  { "@type": "City", name: "Sapulpa", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+  { "@type": "City", name: "Haskell", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+  { "@type": "City", name: "Sand Springs", containedInPlace: { "@type": "State", name: "Oklahoma" } },
   { "@type": "City", name: "Oklahoma City", containedInPlace: { "@type": "State", name: "Oklahoma" } },
   { "@type": "City", name: "Dallas", containedInPlace: { "@type": "State", name: "Texas" } },
 ];

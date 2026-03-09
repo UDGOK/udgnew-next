@@ -4,6 +4,26 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Design-Build Contractor Sand Springs OK | UDGOK",
   description: "Medical and commercial construction in Sand Springs, Oklahoma. UDGOK delivers design-build, tenant improvements, and healthcare construction in Sand Springs and West Tulsa.",
+  keywords: [
+    "construction company Sand Springs OK",
+    "general contractor Sand Springs Oklahoma",
+    "design-build contractor Sand Springs",
+    "dental office construction Sand Springs OK",
+    "medical office construction Sand Springs",
+    "commercial construction Sand Springs Oklahoma",
+    "tenant improvement Sand Springs OK",
+    "medical clinic build-out Sand Springs",
+    "healthcare construction Sand Springs OK",
+    "dental clinic Sand Springs Oklahoma",
+    "West Tulsa construction contractor",
+    "US-412 commercial construction",
+  ],
+  openGraph: {
+    title: "Design-Build Contractor Sand Springs OK | UDGOK",
+    description: "Medical, dental, and commercial construction serving Sand Springs and the West Tulsa market.",
+    url: "https://udgok.com/sand-springs-ok-design-build",
+    type: "website",
+  },
   alternates: { canonical: "https://udgok.com/sand-springs-ok-design-build" },
 };
 

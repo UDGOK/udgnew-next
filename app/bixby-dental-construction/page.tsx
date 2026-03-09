@@ -2,8 +2,24 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Bixby Dental Office Construction",
+  title: "Bixby Dental Office Construction | UDGOK",
   description: "UDGOK specializes in building modern, high-tech dental offices in Bixby, Oklahoma. Local expertise for general, pediatric, and ortho practices.",
+  keywords: [
+    "dental office construction Bixby OK",
+    "dental clinic build-out Bixby Oklahoma",
+    "dentist office builder Bixby",
+    "pediatric dental construction Bixby OK",
+    "orthodontist office construction Bixby",
+    "dental operatory build-out Bixby OK",
+    "dental practice construction Bixby Oklahoma",
+    "dental office renovation Bixby",
+  ],
+  openGraph: {
+    title: "Bixby Dental Office Construction | UDGOK",
+    description: "Expert dental clinic builds for Bixby's growing healthcare market. From general to pediatric to ortho practices.",
+    url: "https://udgok.com/bixby-dental-construction",
+    type: "website",
+  },
   alternates: { canonical: "https://udgok.com/bixby-dental-construction" },
 };
 

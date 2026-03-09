@@ -4,6 +4,26 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Design-Build Contractor Owasso OK | UDGOK",
   description: "Medical and commercial construction in Owasso, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects in one of northeast Tulsa's fastest-growing communities.",
+  keywords: [
+    "construction company Owasso OK",
+    "general contractor Owasso Oklahoma",
+    "design-build contractor Owasso",
+    "dental office construction Owasso OK",
+    "medical office construction Owasso",
+    "commercial construction Owasso Oklahoma",
+    "tenant improvement Owasso OK",
+    "medical clinic build-out Owasso",
+    "healthcare construction Owasso OK",
+    "dental clinic Owasso Oklahoma",
+    "US-169 corridor construction Owasso",
+    "96th Street commercial construction Owasso",
+  ],
+  openGraph: {
+    title: "Design-Build Contractor Owasso OK | UDGOK",
+    description: "Medical, dental, and commercial construction serving Owasso's rapidly growing north Tulsa metro corridor.",
+    url: "https://udgok.com/owasso-ok-design-build",
+    type: "website",
+  },
   alternates: { canonical: "https://udgok.com/owasso-ok-design-build" },
 };
 
