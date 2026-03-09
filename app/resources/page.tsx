@@ -11,7 +11,7 @@ const articles = [
     title: "Digital Twin Technology in Construction: 2026 Guide",
     desc: "A complete guide to how AI, IoT, and 3D virtual replicas are transforming commercial construction, energy, and smart cities.",
     href: "/digital-twin-technology",
-    img: "/images/ai_digital_twin_hologram_1772982805616.png",
+    img: "/images/digital-twin-industries.jpg",
     date: "MAR 2026",
     readTime: "10 MIN READ"
   },
