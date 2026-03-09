@@ -392,11 +392,15 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdi
         });
       }, 300);
 
-      // Upload directly to Vercel Blob (bypasses 4.5MB serverless limit)
-      const blob = await upload(file.name, file, {
+      // Upload directly to Vercel Blob with timeout
+      const uploadPromise = upload(file.name, file, {
         access: "public",
         handleUploadUrl: "/api/portal/blob-upload",
       });
+      const timeoutPromise = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error("Upload timed out — please try again or use a smaller file")), 60000)
+      );
+      const blob = await Promise.race([uploadPromise, timeoutPromise]);
 
       clearInterval(progressInterval);
       setUploadProgress(90);
@@ -692,11 +696,15 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
         });
       }, 300);
 
-      // Upload directly to Vercel Blob
-      const blob = await upload(file.name, file, {
+      // Upload directly to Vercel Blob with timeout
+      const uploadPromise = upload(file.name, file, {
         access: "public",
         handleUploadUrl: "/api/portal/blob-upload",
       });
+      const timeoutPromise = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error("Upload timed out — please try again or use a smaller file")), 60000)
+      );
+      const blob = await Promise.race([uploadPromise, timeoutPromise]);
 
       clearInterval(progressInterval);
       setUploadProgress(90);
