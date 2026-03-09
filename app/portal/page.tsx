@@ -77,7 +77,7 @@ export default async function PortalPage() {
         </section>
 
         {/* ─── TWO COLUMN: FEATURES + SIGN IN ─── */}
-        <section style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 1.5rem 4rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "start" }}>
+        <section className="portal-features-grid" style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 1.5rem 4rem" }}>
 
           {/* Left Column — Features */}
           <div>
@@ -156,14 +156,14 @@ export default async function PortalPage() {
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem" }}>
+          <div className="portal-steps-grid">
             {STEPS.map((s, i) => (
               <div key={i} style={{ textAlign: "center", padding: "1.75rem 1rem", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "16px", position: "relative" }}>
                 <div style={{ fontSize: "2rem", fontWeight: 900, color: "rgba(255,72,0,0.15)", marginBottom: "0.75rem", fontFamily: "monospace" }}>{s.num}</div>
                 <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "#fff", marginBottom: "0.35rem" }}>{s.title}</div>
                 <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.4)", lineHeight: 1.5 }}>{s.desc}</div>
                 {i < 3 && (
-                  <div style={{ position: "absolute", right: "-0.75rem", top: "50%", transform: "translateY(-50%)", color: "rgba(255,72,0,0.3)", fontSize: "1rem", fontWeight: 700 }}>→</div>
+                  <div className="portal-step-arrow">→</div>
                 )}
               </div>
             ))}
@@ -204,10 +204,17 @@ export default async function PortalPage() {
 
       {/* Responsive Styles */}
       <style>{`
+        .portal-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .portal-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .portal-step-arrow { position: absolute; right: -0.75rem; top: 50%; transform: translateY(-50%); color: rgba(255,72,0,0.3); font-size: 1rem; font-weight: 700; }
         @media (max-width: 768px) {
-          section[style*="gridTemplateColumns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
-          section div[style*="gridTemplateColumns: repeat(4"] { grid-template-columns: 1fr 1fr !important; }
-          section div[style*="gridTemplateColumns: repeat(4"] > div > div[style*="position: absolute"] { display: none !important; }
+          .portal-features-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+          .portal-steps-grid { grid-template-columns: 1fr 1fr !important; }
+          .portal-step-arrow { display: none !important; }
+          main section { padding-left: 1rem !important; padding-right: 1rem !important; }
+        }
+        @media (max-width: 480px) {
+          .portal-steps-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </main>

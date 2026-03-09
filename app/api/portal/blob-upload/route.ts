@@ -4,7 +4,6 @@ import { put } from "@vercel/blob";
 
 export const maxDuration = 300;
 
-// Simple server-side upload: receive file via FormData, upload to Vercel Blob
 export async function POST(req: Request) {
   const { userId } = await auth();
   if (!userId) {
@@ -19,16 +18,19 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
 
-    // Upload to Vercel Blob
-    const blob = await put(file.name, file, {
-      access: "public",
+    console.log(`[blob-upload] Uploading ${file.name} (${(file.size / 1024 / 1024).toFixed(2)}MB)`);
+
+    // Upload to Vercel Blob (private store)
+    const blob = await put(`uploads/${file.name}`, file, {
+      access: "private",
       addRandomSuffix: true,
     });
 
-    console.log("[blob-upload] Success:", blob.pathname, blob.url);
+    console.log("[blob-upload] Success:", blob.url);
 
     return NextResponse.json({
       url: blob.url,
+      downloadUrl: blob.downloadUrl,
       pathname: blob.pathname,
     });
   } catch (error) {

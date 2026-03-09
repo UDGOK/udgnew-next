@@ -1,7 +1,6 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
-import fs from "fs";
-import path from "path";
+import { getDownloadUrl } from "@vercel/blob";
 
 export async function GET(req: NextRequest) {
   const { userId } = await auth();
@@ -9,44 +8,22 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const filePath = req.nextUrl.searchParams.get("path");
-  const originalName = req.nextUrl.searchParams.get("name");
-  if (!filePath) {
-    return NextResponse.json({ error: "Missing path" }, { status: 400 });
+  const url = req.nextUrl.searchParams.get("url");
+  if (!url) {
+    return NextResponse.json({ error: "URL parameter required" }, { status: 400 });
   }
 
-  const sanitized = filePath.replace(/\.\./g, "").replace(/^\//, "");
-  const fullPath = path.join("/tmp", sanitized);
+  try {
+    // For Vercel Blob private/public URLs, generate a signed temporary download URL
+    if (url.includes("blob.vercel-storage.com")) {
+      const downloadUrl = await getDownloadUrl(url);
+      return NextResponse.redirect(downloadUrl);
+    }
 
-  if (!fs.existsSync(fullPath)) {
+    // For legacy local URLs, return error (old data)
     return NextResponse.json({ error: "File not found" }, { status: 404 });
+  } catch (error) {
+    console.error("[serve-file] Error:", error);
+    return NextResponse.json({ error: "Failed to serve file" }, { status: 500 });
   }
-
-  const buffer = fs.readFileSync(fullPath);
-  const ext = path.extname(fullPath).toLowerCase();
-  const displayName = originalName || path.basename(fullPath);
-
-  const mimeTypes: Record<string, string> = {
-    ".pdf": "application/pdf",
-    ".jpg": "image/jpeg",
-    ".jpeg": "image/jpeg",
-    ".png": "image/png",
-    ".doc": "application/msword",
-    ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    ".xls": "application/vnd.ms-excel",
-    ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    ".dwg": "application/acad",
-    ".dxf": "application/dxf",
-  };
-
-  const inlineTypes = [".pdf", ".jpg", ".jpeg", ".png"];
-  const disposition = inlineTypes.includes(ext) ? "inline" : "attachment";
-
-  return new NextResponse(buffer, {
-    headers: {
-      "Content-Type": mimeTypes[ext] || "application/octet-stream",
-      "Content-Disposition": `${disposition}; filename="${displayName}"`,
-      "Cache-Control": "private, max-age=3600",
-    },
-  });
 }

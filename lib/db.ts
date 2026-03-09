@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { put, list } from "@vercel/blob";
+import { put, get, list } from "@vercel/blob";
 
 /* ─── Types ─── */
 export interface User {
@@ -65,27 +65,27 @@ const IS_VERCEL = !!process.env.VERCEL;
 const HAS_BLOB = !!process.env.BLOB_READ_WRITE_TOKEN;
 const SEED_DIR = path.join(process.cwd(), "data");
 
-// In-memory cache to avoid redundant blob reads within the same instance
+// In-memory cache
 const cache: Record<string, { data: unknown; ts: number }> = {};
-const CACHE_TTL = 3000; // 3 seconds
+const CACHE_TTL = 3000;
 
-/* ─── Read from Vercel Blob ─── */
+/* ─── Read from Vercel Blob (private store) ─── */
 async function readBlobJson<T>(key: string): Promise<T[]> {
-  // Cache check
   const cached = cache[key];
   if (cached && Date.now() - cached.ts < CACHE_TTL) {
     return cached.data as T[];
   }
 
-  // Try Vercel Blob
   if (IS_VERCEL && HAS_BLOB) {
     try {
       const blobPath = `data/${key}`;
       const result = await list({ prefix: blobPath, limit: 1 });
       if (result.blobs.length > 0) {
-        const response = await fetch(result.blobs[0].url, { cache: "no-store" });
-        if (response.ok) {
-          const data = await response.json() as T[];
+        // Use get() with private access for authenticated reads
+        const getResult = await get(result.blobs[0].url, { access: "private" });
+        if (getResult && getResult.statusCode === 200) {
+          const text = await new Response(getResult.stream).text();
+          const data = JSON.parse(text) as T[];
           cache[key] = { data, ts: Date.now() };
           return data;
         }
@@ -111,9 +111,8 @@ async function readBlobJson<T>(key: string): Promise<T[]> {
   return [];
 }
 
-/* ─── Write to Vercel Blob ─── */
+/* ─── Write to Vercel Blob (private store) ─── */
 async function writeBlobJson<T>(key: string, data: T[]): Promise<void> {
-  // Always update cache
   cache[key] = { data, ts: Date.now() };
 
   if (IS_VERCEL && HAS_BLOB) {
@@ -121,9 +120,10 @@ async function writeBlobJson<T>(key: string, data: T[]): Promise<void> {
       const blobPath = `data/${key}`;
       const json = JSON.stringify(data, null, 2);
       await put(blobPath, json, {
-        access: "public",
+        access: "private",
         contentType: "application/json",
         addRandomSuffix: false,
+        allowOverwrite: true,
       });
       console.log(`[DB] Saved ${key} to blob (${data.length} items)`);
     } catch (err) {
@@ -200,7 +200,7 @@ export async function addConstructionDocAsync(doc: ConstructionDoc): Promise<voi
   await saveConstructionDocsAsync(docs);
 }
 
-/* ─── Sync helpers (for callers that can't be async) ─── */
+/* ─── Sync helpers ─── */
 export function getProjects(): BidProject[] {
   const cached = cache["projects.json"];
   if (cached) return cached.data as BidProject[];

@@ -568,9 +568,12 @@ function ProjectDetailModal({ project, isAdmin, onClose, onUpdated, onBid, onEdi
               <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 {project.documents.map(doc => {
                   const canPreview = ["pdf", "jpg", "jpeg", "png"].includes(doc.type);
+                  const docUrl = doc.url.includes("blob.vercel-storage.com")
+                    ? `/api/portal/serve-file?url=${encodeURIComponent(doc.url)}`
+                    : doc.url;
                   return (
                     <div key={doc.id}
-                      onClick={() => canPreview ? onPreview({ url: doc.url, name: doc.name, type: doc.type }) : window.open(doc.url, "_blank")}
+                      onClick={() => canPreview ? onPreview({ url: docUrl, name: doc.name, type: doc.type }) : window.open(docUrl, "_blank")}
                       style={{ display: "flex", alignItems: "center", gap: "0.75rem", padding: "0.85rem 1rem", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", color: "#fff", transition: "border-color 0.2s", cursor: "pointer" }}
                       onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(255,72,0,0.3)")}
                       onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)")}>
