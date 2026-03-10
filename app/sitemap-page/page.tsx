@@ -41,6 +41,7 @@ const sitemapData = [
     category: "Commercial & Retail",
     links: [
       { t: "Commercial Contractor Tulsa", h: "/commercial-contractor-tulsa" },
+      { t: "Construction Companies in Tulsa", h: "/construction-companies-tulsa" },
       { t: "Retail Construction Tulsa", h: "/retail-construction-tulsa" },
       { t: "Shopping Center Construction", h: "/shopping-center-construction-tulsa" },
       { t: "Convenience Store Construction", h: "/convenience-store-construction-tulsa" },

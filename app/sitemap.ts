@@ -32,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "convenience-store-construction-tulsa",
     "shopping-center-construction-tulsa",
     "commercial-contractor-tulsa",
+    "construction-companies-tulsa",
     "retail-construction-tulsa",
     "hospitality-construction-bixby",
     "hospitality-construction-broken-arrow",
