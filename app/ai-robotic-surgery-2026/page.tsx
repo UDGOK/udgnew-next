@@ -68,18 +68,24 @@ export default function AIRoboticSurgeryPage() {
                     Furthermore, robotics significantly improve surgeon ergonomics, reducing the physical fatigue associated with lengthy operations. The surgeon operates from an ergonomic console rather than standing hunched over the patient, extending career longevity and improving focus during complex procedures.
                 </p>
 
-                {/* ── Full-width image break ── */}
-                <div className="my-12 -mx-4 md:-mx-8" style={{ position: "relative", width: "calc(100% + 2rem)", maxWidth: "none", aspectRatio: "16/9" }}>
-                    <Image
-                        src="/images/autonomous-surgery-ai.png"
-                        alt="AI-controlled robotic surgical arm with holographic neural network overlay performing a precision procedure"
-                        fill
-                        className="object-cover"
-                        style={{ filter: "contrast(1.05) brightness(0.95)" }}
-                    />
-                    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "1.5rem 1.5rem 1rem", background: "linear-gradient(to top, rgba(11,6,27,0.85), transparent)" }}>
+                {/* ── Cinematic Video: Cobots Assisting Surgery ── */}
+                <div className="my-12 -mx-4 md:-mx-8" style={{ position: "relative", width: "calc(100% + 2rem)", maxWidth: "none" }}>
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        style={{ width: "100%", display: "block", filter: "contrast(1.05) brightness(0.92)" }}
+                    >
+                        <source src="/videos/doctor doing surgery while cobots help.mp4" type="video/mp4" />
+                    </video>
+                    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "2rem 1.5rem 1.25rem", background: "linear-gradient(to top, rgba(11,6,27,0.9), transparent)" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                            <span style={{ width: "6px", height: "6px", background: "#FF4800", display: "inline-block" }} className="animate-pulse" />
+                            <span style={{ fontSize: "0.6rem", fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>Live Footage</span>
+                        </div>
                         <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.8rem", fontStyle: "italic", margin: 0, fontWeight: 500 }}>
-                            AI-controlled surgical arm with real-time neural network guidance — the precision frontier of 2026 healthcare.
+                            A surgeon operates with collaborative robotic (cobot) assistance — AI-guided arms provide real-time precision support during complex procedures.
                         </p>
                     </div>
                 </div>
@@ -109,6 +115,28 @@ export default function AIRoboticSurgeryPage() {
                 <p>
                     The trajectory is clear: by 2030, autonomous surgical systems will handle an increasing share of routine, well-defined procedures, freeing surgeons to focus on complex cases requiring human judgment and adaptability.
                 </p>
+
+                {/* ── Cinematic Video: Automated Robots in Surgery ── */}
+                <div className="my-12 -mx-4 md:-mx-8" style={{ position: "relative", width: "calc(100% + 2rem)", maxWidth: "none" }}>
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        style={{ width: "100%", display: "block", filter: "contrast(1.05) brightness(0.92)" }}
+                    >
+                        <source src="/videos/automated-robots-in-surgery-2026.mp4" type="video/mp4" />
+                    </video>
+                    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "2rem 1.5rem 1.25rem", background: "linear-gradient(to top, rgba(11,6,27,0.9), transparent)" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                            <span style={{ width: "6px", height: "6px", background: "#FF4800", display: "inline-block" }} className="animate-pulse" />
+                            <span style={{ fontSize: "0.6rem", fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>Autonomous Systems</span>
+                        </div>
+                        <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.8rem", fontStyle: "italic", margin: 0, fontWeight: 500 }}>
+                            Fully automated robotic surgical systems performing precision procedures autonomously — the breakthrough milestone of 2025–2026.
+                        </p>
+                    </div>
+                </div>
 
                 {/* ── Section 4: Telesurgery ── */}
                 <h2 id="telesurgery">Telesurgery and Advanced Training</h2>
