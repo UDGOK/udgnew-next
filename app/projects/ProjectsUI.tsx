@@ -554,23 +554,38 @@ function ProjectModal({ project, onClose, projectIndex }: { project: Project; on
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
             >
-              {/* Main image with Ken Burns */}
+              {/* Main image — full image with blurred cinematic backdrop */}
               <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", overflow: "hidden", background: "#0B061B", flexShrink: 0 }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeImg}
-                    initial={{ opacity: 0, scale: 1.15 }}
-                    animate={{ opacity: 1, scale: 1.04 }}
-                    exit={{ opacity: 0, scale: 1 }}
-                    transition={{ opacity: { duration: 0.7 }, scale: { duration: 6, ease: "linear" } }}
-                    style={{ position: "absolute", inset: "-6%", width: "112%", height: "112%" }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.7 }}
+                    style={{ position: "absolute", inset: 0 }}
                   >
+                    {/* Blurred background fill for cinematic look */}
                     <Image
                       src={project.images[activeImg]}
-                      alt={`${project.title} — image ${activeImg + 1}`}
+                      alt=""
                       fill
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: "cover", filter: "blur(24px) brightness(0.4) saturate(1.4)", transform: "scale(1.15)" }}
                     />
+                    {/* Sharp full image on top */}
+                    <motion.div
+                      initial={{ scale: 1.0 }}
+                      animate={{ scale: 1.02 }}
+                      transition={{ duration: 5, ease: "linear" }}
+                      style={{ position: "absolute", inset: 0, zIndex: 1 }}
+                    >
+                      <Image
+                        src={project.images[activeImg]}
+                        alt={`${project.title} — image ${activeImg + 1}`}
+                        fill
+                        style={{ objectFit: "contain" }}
+                      />
+                    </motion.div>
                   </motion.div>
                 </AnimatePresence>
 
