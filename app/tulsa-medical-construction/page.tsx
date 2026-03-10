@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Tulsa Medical Construction | Healthcare Builder | UDGOK",
-  description: "Tulsa's leading medical and dental construction contractor. UDGOK has built 100+ healthcare facilities across Tulsa and the surrounding metro, from dental offices to ambulatory surgery centers.",
+  title: "Tulsa Medical Construction | Healthcare Construction Contractors Oklahoma | UDGOK",
+  description: "Healthcare construction contractors serving Oklahoma and Tulsa. UDGOK has built 100+ medical and dental facilities, from dental offices to ambulatory surgery centers. Oklahoma's most trusted healthcare builder.",
   keywords: [
+    "healthcare construction contractors Oklahoma",
     "Tulsa medical construction",
     "healthcare construction Tulsa OK",
     "medical builder Tulsa Oklahoma",
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
     "medical facility construction Tulsa",
     "healthcare design-build Tulsa",
     "medical office contractor Tulsa OK",
+    "healthcare construction Oklahoma",
+    "medical construction contractor Oklahoma",
   ],
   openGraph: {
     title: "Tulsa Medical Construction | 100+ Facilities | UDGOK",

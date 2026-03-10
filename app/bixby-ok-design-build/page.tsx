@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Design-Build Contractor Bixby OK | UDGOK",
-  description: "Medical and commercial construction contractor in Bixby, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects in one of Tulsa's fastest-growing suburbs.",
+  title: "Design-Build Contractor Bixby OK | Medical & Office Construction | UDGOK",
+  description: "Medical construction and office construction contractor in Bixby, Oklahoma. UDGOK builds dental offices, medical clinics, professional offices, and commercial projects in one of Tulsa's fastest-growing suburbs.",
   keywords: [
+    "medical construction Bixby",
+    "office construction Bixby",
     "construction company Bixby OK",
     "general contractor Bixby Oklahoma",
     "design-build contractor Bixby",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     "healthcare construction Bixby OK",
     "dental clinic Bixby Oklahoma",
     "building contractor Bixby",
-    "convenience store construction Bixby OK",
+    "office build-out Bixby OK",
   ],
   openGraph: {
     title: "Design-Build Contractor Bixby OK | UDGOK",
