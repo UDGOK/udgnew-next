@@ -293,6 +293,32 @@ export default function DigitalTwinUI() {
         </Section>
       </section>
 
+      {/* ─── CINEMATIC VIDEO: DIGITAL TWIN IN ACTION ─── */}
+      <section style={{ maxWidth: "1100px", margin: "0 auto", padding: `0 ${px} 5rem` }}>
+        <Section>
+          <div style={{ position: "relative", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)" }}>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ width: "100%", display: "block", filter: "contrast(1.05) brightness(0.92)" }}
+            >
+              <source src="/videos/digital-twin-technology-construction.mp4" type="video/mp4" />
+            </video>
+            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "2.5rem 2rem 1.5rem", background: "linear-gradient(to top, rgba(11,6,27,0.92), transparent)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.6rem" }}>
+                <span style={{ width: "8px", height: "8px", background: "#FF4800", display: "inline-block" }} className="animate-pulse" />
+                <span style={{ fontSize: "0.6rem", fontWeight: 800, letterSpacing: "0.25em", textTransform: "uppercase", color: "#FF4800" }}>Live Demo</span>
+              </div>
+              <p style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.7)", fontStyle: "italic", margin: 0, fontWeight: 500, maxWidth: "600px" }}>
+                Digital Twin technology in action — real-time 3D building visualization, IoT sensor integration, and BIM clash detection powering smarter construction decisions.
+              </p>
+            </div>
+          </div>
+        </Section>
+      </section>
+
       {/* ─── REGIONAL IMPACT ─── */}
       <section style={{ maxWidth: "1100px", margin: "0 auto", padding: `0 ${px} 5rem` }}>
         <Section>
