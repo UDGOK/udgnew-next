@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/projects`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/resources`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/insights`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+
   ];
 
   // ── Service Pages ──
@@ -23,12 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "oral-surgeon-office-construction-tulsa",
     "eye-clinic-construction-tulsa",
     "medical-gas-installation",
-    "medical-gas-installation-dental",
+
     "tenant-improvements",
     "preconstruction",
     "virtual-design-construction",
-    "project-management-pmp-led",
-    "permitting-and-code-compliance",
+
     "safety-program",
     "convenience-store-construction-tulsa",
     "shopping-center-construction-tulsa",
@@ -40,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "office-construction-tulsa",
     "build-to-suit-tulsa",
     "industrial-buildings-tulsa",
-    "dental-oral-surgery-construction-specialists",
+
     "ai-robotics",
     "property-intelligence",
     "market-intelligence",
@@ -74,18 +73,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Articles & Knowledge Hub ──
   const articles = [
-    "article-ada-compliance-healthcare",
-    "article-dental-office-construction-timeline",
-    "article-medical-gas-installation-guide",
-    "article-medical-office-design-checklist",
-    "blog-dental-construction-costs-oklahoma",
-    "blog-medical-office-design-checklist",
     "dental-construction-costs",
-    "dental-construction-insights",
     "digital-twin-technology",
     "digital-twin-technology-guide-2026",
-    "faq-dental-office-construction",
-    "faq-medical-office-construction",
     "guide-commercial-brokers",
     "guide-developers",
     "ai-robotic-surgery-2026",
