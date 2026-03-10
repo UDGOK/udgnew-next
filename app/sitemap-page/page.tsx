@@ -55,6 +55,19 @@ const sitemapData = [
     ]
   },
   {
+    category: "Industrial & Metal Buildings",
+    links: [
+      { t: "Warehouse Construction Tulsa", h: "/warehouse-construction-tulsa" },
+      { t: "Pre-Engineered Metal Buildings", h: "/pre-engineered-metal-buildings-tulsa" },
+      { t: "Cold Storage Construction", h: "/cold-storage-construction-tulsa" },
+      { t: "Manufacturing Facility Construction", h: "/manufacturing-facility-construction-tulsa" },
+      { t: "Flex Space Construction", h: "/flex-space-construction-tulsa" },
+      { t: "Self-Storage Construction", h: "/self-storage-construction-tulsa" },
+      { t: "Agricultural Buildings Oklahoma", h: "/agricultural-building-construction-oklahoma" },
+      { t: "Industrial Renovation Tulsa", h: "/industrial-renovation-tulsa" },
+    ]
+  },
+  {
     category: "Locations",
     links: [
       { t: "Tulsa, OK", h: "/tulsa-ok-design-build" },

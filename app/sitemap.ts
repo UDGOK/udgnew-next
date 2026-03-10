@@ -48,6 +48,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "construction-company-north-tulsa",
     "tulsa-construction-costs",
 
+    "warehouse-construction-tulsa",
+    "pre-engineered-metal-buildings-tulsa",
+    "cold-storage-construction-tulsa",
+    "manufacturing-facility-construction-tulsa",
+    "flex-space-construction-tulsa",
+    "self-storage-construction-tulsa",
+    "agricultural-building-construction-oklahoma",
+    "industrial-renovation-tulsa",
+
     "ai-robotics",
     "property-intelligence",
     "market-intelligence",

@@ -26,21 +26,23 @@ function Stat({ value, label }: { value: string; label: string }) {
     );
 }
 
-/* ─── Service Card ─── */
-function ServiceCard({ icon, title, desc, i }: { icon: string; title: string; desc: string; i: number }) {
+/* ─── Service Card (linkable) ─── */
+function ServiceCard({ icon, title, desc, i, href }: { icon: string; title: string; desc: string; i: number; href?: string }) {
     const [h, setH] = useState(false);
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, margin: "-40px" });
-    return (
+    const inner = (
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: i * 0.08 }}
             onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
-            style={{ padding: "2rem 1.5rem", background: h ? "rgba(255,72,0,0.06)" : "rgba(255,255,255,0.02)", border: `2px solid ${h ? "rgba(255,72,0,0.3)" : "rgba(255,255,255,0.06)"}`, cursor: "default", transition: "all 0.3s", position: "relative", overflow: "hidden" }}>
+            style={{ padding: "2rem 1.5rem", background: h ? "rgba(255,72,0,0.06)" : "rgba(255,255,255,0.02)", border: `2px solid ${h ? "rgba(255,72,0,0.3)" : "rgba(255,255,255,0.06)"}`, cursor: href ? "pointer" : "default", transition: "all 0.3s", position: "relative", overflow: "hidden", height: "100%" }}>
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: h ? "#FF4800" : "transparent", transition: "background 0.3s" }} />
             <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>{icon}</div>
             <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#fff", marginBottom: "0.5rem", lineHeight: 1.3 }}>{title}</h3>
             <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.7, margin: 0 }}>{desc}</p>
+            {href && <div style={{ marginTop: "1rem", fontSize: "0.65rem", fontWeight: 800, color: "#FF4800", letterSpacing: "0.12em", textTransform: "uppercase" }}>Learn More →</div>}
         </motion.div>
     );
+    return href ? <Link href={href} style={{ textDecoration: "none" }}>{inner}</Link> : inner;
 }
 
 /* ─── Expandable FAQ ─── */
@@ -70,14 +72,14 @@ function FAQ({ q, a, i }: { q: string; a: string; i: number }) {
 /* ═════════════════════ MAIN ═════════════════════ */
 export default function IndustrialBuildingsUI() {
     const services = [
-        { icon: "🏭", title: "Warehouses & Distribution", desc: "Clear-span warehouses from 10,000 to 200,000+ SF with dock-high loading, grade-level doors, ESFR sprinkler systems, and heavy-duty 6\" concrete floors rated for forklift traffic." },
-        { icon: "🔩", title: "Pre-Engineered Metal Buildings", desc: "Red iron PEMB structures that are 30% faster to erect and 20–30% cheaper than conventional steel. Custom designed for Oklahoma's high wind loads and extreme heat exposure." },
-        { icon: "❄️", title: "Cold Storage & Food Processing", desc: "Temperature-controlled facilities with insulated metal panels, vapor barriers, ammonia/freon refrigeration rough-ins, and USDA/FDA-compliant construction standards." },
-        { icon: "�icing", title: "Manufacturing Facilities", desc: "Heavy industrial construction with reinforced foundations, overhead crane systems (up to 50-ton capacity), high bay clear heights (30–60 ft), and 3-phase power infrastructure." },
-        { icon: "🔧", title: "Flex Space & Light Industrial", desc: "Hybrid office/warehouse buildings with storefront office entries, rear dock or grade loading, and flexible bay configurations for multi-tenant or single-user layouts." },
-        { icon: "📦", title: "Self-Storage Facilities", desc: "Single-story drive-up units, multi-story climate-controlled buildings, and boat/RV storage with overhead roll-up doors, hallway systems, and security infrastructure." },
-        { icon: "🚜", title: "Agricultural Buildings", desc: "Barns, equipment shelters, grain storage, livestock facilities, and hay storage buildings designed for Oklahoma's agricultural operations." },
-        { icon: "🔌", title: "Industrial Renovations", desc: "Structural retrofits, seismic upgrades, crane rail installations, mezzanine additions, energy efficiency upgrades, and code compliance renovations for existing industrial buildings." },
+        { icon: "🏭", title: "Warehouses & Distribution", desc: "Clear-span warehouses from 10,000 to 200,000+ SF with dock-high loading, grade-level doors, ESFR sprinkler systems, and heavy-duty 6\" concrete floors rated for forklift traffic.", href: "/warehouse-construction-tulsa" },
+        { icon: "🔩", title: "Pre-Engineered Metal Buildings", desc: "Red iron PEMB structures that are 30% faster to erect and 20–30% cheaper than conventional steel. Custom designed for Oklahoma's high wind loads and extreme heat exposure.", href: "/pre-engineered-metal-buildings-tulsa" },
+        { icon: "❄️", title: "Cold Storage & Food Processing", desc: "Temperature-controlled facilities with insulated metal panels, vapor barriers, ammonia/freon refrigeration rough-ins, and USDA/FDA-compliant construction standards.", href: "/cold-storage-construction-tulsa" },
+        { icon: "⚙️", title: "Manufacturing Facilities", desc: "Heavy industrial construction with reinforced foundations, overhead crane systems (up to 50-ton capacity), high bay clear heights (30–60 ft), and 3-phase power infrastructure.", href: "/manufacturing-facility-construction-tulsa" },
+        { icon: "🔧", title: "Flex Space & Light Industrial", desc: "Hybrid office/warehouse buildings with storefront office entries, rear dock or grade loading, and flexible bay configurations for multi-tenant or single-user layouts.", href: "/flex-space-construction-tulsa" },
+        { icon: "📦", title: "Self-Storage Facilities", desc: "Single-story drive-up units, multi-story climate-controlled buildings, and boat/RV storage with overhead roll-up doors, hallway systems, and security infrastructure.", href: "/self-storage-construction-tulsa" },
+        { icon: "🚜", title: "Agricultural Buildings", desc: "Barns, equipment shelters, grain storage, livestock facilities, and hay storage buildings designed for Oklahoma's agricultural operations.", href: "/agricultural-building-construction-oklahoma" },
+        { icon: "🔌", title: "Industrial Renovations", desc: "Structural retrofits, seismic upgrades, crane rail installations, mezzanine additions, energy efficiency upgrades, and code compliance renovations for existing industrial buildings.", href: "/industrial-renovation-tulsa" },
     ];
 
     const faqs = [
@@ -168,7 +170,7 @@ export default function IndustrialBuildingsUI() {
                     </div>
                 </Section>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "1.5rem" }}>
-                    {services.map((s, i) => <ServiceCard key={i} icon={s.icon} title={s.title} desc={s.desc} i={i} />)}
+                    {services.map((s, i) => <ServiceCard key={i} icon={s.icon} title={s.title} desc={s.desc} href={s.href} i={i} />)}
                 </div>
             </section>
 
@@ -236,6 +238,47 @@ export default function IndustrialBuildingsUI() {
                         ))}
                     </div>
                 </Section>
+            </section>
+
+            {/* ── Steel Price Index ── */}
+            <section style={{ borderTop: "2px solid rgba(255,255,255,0.04)", borderBottom: "2px solid rgba(255,255,255,0.04)", background: "linear-gradient(180deg,rgba(255,72,0,0.02) 0%,transparent 100%)" }}>
+                <div style={{ maxWidth: "900px", margin: "0 auto", padding: "5rem 2rem" }}>
+                    <Section>
+                        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+                            <div style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.25em", textTransform: "uppercase", color: "#FF4800", marginBottom: "1rem" }}>Steel Price Index</div>
+                            <h2 style={{ fontSize: "clamp(1.5rem,3vw,2.2rem)", fontWeight: 900, letterSpacing: "-0.02em", margin: "0 0 0.5rem" }}>Current Steel & Metal Prices — Oklahoma (Q1 2026)</h2>
+                            <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.45)", margin: 0 }}>Prices updated quarterly. Based on UDGOK procurement data and industry indices.</p>
+                        </div>
+                    </Section>
+                    <Section delay={0.1}>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "1.25rem" }}>
+                            {[
+                                { metal: "Fabricated PEMB Steel", price: "$1,800 – $2,400", unit: "/ton", trend: "▼ 5%", trendColor: "#4ADE80", note: "Red iron rigid frames, purlins, girts — delivered" },
+                                { metal: "Hot-Rolled Structural (W-Shapes)", price: "$1,200 – $1,600", unit: "/ton", trend: "▼ 3%", trendColor: "#4ADE80", note: "Wide flanges, channels, angles — mill direct" },
+                                { metal: "Steel Coil (Metal Panels)", price: "$900 – $1,100", unit: "/ton", trend: "▲ 2%", trendColor: "#FF4800", note: "26 gauge G90 galvanized coil for wall/roof panels" },
+                                { metal: "Rebar (#4 Grade 60)", price: "$0.55 – $0.75", unit: "/lb", trend: "▼ 1%", trendColor: "#4ADE80", note: "A615 Grade 60 deformed bar" },
+                                { metal: "Concrete (Ready-Mix)", price: "$145 – $175", unit: "/CY", trend: "▲ 4%", trendColor: "#FF4800", note: "4,000 PSI commercial mix — delivered" },
+                                { metal: "Insulated Metal Panels (IMP)", price: "$12 – $22", unit: "/SF", trend: "▲ 3%", trendColor: "#FF4800", note: "4\" polyurethane core — installed" },
+                            ].map((item, i) => (
+                                <div key={i} style={{ padding: "1.5rem", border: "2px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
+                                        <h3 style={{ fontSize: "0.85rem", fontWeight: 800, color: "#fff", margin: 0, lineHeight: 1.3, flex: 1 }}>{item.metal}</h3>
+                                        <span style={{ fontSize: "0.65rem", fontWeight: 800, color: item.trendColor, marginLeft: "0.5rem", flexShrink: 0 }}>{item.trend}</span>
+                                    </div>
+                                    <div style={{ fontSize: "1.5rem", fontWeight: 900, background: "linear-gradient(135deg,#FF4800,#FF7043)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", marginBottom: "0.5rem" }}>
+                                        {item.price}<span style={{ fontSize: "0.7rem", fontWeight: 700 }}>{item.unit}</span>
+                                    </div>
+                                    <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.4)", lineHeight: 1.5 }}>{item.note}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </Section>
+                    <Section delay={0.2}>
+                        <p style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.3)", marginTop: "1.5rem", textAlign: "center", fontStyle: "italic" }}>
+                            Prices based on UDGOK procurement data, AISC, and regional distributor quotes. Market prices fluctuate — contact UDGOK for current project-specific pricing.
+                        </p>
+                    </Section>
+                </div>
             </section>
 
             {/* ── Why UDGOK section ── */}
