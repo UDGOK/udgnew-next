@@ -41,6 +41,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "build-to-suit-tulsa",
     "industrial-buildings-tulsa",
 
+    "construction-company-south-tulsa",
+    "construction-company-midtown-tulsa",
+    "construction-company-downtown-tulsa",
+    "construction-company-east-tulsa",
+    "construction-company-north-tulsa",
+    "tulsa-construction-costs",
+
     "ai-robotics",
     "property-intelligence",
     "market-intelligence",

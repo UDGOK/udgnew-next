@@ -51,12 +51,18 @@ const sitemapData = [
       { t: "Hospitality Construction Bixby", h: "/hospitality-construction-bixby" },
       { t: "Hospitality Construction Broken Arrow", h: "/hospitality-construction-broken-arrow" },
       { t: "Industrial Buildings Tulsa", h: "/industrial-buildings-tulsa" },
+      { t: "Tulsa Construction Costs 2026", h: "/tulsa-construction-costs" },
     ]
   },
   {
     category: "Locations",
     links: [
       { t: "Tulsa, OK", h: "/tulsa-ok-design-build" },
+      { t: "South Tulsa", h: "/construction-company-south-tulsa" },
+      { t: "Midtown Tulsa", h: "/construction-company-midtown-tulsa" },
+      { t: "Downtown Tulsa", h: "/construction-company-downtown-tulsa" },
+      { t: "East Tulsa", h: "/construction-company-east-tulsa" },
+      { t: "North Tulsa", h: "/construction-company-north-tulsa" },
       { t: "Broken Arrow, OK", h: "/broken-arrow-ok-design-build" },
       { t: "Bixby, OK", h: "/bixby-ok-design-build" },
       { t: "Jenks, OK", h: "/jenks-ok-design-build" },
