@@ -426,18 +426,43 @@ const STATS = [
 /* ─────────────────────────── Modal ─────────────────────────── */
 function ProjectModal({ project, onClose, projectIndex }: { project: Project; onClose: () => void; projectIndex: number }) {
   const [activeImg, setActiveImg] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const INTERVAL = 4000;
+  const TICK = 30;
+
+  // Auto-advance slideshow
+  useEffect(() => {
+    if (paused || project.images.length <= 1) return;
+    let elapsed = 0;
+    const timer = setInterval(() => {
+      elapsed += TICK;
+      setProgress((elapsed / INTERVAL) * 100);
+      if (elapsed >= INTERVAL) {
+        setActiveImg((i) => (i + 1) % project.images.length);
+        elapsed = 0;
+        setProgress(0);
+      }
+    }, TICK);
+    return () => clearInterval(timer);
+  }, [activeImg, paused, project.images.length]);
+
+  const goTo = useCallback((idx: number) => {
+    setActiveImg(idx);
+    setProgress(0);
+  }, []);
 
   // Lock scroll & keyboard nav
   useEffect(() => {
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") setActiveImg((i) => (i + 1) % project.images.length);
-      if (e.key === "ArrowLeft") setActiveImg((i) => (i - 1 + project.images.length) % project.images.length);
+      if (e.key === "ArrowRight") goTo((activeImg + 1) % project.images.length);
+      if (e.key === "ArrowLeft") goTo((activeImg - 1 + project.images.length) % project.images.length);
     };
     window.addEventListener("keydown", onKey);
     return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", onKey); };
-  }, [onClose, project.images.length]);
+  }, [onClose, activeImg, project.images.length, goTo]);
 
   const num = String(projectIndex + 1).padStart(2, "0");
 
@@ -523,18 +548,22 @@ function ProjectModal({ project, onClose, projectIndex }: { project: Project; on
           {/* ── Body ── */}
           <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
 
-            {/* Gallery */}
-            <div style={{ display: "flex", flexDirection: "column", overflow: "hidden" }}>
-              {/* Main image */}
+            {/* ── Cinematic Slideshow Gallery ── */}
+            <div
+              style={{ display: "flex", flexDirection: "column", overflow: "hidden" }}
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
+            >
+              {/* Main image with Ken Burns */}
               <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", overflow: "hidden", background: "#0B061B", flexShrink: 0 }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeImg}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ position: "absolute", inset: 0 }}
+                    initial={{ opacity: 0, scale: 1.15 }}
+                    animate={{ opacity: 1, scale: 1.04 }}
+                    exit={{ opacity: 0, scale: 1 }}
+                    transition={{ opacity: { duration: 0.7 }, scale: { duration: 6, ease: "linear" } }}
+                    style={{ position: "absolute", inset: "-6%", width: "112%", height: "112%" }}
                   >
                     <Image
                       src={project.images[activeImg]}
@@ -545,45 +574,63 @@ function ProjectModal({ project, onClose, projectIndex }: { project: Project; on
                   </motion.div>
                 </AnimatePresence>
 
+                {/* Cinematic gradient overlay */}
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(11,6,27,0.25) 0%, transparent 30%, transparent 65%, rgba(11,6,27,0.5) 100%)", pointerEvents: "none" }} />
+
+                {/* Progress bar */}
+                {project.images.length > 1 && (
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "3px", background: "rgba(255,255,255,0.08)", zIndex: 5 }}>
+                    <div style={{ height: "100%", background: "#FF4800", width: `${progress}%`, transition: "width 30ms linear" }} />
+                  </div>
+                )}
+
+                {/* Image counter badge */}
+                <div style={{
+                  position: "absolute", top: "1.25rem", right: "1.25rem", zIndex: 5,
+                  background: "rgba(11,6,27,0.65)", backdropFilter: "blur(8px)",
+                  padding: "0.4rem 0.8rem", display: "flex", alignItems: "center", gap: "0.4rem",
+                }}>
+                  <span style={{ fontSize: "0.7rem", fontWeight: 800, color: "#FF4800" }}>{String(activeImg + 1).padStart(2, "0")}</span>
+                  <span style={{ fontSize: "0.55rem", color: "rgba(255,255,255,0.35)" }}>/</span>
+                  <span style={{ fontSize: "0.55rem", fontWeight: 600, color: "rgba(255,255,255,0.35)" }}>{String(project.images.length).padStart(2, "0")}</span>
+                </div>
+
+                {/* Pause indicator */}
+                {paused && project.images.length > 1 && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    style={{
+                      position: "absolute", top: "1.25rem", left: "1.25rem", zIndex: 5,
+                      background: "rgba(11,6,27,0.65)", backdropFilter: "blur(8px)",
+                      padding: "0.35rem 0.75rem",
+                    }}
+                  >
+                    <span style={{ fontSize: "0.55rem", fontWeight: 800, color: "rgba(255,255,255,0.5)", letterSpacing: "0.15em", textTransform: "uppercase" }}>⏸ Paused</span>
+                  </motion.div>
+                )}
+
                 {/* Arrow nav */}
                 {project.images.length > 1 && (
                   <>
                     <button
-                      onClick={() => setActiveImg((i) => (i - 1 + project.images.length) % project.images.length)}
+                      onClick={() => goTo((activeImg - 1 + project.images.length) % project.images.length)}
                       style={{
                         position: "absolute", left: "1rem", top: "50%", transform: "translateY(-50%)",
-                        width: "40px", height: "40px", background: "rgba(11,6,27,0.8)",
-                        border: "none", color: "#fff", fontSize: "1rem", cursor: "pointer",
-                        display: "flex", alignItems: "center", justifyContent: "center",
+                        width: "44px", height: "44px", background: "rgba(11,6,27,0.6)", backdropFilter: "blur(4px)",
+                        border: "1px solid rgba(255,255,255,0.1)", color: "#fff", fontSize: "1rem", cursor: "pointer",
+                        display: "flex", alignItems: "center", justifyContent: "center", zIndex: 5,
                       }}
                     >←</button>
                     <button
-                      onClick={() => setActiveImg((i) => (i + 1) % project.images.length)}
+                      onClick={() => goTo((activeImg + 1) % project.images.length)}
                       style={{
                         position: "absolute", right: "1rem", top: "50%", transform: "translateY(-50%)",
-                        width: "40px", height: "40px", background: "rgba(11,6,27,0.8)",
-                        border: "none", color: "#fff", fontSize: "1rem", cursor: "pointer",
-                        display: "flex", alignItems: "center", justifyContent: "center",
+                        width: "44px", height: "44px", background: "rgba(11,6,27,0.6)", backdropFilter: "blur(4px)",
+                        border: "1px solid rgba(255,255,255,0.1)", color: "#fff", fontSize: "1rem", cursor: "pointer",
+                        display: "flex", alignItems: "center", justifyContent: "center", zIndex: 5,
                       }}
                     >→</button>
-                    <div style={{
-                      position: "absolute", bottom: "1rem", left: "50%", transform: "translateX(-50%)",
-                      display: "flex", gap: "6px",
-                    }}>
-                      {project.images.map((_, i) => (
-                        <button
-                          key={i}
-                          onClick={() => setActiveImg(i)}
-                          style={{
-                            width: i === activeImg ? "24px" : "8px",
-                            height: "8px",
-                            background: i === activeImg ? "#FF4800" : "rgba(255,255,255,0.5)",
-                            border: "none", borderRadius: "100px", cursor: "pointer",
-                            transition: "all 0.2s ease", padding: 0,
-                          }}
-                        />
-                      ))}
-                    </div>
                   </>
                 )}
               </div>
@@ -597,7 +644,7 @@ function ProjectModal({ project, onClose, projectIndex }: { project: Project; on
                   {project.images.map((src, i) => (
                     <button
                       key={i}
-                      onClick={() => setActiveImg(i)}
+                      onClick={() => goTo(i)}
                       style={{
                         position: "relative",
                         width: "100px", height: "72px",
@@ -606,12 +653,17 @@ function ProjectModal({ project, onClose, projectIndex }: { project: Project; on
                         borderRight: "2px solid #0B061B",
                         cursor: "pointer",
                         padding: 0,
-                        outline: i === activeImg ? "3px solid #FF4800" : "none",
-                        outlineOffset: "-3px",
                         overflow: "hidden",
                       }}
                     >
-                      <Image src={src} alt="" fill style={{ objectFit: "cover", filter: i === activeImg ? "none" : "grayscale(60%)", transition: "filter 0.2s" }} />
+                      <Image src={src} alt="" fill style={{ objectFit: "cover", filter: i === activeImg ? "none" : "grayscale(60%) brightness(0.5)", transition: "filter 0.3s" }} />
+                      {i === activeImg && (
+                        <motion.div
+                          layoutId="thumb-active"
+                          style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "3px", background: "#FF4800" }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      )}
                     </button>
                   ))}
                 </div>
@@ -786,7 +838,7 @@ function ProjectCard({ p, index, onClick }: { p: Project; index: number; onClick
 function ParallaxGrid({ items, onOpen }: { items: Project[], onOpen: (p: Project, idx: number) => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
-  
+
   // Create 3D parallax floating effects
   const col2Y = useTransform(scrollYProgress, [0, 1], [250, -250]);
   const col3Y = useTransform(scrollYProgress, [0, 1], [100, -100]);
