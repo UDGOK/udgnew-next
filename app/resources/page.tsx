@@ -7,6 +7,15 @@ import MarqueeBanner from "@/components/MarqueeBanner";
 
 const articles = [
   {
+    category: "Healthcare Technology",
+    title: "AI & Robotic Surgery in 2026: How Autonomous Systems Are Redefining Care",
+    desc: "AI-enabled robotic surgery delivers autonomous procedures and intercontinental telesurgery — demanding radical healthcare infrastructure upgrades.",
+    href: "/ai-robotic-surgery-2026",
+    img: "/images/robotic-surgery-hero.png",
+    date: "MAR 2026",
+    readTime: "12 MIN READ"
+  },
+  {
     category: "Construction Technology",
     title: "Digital Twin Technology in Construction: 2026 Guide",
     desc: "A complete guide to how AI, IoT, and 3D virtual replicas are transforming commercial construction, energy, and smart cities.",
@@ -83,17 +92,17 @@ export default function ResourcesPage() {
 
   return (
     <main className="bg-[#0B061B] min-h-screen text-white overflow-hidden" ref={containerRef}>
-      
+
       {/* Cinematic Parallax Hero */}
       <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
-        <motion.div 
+        <motion.div
           className="absolute inset-0 z-0"
           style={{ y: headerY, opacity: headerOpacity }}
         >
-          <Image 
-            src="/images/ai-knowledge-hub.png" 
-            alt="UDGOK Knowledge Hub Library" 
-            fill 
+          <Image
+            src="/images/ai-knowledge-hub.png"
+            alt="UDGOK Knowledge Hub Library"
+            fill
             className="object-cover"
             priority
           />
@@ -112,7 +121,7 @@ export default function ResourcesPage() {
               Knowledge Hub
             </span>
             <h1 className="text-[clamp(3.5rem,8vw,8rem)] font-black tracking-tighter leading-[0.85] uppercase mb-6 mix-blend-screen text-white drop-shadow-2xl">
-              Build <br/><span className="text-[#FF4800]">Intelligence</span>
+              Build <br /><span className="text-[#FF4800]">Intelligence</span>
             </h1>
             <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-medium leading-relaxed">
               Proprietary market data, expert development guides, and algorithmic estimating tools from Oklahoma's premier design-build firm.
@@ -123,7 +132,7 @@ export default function ResourcesPage() {
 
       {/* Featured Article Break */}
       <section className="relative z-20 -mt-20 px-4 md:px-12 pb-24">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -150,10 +159,10 @@ export default function ResourcesPage() {
             </Link>
           </div>
           <div className="lg:w-1/2 w-full order-1 lg:order-2 h-[400px] lg:h-[600px] relative rounded-2xl overflow-hidden group">
-            <Image 
-              src="/images/ai-dental-interior.png" 
-              alt="Dental Office interior" 
-              fill 
+            <Image
+              src="/images/ai-dental-interior.png"
+              alt="Dental Office interior"
+              fill
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-[#0B061B]/80 to-transparent mix-blend-multiply" />
@@ -170,10 +179,10 @@ export default function ResourcesPage() {
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight">Latest <span className="text-[#FF4800]">Release</span></h2>
             <Link href="#" className="hidden md:flex text-xs font-bold tracking-[0.2em] uppercase text-white/50 hover:text-white transition-colors">View All Archive →</Link>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-16">
             {articles.map((article, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -182,29 +191,29 @@ export default function ResourcesPage() {
                 className="group flex flex-col"
               >
                 <Link href={article.href} className="block relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-white/5">
-                  <Image 
-                    src={article.img} 
-                    alt={article.title} 
-                    fill 
+                  <Image
+                    src={article.img}
+                    alt={article.title}
+                    fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Subtle overlay */}
                   <div className="absolute inset-0 bg-[#0B061B]/10 group-hover:bg-transparent transition-colors duration-500" />
                 </Link>
-                
+
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[#FF4800] text-[0.65rem] font-bold tracking-[0.2em] uppercase">{article.category}</span>
                   <span className="text-white/40 text-[0.65rem] font-bold tracking-[0.2em] uppercase">{article.readTime}</span>
                 </div>
-                
+
                 <Link href={article.href} className="block group">
                   <h3 className="text-2xl font-bold leading-tight tracking-tight mb-3 group-hover:text-[#FF4800] transition-colors">{article.title}</h3>
                 </Link>
-                
+
                 <p className="text-white/60 text-sm leading-relaxed mb-6 line-clamp-3">
                   {article.desc}
                 </p>
-                
+
                 <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
                   <span className="text-white/30 text-[0.65rem] font-bold tracking-[0.2em] uppercase">{article.date}</span>
                   <Link href={article.href} className="text-white text-[0.65rem] font-bold tracking-[0.2em] uppercase flex items-center gap-2 group-hover:text-[#FF4800] transition-colors">
