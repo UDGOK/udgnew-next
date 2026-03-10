@@ -30,6 +30,12 @@ export const metadata: Metadata = {
     "design-build contractor Tulsa",
     "commercial construction Oklahoma",
     "tenant improvement Tulsa",
+    "construction companies in tulsa",
+    "construction companies in tulsa ok",
+    "construction company tulsa",
+    "tulsa construction company",
+    "commercial builders tulsa",
+    "general contractor tulsa ok",
     "dental clinic construction Broken Arrow",
     "medical office Bixby OK",
     "construction company Jenks OK",
@@ -41,11 +47,7 @@ export const metadata: Metadata = {
     "construction company Sapulpa OK",
     "general contractor Haskell OK",
     "dental construction Owasso OK",
-    "medical office Sapulpa Oklahoma",
-    "commercial construction Haskell Oklahoma",
-    "dental office construction Jenks OK",
-    "medical clinic construction Owasso Oklahoma",
-    "design-build contractor Broken Arrow OK",
+    "industrial construction tulsa",
     "shopping center construction Tulsa OK",
   ],
   openGraph: {
@@ -98,6 +100,57 @@ export default function RootLayout({
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <meta name="theme-color" content="#0B061B" media="(prefers-color-scheme: dark)" />
           <meta name="theme-color" content="#FF4800" media="(prefers-color-scheme: light)" />
+          {/* Organization + LocalBusiness JSON-LD — appears on every page */}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": ["Organization", "GeneralContractor"],
+              "@id": "https://udgok.com/#organization",
+              name: "UDGOK — Upscale Development Group of Oklahoma",
+              alternateName: "UDGOK",
+              url: "https://udgok.com",
+              logo: "https://udgok.com/logo.png",
+              description: "Top-rated construction company in Tulsa, Oklahoma. UDGOK builds commercial, medical, dental, industrial, and retail projects. 100+ projects delivered. Design-build, GMP pricing, AI-powered estimating.",
+              foundingDate: "2006",
+              telephone: "+1-918-520-3823",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "7739 E 38th St",
+                addressLocality: "Tulsa",
+                addressRegion: "OK",
+                postalCode: "74145",
+                addressCountry: "US",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 36.0998,
+                longitude: -95.8830,
+              },
+              areaServed: [
+                { "@type": "City", name: "Tulsa" },
+                { "@type": "City", name: "Broken Arrow" },
+                { "@type": "City", name: "Bixby" },
+                { "@type": "City", name: "Jenks" },
+                { "@type": "City", name: "Owasso" },
+                { "@type": "City", name: "Sand Springs" },
+                { "@type": "City", name: "Sapulpa" },
+                { "@type": "City", name: "Oklahoma City" },
+                { "@type": "City", name: "Dallas" },
+              ],
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "07:00",
+                closes: "17:00",
+              },
+              priceRange: "$$$",
+              knowsAbout: [
+                "Commercial Construction", "Medical Office Construction", "Dental Office Construction",
+                "Industrial Construction", "Pre-Engineered Metal Buildings", "Design-Build Construction",
+                "Tenant Improvements", "Construction Management", "Retail Construction",
+              ],
+            })
+          }} />
         </head>
         <body className={`${inter.variable} font-sans antialiased`}>
           <div className="grain-overlay" />

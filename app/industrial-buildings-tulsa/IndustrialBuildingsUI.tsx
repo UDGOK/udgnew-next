@@ -273,6 +273,22 @@ export default function IndustrialBuildingsUI() {
                 </div>
             </section>
 
+            {/* ── Cross-Link to Pillar ── */}
+            <section style={{ maxWidth: "900px", margin: "0 auto", padding: "0 2rem 2rem" }}>
+                <Section>
+                    <div style={{ display: "flex", alignItems: "center", gap: "1rem", padding: "1.25rem 1.5rem", border: "2px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+                        <div style={{ width: "4px", height: "40px", background: "#FF4800", flexShrink: 0 }} />
+                        <p style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.7, margin: 0 }}>
+                            UDGOK is a leading{" "}
+                            <Link href="/construction-companies-tulsa" style={{ color: "#FF4800", textDecoration: "none", fontWeight: 700 }}>construction company in Tulsa, Oklahoma</Link>
+                            {" "}— delivering commercial, medical, dental, industrial, and retail projects. Explore our{" "}
+                            <Link href="/construction-companies-tulsa" style={{ color: "#FF4800", textDecoration: "none", fontWeight: 700 }}>complete guide to construction in Tulsa</Link>
+                            {" "}for costs, timelines, and building types.
+                        </p>
+                    </div>
+                </Section>
+            </section>
+
             {/* ── CTA ── */}
             <section style={{ padding: "4rem 2rem", borderTop: "3px solid #FF4800", background: "rgba(255,72,0,0.04)", textAlign: "center" }}>
                 <Section>

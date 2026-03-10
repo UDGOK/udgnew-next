@@ -54,14 +54,14 @@ export default function ServicePage({
           })}
         </Script>
       )}
-      
+
       {/* 1. Epic Parallax Hero */}
       <section ref={containerRef} className="relative h-[85vh] w-full flex items-end justify-center overflow-hidden border-b border-white/10">
         <motion.div style={{ y: yParallax, opacity: opacityFade }} className="absolute inset-0 z-0 origin-top">
-          <Image 
-            src={imageSrc} 
-            alt={imageAlt} 
-            fill 
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            fill
             className="object-cover scale-105"
             priority
           />
@@ -70,7 +70,7 @@ export default function ServicePage({
         </motion.div>
 
         <div className="relative z-10 w-full max-w-7xl px-6 md:px-12 pb-24 md:pb-32">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -118,10 +118,10 @@ export default function ServicePage({
       <section className="relative py-32 border-b border-white/10">
         <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-full max-w-7xl border-x border-white/5 z-0" />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            
+
             <AnimateIn direction="right">
               <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">
                 Precision <span className="text-[#FF4800]">Execution</span>
@@ -129,7 +129,7 @@ export default function ServicePage({
               <p className="text-lg text-white/60 leading-relaxed mb-12 max-w-xl">
                 {intro}
               </p>
-              
+
               <Link href="/contact" className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-[#FF4800] hover:bg-[#FF4800]/80 px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase text-white transition-colors shadow-2xl shadow-[#FF4800]/20">
                 Discuss Your Project →
               </Link>
@@ -149,7 +149,7 @@ export default function ServicePage({
                 ))}
               </div>
             )}
-            
+
           </div>
         </div>
       </section>
@@ -175,7 +175,7 @@ export default function ServicePage({
             <AnimateIn key={i} delay={i * 0.05} direction="up">
               <div className="bg-white/5 border border-white/10 rounded-3xl p-10 h-full group hover:bg-white/10 transition-colors relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF4800]/10 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150" />
-                <motion.div 
+                <motion.div
                   className="text-4xl mb-8 relative z-10"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                 >
@@ -219,7 +219,7 @@ export default function ServicePage({
       {/* 4. Process Timeline */}
       <section className="py-32 bg-[#05020B] px-6 md:px-12 relative overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 relative z-10">
-          
+
           <div className="lg:w-1/3">
             <AnimateIn direction="right">
               <div className="sticky top-40">
@@ -243,7 +243,7 @@ export default function ServicePage({
               <AnimateIn key={i} delay={i * 0.15} direction="left">
                 <div className="mb-20 relative group">
                   <div className="absolute -left-[45px] md:-left-[69px] top-2 w-4 h-4 rounded-full border-2 border-[#05020B] bg-[#FF4800] ring-4 ring-[#FF4800]/20 group-hover:ring-[#FF4800]/50 group-hover:scale-125 transition-all duration-300" />
-                  <span className="text-[#FF4800] text-7xl font-black tracking-tighter opacity-10 absolute -top-8 -left-2 user-select-none">0{i+1}</span>
+                  <span className="text-[#FF4800] text-7xl font-black tracking-tighter opacity-10 absolute -top-8 -left-2 user-select-none">0{i + 1}</span>
                   <h3 className="text-2xl font-bold uppercase tracking-tight mb-4 relative">{step.title}</h3>
                   <p className="text-white/60 text-lg leading-relaxed max-w-xl relative">{step.desc}</p>
                 </div>
@@ -278,12 +278,36 @@ export default function ServicePage({
         </section>
       )}
 
+      {/* ── Topical Authority Cross-Link ── */}
+      <section className="border-b border-white/10 py-12 px-6 md:px-12">
+        <div className="max-w-4xl mx-auto">
+          <AnimateIn>
+            <div className="flex items-center gap-4 p-6 border border-white/10 bg-white/[0.02] rounded-xl">
+              <div className="w-1 h-12 bg-[#FF4800] rounded-full flex-shrink-0" />
+              <div>
+                <p className="text-sm text-white/50 leading-relaxed">
+                  UDGOK is a leading{" "}
+                  <Link href="/construction-companies-tulsa" className="text-[#FF4800] hover:underline font-semibold">
+                    construction company in Tulsa, Oklahoma
+                  </Link>
+                  {" "}— delivering commercial, medical, dental, industrial, and retail projects across the Tulsa metro. Explore our{" "}
+                  <Link href="/construction-companies-tulsa" className="text-[#FF4800] hover:underline font-semibold">
+                    complete guide to construction in Tulsa
+                  </Link>
+                  {" "}for costs, timelines, and building types.
+                </p>
+              </div>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
       {/* 5. Cyber-Physical CTA */}
       <section className="bg-white text-[#0B061B] py-32 px-6 md:px-12 text-center rounded-t-[3rem] -mt-10 relative z-20">
         <AnimateIn>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-[clamp(3.5rem,6vw,6rem)] font-black uppercase tracking-tighter leading-[0.85] mb-8">
-              Start Your <br/> <span className="text-[#FF4800]">Project</span>
+              Start Your <br /> <span className="text-[#FF4800]">Project</span>
             </h2>
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto font-medium">
               We provide accurate feasibility analysis and cost modeling before you sign a lease. Contact our project directors today.
