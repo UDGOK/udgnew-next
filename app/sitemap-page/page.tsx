@@ -53,6 +53,7 @@ const sitemapData = [
       { t: "Build to Suit Tulsa", h: "/build-to-suit-tulsa" },
       { t: "Hospitality Construction Bixby", h: "/hospitality-construction-bixby" },
       { t: "Hospitality Construction Broken Arrow", h: "/hospitality-construction-broken-arrow" },
+      { t: "Industrial Buildings Tulsa", h: "/industrial-buildings-tulsa" },
     ]
   },
   {

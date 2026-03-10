@@ -39,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "office-construction-bixby",
     "office-construction-tulsa",
     "build-to-suit-tulsa",
+    "industrial-buildings-tulsa",
     "dental-oral-surgery-construction-specialists",
     "ai-robotics",
     "property-intelligence",
