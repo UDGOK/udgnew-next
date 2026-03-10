@@ -194,6 +194,31 @@ export default function DigitalTwinUI() {
         </Section>
       </section>
 
+      {/* ─── TL;DR SPEAKABLE SUMMARY ─── */}
+      <section style={{ maxWidth: "900px", margin: "0 auto", padding: `0 ${px} 4rem` }}>
+        <Section>
+          <div
+            data-speakable="true"
+            style={{
+              position: "relative",
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderBottom: "4px solid #FF4800",
+              padding: "2rem 2.5rem",
+            }}
+          >
+            <div style={{ position: "absolute", top: "-1px", left: "2rem", right: "2rem", height: "1px", background: "linear-gradient(90deg, transparent, #FF4800, transparent)" }} />
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.25rem" }}>
+              <span style={{ width: "8px", height: "8px", background: "#FF4800", display: "inline-block" }} className="animate-pulse" />
+              <span style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.25em", textTransform: "uppercase", color: "#FF4800" }}>Quick Answer</span>
+            </div>
+            <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.8)", lineHeight: 1.8, fontWeight: 500, margin: 0 }}>
+              A Digital Twin is a living, data-rich 3D replica of a building that syncs with real-world conditions through IoT sensors and BIM models. The global digital twin market is projected to reach $48.2B by 2026, with healthcare as the fastest-growing segment at 52.7% CAGR. In construction, Digital Twins detect MEP clashes (saving $5,000–$50,000+ per conflict), simulate energy performance before equipment purchase, and reduce construction costs by up to 30%. UDGOK uses Digital Twins on every medical and commercial project to deliver zero-conflict builds.
+            </p>
+          </div>
+        </Section>
+      </section>
+
       {/* ─── WHAT IS IT ─── */}
       <section style={{ maxWidth: "1100px", margin: "0 auto", padding: `0 ${px} 5rem` }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
@@ -335,6 +360,37 @@ export default function DigitalTwinUI() {
         </div>
       </section>
 
+      {/* ─── FAQ ACCORDION ─── */}
+      <section style={{ maxWidth: "800px", margin: "0 auto", padding: `0 ${px} 5rem` }}>
+        <Section>
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
+            <span style={{ width: "32px", height: "1px", background: "#FF4800" }} />
+            <span style={{ fontSize: "0.65rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.2em", color: "#FF4800" }}>Common Questions</span>
+          </div>
+          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.03em", lineHeight: 0.95, marginBottom: "3rem" }}>
+            Frequently <span style={{ color: "#FF4800" }}>Asked</span>
+          </h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <DTFAQItem
+              q="What is a Digital Twin in construction?"
+              a="A Digital Twin is a data-rich 3D virtual replica of a physical building that stays synchronized with real-world conditions via IoT sensors and BIM models. In construction, it allows teams to detect MEP clashes before building, simulate energy performance, track real-time schedule deviations, and serve as a facility management tool for the building's entire lifecycle."
+            />
+            <DTFAQItem
+              q="How much money can Digital Twins save on a construction project?"
+              a="Digital Twins reduce construction costs by up to 30%. Resolving an MEP clash in a digital model costs $0, versus $5,000–$50,000+ to fix the same conflict in the field after construction. For a typical UDGOK medical or dental project, Digital Twin technology catches 50–200 clashes that would otherwise become costly change orders."
+            />
+            <DTFAQItem
+              q="How does UDGOK use Digital Twin technology?"
+              a="UDGOK integrates Digital Twins into every project through Revit BIM modeling, Navisworks clash detection, and IoT-connected field monitoring. We build the entire project virtually before breaking ground, validate all medical gas and MEP systems digitally, and deliver an as-built Digital Twin model at project completion for ongoing facility management."
+            />
+            <DTFAQItem
+              q="What industries benefit most from Digital Twins in 2026?"
+              a="Healthcare construction is the fastest-growing Digital Twin segment at 52.7% CAGR. Other major sectors include energy (predictive maintenance for refineries and wind farms), smart cities (traffic and grid optimization), and manufacturing (production line simulation). The global Digital Twin market is projected to reach $48.2 billion by 2026."
+            />
+          </div>
+        </Section>
+      </section>
+
       {/* ─── CTA ─── */}
       <section style={{ maxWidth: "800px", margin: "0 auto", padding: `0 ${px} 6rem` }}>
         <Section>
@@ -367,5 +423,60 @@ export default function DigitalTwinUI() {
         }
       `}</style>
     </div>
+  );
+}
+
+/* ─── Digital Twin FAQ Accordion Item ─── */
+function DTFAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+      style={{
+        border: "1px solid rgba(255,255,255,0.08)",
+        overflow: "hidden",
+        background: open ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.01)",
+        transition: "background 0.3s ease",
+      }}
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "1.5rem 2rem",
+          textAlign: "left",
+          cursor: "pointer",
+          background: "none",
+          border: "none",
+          color: "inherit",
+          font: "inherit",
+        }}
+      >
+        <span style={{ fontSize: "1rem", fontWeight: 600, color: "rgba(255,255,255,0.9)", paddingRight: "2rem", lineHeight: 1.4 }}>{q}</span>
+        <motion.span
+          animate={{ rotate: open ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
+          style={{ color: "#FF4800", fontSize: "1.5rem", fontWeight: 700, flexShrink: 0 }}
+        >
+          +
+        </motion.span>
+      </button>
+      <motion.div
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        style={{ overflow: "hidden" }}
+      >
+        <p style={{ padding: "0 2rem 1.5rem", color: "rgba(255,255,255,0.5)", fontSize: "0.95rem", lineHeight: 1.7, margin: 0 }}>
+          {a}
+        </p>
+      </motion.div>
+    </motion.div>
   );
 }

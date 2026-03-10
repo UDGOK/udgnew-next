@@ -36,6 +36,13 @@ export default function GuideDevelopersPage() {
       category="Market Data"
       readTime="8 MIN READ"
       heroImage="/images/ai-medical-exterior.png"
+      tldr="Medical office construction in Tulsa costs $180–$280/SF for tenant improvements and $220–$350/SF for ground-up shell-plus-TI. Soft costs add 25–35% on top of hard costs. Medical facilities require 3–5x the electrical and water demand of standard office, parking ratios of 5:1,000 (vs. 3:1,000), and 12–14 foot slab-to-slab heights. Permit timelines run 60–90 days for medical versus 30–45 for standard commercial."
+      faqs={[
+        { q: "How much does ground-up medical office construction cost in Tulsa?", a: "Ground-up medical office construction in Tulsa ranges from $220–$350 per square foot for shell plus tenant improvement, depending on specialty. Add 25–35% for soft costs (design, permits, financing, leasing commissions) and build a 10–15% contingency into your pro forma. Escalation of 5–8% annually should be modeled on projects with 18+ month lead times." },
+        { q: "What makes medical office site selection different from commercial?", a: "Medical sites need to evaluate patient traffic patterns, physician referral corridors, parking ratios (5:1,000 vs. 3:1,000 for office), proximity to hospital campuses, and utility capacity — medical facilities have 3–5x the electrical and water demand of standard office. Zoning must be confirmed early as rezoning adds months to your schedule." },
+        { q: "What is the best delivery method for medical office development?", a: "Design-build is the most efficient, reducing schedules by 15–20% versus design-bid-build. Consider phasing: build the shell first, then complete tenant improvements as leases are signed. This reduces pre-leasing requirements and accelerates first-occupancy." },
+        { q: "What regulatory requirements apply to medical construction in Oklahoma?", a: "Medical facilities must comply with OSHA healthcare standards, NFPA 99 for medical gas, enhanced ADA requirements for healthcare, and state health department approval. Ambulatory surgery centers require ODHSEM licensing. Dental offices with nitrous require DEQ review. Budget 60–90 days for medical permit review in Tulsa versus 30–45 for standard commercial." },
+      ]}
     >
       <div dangerouslySetInnerHTML={{ __html: customHTML }} />
     </BlogPostLayout>

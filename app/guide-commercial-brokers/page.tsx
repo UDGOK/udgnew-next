@@ -36,6 +36,13 @@ export default function GuideBrokersPage() {
       category="Commercial Real Estate"
       readTime="6 MIN READ"
       heroImage="/images/ai-construction-mep.png"
+      tldr="Commercial brokers representing healthcare tenants need to understand that medical and dental build-outs cost 2–3x more than standard office TI. In Tulsa's market, medical TI allowances run $80–$140/SF and dental requires $120–$180/SF due to plumbing, medical gas, and equipment rough-in. Construction timelines are also longer — 90–120 days for dental, 120–150 days for medical, and 6–9 months for oral surgery — all starting after permit issuance."
+      faqs={[
+        { q: "What TI allowance should a dental tenant negotiate?", a: "Dental tenants in Tulsa should target $120–$180/SF in TI allowance. Standard commercial office TI is $50–$90/SF, but dental construction requires under-slab plumbing, medical gas rough-in, radiation shielding, and specialized HVAC that drive costs significantly higher. Even a 'generous' commercial TI allowance may leave a dental tenant funding a $50,000–$150,000 gap." },
+        { q: "How long does medical office construction take versus standard office?", a: "Standard commercial office TI takes 60–90 days from permit. Dental office TI takes 90–120 days. Medical office with exam rooms and specialized MEP runs 120–150 days. Oral surgery centers can take 6–9 months. Add 30–60 days for permit review in Tulsa before construction starts." },
+        { q: "What should a broker look for in a healthcare construction contractor?", a: "Look for ASSE 6010 certified medical gas installers, direct experience with dental operatory plumbing and equipment coordination, NFPA 99 code knowledge, references from dental equipment vendors, and a superintendent who has built at least 10 dental offices. Not every commercial GC can build healthcare." },
+        { q: "What building features do healthcare tenants require?", a: "Healthcare tenants need higher parking ratios (5:1,000 vs. 3:1,000 for office), 200A 3-phase electrical minimum per dental operatory, dedicated HVAC exhaust for sterilization rooms, ADA-compliant access beyond standard commercial requirements, and strong signage visibility for patient-facing practices." },
+      ]}
     >
       <div dangerouslySetInnerHTML={{ __html: customHTML }} />
     </BlogPostLayout>
