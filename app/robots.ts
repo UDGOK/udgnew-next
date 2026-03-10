@@ -56,6 +56,15 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "cohere-ai",
         allow: "/",
       },
+      {
+        userAgent: "Meta-ExternalAgent",
+        allow: "/",
+        disallow: ["/api/", "/portal/dashboard/"],
+      },
+      {
+        userAgent: "YouBot",
+        allow: "/",
+      },
     ],
     sitemap: "https://udgok.com/sitemap.xml",
   };

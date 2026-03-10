@@ -84,6 +84,50 @@ Comprehensive jobsite safety including OSHA compliance, daily safety briefings, 
 
 ---
 
+## Industrial & Warehouse Construction
+
+UDGOK provides full-service industrial construction across the Tulsa metro and Oklahoma:
+
+### Warehouse Construction
+Ground-up warehouse development and retrofits. Services include concrete slab design, dock-height and grade-level loading, clear-span structural systems, fire suppression, and office/mezzanine build-outs. Typical projects range from 10,000 to 100,000+ square feet.
+
+### Pre-Engineered Metal Buildings
+Design-build services for pre-engineered metal building systems (PEMBS). Includes site preparation, foundation design, erection, insulation, and interior build-out. Suitable for warehouses, manufacturing plants, aircraft hangars, and agricultural buildings.
+
+### Cold Storage Construction
+Specialized construction for temperature-controlled facilities including cold rooms, blast freezers, and refrigerated warehouses. Expertise in insulated metal panels (IMPs), vapor barriers, refrigeration system rough-ins, and USDA/FDA compliance for food-grade facilities.
+
+### Manufacturing Facility Construction
+Custom manufacturing and production facility construction including heavy-power electrical distribution, compressed air systems, overhead crane installation, process piping, and specialized ventilation/exhaust systems.
+
+### Flex Space Construction
+Versatile commercial buildings combining warehouse, office, and retail components. Ideal for small businesses, e-commerce fulfillment, and creative studios. Typical configurations include 60% warehouse / 40% office space.
+
+### Self-Storage Construction
+Ground-up self-storage facility development including climate-controlled and drive-up units. Services include site planning, unit mix optimization, security system integration, and amenity buildouts.
+
+### Agricultural Building Construction
+Farm and ranch building construction across Oklahoma including barns, equipment storage, grain storage facilities, livestock shelters, and agricultural processing buildings. Experience with USDA Rural Development program requirements.
+
+### Industrial Renovation
+Retrofitting, expanding, and modernizing existing industrial facilities. Services include structural modifications, MEP upgrades, code compliance updates, environmental remediation coordination, and phased construction to minimize operational disruption.
+
+---
+
+## Commercial Services
+
+UDGOK also serves the broader commercial construction market:
+
+- **Commercial Contractor Tulsa** — Full-service general contracting for commercial projects in the Tulsa metro.
+- **Retail Construction** — Retail build-outs, storefronts, and shopping center improvements.
+- **Hospitality Construction** — Hotel, restaurant, and hospitality venue construction in Bixby and Broken Arrow.
+- **Office Construction** — Professional office build-outs in Tulsa and Bixby.
+- **Build-to-Suit** — Custom construction tailored to tenant specifications.
+- **Shopping Center Construction** — Multi-tenant retail center development and renovation.
+- **Convenience Store Construction** — Ground-up convenience stores and gas station construction.
+
+---
+
 ## Service Areas
 
 ### Oklahoma
@@ -93,7 +137,16 @@ Comprehensive jobsite safety including OSHA compliance, daily safety briefings, 
 - **Jenks** — Residential community with growing commercial needs. Boutique medical office construction.
 - **Owasso** — North Tulsa suburb. Medical office parks and convenience store construction.
 - **Sand Springs** — West Tulsa suburb. Commercial and healthcare construction.
+- **Sapulpa** — West of Tulsa. Residential and commercial construction services.
+- **Haskell** — East of Tulsa. Rural and agricultural construction services.
 - **Oklahoma City** — State capital. Medical office construction and healthcare system expansions.
+
+### Neighborhood Service Areas (Tulsa)
+- **South Tulsa** — Residential-to-commercial conversions, medical offices, dental clinics.
+- **Midtown Tulsa** — Boutique commercial projects, office renovations, restaurant build-outs.
+- **Downtown Tulsa** — Mixed-use developments, historic building renovations, commercial fit-outs.
+- **East Tulsa** — Industrial construction, warehouse development, convenience stores.
+- **North Tulsa** — Community-focused commercial construction, healthcare facilities.
 
 ### Texas
 - **Dallas / Plano** — North Texas market. Medical office construction, dental clinics, and healthcare facility build-outs in the DFW metroplex.
@@ -107,11 +160,16 @@ UDGOK has completed projects across these categories:
 2. **Dental clinics** — General dentistry, pediatric, cosmetic, multi-operatory
 3. **Oral surgery centers** — Sedation-ready facilities, recovery suites
 4. **Eye clinics** — Ophthalmology, optometry, ASC-ready
-5. **Convenience stores** — Ground-up and renovations
-6. **Shopping centers** — Retail build-outs, common area improvements
-7. **Restaurant build-outs** — Commercial kitchens, dining areas
-8. **Office spaces** — Corporate offices, co-working spaces
-9. **Mixed-use developments** — Ground-floor commercial, upper-floor residential
+5. **Warehouses** — Distribution centers, e-commerce fulfillment, storage facilities
+6. **Industrial buildings** — Manufacturing plants, flex spaces, metal buildings
+7. **Cold storage facilities** — Temperature-controlled warehouses, blast freezers
+8. **Self-storage facilities** — Climate-controlled and drive-up unit complexes
+9. **Agricultural buildings** — Barns, equipment storage, grain facilities
+10. **Convenience stores** — Ground-up and renovations
+11. **Shopping centers** — Retail build-outs, common area improvements
+12. **Restaurant build-outs** — Commercial kitchens, dining areas
+13. **Office spaces** — Corporate offices, co-working spaces
+14. **Mixed-use developments** — Ground-floor commercial, upper-floor residential
 
 ---
 
@@ -158,14 +216,21 @@ All tools are available at https://udgok.com/tools
 
 UDGOK publishes expert articles on construction topics:
 - Digital twin technology in construction
-- ADA compliance requirements for healthcare facilities
-- Dental office construction timelines and planning
-- Medical gas installation technical guides
-- Medical office design checklists
-- Construction cost analysis for Oklahoma markets
+- Digital twin technology — comprehensive guide 2026
+- AI and robotic surgery in construction 2026
+- Dental construction costs analysis for Oklahoma
+- Tulsa construction costs and market data
 - Guides for commercial brokers and developers working with contractors
 
 All articles available at https://udgok.com/resources
+
+---
+
+## AI & Technology
+
+- [AI & Robotics](https://udgok.com/ai-robotics) — UDGOK's integration of AI and robotic technology in construction
+- [Property Intelligence](https://udgok.com/property-intelligence) — AI-powered property analysis tools
+- [Market Intelligence](https://udgok.com/market-intelligence) — AI-driven construction market data and insights
 
 ---
 
