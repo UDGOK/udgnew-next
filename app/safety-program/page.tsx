@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     "construction safety program Oklahoma",
     "OSHA compliant contractor Tulsa",
     "construction safety Tulsa OK",
+    "on-site safety staffing Tulsa",
     "EMR rating contractor",
     "jobsite safety program",
     "construction safety plan",

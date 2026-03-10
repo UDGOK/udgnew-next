@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   keywords: [
     "medical construction Bixby",
     "office construction Bixby",
+    "commercial construction company Bixby",
+    "commercial real estate construction Bixby",
+    "design builders Bixby",
+    "retail construction Bixby",
     "construction company Bixby OK",
     "general contractor Bixby Oklahoma",
     "design-build contractor Bixby",
@@ -16,8 +20,6 @@ export const metadata: Metadata = {
     "tenant improvement Bixby OK",
     "medical clinic build-out Bixby",
     "healthcare construction Bixby OK",
-    "dental clinic Bixby Oklahoma",
-    "building contractor Bixby",
     "office build-out Bixby OK",
   ],
   openGraph: {

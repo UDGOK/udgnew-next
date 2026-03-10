@@ -9,6 +9,7 @@ export const metadata: Metadata = {
         "retail construction Tulsa",
         "retail construction Tulsa OK",
         "retail contractor Tulsa Oklahoma",
+        "retail builders in Tulsa",
         "store construction Tulsa",
         "retail build-out Tulsa",
         "retail tenant improvement Tulsa",

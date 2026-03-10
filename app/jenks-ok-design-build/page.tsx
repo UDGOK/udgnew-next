@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Design-Build Contractor Jenks OK | UDGOK",
-  description: "Medical and commercial construction in Jenks, Oklahoma. UDGOK serves Jenks's growing healthcare and commercial market with design-build, tenant improvements, and ground-up construction.",
+  title: "Builder & Contractor Jenks OK | Design-Build | UDGOK",
+  description: "Jenks builder and construction contractor. UDGOK serves Jenks, Oklahoma with medical, dental, and commercial design-build, tenant improvements, and ground-up construction.",
   keywords: [
+    "Jenks builder",
+    "builder Jenks OK",
     "construction company Jenks OK",
     "general contractor Jenks Oklahoma",
     "design-build contractor Jenks",

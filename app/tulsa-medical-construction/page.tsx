@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     "Tulsa medical construction",
     "healthcare construction Tulsa OK",
     "medical builder Tulsa Oklahoma",
+    "medical build out firm",
+    "local medical office contractor",
     "dental construction Tulsa",
     "ambulatory surgery center Tulsa",
     "medical facility construction Tulsa",

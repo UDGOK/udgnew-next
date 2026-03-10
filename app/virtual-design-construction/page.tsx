@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "Virtual Design and Construction (VDC) and BIM services in Tulsa and Oklahoma. UDGOK uses advanced 3D modeling, clash detection, and digital twin technology to improve project outcomes.",
   keywords: [
     "virtual design construction Tulsa",
+    "virtual design Tulsa",
+    "virtual design Bixby",
     "VDC services Oklahoma",
     "BIM modeling Tulsa OK",
     "clash detection construction",

@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Design-Build Contractor Tulsa OK | UDGOK",
-  description: "Tulsa's top design-build contractor. UDGOK delivers integrated design-build for medical, dental, commercial, and retail projects across Tulsa, Oklahoma.",
+  title: "General Contractor Tulsa OK | Design-Build | UDGOK",
+  description: "Tulsa's best general contractor. UDGOK delivers integrated design-build for medical, dental, commercial, and retail construction across Tulsa, Oklahoma. 100+ projects delivered.",
   keywords: [
-    "design-build contractor Tulsa OK",
+    "tulsa general contractor",
     "general contractor Tulsa Oklahoma",
+    "best general contractor Tulsa Oklahoma",
+    "construction in Tulsa OK",
+    "design-build contractor Tulsa OK",
     "medical office construction Tulsa",
     "dental office construction Tulsa OK",
     "commercial construction Tulsa",
