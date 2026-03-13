@@ -126,6 +126,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "partners",
     "subcontractors",
     "transparency",
+    "portal",
     "privacy-policy",
     "terms-of-service",
     "sitemap-page",
