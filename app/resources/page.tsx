@@ -16,6 +16,15 @@ const articles = [
     readTime: "12 MIN READ"
   },
   {
+    category: "Dental Construction",
+    title: "The Ultimate 2026 Guide to Dental Office Construction in Tulsa",
+    desc: "2026 costs, timelines, expert design insights, and local SEO tips for building your dream dental practice in Tulsa, Oklahoma.",
+    href: "/guide-dental-office-construction-tulsa",
+    img: "/images/dental-construction-guide-hero.png",
+    date: "MAR 2026",
+    readTime: "15 MIN READ"
+  },
+  {
     category: "Construction Technology",
     title: "Digital Twin Technology in Construction: 2026 Guide",
     desc: "A complete guide to how AI, IoT, and 3D virtual replicas are transforming commercial construction, energy, and smart cities.",
