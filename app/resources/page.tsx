@@ -25,6 +25,15 @@ const articles = [
     readTime: "15 MIN READ"
   },
   {
+    category: "Dental Finance",
+    title: "Financing Your Tulsa Dental Practice: Remodel vs. Rebuild & 2026 Tax Strategies",
+    desc: "2026 financing options, remodel vs. rebuild comparison, Section 179 tax strategies, and SEO protection tips for Oklahoma dentists.",
+    href: "/guide-dental-practice-financing-tulsa",
+    img: "/images/dental-financing-guide-hero.png",
+    date: "MAR 2026",
+    readTime: "12 MIN READ"
+  },
+  {
     category: "Construction Technology",
     title: "Digital Twin Technology in Construction: 2026 Guide",
     desc: "A complete guide to how AI, IoT, and 3D virtual replicas are transforming commercial construction, energy, and smart cities.",

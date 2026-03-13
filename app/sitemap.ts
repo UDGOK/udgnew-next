@@ -97,6 +97,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "guide-developers",
     "ai-robotic-surgery-2026",
     "guide-dental-office-construction-tulsa",
+    "guide-dental-practice-financing-tulsa",
   ].map((slug) => ({
     url: `${base}/${slug}`,
     lastModified: now,

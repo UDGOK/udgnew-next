@@ -93,6 +93,7 @@ const sitemapData = [
     links: [
       { t: "Dental Construction Cost Guide", h: "/dental-construction-costs" },
       { t: "Dental Office Construction Guide 2026", h: "/guide-dental-office-construction-tulsa" },
+      { t: "Dental Practice Financing Guide 2026", h: "/guide-dental-practice-financing-tulsa" },
       { t: "Digital Twin Technology", h: "/digital-twin-technology" },
       { t: "Digital Twin Technology Guide 2026", h: "/digital-twin-technology-guide-2026" },
       { t: "Guide for Commercial Brokers", h: "/guide-commercial-brokers" },
