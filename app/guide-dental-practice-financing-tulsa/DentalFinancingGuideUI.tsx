@@ -143,13 +143,16 @@ export default function DentalFinancingGuideUI() {
             {/* ═══ HERO ═══ */}
             <section style={{ position: "relative", padding: "8rem 2rem 5rem", overflow: "hidden" }}>
                 <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-                    <Image
-                        src="/images/dental-financing-guide-hero.png"
-                        alt="Remodel vs rebuild dental practice comparison — modern dental office split view"
-                        fill
-                        style={{ objectFit: "cover", filter: "brightness(0.3) contrast(1.1)" }}
-                        priority
-                    />
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        poster="/images/dental-financing-guide-hero.png"
+                        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.2) contrast(1.1)" }}
+                    >
+                        <source src="/videos/udgok-dental-office-video.mp4" type="video/mp4" />
+                    </video>
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, #0B061B 0%, transparent 30%, transparent 60%, #0B061B 100%)" }} />
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, #0B061B 0%, transparent 50%)" }} />
                 </div>
@@ -400,34 +403,6 @@ export default function DentalFinancingGuideUI() {
                 </div>
             </section>
 
-            {/* ═══ VIDEO BREAK ═══ */}
-            <section style={{ borderTop: "2px solid rgba(255,255,255,0.04)" }}>
-                <div style={{ maxWidth: "900px", margin: "0 auto", padding: "4rem 2rem" }}>
-                    <Section>
-                        <div style={{ border: "2px solid rgba(255,72,0,0.2)", overflow: "hidden", position: "relative" }}>
-                            <div style={{ padding: "0.75rem 1.5rem", background: "rgba(255,72,0,0.06)", borderBottom: "2px solid rgba(255,72,0,0.15)", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                                <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF4800", animation: "pulse 2s ease-in-out infinite" }} />
-                                <span style={{ fontSize: "0.6rem", fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>Watch — Inside a Dental Office Build-Out</span>
-                            </div>
-                            <video
-                                controls
-                                preload="metadata"
-                                playsInline
-                                poster="/images/dental-financing-guide-hero.png"
-                                style={{ width: "100%", display: "block", background: "#000" }}
-                            >
-                                <source src="/videos/udgok-dental-office-video.mp4" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                            <div style={{ padding: "0.75rem 1.5rem", background: "rgba(11,6,27,0.95)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-                                <p style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", margin: 0, textAlign: "center" }}>
-                                    See what a modern Tulsa dental office build-out looks like from start to finish — UDGOK
-                                </p>
-                            </div>
-                        </div>
-                    </Section>
-                </div>
-            </section>
 
             {/* ═══ SECTION 3: TAX STRATEGIES ═══ */}
             <section id="tax-strategies" style={{ borderTop: "2px solid rgba(255,255,255,0.04)", background: "rgba(255,72,0,0.02)" }}>
