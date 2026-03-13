@@ -98,23 +98,28 @@ function DataTable({ columns, rows, note }: { columns: string[]; rows: string[][
     const colTemplate = columns.map((_, i) => i === 0 ? "1.2fr" : "1fr").join(" ");
     return (
         <div>
-            <div style={{ border: "2px solid rgba(255,255,255,0.06)", overflow: "hidden", overflowX: "auto" }}>
-                <div style={{ minWidth: "600px" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: colTemplate, gap: "0", padding: "1rem 1.5rem", background: "rgba(255,72,0,0.08)", borderBottom: "2px solid rgba(255,72,0,0.2)" }}>
-                        {columns.map((col, i) => (
-                            <div key={i} style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#FF4800" }}>{col}</div>
-                        ))}
-                    </div>
-                    {rows.map((row, ri) => (
-                        <div key={ri} style={{ display: "grid", gridTemplateColumns: colTemplate, gap: "0", padding: "0.85rem 1.5rem", borderBottom: ri < rows.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none", background: ri % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent" }}>
-                            {row.map((cell, ci) => (
-                                <div key={ci} style={{ fontSize: "0.82rem", fontWeight: ci === 0 ? 700 : 500, color: ci === 0 ? "#fff" : "rgba(255,255,255,0.55)", lineHeight: 1.5 }}>{cell}</div>
+            <div style={{ position: "relative" }}>
+                <div style={{ border: "2px solid rgba(255,255,255,0.06)", overflow: "hidden", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+                    <div style={{ minWidth: "600px" }}>
+                        <div style={{ display: "grid", gridTemplateColumns: colTemplate, gap: "0", padding: "1rem 1.5rem", background: "rgba(255,72,0,0.08)", borderBottom: "2px solid rgba(255,72,0,0.2)" }}>
+                            {columns.map((col, i) => (
+                                <div key={i} style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#FF4800" }}>{col}</div>
                             ))}
                         </div>
-                    ))}
+                        {rows.map((row, ri) => (
+                            <div key={ri} style={{ display: "grid", gridTemplateColumns: colTemplate, gap: "0", padding: "0.85rem 1.5rem", borderBottom: ri < rows.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none", background: ri % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent" }}>
+                                {row.map((cell, ci) => (
+                                    <div key={ci} style={{ fontSize: "0.82rem", fontWeight: ci === 0 ? 700 : 500, color: ci === 0 ? "#fff" : "rgba(255,255,255,0.55)", lineHeight: 1.5 }}>{cell}</div>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
                 </div>
+                {/* Mobile scroll hint */}
+                <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: "40px", background: "linear-gradient(90deg, transparent, rgba(11,6,27,0.6))", pointerEvents: "none", zIndex: 1 }} />
             </div>
-            {note && <p style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.3)", marginTop: "1rem", textAlign: "center", fontStyle: "italic" }}>{note}</p>}
+            <p style={{ fontSize: "0.65rem", color: "rgba(255,72,0,0.5)", marginTop: "0.5rem", textAlign: "center", fontWeight: 600, letterSpacing: "0.1em" }}>← SWIPE TO VIEW FULL TABLE →</p>
+            {note && <p style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.3)", marginTop: "0.5rem", textAlign: "center", fontStyle: "italic" }}>{note}</p>}
         </div>
     );
 }
@@ -190,7 +195,7 @@ export default function DentalFinancingGuideUI() {
                     </motion.div>
 
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.6 }}
-                        style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1rem", marginTop: "3rem", border: "2px solid rgba(255,255,255,0.06)", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(12px)" }}>
+                        style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "1rem", marginTop: "3rem", border: "2px solid rgba(255,255,255,0.06)", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(12px)" }}>
                         <Stat value="$150K–$2M+" label="Project Range" />
                         <Stat value="$1.22M" label="Section 179 Limit" />
                         <Stat value="6.5–12%" label="2026 Loan Rates" />
@@ -465,8 +470,8 @@ export default function DentalFinancingGuideUI() {
                                     { item: "Specialized electrical/plumbing", reclassify: "15-year property" },
                                     { item: "Flooring, wall coverings", reclassify: "5–7 year property" },
                                 ].map((row, i) => (
-                                    <div key={i} style={{ display: "flex", gap: "1rem", padding: "0.75rem 1rem", border: "1px solid rgba(255,255,255,0.04)", background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent" }}>
-                                        <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#fff", minWidth: "200px" }}>{row.item}</span>
+                                    <div key={i} style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem 1rem", padding: "0.75rem 1rem", border: "1px solid rgba(255,255,255,0.04)", background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent" }}>
+                                        <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#fff" }}>{row.item}</span>
                                         <span style={{ fontSize: "0.85rem", color: "#FF4800", fontWeight: 600 }}>→ {row.reclassify}</span>
                                     </div>
                                 ))}
@@ -518,7 +523,7 @@ export default function DentalFinancingGuideUI() {
 
                     {/* GBP, NAP, Recovery cards */}
                     <Section delay={0.15}>
-                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1.5rem" }}>
                             {/* GBP Card */}
                             <div style={{ padding: "2rem 1.5rem", border: "2px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
                                 <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>📍</div>

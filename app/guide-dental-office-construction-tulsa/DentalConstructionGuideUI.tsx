@@ -177,7 +177,7 @@ export default function DentalConstructionGuideUI() {
 
                     {/* Stats bar */}
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.6 }}
-                        style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1rem", marginTop: "3rem", border: "2px solid rgba(255,255,255,0.06)", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(12px)" }}>
+                        style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "1rem", marginTop: "3rem", border: "2px solid rgba(255,255,255,0.06)", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(12px)" }}>
                         <Stat value="$300–$500+" label="Per Sq Ft (2026)" />
                         <Stat value="6–12mo" label="Full Timeline" />
                         <Stat value="$591K" label="Avg 3-Chair Clinic" />
@@ -265,22 +265,29 @@ export default function DentalConstructionGuideUI() {
 
                     {/* Cost table */}
                     <Section delay={0.15}>
-                        <div style={{ border: "2px solid rgba(255,255,255,0.06)", overflow: "hidden" }}>
-                            {/* Header */}
-                            <div style={{ display: "grid", gridTemplateColumns: "1fr 160px 1fr", gap: "1rem", padding: "1rem 1.5rem", background: "rgba(255,72,0,0.08)", borderBottom: "2px solid rgba(255,72,0,0.2)" }}>
-                                <div style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", color: "#FF4800" }}>Item</div>
-                                <div style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", color: "#FF4800", textAlign: "center" }}>Cost (2026)</div>
-                                <div style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", color: "#FF4800" }}>Notes</div>
-                            </div>
-                            {/* Rows */}
-                            {costData.map((row, i) => (
-                                <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 160px 1fr", gap: "1rem", padding: "1rem 1.5rem", borderBottom: i < costData.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none", background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent" }}>
-                                    <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#fff" }}>{row.item}</div>
-                                    <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "#FF4800", textAlign: "center" }}>{row.cost}</div>
-                                    <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.45)" }}>{row.note}</div>
+                        <div style={{ position: "relative" }}>
+                            <div style={{ border: "2px solid rgba(255,255,255,0.06)", overflow: "hidden", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+                                <div style={{ minWidth: "600px" }}>
+                                    {/* Header */}
+                                    <div style={{ display: "grid", gridTemplateColumns: "1fr 160px 1fr", gap: "1rem", padding: "1rem 1.5rem", background: "rgba(255,72,0,0.08)", borderBottom: "2px solid rgba(255,72,0,0.2)" }}>
+                                        <div style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", color: "#FF4800" }}>Item</div>
+                                        <div style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", color: "#FF4800", textAlign: "center" }}>Cost (2026)</div>
+                                        <div style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.15em", textTransform: "uppercase", color: "#FF4800" }}>Notes</div>
+                                    </div>
+                                    {/* Rows */}
+                                    {costData.map((row, i) => (
+                                        <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 160px 1fr", gap: "1rem", padding: "1rem 1.5rem", borderBottom: i < costData.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none", background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent" }}>
+                                            <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#fff" }}>{row.item}</div>
+                                            <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "#FF4800", textAlign: "center" }}>{row.cost}</div>
+                                            <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.45)" }}>{row.note}</div>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </div>
+                            {/* Mobile scroll hint */}
+                            <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: "40px", background: "linear-gradient(90deg, transparent, rgba(11,6,27,0.6))", pointerEvents: "none", zIndex: 1 }} />
                         </div>
+                        <p style={{ fontSize: "0.65rem", color: "rgba(255,72,0,0.5)", marginTop: "0.5rem", textAlign: "center", fontWeight: 600, letterSpacing: "0.1em" }}>← SWIPE TO VIEW FULL TABLE →</p>
                     </Section>
 
                     <Section delay={0.2}>
@@ -411,7 +418,7 @@ export default function DentalConstructionGuideUI() {
                     </Section>
 
                     <Section delay={0.1}>
-                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1.5rem" }}>
                             {/* GBP Card */}
                             <div style={{ padding: "2rem 1.5rem", border: "2px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
                                 <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>📍</div>
