@@ -248,6 +248,30 @@ export default function DentalFinancingGuideUI() {
                         />
                     </Section>
 
+                    {/* Blueprint Infographic */}
+                    <Section delay={0.12}>
+                        <div style={{ marginTop: "2.5rem", border: "2px solid rgba(255,72,0,0.2)", overflow: "hidden", position: "relative" }}>
+                            <div style={{ position: "absolute", top: 0, left: 0, right: 0, padding: "0.75rem 1.5rem", background: "rgba(11,6,27,0.85)", backdropFilter: "blur(8px)", zIndex: 2, display: "flex", alignItems: "center", gap: "0.75rem", borderBottom: "2px solid rgba(255,72,0,0.2)" }}>
+                                <div style={{ width: "8px", height: "8px", background: "#FF4800" }} />
+                                <span style={{ fontSize: "0.6rem", fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>The Blueprint for Building a Successful Dental Practice</span>
+                            </div>
+                            <div style={{ position: "relative", width: "100%", background: "#f5f5f5", padding: "3.5rem 1rem 1rem" }}>
+                                <Image
+                                    src="/images/dental-construction-blueprint-infographic.png"
+                                    alt="Remodel vs rebuild dental practice comparison chart 2026 — construction roadmap phases, cost breakdown $300-$500 per square foot, and strategic success pillars for dental office planning"
+                                    width={1024}
+                                    height={512}
+                                    style={{ width: "100%", height: "auto", display: "block" }}
+                                />
+                            </div>
+                            <div style={{ padding: "0.75rem 1.5rem", background: "rgba(11,6,27,0.95)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                                <p style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", margin: 0, textAlign: "center", fontStyle: "italic" }}>
+                                    Construction roadmap: Planning &amp; Design → Specialized Build-out → Integration &amp; Handover. Budget $300–$500/SF including equipment.
+                                </p>
+                            </div>
+                        </div>
+                    </Section>
+
                     {/* When each makes sense */}
                     <Section delay={0.15}>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem", marginTop: "2.5rem" }}>
@@ -370,6 +394,35 @@ export default function DentalFinancingGuideUI() {
                                         <li>Explore <strong style={{ color: "#fff" }}>Oklahoma Development Finance Authority (ODFA)</strong> programs</li>
                                     </ul>
                                 </div>
+                            </div>
+                        </div>
+                    </Section>
+                </div>
+            </section>
+
+            {/* ═══ VIDEO BREAK ═══ */}
+            <section style={{ borderTop: "2px solid rgba(255,255,255,0.04)" }}>
+                <div style={{ maxWidth: "900px", margin: "0 auto", padding: "4rem 2rem" }}>
+                    <Section>
+                        <div style={{ border: "2px solid rgba(255,72,0,0.2)", overflow: "hidden", position: "relative" }}>
+                            <div style={{ padding: "0.75rem 1.5rem", background: "rgba(255,72,0,0.06)", borderBottom: "2px solid rgba(255,72,0,0.15)", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                                <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#FF4800", animation: "pulse 2s ease-in-out infinite" }} />
+                                <span style={{ fontSize: "0.6rem", fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>Watch — Inside a Dental Office Build-Out</span>
+                            </div>
+                            <video
+                                controls
+                                preload="metadata"
+                                playsInline
+                                poster="/images/dental-financing-guide-hero.png"
+                                style={{ width: "100%", display: "block", background: "#000" }}
+                            >
+                                <source src="/videos/udgok-dental-office-video.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div style={{ padding: "0.75rem 1.5rem", background: "rgba(11,6,27,0.95)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                                <p style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", margin: 0, textAlign: "center" }}>
+                                    See what a modern Tulsa dental office build-out looks like from start to finish — UDGOK
+                                </p>
                             </div>
                         </div>
                     </Section>
