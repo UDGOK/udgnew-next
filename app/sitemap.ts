@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/projects`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/resources`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-
   ];
 
   // ── Service Pages ──
@@ -20,14 +19,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "design-build",
     "medical-office-design-build-tulsa",
     "dental-office-construction-tulsa",
+    "dental-oral-surgery-construction-specialists",
     "oral-surgeon-office-construction-tulsa",
     "eye-clinic-construction-tulsa",
     "medical-gas-installation",
-
+    "medical-gas-installation-dental",
+    "permitting-and-code-compliance",
+    "project-management-pmp-led",
     "tenant-improvements",
     "preconstruction",
     "virtual-design-construction",
-
     "safety-program",
     "convenience-store-construction-tulsa",
     "shopping-center-construction-tulsa",
@@ -40,14 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "office-construction-tulsa",
     "build-to-suit-tulsa",
     "industrial-buildings-tulsa",
-
     "construction-company-south-tulsa",
     "construction-company-midtown-tulsa",
     "construction-company-downtown-tulsa",
     "construction-company-east-tulsa",
     "construction-company-north-tulsa",
     "tulsa-construction-costs",
-
     "warehouse-construction-tulsa",
     "pre-engineered-metal-buildings-tulsa",
     "cold-storage-construction-tulsa",
@@ -56,7 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "self-storage-construction-tulsa",
     "agricultural-building-construction-oklahoma",
     "industrial-renovation-tulsa",
-
     "ai-robotics",
     "property-intelligence",
     "market-intelligence",
@@ -88,9 +86,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // ── Articles & Knowledge Hub ──
+  // ── Articles, Blogs & Knowledge Hub ──
   const articles = [
     "dental-construction-costs",
+    "dental-construction-insights",
     "digital-twin-technology",
     "digital-twin-technology-guide-2026",
     "guide-commercial-brokers",
@@ -98,6 +97,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "ai-robotic-surgery-2026",
     "guide-dental-office-construction-tulsa",
     "guide-dental-practice-financing-tulsa",
+    "insights",
+    "article-ada-compliance-healthcare",
+    "article-dental-office-construction-timeline",
+    "article-medical-gas-installation-guide",
+    "article-medical-office-design-checklist",
+    "blog-dental-construction-costs-oklahoma",
+    "blog-medical-office-design-checklist",
+  ].map((slug) => ({
+    url: `${base}/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  // ── FAQ Pages ──
+  const faqs = [
+    "faq-medical-office-construction",
+    "faq-dental-office-construction",
   ].map((slug) => ({
     url: `${base}/${slug}`,
     lastModified: now,
@@ -126,6 +143,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "community",
     "partners",
     "subcontractors",
+    "subcontractor-dashboard",
     "transparency",
     "portal",
     "privacy-policy",
@@ -138,5 +156,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.3,
   }));
 
-  return [...core, ...services, ...locations, ...articles, ...tools, ...company];
+  return [...core, ...services, ...locations, ...articles, ...faqs, ...tools, ...company];
 }
+
