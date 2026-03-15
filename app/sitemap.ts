@@ -55,6 +55,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "self-storage-construction-tulsa",
     "agricultural-building-construction-oklahoma",
     "industrial-renovation-tulsa",
+    "concrete-driveway-tulsa",
+    "asphalt-repair-tulsa",
     "ai-robotics",
     "property-intelligence",
     "market-intelligence",
