@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollUI from "@/components/ScrollUI";
 import SmoothScroll from "@/components/SmoothScroll";
+import { AutoBreadcrumbJsonLd } from "@/components/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -156,6 +157,7 @@ export default function RootLayout({
           <div className="grain-overlay" />
           <SmoothScroll>
             <Navigation />
+            <AutoBreadcrumbJsonLd />
             <main className="pt-[80px]">{children}</main>
             <Footer />
           </SmoothScroll>

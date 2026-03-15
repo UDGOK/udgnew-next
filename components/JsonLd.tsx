@@ -1,5 +1,6 @@
 "use client";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 
 /* ─── Shared org reference ─── */
 const ORG = {
@@ -147,7 +148,8 @@ export function ArticleJsonLd({
 }
 
 /* ─── Auto-breadcrumb from pathname ─── */
-export function AutoBreadcrumbJsonLd({ pathname }: { pathname: string }) {
+export function AutoBreadcrumbJsonLd() {
+  const pathname = usePathname();
   if (!pathname || pathname === "/") return null;
 
   const base = "https://udgok.com";
