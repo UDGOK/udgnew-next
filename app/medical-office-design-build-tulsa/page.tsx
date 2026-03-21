@@ -43,7 +43,7 @@ export default function MedicalOfficePage() {
         imageSrc="/images/ai-medical-exterior.png"
         imageAlt="Medical office design-build Tulsa by UDGOK"
         tldr="UDGOK is Tulsa's top-rated medical office design-build contractor. We deliver turnkey primary care clinics, urgent care facilities, and specialty practices with ADA-compliant layouts, medical-grade HVAC, and specialized MEP systems. Medical office construction in the Tulsa metro costs $150–$350 per square foot depending on specialty, with typical timelines of 4–7 months from design to occupancy."
-        intro="Medical office construction demands precision that commercial contractors often can't deliver. Exam room dimensions, HVAC pressure relationships, ADA clearances, and infection control ventilation all require healthcare-specific expertise. UDGOK has delivered 100+ medical facilities across Oklahoma, from 1,200 sq ft solo practices to 15,000+ sq ft multi-physician specialty clinics."
+        intro="Medical office construction demands precision that commercial contractors often can't deliver. Exam room dimensions, HVAC pressure relationships, ADA clearances, and infection control ventilation all require healthcare-specific expertise. UDGOK has delivered 100+ medical facilities across Oklahoma — from 1,200 sq ft solo practices to 15,000+ sq ft multi-physician specialty clinics. See our <a href='/guide-medical-office-cost-tulsa'>2026 medical office cost guide</a> for full per-square-foot pricing."
         stats={[
           { n: "100+", l: "Medical Facilities" },
           { n: "4–7mo", l: "Design to Occupancy" },
@@ -69,7 +69,7 @@ export default function MedicalOfficePage() {
 <tr><td>Dermatology / Med-Spa</td><td>$200–$280</td><td>2,500–4,000 sq ft</td><td>$500K–$1.1M</td></tr>
 <tr><td>Orthopedics / Imaging</td><td>$250–$350</td><td>4,000–10,000 sq ft</td><td>$1M–$3.5M</td></tr>
 </tbody></table>
-<p>Imaging suites (MRI, CT, X-ray) add significant cost due to shielding, structural reinforcement, and electrical requirements. Budget $150,000–$500,000+ for imaging room construction alone.</p>`,
+<p>Imaging suites (MRI, CT, X-ray) add significant cost due to shielding, structural reinforcement, and electrical requirements. Budget $150,000–$500,000+ for imaging room construction alone. Need a full budget breakdown? See our <a href='/guide-medical-office-cost-tulsa'>2026 medical office cost guide</a>.</p>`,
           },
           {
             heading: "What HVAC requirements apply to medical offices in Oklahoma?",
@@ -81,7 +81,7 @@ export default function MedicalOfficePage() {
 <li><strong>Soiled utility rooms:</strong> Negative pressure with 10 ACH</li>
 <li><strong>Clean storage:</strong> Positive pressure with 4 ACH</li>
 </ul>
-<p>UDGOK designs and commissions HVAC systems that meet healthcare ventilation codes while controlling energy costs. Our typical medical office HVAC costs run $25–$50 per square foot installed.</p>`,
+<p>UDGOK designs and commissions HVAC systems that meet healthcare ventilation codes while controlling energy costs. Our typical medical office HVAC costs run $25–$50 per square foot installed. We also provide <a href='/medical-gas-installation'>medical gas installation</a> for practices that need oxygen, nitrous oxide, or medical air systems.</p>`,
           },
           {
             heading: "What ADA requirements must medical offices meet?",
@@ -104,7 +104,7 @@ export default function MedicalOfficePage() {
 <li><strong>Multi-specialty clinic (5,000–10,000 sq ft):</strong> 6–9 months total</li>
 <li><strong>Ground-up medical office building:</strong> 10–14 months total including site work</li>
 </ul>
-<p>UDGOK's design-build approach saves 20% on schedule versus traditional design-bid-build by overlapping design and construction phases. For time-sensitive projects like practice relocations, we offer fast-track delivery starting at 12 weeks for a standard build-out.</p>`,
+<p>UDGOK's <a href='/design-build'>design-build approach</a> saves 20% on schedule versus traditional design-bid-build by overlapping design and construction phases. Our <a href='/preconstruction'>preconstruction services</a> help lock in budgets before construction begins. For time-sensitive projects like practice relocations, we offer fast-track delivery starting at 12 weeks for a standard build-out.</p>`,
           },
         ]}
         faqs={[

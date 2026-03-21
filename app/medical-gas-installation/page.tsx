@@ -43,7 +43,7 @@ export default function MedicalGasPage() {
         imageSrc="/images/modern-medical-office-building-exterior-entrance.jpg"
         imageAlt="Medical gas installation by UDGOK"
         tldr="UDGOK provides ASSE 6010 certified medical gas installation for dental offices, surgical centers, and healthcare facilities across Oklahoma. We install oxygen, nitrous oxide, medical air, and vacuum piped systems to NFPA 99 standards, with third-party ASSE 6030 verification testing. Medical gas installation costs range from $15,000 to $80,000+ depending on system complexity and facility size."
-        intro="Medical gas installation is a life-safety system requiring ASSE 6010 certified installers and strict adherence to NFPA 99. UDGOK's medical gas division installs, tests, and certifies complete piped gas systems for any size facility — from a 3-operatory dental office to a multi-suite ambulatory surgical center."
+        intro="Medical gas installation is a life-safety system requiring ASSE 6010 certified installers and strict adherence to NFPA 99. UDGOK's medical gas division installs, tests, and certifies complete piped gas systems for any size facility — from a 3-operatory <a href='/dental-office-construction-tulsa'>dental office</a> to a multi-suite <a href='/medical-office-design-build-tulsa'>medical office</a> or ambulatory surgical center."
         stats={[
           { n: "ASSE 6010", l: "Certified Installers" },
           { n: "NFPA 99", l: "Code Compliance" },

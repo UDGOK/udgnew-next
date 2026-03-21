@@ -41,7 +41,7 @@ export default function DesignBuildPage() {
         description="One contract, one team, zero gaps. UDGOK integrates design and construction for faster delivery and better outcomes."
         imageSrc="/images/ai_commercial_retail_plaza.png"
         imageAlt="Design-build contractor Tulsa by UDGOK"
-        tldr="UDGOK is Tulsa, Oklahoma's leading design-build contractor with 100+ delivered projects. Design-build combines architecture, engineering, and construction under one contract, saving clients 15–20% on cost and 20% on schedule versus traditional design-bid-build. We deliver medical offices, dental clinics, retail spaces, and commercial buildings from concept to certificate of occupancy."
+        tldr="UDGOK is Tulsa, Oklahoma's leading design-build contractor with 100+ delivered projects. Design-build combines architecture, engineering, and construction under one contract, saving clients 15–20% on cost and 20% on schedule versus traditional design-bid-build. We deliver <a href='/medical-office-design-build-tulsa'>medical offices</a>, <a href='/dental-office-construction-tulsa'>dental clinics</a>, retail spaces, and commercial buildings from concept to certificate of occupancy."
         intro="Traditional design-bid-build separates your architect and contractor — creating gaps, change orders, and delays. UDGOK's design-build model puts design and construction under one contract and one roof. You get a single point of accountability, real-time cost transparency, and a team that designs what it can actually build."
         stats={[
           { n: "20%", l: "Faster Delivery" },

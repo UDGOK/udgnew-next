@@ -43,7 +43,7 @@ export default function DentalOfficePage() {
         imageSrc="/images/dental-office-construction.png"
         imageAlt="Dental office construction Tulsa by UDGOK"
         tldr="UDGOK is Tulsa, Oklahoma's leading dental office construction contractor with 80+ completed clinics. We build general, pediatric, orthodontic, and oral surgery dental offices from 1,500 to 10,000+ sq ft, including operatory plumbing rough-in, medical gas systems, infection control HVAC, and ADA-compliant layouts. Typical dental build-outs in the Tulsa metro run $140–$280 per square foot and take 3–5 months from permit to certificate of occupancy."
-        intro="Dental office construction requires a specialized approach — from chair outlet rough-in to nitrous oxide systems to infection control HVAC. UDGOK has built over 80 dental offices across Oklahoma and Texas, and we speak your language. We understand operatory flow, sterilization adjacencies, and the 37 utility connections every chair position needs."
+        intro="Dental office construction requires a specialized approach — from chair outlet rough-in to nitrous oxide systems to infection control HVAC. UDGOK has built over 80 dental offices across Oklahoma and Texas, and we speak your language. We understand operatory flow, sterilization adjacencies, and the 37 utility connections every chair position needs. See our <a href='/guide-dental-buildout-checklist-oklahoma'>dental office build-out checklist</a> for a full step-by-step guide."
         stats={[
           { n: "80+", l: "Dental Offices Built" },
           { n: "3–5mo", l: "Typical Timeline" },
@@ -69,7 +69,7 @@ export default function DentalOfficePage() {
 <tr><td>Premium / Specialty</td><td>$210–$280</td><td>$630K–$1.4M</td></tr>
 <tr><td>With Oral Surgery Suite</td><td>$250–$350</td><td>$875K–$1.75M</td></tr>
 </tbody></table>
-<p>These costs include general conditions, overhead, and dental-specific infrastructure but exclude dental equipment ($80K–$200K+).</p>`,
+<p>These costs include general conditions, overhead, and dental-specific infrastructure but exclude dental equipment ($80K–$200K+). For a detailed cost breakdown, see our <a href='/dental-construction-costs'>dental construction cost guide</a>.</p>`,
           },
           {
             heading: "What does each dental operatory require for construction?",
@@ -82,7 +82,7 @@ export default function DentalOfficePage() {
 <li>Nitrous oxide and oxygen piping (for sedation practices)</li>
 <li>Suction/vacuum evacuation connections</li>
 </ul>
-<p>A 6-chair practice will have $60,000–$108,000 just in utility rough-in — typically 15–25% of total construction costs. UDGOK coordinates all operatory connections with your equipment vendor to ensure exact placement.</p>`,
+<p>A 6-chair practice will have $60,000–$108,000 just in utility rough-in — typically 15–25% of total construction costs. UDGOK coordinates all operatory connections with your equipment vendor to ensure exact placement. Practices offering sedation dentistry also require certified <a href='/medical-gas-installation'>medical gas installation</a> for nitrous oxide and oxygen delivery.</p>`,
           },
           {
             heading: "How long does it take to build a dental office in Oklahoma?",
@@ -93,7 +93,7 @@ export default function DentalOfficePage() {
 <li><strong>Construction:</strong> 10–16 weeks depending on scope</li>
 <li><strong>Inspections & CO:</strong> 1–2 weeks</li>
 </ul>
-<p>UDGOK's design-build approach overlaps design and permitting phases, often saving 4–6 weeks versus traditional delivery. We have delivered multiple fast-track dental projects in under 90 days.</p>`,
+<p>UDGOK's <a href='/design-build'>design-build approach</a> overlaps design and permitting phases, often saving 4–6 weeks versus traditional delivery. We have delivered multiple fast-track dental projects in under 90 days. Our <a href='/preconstruction'>preconstruction team</a> can begin budgeting and scheduling before your lease is signed.</p>`,
           },
           {
             heading: "What HVAC and infection control standards apply to dental offices?",
