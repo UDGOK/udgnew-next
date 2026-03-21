@@ -17,7 +17,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "Bingbot",
         allow: "/",
       },
-      // ── Generative AI Engines ──
+      // ── OpenAI ──
       {
         userAgent: "GPTBot",
         allow: "/",
@@ -29,13 +29,16 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/portal/dashboard/"],
       },
       {
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+        disallow: ["/api/", "/portal/dashboard/"],
+      },
+      // ── Google AI ──
+      {
         userAgent: "Google-Extended",
         allow: "/",
       },
-      {
-        userAgent: "PerplexityBot",
-        allow: "/",
-      },
+      // ── Anthropic (Claude) ──
       {
         userAgent: "ClaudeBot",
         allow: "/",
@@ -44,25 +47,71 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "anthropic-ai",
         allow: "/",
       },
+      // ── Perplexity ──
       {
-        userAgent: "Amazonbot",
+        userAgent: "PerplexityBot",
         allow: "/",
       },
+      // ── xAI (Grok) ──
       {
-        userAgent: "Applebot-Extended",
+        userAgent: "GrokBot",
         allow: "/",
       },
+      // ── DeepSeek ──
       {
-        userAgent: "cohere-ai",
+        userAgent: "DeepSeekBot",
         allow: "/",
       },
+      // ── Mistral AI ──
+      {
+        userAgent: "MistralBot",
+        allow: "/",
+      },
+      // ── ByteDance / TikTok ──
+      {
+        userAgent: "Bytespider",
+        allow: "/",
+        disallow: ["/api/", "/portal/dashboard/"],
+      },
+      // ── Meta ──
       {
         userAgent: "Meta-ExternalAgent",
         allow: "/",
         disallow: ["/api/", "/portal/dashboard/"],
       },
+      // ── Amazon ──
+      {
+        userAgent: "Amazonbot",
+        allow: "/",
+      },
+      // ── Apple ──
+      {
+        userAgent: "Applebot-Extended",
+        allow: "/",
+      },
+      // ── You.com ──
       {
         userAgent: "YouBot",
+        allow: "/",
+      },
+      // ── Cohere ──
+      {
+        userAgent: "cohere-ai",
+        allow: "/",
+      },
+      // ── Diffbot (Knowledge Graph) ──
+      {
+        userAgent: "Diffbot",
+        allow: "/",
+      },
+      // ── Timpi Search ──
+      {
+        userAgent: "Timpibot",
+        allow: "/",
+      },
+      // ── ImageSift ──
+      {
+        userAgent: "ImagesiftBot",
         allow: "/",
       },
     ],

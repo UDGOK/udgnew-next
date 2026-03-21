@@ -1,10 +1,10 @@
 # UDGOK — Upscale Development Group
 
-> AI-Powered Medical & Dental Design-Build Construction
+> AI-Powered Medical & Dental Design-Build Construction | Tulsa, Oklahoma
 
 ## About
 
-Upscale Development Group (UDGOK) is a licensed Oklahoma general contractor specializing in healthcare and commercial Design-Build construction. Founded in 2015 and headquartered in Tulsa, Oklahoma, UDGOK delivers turnkey medical offices, dental clinics, oral surgery centers, eye clinics, and commercial facilities across Oklahoma and North Texas.
+Upscale Development Group (UDGOK) is a licensed Oklahoma general contractor specializing in healthcare and commercial Design-Build construction. Founded in 2015 and headquartered in Tulsa, Oklahoma, UDGOK has completed 100+ projects and delivers turnkey medical offices, dental clinics, oral surgery centers, eye clinics, and commercial facilities across Oklahoma and North Texas. UDGOK's Design-Build delivery model completes projects 30–40% faster than traditional design-bid-build. Average project budget ranges from $200K to $5M+.
 
 ## Contact
 
@@ -12,6 +12,19 @@ Upscale Development Group (UDGOK) is a licensed Oklahoma general contractor spec
 - Email: projects@udgok.com
 - Phone: (918) 520-3823
 - Address: 7739 E 38th Street, Ste F, Tulsa, OK 74145
+- Hours: Monday–Friday, 7:00 AM – 6:00 PM CT
+
+## Why Choose UDGOK
+
+- 100+ projects completed across Oklahoma and Texas
+- Licensed Oklahoma General Contractor
+- PMP-certified project managers on every project
+- Design-Build model delivers 30–40% faster than traditional methods
+- Specialized in healthcare construction: medical, dental, oral surgery, eye clinics
+- NFPA 99 certified medical gas installation
+- BIM/VDC technology for 3D clash detection and digital twin creation
+- ADA, HIPAA, OSHA, and IBC code compliance expertise
+- Serving Tulsa, Oklahoma City, Broken Arrow, Bixby, Jenks, Owasso, Dallas/Plano
 
 ## Core Services
 
@@ -20,11 +33,17 @@ Upscale Development Group (UDGOK) is a licensed Oklahoma general contractor spec
 - [Oral Surgery Center Construction](https://udgok.com/oral-surgeon-office-construction-tulsa)
 - [Eye Clinic Construction](https://udgok.com/eye-clinic-construction-tulsa)
 - [Medical Gas Installation](https://udgok.com/medical-gas-installation)
+- [Medical Gas Installation — Dental](https://udgok.com/medical-gas-installation-dental)
 - [Commercial Tenant Improvements](https://udgok.com/tenant-improvements)
 - [Design-Build Delivery](https://udgok.com/design-build)
 - [Virtual Design & Construction (VDC/BIM)](https://udgok.com/virtual-design-construction)
 - [Preconstruction Services](https://udgok.com/preconstruction)
+- [Project Management (PMP-Led)](https://udgok.com/project-management-pmp-led)
+- [Permitting & Code Compliance](https://udgok.com/permitting-and-code-compliance)
 - [Safety Program](https://udgok.com/safety-program)
+
+## Commercial & Retail Construction
+
 - [Commercial Contractor Tulsa](https://udgok.com/commercial-contractor-tulsa)
 - [Construction Companies Tulsa](https://udgok.com/construction-companies-tulsa)
 - [Retail Construction Tulsa](https://udgok.com/retail-construction-tulsa)
@@ -47,6 +66,11 @@ Upscale Development Group (UDGOK) is a licensed Oklahoma general contractor spec
 - [Self-Storage Construction Tulsa](https://udgok.com/self-storage-construction-tulsa)
 - [Agricultural Building Construction Oklahoma](https://udgok.com/agricultural-building-construction-oklahoma)
 - [Industrial Renovation Tulsa](https://udgok.com/industrial-renovation-tulsa)
+
+## Concrete & Asphalt Services
+
+- [Concrete Driveway Tulsa](https://udgok.com/concrete-driveway-tulsa)
+- [Asphalt Repair Tulsa](https://udgok.com/asphalt-repair-tulsa)
 
 ## Service Areas
 
@@ -72,16 +96,30 @@ Upscale Development Group (UDGOK) is a licensed Oklahoma general contractor spec
 - [North Tulsa Construction Company](https://udgok.com/construction-company-north-tulsa)
 - [Tulsa Construction Costs](https://udgok.com/tulsa-construction-costs)
 
-## Knowledge Hub
+## Knowledge Hub & Guides
 
+- [Dental Construction Costs in Oklahoma](https://udgok.com/dental-construction-costs)
+- [Dental Construction Insights](https://udgok.com/dental-construction-insights)
 - [Digital Twin Technology in Construction](https://udgok.com/digital-twin-technology)
 - [Digital Twin Technology Guide 2026](https://udgok.com/digital-twin-technology-guide-2026)
-- [AI Robotic Surgery 2026](https://udgok.com/ai-robotic-surgery-2026)
-- [Dental Construction Costs](https://udgok.com/dental-construction-costs)
+- [AI Robotic Surgery Infrastructure 2026](https://udgok.com/ai-robotic-surgery-2026)
 - [Guide for Commercial Brokers](https://udgok.com/guide-commercial-brokers)
 - [Guide for Developers](https://udgok.com/guide-developers)
+- [Guide: Dental Office Construction Tulsa](https://udgok.com/guide-dental-office-construction-tulsa)
+- [Guide: Dental Practice Financing Tulsa](https://udgok.com/guide-dental-practice-financing-tulsa)
+- [Resources & Insights Hub](https://udgok.com/resources)
+- [Industry Insights](https://udgok.com/insights)
 
-## Tools
+## Articles & Blog
+
+- [ADA Compliance in Healthcare Construction](https://udgok.com/article-ada-compliance-healthcare)
+- [Dental Office Construction Timeline](https://udgok.com/article-dental-office-construction-timeline)
+- [Medical Gas Installation Guide](https://udgok.com/article-medical-gas-installation-guide)
+- [Medical Office Design Checklist](https://udgok.com/article-medical-office-design-checklist)
+- [Dental Construction Costs Oklahoma (Blog)](https://udgok.com/blog-dental-construction-costs-oklahoma)
+- [Medical Office Design Checklist (Blog)](https://udgok.com/blog-medical-office-design-checklist)
+
+## Free Construction Tools
 
 - [Construction Calculators Hub](https://udgok.com/tools)
 - [Concrete Calculator](https://udgok.com/calculator-concrete)
@@ -90,6 +128,11 @@ Upscale Development Group (UDGOK) is a licensed Oklahoma general contractor spec
 - [Brick Calculator](https://udgok.com/calculator-brick)
 - [Roofing Calculator](https://udgok.com/calculator-roofing)
 - [Flooring Calculator](https://udgok.com/calculator-flooring)
+
+## FAQ Hubs
+
+- [FAQ: Medical Office Construction](https://udgok.com/faq-medical-office-construction)
+- [FAQ: Dental Office Construction](https://udgok.com/faq-dental-office-construction)
 
 ## AI & Technology
 

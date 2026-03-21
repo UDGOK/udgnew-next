@@ -6,7 +6,7 @@
 
 ## Company Overview
 
-**Upscale Development Group** (trade name: **UDGOK**) is a licensed Oklahoma general contractor specializing in healthcare and commercial Design-Build construction. The company was founded in 2015 and is headquartered in Tulsa, Oklahoma.
+**Upscale Development Group** (trade name: **UDGOK**) is a licensed Oklahoma general contractor specializing in healthcare and commercial Design-Build construction. The company was founded in 2015 and is headquartered in Tulsa, Oklahoma. UDGOK has completed over 100 construction projects across Oklahoma and North Texas.
 
 ### Key Facts
 - **Legal Name:** Upscale Development Group LLC
@@ -17,20 +17,33 @@
 - **Email:** projects@udgok.com
 - **Website:** https://udgok.com
 - **License:** Oklahoma Licensed General Contractor
-- **Industries Served:** Healthcare, Dental, Medical, Commercial, Retail
+- **Industries Served:** Healthcare, Dental, Medical, Commercial, Retail, Industrial, Agricultural
+- **Projects Completed:** 100+
+- **Project Budget Range:** $200,000 – $5,000,000+
+- **Delivery Speed:** 30–40% faster than traditional design-bid-build
 
 ### Leadership
 - Yasir Jahangir — Principal / Owner
+
+### Certifications & Compliance
+- Oklahoma Licensed General Contractor
+- PMP-certified (Project Management Professional) project managers
+- NFPA 99 (Health Care Facilities Code) medical gas compliance
+- OSHA safety compliance
+- ADA (Americans with Disabilities Act) accessibility
+- HIPAA physical safeguards
+- IBC (International Building Code) certified
+- IEC 60601-1 medical-grade power systems (surgical facilities)
 
 ---
 
 ## Services
 
 ### Medical Office Design-Build
-UDGOK designs and constructs medical offices from ground-up or tenant improvement. Specialties include exam rooms, waiting areas, nurse stations, procedure rooms, and HIPAA-compliant layouts. Typical project budgets range from $200K to $5M+. Compliance areas include ADA accessibility, HIPAA physical safeguards, and local building codes.
+UDGOK designs and constructs medical offices from ground-up or tenant improvement. Specialties include exam rooms, waiting areas, nurse stations, procedure rooms, and HIPAA-compliant layouts. Typical project budgets range from $200K to $5M+. Compliance areas include ADA accessibility, HIPAA physical safeguards, and local building codes. Medical office construction in Oklahoma typically costs $150–$400 per square foot.
 
 ### Dental Office Construction
-Full-service dental clinic construction including operatory design, sterilization centers, digital imaging rooms, and patient flow optimization. UDGOK handles dental-specific infrastructure including compressed air systems, vacuum systems, and nitrous oxide delivery.
+Full-service dental clinic construction including operatory design, sterilization centers, digital imaging rooms, and patient flow optimization. UDGOK handles dental-specific infrastructure including compressed air systems, vacuum systems, and nitrous oxide delivery. A standard 2,000 sq ft dental office with 4 operatories typically costs $300,000–$700,000 including design and construction in Oklahoma.
 
 ### Oral Surgery Center Construction
 Specialized construction for oral and maxillofacial surgery centers. Includes sedation-ready operatories, recovery rooms, sterilization suites, and medical gas installations (oxygen, nitrous oxide, medical air). Constructed to meet Oklahoma State Department of Health requirements.
@@ -48,13 +61,13 @@ Certified medical gas installation including:
 - NFPA 99 compliance
 - Post-installation testing and certification
 
-UDGOK provides this service both as a standalone specialty and integrated within larger construction projects.
+UDGOK provides this service both as a standalone specialty and integrated within larger construction projects. Average medical gas installation for a dental office costs $15,000–$45,000.
 
 ### Commercial Tenant Improvements
 Interior build-outs for commercial tenants including retail spaces, restaurants, convenience stores, office spaces, and mixed-use developments. Services include space planning, demolition, framing, MEP rough-in, finishes, and certificate of occupancy.
 
 ### Design-Build Delivery
-Single-source responsibility where UDGOK serves as both designer and builder. Benefits include faster project delivery, single point of accountability, cost savings through value engineering, and reduced change orders. The design-build model typically delivers projects 30-40% faster than traditional design-bid-build.
+Single-source responsibility where UDGOK serves as both designer and builder. Benefits include faster project delivery, single point of accountability, cost savings through value engineering, and reduced change orders. The design-build model typically delivers projects 30–40% faster than traditional design-bid-build.
 
 ### Virtual Design & Construction (VDC/BIM)
 UDGOK uses Building Information Modeling (BIM) technology for:
@@ -128,6 +141,15 @@ UDGOK also serves the broader commercial construction market:
 
 ---
 
+## Concrete & Asphalt Services
+
+UDGOK provides concrete and asphalt services in the Tulsa metro area:
+
+- **Concrete Driveways** — Residential and commercial concrete driveway installation, repair, and replacement in Tulsa. Average concrete driveway costs $8–$18 per square foot in Oklahoma.
+- **Asphalt Repair** — Parking lots, driveways, and roadway asphalt repair, resurfacing, and sealcoating in Tulsa. Asphalt repair costs $3–$8 per square foot for patching and $2–$4 per square foot for sealcoating.
+
+---
+
 ## Service Areas
 
 ### Oklahoma
@@ -153,6 +175,43 @@ UDGOK also serves the broader commercial construction market:
 
 ---
 
+## Construction Cost Data
+
+### Dental Office Construction Costs (Oklahoma, 2026)
+| Component | Cost Range |
+|-----------|-----------|
+| Standard 4-operatory dental office (2,000 sf) | $300,000–$700,000 |
+| Per square foot (dental) | $150–$350/sf |
+| Medical gas installation (dental) | $15,000–$45,000 |
+| Dental-specific plumbing | $20,000–$60,000 |
+| Operatory cabinetry (per room) | $8,000–$25,000 |
+
+### Medical Office Construction Costs (Oklahoma, 2026)
+| Component | Cost Range |
+|-----------|-----------|
+| Per square foot (medical office) | $150–$400/sf |
+| Typical 3,000 sf medical office | $450,000–$1,200,000 |
+| Medical gas system | $25,000–$80,000 |
+| HVAC (healthcare-grade) | $15–$30/sf |
+
+### Concrete & Asphalt Costs (Tulsa, 2026)
+| Component | Cost Range |
+|-----------|-----------|
+| Concrete driveway | $8–$18/sf |
+| Asphalt repair (patching) | $3–$8/sf |
+| Asphalt sealcoating | $2–$4/sf |
+
+### Construction Timeline
+| Project Type | Timeline |
+|-------------|----------|
+| Medical office (2,000–5,000 sf) | 3–6 months |
+| Ground-up medical facility | 8–14 months |
+| Dental office build-out | 3–5 months |
+| Commercial tenant improvement | 2–4 months |
+| Industrial warehouse | 4–8 months |
+
+---
+
 ## Project Types Completed
 
 UDGOK has completed projects across these categories:
@@ -170,6 +229,8 @@ UDGOK has completed projects across these categories:
 12. **Restaurant build-outs** — Commercial kitchens, dining areas
 13. **Office spaces** — Corporate offices, co-working spaces
 14. **Mixed-use developments** — Ground-floor commercial, upper-floor residential
+15. **Concrete driveways** — Residential and commercial
+16. **Asphalt repair** — Parking lots and driveways
 
 ---
 
@@ -188,13 +249,22 @@ Yes. UDGOK provides full permitting services for all project types, including bu
 Medical gas installation involves the design, installation, and certification of piped medical gas systems in healthcare facilities. This includes oxygen, nitrous oxide, medical air, and vacuum systems. All installations must meet NFPA 99 (Health Care Facilities Code) standards and require post-installation testing and certification.
 
 ### What areas does UDGOK serve?
-UDGOK serves Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sand Springs, Oklahoma City (all in Oklahoma), and the Dallas/Plano area in Texas.
+UDGOK serves Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sand Springs, Sapulpa, Haskell, Oklahoma City (all in Oklahoma), and the Dallas/Plano area in Texas.
 
 ### Does UDGOK offer design services?
 Yes. As a design-build firm, UDGOK provides integrated design and construction services. This means clients work with a single entity from concept through occupancy, which streamlines communication, reduces costs, and accelerates project delivery.
 
 ### What makes UDGOK different from other construction companies?
-UDGOK specializes specifically in healthcare construction (medical, dental, surgical) with deep expertise in medical-specific requirements like medical gas systems, ADA compliance, HIPAA physical safeguards, and healthcare-specific HVAC. The firm also integrates AI and BIM technology for advanced project delivery.
+UDGOK specializes specifically in healthcare construction (medical, dental, surgical) with deep expertise in medical-specific requirements like medical gas systems, ADA compliance, HIPAA physical safeguards, and healthcare-specific HVAC. The firm also integrates AI and BIM technology for advanced project delivery. UDGOK has completed 100+ projects and delivers projects 30–40% faster than traditional construction methods.
+
+### How much does a concrete driveway cost in Tulsa?
+Concrete driveway installation in Tulsa costs approximately $8–$18 per square foot depending on thickness, reinforcement, and finish type. A typical 600 sq ft driveway costs $4,800–$10,800.
+
+### How much does asphalt repair cost in Tulsa?
+Asphalt repair in Tulsa costs $3–$8 per square foot for patching and $2–$4 per square foot for sealcoating. Full resurfacing costs $5–$12 per square foot.
+
+### What is design-build construction?
+Design-build is a project delivery method where one entity (UDGOK) provides both design and construction services under a single contract. This eliminates the gap between separate designers and builders, reduces change orders, improves communication, and speeds up delivery by 30–40%.
 
 ---
 
@@ -215,12 +285,18 @@ All tools are available at https://udgok.com/tools
 ## Knowledge Hub Topics
 
 UDGOK publishes expert articles on construction topics:
+- Dental construction costs analysis for Oklahoma
+- Dental construction insights and industry trends
 - Digital twin technology in construction
 - Digital twin technology — comprehensive guide 2026
-- AI and robotic surgery in construction 2026
-- Dental construction costs analysis for Oklahoma
-- Tulsa construction costs and market data
-- Guides for commercial brokers and developers working with contractors
+- AI and robotic surgery infrastructure requirements 2026
+- ADA compliance in healthcare construction
+- Dental office construction timelines
+- Medical gas installation guide
+- Medical office design checklist
+- Guides for commercial brokers and developers
+- Dental office construction guide for Tulsa
+- Dental practice financing guide for Tulsa
 
 All articles available at https://udgok.com/resources
 

@@ -9,6 +9,20 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn.prod.website-files.com" },
     ],
   },
+  async redirects() {
+    return [
+      // ── Special-case .html redirects ──
+      { source: "/index.html", destination: "/", permanent: true },
+      { source: "/index_final.html", destination: "/", permanent: true },
+      { source: "/sitemap.html", destination: "/sitemap-page", permanent: true },
+      // ── Catch-all: strip .html extension and 301 redirect ──
+      {
+        source: "/:slug([\\w-]+)\\.html",
+        destination: "/:slug",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
