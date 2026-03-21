@@ -105,6 +105,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "article-medical-office-design-checklist",
     "blog-dental-construction-costs-oklahoma",
     "blog-medical-office-design-checklist",
+    "guide-medical-office-cost-tulsa",
+    "guide-dental-buildout-checklist-oklahoma",
+    "guide-pemb-vs-steel-oklahoma",
   ].map((slug) => ({
     url: `${base}/${slug}`,
     lastModified: now,
