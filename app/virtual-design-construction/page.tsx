@@ -36,7 +36,7 @@ export default function VDCPage() {
       />
       <ServicePage
         label="Virtual Design & Construction"
-        title="Virtual Design & Construction (VDC)"
+        title="Virtual Design & Construction Tulsa"
         description="Advanced BIM modeling, clash detection, and digital twin technology that reduces RFIs, accelerates schedules, and improves field coordination."
         imageSrc="/images/ai_commercial_retail_plaza.png"
         imageAlt="Virtual Design and Construction VDC by UDGOK"

@@ -34,7 +34,7 @@ export default function TenantImprovementsPage() {
       />
       <ServicePage
         label="Tenant Improvements"
-        title="Tenant Improvements & Build-Outs"
+        title="Tenant Improvements & Build-Outs Tulsa"
         description="Fast, quality commercial build-outs for medical, dental, retail, and office spaces across Tulsa and Oklahoma."
         imageSrc="/images/ai_commercial_retail_plaza.png"
         imageAlt="Tenant improvements Tulsa by UDGOK"

@@ -38,7 +38,7 @@ export default function MedicalOfficePage() {
       />
       <ServicePage
         label="Medical Office"
-        title="Medical Office Design-Build"
+        title="Medical Office Design-Build Tulsa"
         description="Turnkey medical offices engineered for clinical workflow, regulatory compliance, and patient experience."
         imageSrc="/images/ai-medical-exterior.png"
         imageAlt="Medical office design-build Tulsa by UDGOK"

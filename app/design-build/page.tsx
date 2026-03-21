@@ -37,7 +37,7 @@ export default function DesignBuildPage() {
       />
       <ServicePage
         label="Design-Build"
-        title="Design-Build Delivery"
+        title="Design-Build Delivery Tulsa"
         description="One contract, one team, zero gaps. UDGOK integrates design and construction for faster delivery and better outcomes."
         imageSrc="/images/ai_commercial_retail_plaza.png"
         imageAlt="Design-build contractor Tulsa by UDGOK"

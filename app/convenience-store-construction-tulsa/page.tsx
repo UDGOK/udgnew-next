@@ -34,7 +34,7 @@ export default function ConvenienceStorePage() {
       />
       <ServicePage
         label="C-Store Construction"
-        title="Convenience Store Construction"
+        title="Convenience Store Construction Tulsa"
         description="Ground-up convenience stores, fuel canopies, and remodels for major brands and independent operators across Oklahoma and Texas."
         imageSrc="/images/modern-jacksons-convenience-store-exterior-dusk.jpg"
         imageAlt="Convenience store construction Tulsa by UDGOK"

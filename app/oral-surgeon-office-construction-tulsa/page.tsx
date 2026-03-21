@@ -34,7 +34,7 @@ export default function OralSurgeryPage() {
       />
       <ServicePage
         label="Oral Surgery"
-        title="Oral Surgery Center Construction"
+        title="Oral Surgery Center Construction Tulsa"
         description="Surgical-suite precision including certified medical gas systems, recovery rooms, and AAOMS-compliant procedure suites."
         imageSrc="/images/ai-surgery-suite.png"
         imageAlt="Oral surgery center construction Tulsa by UDGOK"

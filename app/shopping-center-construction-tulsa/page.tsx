@@ -34,7 +34,7 @@ export default function ShoppingCenterPage() {
       />
       <ServicePage
         label="Retail Center Construction"
-        title="Shopping Center Construction"
+        title="Shopping Center Construction Tulsa"
         description="Multi-tenant retail centers, strip plazas, and mixed-use developments built for long-term performance and tenant retention."
         imageSrc="/images/ai_commercial_retail_plaza.png"
         imageAlt="Shopping center construction Tulsa by UDGOK"

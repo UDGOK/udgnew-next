@@ -34,7 +34,7 @@ export default function EyeClinicPage() {
       />
       <ServicePage
         label="Eye Clinic Construction"
-        title="Eye Clinic & Ophthalmology Construction"
+        title="Eye Clinic & Ophthalmology Construction Tulsa"
         description="Precision-built optometry offices and surgical eye centers with dark rooms, laser suites, and specialized lighting design."
         imageSrc="/images/modern-medical-office-building-exterior-sunny-day.jpg"
         imageAlt="Eye clinic construction Tulsa by UDGOK"

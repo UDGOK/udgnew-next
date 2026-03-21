@@ -2,8 +2,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import MarqueeBanner from "@/components/MarqueeBanner";
 import AnimateIn from "@/components/AnimateIn";
 import CountUp from "@/components/CountUp";
@@ -33,9 +33,24 @@ export default function ServicePage({
   cta = "Start Your Project →", stats, tldr, faqs, sections,
 }: ServicePageProps) {
   const containerRef = useRef(null);
+  const ctaSectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacityFade = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.3, 0]);
+
+  /* Sticky CTA visibility: show after 500px scroll, hide when bottom CTA is visible */
+  const [showSticky, setShowSticky] = useState(false);
+  useEffect(() => {
+    let ctaVisible = false;
+    const onScroll = () => setShowSticky(window.scrollY > 500 && !ctaVisible);
+    const observer = new IntersectionObserver(
+      ([entry]) => { ctaVisible = entry.isIntersecting; onScroll(); },
+      { threshold: 0.1 }
+    );
+    if (ctaSectionRef.current) observer.observe(ctaSectionRef.current);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { observer.disconnect(); window.removeEventListener("scroll", onScroll); };
+  }, []);
 
   return (
     <main className="bg-[#0B061B] min-h-screen text-white overflow-hidden pb-0">
@@ -303,7 +318,7 @@ export default function ServicePage({
       </section>
 
       {/* 5. Cyber-Physical CTA */}
-      <section className="bg-white text-[#0B061B] py-32 px-6 md:px-12 text-center rounded-t-[3rem] -mt-10 relative z-20">
+      <section ref={ctaSectionRef} className="bg-white text-[#0B061B] py-32 px-6 md:px-12 text-center rounded-t-[3rem] -mt-10 relative z-20">
         <AnimateIn>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-[clamp(3.5rem,6vw,6rem)] font-black uppercase tracking-tighter leading-[0.85] mb-8">
@@ -324,6 +339,40 @@ export default function ServicePage({
           </div>
         </AnimateIn>
       </section>
+
+      {/* ── Sticky CTA Bar ── */}
+      <AnimatePresence>
+        {showSticky && (
+          <motion.div
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 80, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pointer-events-none"
+          >
+            <div className="max-w-3xl mx-auto bg-[#0B061B]/90 backdrop-blur-xl border border-white/10 rounded-2xl px-5 py-3 flex items-center justify-between gap-4 shadow-2xl shadow-black/40 pointer-events-auto">
+              <div className="hidden sm:block">
+                <p className="text-white text-sm font-bold">Ready to Build?</p>
+                <p className="text-white/50 text-xs">Get a 48-hour conceptual estimate</p>
+              </div>
+              <div className="flex items-center gap-3 w-full sm:w-auto">
+                <Link
+                  href="tel:+19185203823"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white/10 border border-white/10 rounded-xl text-white text-xs font-bold tracking-wider uppercase hover:bg-white/20 transition-colors"
+                >
+                  📞 (918) 520-3823
+                </Link>
+                <Link
+                  href="/contact"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#FF4800] rounded-xl text-white text-xs font-bold tracking-wider uppercase hover:bg-[#FF4800]/80 transition-colors shadow-lg shadow-[#FF4800]/30"
+                >
+                  Get Estimate →
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </main>
   );

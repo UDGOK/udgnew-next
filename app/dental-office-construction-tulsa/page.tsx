@@ -38,7 +38,7 @@ export default function DentalOfficePage() {
       />
       <ServicePage
         label="Dental Construction"
-        title="Dental Office Construction"
+        title="Dental Office Construction Tulsa"
         description="Purpose-built dental offices with integrated treatment room plumbing, equipment rough-in, and clinical workflow optimization."
         imageSrc="/images/dental-office-construction.png"
         imageAlt="Dental office construction Tulsa by UDGOK"
