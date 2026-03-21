@@ -109,6 +109,35 @@ export default function HomeUI() {
               </Link>
             </motion.div>
           </motion.div>
+
+          {/* Trust Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            data-speakable="true"
+            style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", marginTop: "3rem" }}
+          >
+            {[
+              { icon: "🏗️", text: "Since 2015" },
+              { icon: "✅", text: "100+ Projects" },
+              { icon: "📋", text: "PMP-Certified" },
+              { icon: "🛡️", text: "OSHA Compliant" },
+            ].map((item) => (
+              <div
+                key={item.text}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                  padding: "0.6rem 1.25rem", background: "rgba(255,255,255,0.15)",
+                  backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.15)",
+                  borderRadius: "100px", fontSize: "0.75rem", fontWeight: 700,
+                  letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff",
+                }}
+              >
+                <span>{item.icon}</span> {item.text}
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

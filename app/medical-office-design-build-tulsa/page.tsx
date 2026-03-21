@@ -3,8 +3,8 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Medical Office Design-Build Tulsa Oklahoma | UDGOK",
-  description: "Tulsa's premier medical office design-build contractor. UDGOK delivers turnkey medical offices, urgent care clinics, and specialty practices with HVAC, ADA compliance, and medical gas systems.",
+  title: "Medical Office Design-Build Contractor Tulsa OK | 100+ Facilities",
+  description: "Tulsa's top medical office design-build contractor. 100+ healthcare facilities delivered. $150–$350/sf with ADA, HIPAA, and ASHRAE 170 compliance.",
   keywords: [
     "medical office construction Tulsa",
     "medical office design-build Oklahoma",

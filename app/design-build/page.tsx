@@ -3,8 +3,8 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Integrated Design-Build Services Oklahoma & Tulsa | UDGOK",
-  description: "Integrated design-build services for medical, dental, and commercial construction across Oklahoma. One contract, one team, zero gaps between design and construction. 100+ projects delivered in Tulsa and Oklahoma.",
+  title: "Design-Build Contractor Tulsa & Oklahoma City | Medical & Dental",
+  description: "Tulsa's top design-build contractor for medical & dental projects. One contract, one team. 100+ projects delivered 20% faster with 15% cost savings.",
   keywords: [
     "integrated design-build services Oklahoma",
     "design-build contractor Tulsa",

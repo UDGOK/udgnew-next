@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import HomeUI from "./HomeUI";
 
 export const metadata: Metadata = {
-  title: "UDGOK — AI-Powered Medical & Dental Design-Build",
+  title: "Medical & Dental Design-Build Contractor | Tulsa & Oklahoma City",
   description:
-    "Upscale Development Group specializes in medical office construction, dental office builds, oral surgery centers, and medical gas installation across Oklahoma and Texas.",
+    "Tulsa's premier medical & dental design-build contractor. 100+ healthcare projects delivered 30–40% faster. Serving Oklahoma & North Texas since 2015.",
   alternates: { canonical: "https://udgok.com" },
   robots: {
     index: true,

@@ -3,8 +3,8 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Dental Office Construction Tulsa Oklahoma | UDGOK",
-  description: "Expert dental office construction in Tulsa, OK. UDGOK builds fully equipped, ADA-compliant dental suites with integrated plumbing, cabinetry, medical gas, and equipment rough-in. 80+ dental offices delivered.",
+  title: "Dental Office Construction Contractor Tulsa OK | 80+ Clinics Built",
+  description: "Tulsa's most experienced dental office contractor. 80+ clinics built with medical gas, infection control HVAC, and operatory plumbing. $140–$280/sf.",
   keywords: [
     "dental office construction Tulsa",
     "dental clinic build-out Oklahoma",
