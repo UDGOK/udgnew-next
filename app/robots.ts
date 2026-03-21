@@ -104,6 +104,11 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "Diffbot",
         allow: "/",
       },
+      // ── Brave Search ──
+      {
+        userAgent: "BraveBot",
+        allow: "/",
+      },
       // ── Timpi Search ──
       {
         userAgent: "Timpibot",

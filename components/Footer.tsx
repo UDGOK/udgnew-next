@@ -252,7 +252,16 @@ export default function Footer() {
             "Convenience store construction",
             "Shopping center construction",
             "Preconstruction cost estimation",
-            "General contractor Oklahoma"
+            "General contractor Oklahoma",
+            "Industrial construction Tulsa",
+            "Warehouse construction Oklahoma",
+            "Pre-engineered metal buildings",
+            "Cold storage construction",
+            "Manufacturing facility construction",
+            "Concrete driveway installation Tulsa",
+            "Asphalt repair and sealcoating",
+            "Self-storage facility construction",
+            "Agricultural building construction Oklahoma"
           ],
           "contactPoint": [
             {
