@@ -23,7 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "oral-surgeon-office-construction-tulsa",
     "eye-clinic-construction-tulsa",
     "medical-gas-installation",
-    "medical-gas-installation-dental",
     "permitting-and-code-compliance",
     "project-management-pmp-led",
     "tenant-improvements",
@@ -113,16 +112,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  // ── FAQ Pages ──
-  const faqs = [
-    "faq-medical-office-construction",
-    "faq-dental-office-construction",
-  ].map((slug) => ({
-    url: `${base}/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
 
   // ── Tools & Calculators ──
   const tools = [
@@ -158,6 +147,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.3,
   }));
 
-  return [...core, ...services, ...locations, ...articles, ...faqs, ...tools, ...company];
+  return [...core, ...services, ...locations, ...articles, ...tools, ...company];
 }
 

@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/index_final.html", destination: "/", permanent: true },
       { source: "/sitemap.html", destination: "/sitemap-page", permanent: true },
+      // ── Orphaned routes → redirect to parent pages ──
+      { source: "/faq-dental-office-construction", destination: "/dental-office-construction-tulsa", permanent: true },
+      { source: "/faq-medical-office-construction", destination: "/medical-office-design-build-tulsa", permanent: true },
+      { source: "/medical-gas-installation-dental", destination: "/medical-gas-installation", permanent: true },
       // ── Catch-all: strip .html extension and 301 redirect ──
       {
         source: "/:slug([\\w-]+)\\.html",
