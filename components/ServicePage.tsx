@@ -3,10 +3,80 @@ import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import MarqueeBanner from "@/components/MarqueeBanner";
 import AnimateIn from "@/components/AnimateIn";
 import CountUp from "@/components/CountUp";
+
+/* ── Card gradient palettes (one per card index) ── */
+const CARD_GRADIENTS = [
+  "linear-gradient(135deg, #1a0a2e 0%, #16213e 40%, #0f3460 70%, #533483 100%)",
+  "linear-gradient(135deg, #0d1b2a 0%, #1b2838 40%, #2d4a3e 70%, #1a4a3a 100%)",
+  "linear-gradient(135deg, #1a0000 0%, #2d1810 40%, #3d2418 70%, #4a2c1a 100%)",
+  "linear-gradient(135deg, #0a1628 0%, #162447 40%, #1f4068 70%, #1b3a5c 100%)",
+  "linear-gradient(135deg, #1a0a20 0%, #2d1b30 40%, #3d2040 70%, #4a1c4e 100%)",
+  "linear-gradient(135deg, #0a1a1a 0%, #1b2d28 40%, #244038 70%, #1a3d30 100%)",
+];
+
+/* ── Feature Detail Modal ── */
+function FeatureModal({ feature, index, onClose }: { feature: { icon: string; title: string; desc: string }; index: number; onClose: () => void }) {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", handler);
+    document.body.style.overflow = "hidden";
+    return () => { window.removeEventListener("keydown", handler); document.body.style.overflow = ""; };
+  }, [onClose]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-8"
+      onClick={onClose}
+    >
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
+
+      {/* Modal Content */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 30 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 10 }}
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header with gradient + icon */}
+        <div className="relative h-48 md:h-56 flex items-center justify-center" style={{ background: CARD_GRADIENTS[index % 6] }}>
+          <div className="absolute inset-0 opacity-30" style={{ background: "radial-gradient(circle at 30% 70%, rgba(255,72,0,0.25) 0%, transparent 60%)" }} />
+          <div className="absolute inset-0" style={{ background: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
+          <span className="text-7xl md:text-8xl relative z-10 drop-shadow-2xl">{feature.icon}</span>
+          {/* Close button */}
+          <button onClick={onClose} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-black/50 transition-all cursor-pointer z-20">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+          {/* Index badge */}
+          <div className="absolute top-4 left-5 text-[0.55rem] font-black tracking-[0.3em] text-white/30">{String(index + 1).padStart(2, "0")}</div>
+        </div>
+
+        {/* Body */}
+        <div className="bg-[#0d0820] p-8 md:p-10">
+          <h3 className="text-xl md:text-2xl font-extrabold uppercase tracking-tight text-white mb-4 leading-tight">{feature.title}</h3>
+          <div className="w-10 h-[2px] bg-gradient-to-r from-[#FF4800] to-transparent mb-6" />
+          <p className="text-[0.92rem] text-white/60 leading-[1.8]">{feature.desc}</p>
+          <div className="mt-8 pt-6 border-t border-white/8">
+            <Link href="/contact" className="inline-flex items-center gap-3 px-6 py-3 bg-[#FF4800] text-white text-xs font-bold tracking-[0.15em] uppercase rounded-full hover:bg-[#FF5A1A] transition-colors shadow-lg shadow-[#FF4800]/20">
+              Discuss This Service
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </Link>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
 
 interface Feature { icon: string; title: string; desc: string; }
 interface FAQ { q: string; a: string; }
@@ -40,6 +110,7 @@ export default function ServicePage({
 
   /* Sticky CTA visibility: show after 500px scroll, hide when bottom CTA is visible */
   const [showSticky, setShowSticky] = useState(false);
+  const [activeFeature, setActiveFeature] = useState<number | null>(null);
   useEffect(() => {
     let ctaVisible = false;
     const onScroll = () => setShowSticky(window.scrollY > 500 && !ctaVisible);
@@ -169,10 +240,10 @@ export default function ServicePage({
         </div>
       </section>
 
-      {/* 3. Features Dashboard — Premium Edition */}
+      {/* 3. Features — Image-Topped Cards with Modal */}
       <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto border-b border-white/10 relative">
         {/* Ambient background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,72,0,0.06) 0%, transparent 70%)", filter: "blur(80px)" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,72,0,0.05) 0%, transparent 70%)", filter: "blur(100px)" }} />
 
         <AnimateIn>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 relative z-10">
@@ -188,82 +259,111 @@ export default function ServicePage({
           </div>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
           {features.map((f, i) => (
             <AnimateIn key={i} delay={i * 0.07} direction="up">
-              <div className="relative h-full group">
-                {/* Gradient border wrapper */}
-                <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-white/[0.12] via-transparent to-[#FF4800]/[0.15] opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
-                <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-[#FF4800]/40 via-[#FF4800]/10 to-orange-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <motion.div
+                className="relative h-full cursor-pointer group"
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                onClick={() => setActiveFeature(i)}
+              >
+                {/* Card */}
+                <div className="relative rounded-2xl overflow-hidden h-full bg-gradient-to-b from-[#0d0820] to-[#0a0618] border border-white/[0.08] group-hover:border-white/[0.15] transition-all duration-500 shadow-xl shadow-black/40 group-hover:shadow-2xl group-hover:shadow-[#FF4800]/10">
 
-                {/* Card body */}
-                <div className="relative bg-[#0d0820]/90 backdrop-blur-xl rounded-2xl p-8 md:p-9 h-full overflow-hidden transition-all duration-500">
-                  {/* Animated gradient mesh — visible on hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: "radial-gradient(ellipse at 20% 80%, rgba(255,72,0,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(255,140,50,0.06) 0%, transparent 50%)" }} />
-
-                  {/* Top gradient line */}
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/8 to-transparent group-hover:via-[#FF4800]/50 transition-all duration-700" />
-
-                  {/* Index number */}
-                  <div className="absolute top-5 right-6 text-[0.6rem] font-black tracking-[0.25em] text-white/[0.07] group-hover:text-[#FF4800]/20 transition-colors duration-500 select-none">
-                    {String(i + 1).padStart(2, "0")}
+                  {/* Visual header area */}
+                  <div className="relative h-40 md:h-44 overflow-hidden" style={{ background: CARD_GRADIENTS[i % 6] }}>
+                    {/* Subtle pattern overlay */}
+                    <div className="absolute inset-0 opacity-20" style={{ background: "radial-gradient(circle at 30% 70%, rgba(255,72,0,0.3) 0%, transparent 60%)" }} />
+                    <div className="absolute inset-0" style={{ background: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
+                    {/* Icon */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.span
+                        className="text-5xl md:text-6xl drop-shadow-2xl"
+                        whileHover={{ scale: 1.15, rotate: -5 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      >
+                        {f.icon}
+                      </motion.span>
+                    </div>
+                    {/* Index badge */}
+                    <div className="absolute top-3.5 left-4 text-[0.55rem] font-black tracking-[0.3em] text-white/25">
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                    {/* Bottom fade into card body */}
+                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0d0820] to-transparent" />
                   </div>
 
-                  {/* Icon container */}
-                  <div className="relative mb-7">
-                    {/* Glow ring */}
-                    <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-[#FF4800]/0 to-orange-500/0 group-hover:from-[#FF4800]/15 group-hover:to-orange-500/10 blur-xl transition-all duration-700" />
-                    <motion.div
-                      className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/[0.08] group-hover:border-[#FF4800]/30 flex items-center justify-center text-2xl transition-colors duration-500 overflow-hidden"
-                      whileHover={{ scale: 1.1, rotate: -3 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                      {/* Inner shimmer */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#FF4800]/0 to-transparent group-hover:from-[#FF4800]/10 transition-all duration-500" />
-                      <span className="relative z-10 drop-shadow-lg">{f.icon}</span>
-                    </motion.div>
+                  {/* Content area */}
+                  <div className="p-6 md:p-7 pt-3 md:pt-4">
+                    <h3 className="text-[0.92rem] font-extrabold uppercase tracking-[0.03em] text-white/90 group-hover:text-white transition-colors duration-300 leading-snug mb-2.5">
+                      {f.title}
+                    </h3>
+                    <p className="text-[0.78rem] text-white/40 leading-[1.65] line-clamp-2 group-hover:text-white/55 transition-colors duration-300 mb-5">
+                      {f.desc}
+                    </p>
+
+                    {/* CTA row */}
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-[0.6rem] font-bold tracking-[0.1em] uppercase text-white/30">
+                        <span className="w-1 h-1 rounded-full bg-[#FF4800]/60" />
+                        {label}
+                      </span>
+                      <span className="text-[0.65rem] font-bold tracking-[0.1em] uppercase text-[#FF4800]/70 group-hover:text-[#FF4800] transition-colors duration-300 flex items-center gap-1.5">
+                        View Details
+                        <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                      </span>
+                    </div>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-[0.95rem] font-extrabold uppercase tracking-[0.04em] mb-3 relative z-10 text-white/90 group-hover:text-white transition-colors duration-300 leading-snug">
-                    {f.title}
-                  </h3>
-
-                  {/* Divider */}
-                  <div className="w-8 h-[2px] bg-gradient-to-r from-[#FF4800]/40 to-transparent mb-4 group-hover:w-12 transition-all duration-500" />
-
-                  {/* Description */}
-                  <p className="text-[0.82rem] text-white/45 leading-[1.7] relative z-10 group-hover:text-white/60 transition-colors duration-300">
-                    {f.desc}
-                  </p>
-
-                  {/* Bottom corner accent */}
-                  <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-[#FF4800]/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tl-full" />
                 </div>
-              </div>
+              </motion.div>
             </AnimateIn>
           ))}
         </div>
+
+        {/* Feature Detail Modal */}
+        <AnimatePresence>
+          {activeFeature !== null && (
+            <FeatureModal
+              feature={features[activeFeature]}
+              index={activeFeature}
+              onClose={() => setActiveFeature(null)}
+            />
+          )}
+        </AnimatePresence>
       </section>
 
       {/* ── Deep Content Sections (Q&A-style headings) ── */}
       {sections && sections.length > 0 && (
-        <section className="py-24 border-b border-white/10">
+        <section className="py-28 md:py-36 border-b border-white/10">
           <div className="max-w-4xl mx-auto px-6 md:px-12">
             <AnimateIn>
-              <div className="flex items-center gap-4 mb-16">
-                <span className="w-8 h-px bg-[#FF4800]" />
-                <span className="text-[#FF4800] text-xs font-bold tracking-[0.2em] uppercase">In-Depth Guide</span>
+              <div className="flex items-center gap-4 mb-20">
+                <span className="w-12 h-px bg-gradient-to-r from-[#FF4800] to-transparent" />
+                <span className="text-[#FF4800] text-[0.65rem] font-black tracking-[0.3em] uppercase">In-Depth Guide</span>
               </div>
             </AnimateIn>
             {sections.map((s, i) => (
               <AnimateIn key={i} delay={i * 0.05}>
-                <div className="mb-16 last:mb-0">
-                  <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6 text-white leading-snug">
+                <div className={`${i > 0 ? "mt-20 md:mt-28 pt-16 md:pt-20 border-t border-white/[0.06]" : ""} ${i === sections.length - 1 ? "" : "mb-0"}`}>
+                  {/* Section number */}
+                  {i > 0 && (
+                    <div className="flex items-center gap-3 mb-8">
+                      <span className="text-[0.55rem] font-black tracking-[0.3em] text-[#FF4800]/30 uppercase">Section {String(i + 1).padStart(2, "0")}</span>
+                      <span className="flex-1 h-px bg-gradient-to-r from-[#FF4800]/10 to-transparent" />
+                    </div>
+                  )}
+                  {i === 0 && (
+                    <div className="flex items-center gap-3 mb-8">
+                      <span className="text-[0.55rem] font-black tracking-[0.3em] text-[#FF4800]/30 uppercase">Section 01</span>
+                      <span className="flex-1 h-px bg-gradient-to-r from-[#FF4800]/10 to-transparent" />
+                    </div>
+                  )}
+                  <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-8 text-white leading-snug border-l-[3px] border-[#FF4800]/40 pl-5">
                     {s.heading}
                   </h2>
                   <div
-                    className="text-white/60 text-base md:text-lg leading-relaxed space-y-4 [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:space-y-2 [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:space-y-2 [&>table]:w-full [&>table]:border-collapse [&_th]:bg-[#FF4800]/20 [&_th]:text-left [&_th]:px-4 [&_th]:py-3 [&_th]:text-sm [&_th]:font-bold [&_th]:uppercase [&_th]:tracking-wider [&_th]:text-white/80 [&_td]:px-4 [&_td]:py-3 [&_td]:border-t [&_td]:border-white/10 [&_td]:text-white/60"
+                    className="text-white/55 text-base md:text-[1.05rem] leading-[1.85] space-y-5 [&>p]:mb-1 [&>ul]:list-disc [&>ul]:pl-7 [&>ul]:space-y-3 [&>ul]:mt-4 [&>ul]:mb-4 [&>ol]:list-decimal [&>ol]:pl-7 [&>ol]:space-y-3 [&>ol]:mt-4 [&>ol]:mb-4 [&_li]:leading-[1.75] [&_strong]:text-white/80 [&_strong]:font-bold [&>table]:w-full [&>table]:border-collapse [&>table]:mt-5 [&>table]:mb-5 [&>table]:rounded-xl [&>table]:overflow-hidden [&>table]:border [&>table]:border-white/10 [&_th]:bg-[#FF4800]/15 [&_th]:text-left [&_th]:px-5 [&_th]:py-3.5 [&_th]:text-[0.7rem] [&_th]:font-black [&_th]:uppercase [&_th]:tracking-[0.15em] [&_th]:text-[#FF4800]/80 [&_td]:px-5 [&_td]:py-3.5 [&_td]:border-t [&_td]:border-white/[0.06] [&_td]:text-white/55 [&_td]:text-[0.9rem]"
                     dangerouslySetInnerHTML={{ __html: s.body }}
                   />
                 </div>
