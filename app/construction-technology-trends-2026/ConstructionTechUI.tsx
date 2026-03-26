@@ -192,7 +192,7 @@ export default function ConstructionTechUI() {
                     desc="Agentic AI systems now manage entire construction schedules autonomously — analyzing weather patterns, workforce availability, material lead times, and permit timelines to predict and prevent delays before they happen. In 2026, AI-powered scheduling reduces delays by 15-25% and cost forecasting models adjust budgets in real-time based on market data."
                     stat="15-25%" statLabel="Fewer Delays"
                 >
-                    <YouTubeEmbed id="ZEjHNnHq-bM" title="How AI Is Transforming Construction Project Management in 2026" />
+                    <YouTubeEmbed id="Kbz4KXlmgXQ" title="10 Ways Construction Contractors Can Use AI (Today)" />
                 </TechCard>
 
                 {/* ─── 2. Bricklaying Robots ─── */}
@@ -202,7 +202,7 @@ export default function ConstructionTechUI() {
                     desc="FBR's Hadrian X bricklaying robot just broke its speed record — laying up to 1,000 bricks per hour compared to a human mason's 100. The truck-mounted robot uses 3D CAD models to autonomously cut, route, and place blocks with millimeter precision, operating through wind conditions that would halt manual work. One unit can build 100-300 homes per year."
                     stat="10x" statLabel="Faster Than Human Masons"
                 >
-                    <YouTubeEmbed id="MOgTOGKQo5c" title="Hadrian X Robot Bricklayer — Building Walls 10x Faster Than Humans" />
+                    <YouTubeEmbed id="wPhRb2AF92I" title="Next-Gen Hadrian X® Completes First Outdoor Test Build | FBR" />
                 </TechCard>
 
                 {/* ─── 3. 3D-Printed Homes ─── */}
@@ -212,7 +212,7 @@ export default function ConstructionTechUI() {
                     desc="ICON's Vulcan printer has already built entire neighborhoods in Georgetown, Texas — the world's largest community of 3D-printed homes. Their next-gen Titan system, a rail-less, multi-story capable 3D-printing platform launching in 2026, promises to open the technology to outside builders. Walls are printed in 24-48 hours using CarbonX, a low-carbon cementitious material, at approximately $20/sf for wall systems."
                     stat="$20/SF" statLabel="Wall Printing Cost"
                 >
-                    <YouTubeEmbed id="wCzKD3m-PNY" title="ICON 3D Printed Homes — Building Entire Neighborhoods in Texas" />
+                    <YouTubeEmbed id="WOR612WviMs" title="Inside The World's Largest 3D Printed Neighborhood" />
                 </TechCard>
 
                 {/* ─── 4. Robotic Layout ─── */}
@@ -222,7 +222,7 @@ export default function ConstructionTechUI() {
                     desc="Dusty Robotics' FieldPrinter 2 autonomously prints full-scale digital building plans directly onto concrete slabs with 1/16-inch accuracy. One operator covers 10,000-15,000 square feet per day — eliminating weeks of manual layout work and the coordination errors that cause millions in rework annually. The system integrates directly with BIM models."
                     stat={'1/16"'} statLabel="Precision Accuracy"
                 >
-                    <YouTubeEmbed id="GKUfXBN1sBE" title="Dusty Robotics FieldPrinter 2 — Laser Precision Layout on Construction Sites" />
+                    <YouTubeEmbed id="xIb_yiOHjWY" title="Dusty Robotics FieldPrinter 2: Smarter, Faster, More Powerful" />
                 </TechCard>
 
                 {/* ─── 5. Drones ─── */}
@@ -232,7 +232,7 @@ export default function ConstructionTechUI() {
                     desc="Construction drones have evolved far beyond photography. In 2026, autonomous drone swarms fly pre-programmed paths without a pilot, capture LiDAR point clouds, generate 3D models, and compare progress against BIM in near real-time. AI analysis detects potential issues — thermal cameras spot leaks, deformation sensors catch structural problems — before they become costly repairs. Site accidents are reduced by up to 20%."
                     stat="20%" statLabel="Fewer Site Accidents"
                 >
-                    <YouTubeEmbed id="7P9Rfc1OS7g" title="Construction Drones — Autonomous Site Monitoring and AI Analysis" />
+                    <YouTubeEmbed id="YZeC7H_1DoA" title="Drone Construction Progress Monitoring: Flight Demonstration" />
                 </TechCard>
 
                 {/* ─── 6. Digital Twins ─── */}
@@ -242,7 +242,7 @@ export default function ConstructionTechUI() {
                     desc="Digital twins — living, data-rich 3D replicas synced with real-world IoT sensors — are becoming the central nervous system of modern construction. They detect MEP clashes before a single pipe is cut (saving $5,000-$50,000+ per conflict), simulate energy performance before HVAC equipment is purchased, and track real-time schedule deviations. After construction, the twin serves as the building's permanent management platform."
                     stat="$5-50K+" statLabel="Saved Per Clash Detected"
                 >
-                    <YouTubeEmbed id="2PJSnEg5n3I" title="Digital Twins in Construction — Real-Time Building Intelligence" />
+                    <YouTubeEmbed id="uIEqnb3Kk1U" title="Digital Twin in the AEC Industry" />
                 </TechCard>
 
                 {/* ─── 7. Modular Construction ─── */}
@@ -252,7 +252,7 @@ export default function ConstructionTechUI() {
                     desc="Factory-built modules — bathroom pods, MEP racks, wall panels, even entire rooms — are shipped to site and craned into position in hours. Modular construction eliminates weather delays, ensures factory-level quality control, and reduces on-site labor by 40-50%. In healthcare construction, prefabricated headwalls and medical gas assemblies are becoming standard practice, compressing timelines by weeks."
                     stat="40-50%" statLabel="Less On-Site Labor"
                 >
-                    <YouTubeEmbed id="6TQVA0MF-Bw" title="Modular Construction — Factory-Built Buildings Assembled On Site" />
+                    <YouTubeEmbed id="uCVxLGW_cmA" title="How It's Made: BonnaVilla Manufactured Modular Homes" />
                 </TechCard>
 
                 {/* ─── 8. AR/VR ─── */}
@@ -262,7 +262,7 @@ export default function ConstructionTechUI() {
                     desc="AR headsets let field teams see BIM models overlaid on the actual jobsite — revealing hidden ductwork, pipe routes, and electrical runs behind walls before they're built. VR walk-throughs allow clients to experience their building at full scale before construction begins, catching design issues that would cost 10-100x more to fix in the field. Training in VR has reduced safety incident rates by 40% in pilot programs."
                     stat="40%" statLabel="Fewer Safety Incidents"
                 >
-                    <YouTubeEmbed id="fNIDQi63dms" title="AR/VR in Construction — Visualizing Buildings Before They're Built" />
+                    <YouTubeEmbed id="8BTI4_hA0Xw" title="Augmented Reality in Civil Engineering & Construction" />
                 </TechCard>
 
                 {/* ─── 9. Computer Vision Safety ─── */}
@@ -272,7 +272,7 @@ export default function ConstructionTechUI() {
                     desc="AI-powered cameras now watch construction sites 24/7, detecting unsafe acts in real-time: workers without hard hats, missing harnesses at height, unauthorized zone entry, and equipment proximity violations. The systems generate instant alerts to the site superintendent's phone. Computer vision is becoming a core intelligence layer — not just a security camera — tracking PPE compliance, monitoring equipment utilization, and documenting progress automatically."
                     stat="Real-Time" statLabel="Safety Monitoring"
                 >
-                    <YouTubeEmbed id="Tn_bINpx04I" title="AI Computer Vision on Construction Sites — Real-Time Safety Detection" />
+                    <YouTubeEmbed id="tLcYxiNd59w" title="Construction Site Safety with Ability AI Cameras" />
                 </TechCard>
 
                 {/* ─── 10. Generative AI Design ─── */}
@@ -282,7 +282,7 @@ export default function ConstructionTechUI() {
                     desc="Generative AI algorithms can now produce hundreds of floor plan variants optimized for specific constraints — budget, workflow, patient throughput (in medical), natural light, code compliance — in hours rather than weeks. ICON's Vitruvius AI can produce full construction documents and permit-ready designs autonomously. At UDGOK, we use AI-assisted design to optimize medical office layouts for patient flow and operatory efficiency."
                     stat="10-20%" statLabel="Material Cost Reduction"
                 >
-                    <YouTubeEmbed id="jE2v7aOLZ9o" title="Generative AI Design — Algorithms Creating Optimal Building Layouts" />
+                    <YouTubeEmbed id="6IYOKjZCWlI" title="5 Insane Ways to Use AI for Architecture and Design" />
                 </TechCard>
 
             </section>
