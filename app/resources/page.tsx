@@ -7,6 +7,15 @@ import MarqueeBanner from "@/components/MarqueeBanner";
 
 const articles = [
   {
+    category: "Construction Technology",
+    title: "10 Technologies Reshaping Construction in 2026",
+    desc: "Bricklaying robots, 3D-printed neighborhoods, AI schedulers, drone swarms, and digital twins — the tech that's already on jobsites today. With video demos.",
+    href: "/construction-technology-trends-2026",
+    img: "/images/construction-tech-2026-hero.png",
+    date: "MAR 2026",
+    readTime: "14 MIN READ"
+  },
+  {
     category: "Healthcare Technology",
     title: "AI & Robotic Surgery in 2026: How Autonomous Systems Are Redefining Care",
     desc: "AI-enabled robotic surgery delivers autonomous procedures and intercontinental telesurgery — demanding radical healthcare infrastructure upgrades.",
