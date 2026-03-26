@@ -177,7 +177,7 @@ export default function ConstructionCompaniesTulsaUI() {
                         <Stat value="100+" label="Projects Delivered" />
                         <Stat value="2M+" label="SF Built in Tulsa" />
                         <Stat value="#1" label="Medical Builder" />
-                        <Stat value="2006" label="Established" />
+                        <Stat value="2015" label="Established" />
                     </motion.div>
                 </div>
             </section>
@@ -188,7 +188,7 @@ export default function ConstructionCompaniesTulsaUI() {
                     <S>
                         <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
                             <div style={{ fontSize: "0.6rem", fontWeight: 800, color: "#FF4800", letterSpacing: "0.2em", textTransform: "uppercase", minWidth: "50px", paddingTop: "0.15rem" }}>TL;DR</div>
-                            <p style={{ fontSize: "0.88rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, margin: 0 }}>
+                            <p data-speakable="true" style={{ fontSize: "0.88rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, margin: 0 }}>
                                 UDGOK (Upscale Development Group of Oklahoma) is a top-rated construction company in Tulsa, OK, specializing in commercial, medical, dental, industrial, and retail construction. With 100+ completed projects and 2,000,000+ square feet delivered across the Tulsa metro, UDGOK offers AI-powered estimating, design-build delivery, and transparent GMP pricing. Commercial construction in Tulsa costs $60–$350/sf depending on building type. Medical offices run $180–$350/sf. Pre-engineered metal warehouses cost $25–$50/sf. UDGOK serves Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sand Springs, Oklahoma City, and the Dallas-Fort Worth metro.
                             </p>
                         </div>

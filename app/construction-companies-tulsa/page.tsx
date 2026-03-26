@@ -85,18 +85,20 @@ function LocalBusinessJsonLd() {
                 logo: "https://udgok.com/logo.png",
                 image: "https://udgok.com/og-image.png",
                 description: "Top-rated construction company in Tulsa, Oklahoma. UDGOK builds commercial, medical, dental, industrial, and retail projects. 100+ projects delivered. Design-build, GMP pricing, AI-powered estimating.",
-                telephone: "+1-918-000-0000",
+                telephone: "+1-918-520-3823",
+                email: "projects@udgok.com",
                 address: {
                     "@type": "PostalAddress",
+                    streetAddress: "7739 E 38th Street, Ste F",
                     addressLocality: "Tulsa",
                     addressRegion: "OK",
-                    postalCode: "74133",
+                    postalCode: "74145",
                     addressCountry: "US",
                 },
                 geo: {
                     "@type": "GeoCoordinates",
-                    latitude: 36.0544,
-                    longitude: -95.8024,
+                    latitude: 36.0998,
+                    longitude: -95.8830,
                 },
                 areaServed: [
                     { "@type": "City", name: "Tulsa, Oklahoma" },
@@ -115,7 +117,11 @@ function LocalBusinessJsonLd() {
                     closes: "17:00",
                 },
                 priceRange: "$$$",
-                sameAs: [],
+                sameAs: [
+                    "https://www.linkedin.com/company/upscale-development-group",
+                    "https://www.facebook.com/udgok",
+                    "https://www.instagram.com/udgok",
+                ],
                 knowsAbout: [
                     "Commercial Construction",
                     "Medical Office Construction",
