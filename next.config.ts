@@ -19,6 +19,12 @@ const nextConfig: NextConfig = {
       { source: "/faq-dental-office-construction", destination: "/dental-office-construction-tulsa", permanent: true },
       { source: "/faq-medical-office-construction", destination: "/medical-office-design-build-tulsa", permanent: true },
       { source: "/medical-gas-installation-dental", destination: "/medical-gas-installation", permanent: true },
+      // ── Old Wix blog posts → resources page ──
+      { source: "/post/:slug", destination: "/resources", permanent: true },
+      // ── Old Wix project pages → projects page ──
+      { source: "/project/:slug", destination: "/projects", permanent: true },
+      // ── Old /news route → insights ──
+      { source: "/news", destination: "/insights", permanent: true },
       // ── Catch-all: strip .html extension and 301 redirect ──
       {
         source: "/:slug([\\w-]+)\\.html",
