@@ -56,6 +56,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "ai-robotics",
     "property-intelligence",
     "market-intelligence",
+    "ambulatory-surgery-center-construction",
+    "restaurant-construction-tulsa",
+    "sustainable-construction-tulsa",
+    "adaptive-reuse-construction-tulsa",
   ].map((slug) => ({
     url: `${base}/${slug}`,
     lastModified: now,
