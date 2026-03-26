@@ -112,8 +112,9 @@ export default function RootLayout({
               url: "https://udgok.com",
               logo: "https://udgok.com/logo.png",
               description: "Top-rated construction company in Tulsa, Oklahoma. UDGOK builds commercial, medical, dental, industrial, and retail projects. 100+ projects delivered. Design-build, GMP pricing, AI-powered estimating.",
-              foundingDate: "2006",
+              foundingDate: "2015",
               telephone: "+1-918-520-3823",
+              email: "projects@udgok.com",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "7739 E 38th St",
@@ -138,6 +139,23 @@ export default function RootLayout({
                 { "@type": "City", name: "Oklahoma City" },
                 { "@type": "City", name: "Dallas" },
               ],
+              sameAs: [
+                "https://www.linkedin.com/company/upscale-development-group",
+                "https://www.facebook.com/udgok",
+                "https://www.instagram.com/udgok",
+              ],
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Construction Services",
+                itemListElement: [
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Medical Office Design-Build", url: "https://udgok.com/medical-office-design-build-tulsa" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dental Office Construction", url: "https://udgok.com/dental-office-construction-tulsa" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Medical Gas Installation", url: "https://udgok.com/medical-gas-installation" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Pre-Engineered Metal Buildings", url: "https://udgok.com/pre-engineered-metal-buildings-tulsa" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Warehouse Construction", url: "https://udgok.com/warehouse-construction-tulsa" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Design-Build Delivery", url: "https://udgok.com/design-build" } },
+                ],
+              },
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
                 dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

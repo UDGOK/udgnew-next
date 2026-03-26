@@ -64,22 +64,40 @@ export default function BlogPostLayout({
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `https://udgok.com/${typeof window !== "undefined" ? window.location.pathname.replace(/^\//, "") : ""}#article`,
     "headline": title,
     "description": description,
     "image": `https://udgok.com${heroImage}`,
     "datePublished": date,
+    "dateModified": date,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://udgok.com/${typeof window !== "undefined" ? window.location.pathname.replace(/^\//, "") : ""}`
+    },
     "author": {
       "@type": "Organization",
-      "name": "UDGOK Construction",
-      "url": "https://udgok.com"
+      "name": "Upscale Development Group",
+      "alternateName": "UDGOK",
+      "url": "https://udgok.com",
+      "sameAs": [
+        "https://www.linkedin.com/company/upscale-development-group",
+        "https://www.facebook.com/udgok",
+        "https://www.instagram.com/udgok"
+      ]
     },
     "publisher": {
       "@type": "Organization",
-      "name": "UDGOK Construction",
+      "name": "Upscale Development Group",
+      "alternateName": "UDGOK",
+      "url": "https://udgok.com",
       "logo": {
         "@type": "ImageObject",
         "url": "https://udgok.com/images/udgok-logo.png"
       }
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "[data-speakable]"]
     }
   };
 
