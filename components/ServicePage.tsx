@@ -169,35 +169,77 @@ export default function ServicePage({
         </div>
       </section>
 
-      {/* 3. Features Dashboard */}
-      <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto border-b border-white/10">
+      {/* 3. Features Dashboard — Premium Edition */}
+      <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto border-b border-white/10 relative">
+        {/* Ambient background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,72,0,0.06) 0%, transparent 70%)", filter: "blur(80px)" }} />
+
         <AnimateIn>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 relative z-10">
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <span className="w-8 h-px bg-[#FF4800]" />
-                <span className="text-[#FF4800] text-xs font-bold tracking-[0.2em] uppercase">Capabilities</span>
+                <span className="w-12 h-px bg-gradient-to-r from-[#FF4800] to-transparent" />
+                <span className="text-[#FF4800] text-[0.65rem] font-black tracking-[0.3em] uppercase">Capabilities</span>
               </div>
               <h2 className="text-[clamp(3rem,5vw,5rem)] font-black uppercase tracking-tighter leading-[0.9]">
-                What We <span className="text-[#FF4800]">Deliver</span>
+                What We <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF4800] to-orange-300">Deliver</span>
               </h2>
             </div>
           </div>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 relative z-10">
           {features.map((f, i) => (
-            <AnimateIn key={i} delay={i * 0.05} direction="up">
-              <div className="bg-white/5 border border-white/10 rounded-3xl p-10 h-full group hover:bg-white/10 transition-colors relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF4800]/10 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-150" />
-                <motion.div
-                  className="text-4xl mb-8 relative z-10"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                >
-                  {f.icon}
-                </motion.div>
-                <h3 className="text-xl font-bold uppercase tracking-tight mb-4 relative z-10">{f.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed relative z-10">{f.desc}</p>
+            <AnimateIn key={i} delay={i * 0.07} direction="up">
+              <div className="relative h-full group">
+                {/* Gradient border wrapper */}
+                <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-white/[0.12] via-transparent to-[#FF4800]/[0.15] opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
+                <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-[#FF4800]/40 via-[#FF4800]/10 to-orange-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Card body */}
+                <div className="relative bg-[#0d0820]/90 backdrop-blur-xl rounded-2xl p-8 md:p-9 h-full overflow-hidden transition-all duration-500">
+                  {/* Animated gradient mesh — visible on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: "radial-gradient(ellipse at 20% 80%, rgba(255,72,0,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(255,140,50,0.06) 0%, transparent 50%)" }} />
+
+                  {/* Top gradient line */}
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/8 to-transparent group-hover:via-[#FF4800]/50 transition-all duration-700" />
+
+                  {/* Index number */}
+                  <div className="absolute top-5 right-6 text-[0.6rem] font-black tracking-[0.25em] text-white/[0.07] group-hover:text-[#FF4800]/20 transition-colors duration-500 select-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* Icon container */}
+                  <div className="relative mb-7">
+                    {/* Glow ring */}
+                    <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-[#FF4800]/0 to-orange-500/0 group-hover:from-[#FF4800]/15 group-hover:to-orange-500/10 blur-xl transition-all duration-700" />
+                    <motion.div
+                      className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/[0.08] group-hover:border-[#FF4800]/30 flex items-center justify-center text-2xl transition-colors duration-500 overflow-hidden"
+                      whileHover={{ scale: 1.1, rotate: -3 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    >
+                      {/* Inner shimmer */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#FF4800]/0 to-transparent group-hover:from-[#FF4800]/10 transition-all duration-500" />
+                      <span className="relative z-10 drop-shadow-lg">{f.icon}</span>
+                    </motion.div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-[0.95rem] font-extrabold uppercase tracking-[0.04em] mb-3 relative z-10 text-white/90 group-hover:text-white transition-colors duration-300 leading-snug">
+                    {f.title}
+                  </h3>
+
+                  {/* Divider */}
+                  <div className="w-8 h-[2px] bg-gradient-to-r from-[#FF4800]/40 to-transparent mb-4 group-hover:w-12 transition-all duration-500" />
+
+                  {/* Description */}
+                  <p className="text-[0.82rem] text-white/45 leading-[1.7] relative z-10 group-hover:text-white/60 transition-colors duration-300">
+                    {f.desc}
+                  </p>
+
+                  {/* Bottom corner accent */}
+                  <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-[#FF4800]/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tl-full" />
+                </div>
               </div>
             </AnimateIn>
           ))}
