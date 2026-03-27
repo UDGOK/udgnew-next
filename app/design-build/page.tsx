@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, LocalBusinessJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Design-Build Contractor Tulsa & Oklahoma City | Medical & Dental",
@@ -34,6 +34,11 @@ export default function DesignBuildPage() {
         name="Design-Build Construction"
         description="Integrated design-build delivery for medical, dental, and commercial construction. One contract, one team, zero gaps between design and construction."
         url="https://udgok.com/design-build"
+      />
+      <LocalBusinessJsonLd
+        description="Tulsa, Oklahoma's leading design-build contractor for medical, dental, and commercial construction. 100+ projects delivered 20% faster with 15% cost savings versus traditional design-bid-build."
+        url="https://udgok.com/design-build"
+        specialization="Design-build construction, Integrated design-build, Medical design-build, Dental design-build, Commercial design-build, Guaranteed Maximum Price, Fast-track construction"
       />
       <ServicePage
         label="Design-Build"
@@ -115,6 +120,9 @@ export default function DesignBuildPage() {
           { q: "How fast can UDGOK deliver a design-build project?", a: "Timelines depend on scope, but UDGOK has delivered dental office build-outs in as fast as 90 days. A standard 3,000 sq ft medical or dental office takes 4–6 months from first meeting to certificate of occupancy." },
           { q: "Does design-build cost more upfront?", a: "No. Design-build fees are typically comparable to separate architecture and construction fees, but you pay one entity instead of two. The GMP (Guaranteed Maximum Price) structure also provides budget certainty from the start." },
           { q: "Is design-build right for my project?", a: "Design-build works best when you want speed, budget certainty, and single-source accountability. If your project requires competitive bidding or you prefer selecting your own architect independently, design-bid-build may be more appropriate. UDGOK offers free consultations to help you determine the best delivery method." },
+          { q: "How does design-build work for dental offices in Oklahoma?", a: "For dental offices, design-build is particularly valuable because the builder understands specialty requirements from day one. Instead of an architect designing operatory layouts without knowing plumbing costs, UDGOK's design-build team prices and designs simultaneously. This means your dental chair outlets, vacuum lines, compressed air, and medical gas systems are correctly planned from schematic design — eliminating expensive mid-construction changes. Most Oklahoma dental design-build projects complete 4–6 weeks faster than traditional delivery." },
+          { q: "What is the design-build process timeline?", a: "A typical UDGOK design-build project follows this approximate timeline: Week 1–2 — Programming and site evaluation. Week 3–6 — Schematic design with real-time cost modeling. Week 6–8 — Construction documents and permit submission. Week 8–10 — Permitting (overlapped with procurement). Week 10–22 — Construction. Week 22–24 — Commissioning, inspections, and certificate of occupancy. Total: approximately 5–6 months for a standard healthcare build-out." },
+          { q: "Can UDGOK handle permitting for my design-build project?", a: "Yes. Permitting is included in every UDGOK design-build contract. We prepare all construction documents, submit permit applications to the City of Tulsa or applicable jurisdiction, manage plan review comments, and coordinate all inspections through certificate of occupancy. Tulsa commercial permits typically take 2–4 weeks for review. Our team has established relationships with local building departments that help expedite the process." },
         ]}
         cta="Start Your Design-Build Project →"
       />

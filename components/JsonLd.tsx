@@ -147,6 +147,75 @@ export function ArticleJsonLd({
   );
 }
 
+/* ─── LocalBusiness (for Tulsa service pages) ─── */
+export function LocalBusinessJsonLd({
+  name = "Upscale Development Group",
+  description,
+  url,
+  specialization,
+}: {
+  name?: string;
+  description: string;
+  url: string;
+  specialization?: string;
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "GeneralContractor"],
+    name,
+    alternateName: "UDGOK",
+    description,
+    url,
+    telephone: "+19185203823",
+    email: "projects@udgok.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "7739 E 38th Street, Ste F",
+      addressLocality: "Tulsa",
+      addressRegion: "OK",
+      postalCode: "74145",
+      addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 36.1054,
+      longitude: -95.8838,
+    },
+    areaServed: [
+      { "@type": "City", name: "Tulsa", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+      { "@type": "City", name: "Broken Arrow", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+      { "@type": "City", name: "Bixby", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+      { "@type": "City", name: "Jenks", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+      { "@type": "City", name: "Owasso", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+      { "@type": "City", name: "Sand Springs", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+      { "@type": "City", name: "Sapulpa", containedInPlace: { "@type": "State", name: "Oklahoma" } },
+    ],
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "07:00",
+      closes: "18:00",
+    },
+    ...(specialization && {
+      knowsAbout: specialization.split(",").map((s) => s.trim()),
+    }),
+    sameAs: [
+      "https://www.facebook.com/udgok",
+      "https://www.linkedin.com/company/udgok",
+    ],
+    logo: "https://udgok.com/images/logo.png",
+    image: "https://udgok.com/images/logo.png",
+    priceRange: "$$$$",
+    foundingDate: "2015",
+    numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 50 },
+  };
+  return (
+    <Script id="schema-local-business" type="application/ld+json">
+      {JSON.stringify(schema)}
+    </Script>
+  );
+}
+
 /* ─── Auto-breadcrumb from pathname ─── */
 export function AutoBreadcrumbJsonLd() {
   const pathname = usePathname();

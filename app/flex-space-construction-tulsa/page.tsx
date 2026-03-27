@@ -24,7 +24,7 @@ export default function FlexSpaceConstructionTulsaPage() {
                 label="Flex Space"
                 title="Flex Space & Light Industrial Construction in Tulsa"
                 description="Hybrid office/warehouse buildings with storefront entries, rear dock or grade loading, and flexible bay configurations."
-                imageSrc="/images/ai_commercial_retail_plaza.png"
+                imageSrc="/images/flex-space-construction-hero.png"
                 imageAlt="Flex space construction Tulsa Oklahoma — UDGOK"
                 tldr="UDGOK builds flex space and light industrial buildings across the Tulsa metro. Flex space — hybrid office/warehouse buildings with professional storefront office entries and rear dock or grade-level loading — is Tulsa's fastest-growing commercial building type. Multi-tenant flex facilities cost $40–$70/sf. Single-user flex buildings with higher-end office finishes cost $60–$90/sf. Typical bay sizes are 2,000–5,000 SF with 14–20' clear warehouse heights and 200–400 SF of front office per bay."
                 intro="Flex space is the Swiss Army knife of commercial real estate — perfect for distribution, e-commerce fulfillment, service businesses, showrooms, and companies that need both office and warehouse under one roof. UDGOK designs flex buildings with future adaptability in mind: bay walls can be removed to combine bays, office ratios can be adjusted, and dock doors can be added as needs change."

@@ -230,7 +230,7 @@ export default function HomeUI() {
             </h2>
             <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
               <div style={{ width: "60px", height: "60px", borderRadius: "50%", background: "#333", overflow: "hidden", position: "relative" }}>
-                 <Image src="/images/office-building-tulsa.jpg" alt="Dr Miller" fill style={{ objectFit: "cover", filter: "grayscale(100%)" }} />
+                 <Image src="/images/edyoung-1.jpg" alt="Dr Miller" fill style={{ objectFit: "cover", filter: "grayscale(100%)" }} />
               </div>
               <div>
                 <div style={{ fontSize: "1rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#fff" }}>Dr. James Miller</div>

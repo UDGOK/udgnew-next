@@ -24,7 +24,7 @@ export default function ManufacturingFacilityConstructionTulsaPage() {
                 label="Manufacturing"
                 title="Manufacturing Facility Construction in Tulsa, Oklahoma"
                 description="Heavy industrial construction — overhead crane systems up to 50 tons, reinforced foundations, high bay clear heights, and 3-phase power."
-                imageSrc="/images/ai_commercial_retail_plaza.png"
+                imageSrc="/images/manufacturing-facility-hero.png"
                 imageAlt="Manufacturing facility construction Tulsa Oklahoma — UDGOK"
                 tldr="UDGOK builds manufacturing facilities and factories across the Tulsa metro. Manufacturing construction requires heavy industrial expertise — overhead crane systems (5 to 50 tons), reinforced mat foundations, high bay clear heights (30–60 ft), heavy 3-phase power distribution (480V+), compressed air systems, and industrial ventilation. Costs range from $90–$200/sf depending on crane capacity, clear height, and process equipment requirements. UDGOK integrates crane rail and runway structures into the building's primary frame during design — not bolted on as an afterthought."
                 intro="Manufacturing facilities are the most structurally demanding buildings UDGOK constructs. Every element — from foundation depth to column spacing to roof structure — is driven by the manufacturing process it houses. Overhead crane loads dictate column sizes. Process equipment determines slab thickness. Ventilation requirements define the HVAC system. UDGOK starts with your manufacturing process and engineers the building to support it."

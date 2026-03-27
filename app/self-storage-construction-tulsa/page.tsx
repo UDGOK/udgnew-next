@@ -24,7 +24,7 @@ export default function SelfStorageConstructionTulsaPage() {
                 label="Self-Storage"
                 title="Self-Storage Facility Construction in Tulsa, Oklahoma"
                 description="Drive-up units, climate-controlled multi-story, and boat/RV storage with roll-up doors, hallway systems, and security."
-                imageSrc="/images/ai_commercial_retail_plaza.png"
+                imageSrc="/images/self-storage-facility-hero.png"
                 imageAlt="Self-storage construction Tulsa Oklahoma — UDGOK"
                 tldr="UDGOK builds self-storage facilities across the Tulsa metro for investors and operators. Single-story drive-up storage costs $35–$55/sf. Multi-story climate-controlled storage costs $55–$85/sf. A typical 50,000 rentable SF self-storage facility costs $2.5M–$4.25M depending on configuration. UDGOK handles site development, building construction, roll-up door installation, hallway systems, climate control, security infrastructure, and management office build-out under one design-build contract."
                 intro="Self-storage is one of the strongest asset classes in Oklahoma commercial real estate — and one of the most construction-efficient building types. A well-designed facility maximizes rentable square footage per dollar of construction cost. UDGOK works with storage operators and investors to optimize unit mix, building layout, and site utilization for maximum revenue per square foot."

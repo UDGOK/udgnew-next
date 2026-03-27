@@ -177,7 +177,7 @@ export default function BlogPostLayout({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-[#0B061B] border-b-4 border-[#FF4800]"
+            className="bg-[#0B061B] border-b-4 border-[#FF4800] pt-16"
           >
             <div className="max-w-5xl mx-auto px-6 py-12">
               <div

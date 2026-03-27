@@ -23,7 +23,7 @@ export default function ColdStorageConstructionTulsaPage() {
                 label="Cold Storage"
                 title="Cold Storage & Food Processing Construction in Tulsa"
                 description="Temperature-controlled facilities with insulated metal panels, USDA/FDA compliance, and ammonia/freon refrigeration — $120–$250/sf."
-                imageSrc="/images/ai_commercial_retail_plaza.png"
+                imageSrc="/images/cold-storage-construction-hero.png"
                 imageAlt="Cold storage construction Tulsa Oklahoma — UDGOK"
                 tldr="UDGOK builds cold storage and food processing facilities across the Tulsa metro and Oklahoma. Temperature-controlled construction requires specialized expertise in insulated metal panel (IMP) installation, vapor barrier systems, refrigeration rough-ins, thermal bridging prevention, and USDA/FDA-compliant finishes. Cold storage construction costs $120–$250/sf depending on temperature range — cooler space (34–40°F) costs less than freezer space (-10 to 0°F). UDGOK handles the entire scope from site development through interior build-out and refrigeration coordination."
                 intro="Cold storage construction is one of the most technically demanding building types. Every detail matters — a single thermal bridge can cause condensation, ice formation, and structural damage. Vapor barriers must be continuous and sealed. Insulated panels must maintain R-value under cycling temperature loads. And the facility must meet USDA/FDA food safety standards from foundation to ceiling. UDGOK brings the engineering precision required to build cold storage that performs for decades."

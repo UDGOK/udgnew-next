@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BlogPostLayout from "@/components/BlogPostLayout";
 import MarqueeBanner from "@/components/MarqueeBanner";
+import { LocalBusinessJsonLd, ArticleJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Complete Guide to Dental Office Construction Costs in Oklahoma",
@@ -20,6 +21,19 @@ const toc = [
 export default function DentalConstructionCosts() {
   return (
     <>
+      <LocalBusinessJsonLd
+        description="Comprehensive guide to dental office construction costs in Tulsa and Oklahoma. UDGOK has built 80+ dental offices and provides transparent per-square-foot pricing for general, specialty, and surgical dental build-outs."
+        url="https://udgok.com/dental-construction-costs"
+        specialization="Dental construction costs, Dental office build-out pricing, Dental operatory rough-in cost, Medical gas system cost, Dental office construction budget"
+      />
+      <ArticleJsonLd
+        title="Complete Guide to Dental Office Construction Costs in Oklahoma"
+        description="Comprehensive breakdown of per-square-foot costs, equipment requirements, and budget factors for dental builds in Tulsa and surrounding areas."
+        url="https://udgok.com/dental-construction-costs"
+        datePublished="2026-01-15"
+        dateModified="2026-03-26"
+        image="https://udgok.com/images/ai-dental-interior.png"
+      />
       <BlogPostLayout
         title="Complete Guide to Dental Office Construction Costs in Oklahoma"
         description="Planning a dental office construction project in Oklahoma? Understanding the costs involved is critical for budgeting and financial planning. This comprehensive guide breaks down dental office construction costs based on actual Tulsa-area projects, helping you plan your practice build-out with confidence."
@@ -34,6 +48,10 @@ export default function DentalConstructionCosts() {
           { q: "What is the biggest cost driver in dental construction?", a: "Operatory plumbing and medical gas rough-in is the largest cost driver unique to dental construction. Each chair position requires $10,000–$18,000 in under-slab plumbing, compressed air, electrical, and data infrastructure. A 6-chair practice will have $60,000–$108,000 in utility rough-in alone — typically 15–25% of total construction costs." },
           { q: "How long does dental office construction take in Tulsa?", a: "A standard dental office build-out in Tulsa takes 90–120 days from building permit to certificate of occupancy. Add 30–60 days for permit review. Practices with surgical suites or oral surgery infrastructure can take 5–7 months total." },
           { q: "How can I save money on dental construction?", a: "Phase your operatories — open with 4 chairs and reserve infrastructure for 2 more. This costs $15,000–$25,000 extra versus $40,000–$70,000 for building all 6 immediately. Design-build delivery also saves 5–10% versus traditional design-bid-build through reduced markup layers and fewer change orders." },
+          { q: "How much does dental equipment cost on top of construction?", a: "Dental equipment typically adds $80,000–$200,000+ on top of construction costs. A basic digital setup with X-ray sensors, intraoral cameras, and practice management runs $80,000–$120,000. A premium setup with cone beam CT (CBCT), digital scanners, CAD/CAM, and advanced imaging can exceed $200,000. Equipment is usually purchased directly from vendors like A-dec, Planmeca, or Pelton & Crane, while UDGOK handles all plumbing, electrical, and data rough-in to the equipment vendor's specifications." },
+          { q: "What financing options exist for dental office construction in Oklahoma?", a: "Most Oklahoma dentists finance construction through SBA 7(a) loans (up to $5M, 10–25 year terms), SBA 504 loans (for real estate + equipment), conventional commercial loans from banks like BancFirst or BOK Financial, or dental-specialty lenders like Provide (now part of Fifth Third Bank) and Bank of America Practice Solutions. Many lenders offer 100% financing for practice startups with strong credit, covering both construction and equipment." },
+          { q: "Is it cheaper to remodel a dental office or build new in Tulsa?", a: "Remodeling an existing dental office in Tulsa typically costs 30–50% less than new construction — $100–$180/sq ft versus $140–$280/sq ft for a new build-out. However, if the existing plumbing infrastructure doesn't match your new operatory layout, slab demolition and re-plumbing can eliminate much of the savings. UDGOK offers a free site evaluation to determine whether remodel or new construction is more cost-effective for your specific situation." },
+          { q: "What hidden costs should I budget for in dental construction?", a: "Hidden costs that catch many dentists off guard include: permit fees ($3,000–$8,000), architectural and engineering fees if not using design-build ($15,000–$40,000), IT and networking ($5,000–$15,000), signage ($2,000–$10,000), furniture and cabinetry ($15,000–$40,000), window treatments and décor ($3,000–$10,000), and moving costs ($2,000–$5,000). Budget an additional 10–15% contingency above your base construction estimate to cover unexpected conditions, especially in older buildings." },
         ]}
       >
         <h2 id="average-costs">Average Dental Office Construction Costs</h2>

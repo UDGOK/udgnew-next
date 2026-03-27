@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "plus.unsplash.com" },
       { protocol: "https", hostname: "img.freepik.com" },
       { protocol: "https", hostname: "cdn.prod.website-files.com" },
+      { protocol: "https", hostname: "img.youtube.com" },
     ],
   },
   async redirects() {

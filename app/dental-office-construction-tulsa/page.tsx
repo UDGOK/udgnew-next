@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, LocalBusinessJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Dental Office Construction Contractor Tulsa OK | 80+ Clinics Built",
@@ -35,6 +35,11 @@ export default function DentalOfficePage() {
         name="Dental Office Construction Tulsa"
         description="Specialized dental clinic construction in Tulsa, Oklahoma. UDGOK has built 80+ dental offices including operatories, sterilization centers, medical gas systems, and ADA-compliant patient spaces."
         url="https://udgok.com/dental-office-construction-tulsa"
+      />
+      <LocalBusinessJsonLd
+        description="Tulsa, Oklahoma's leading dental office construction contractor. 80+ dental clinics built including general, pediatric, orthodontic, and oral surgery offices with operatory plumbing, medical gas, and ADA-compliant layouts."
+        url="https://udgok.com/dental-office-construction-tulsa"
+        specialization="Dental office construction, Dental clinic build-out, Operatory plumbing rough-in, Medical gas installation, Dental office remodel, ADA compliant dental office, Infection control HVAC"
       />
       <ServicePage
         label="Dental Construction"
@@ -115,6 +120,10 @@ export default function DentalOfficePage() {
           { q: "Do you handle dental equipment installation?", a: "UDGOK coordinates directly with your dental equipment vendor (A-dec, Pelton & Crane, Planmeca, etc.) for precise chair outlet placement, but equipment procurement and installation is typically handled by the vendor. We rough-in all plumbing, electrical, data, and gas connections to their exact specifications." },
           { q: "Can you build a dental office while my current lease is still active?", a: "Yes. We regularly fast-track dental build-outs so they're ready before your current lease expires. Our preconstruction team can begin design and permitting while you finalize your new lease, minimizing downtime between locations." },
           { q: "What areas do you serve for dental construction?", a: "UDGOK builds dental offices across the Tulsa metro including Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sapulpa, and Haskell. We also serve Oklahoma City and the Dallas/Plano, TX metro." },
+          { q: "What is a design-build contractor for dental offices?", a: "A design-build dental office contractor handles both the architectural design and physical construction under a single contract, rather than the traditional model where you hire a separate architect and general contractor. This approach typically reduces total project cost by 5–15% and cuts project duration by 30–40% by eliminating the bid process and coordination gaps. For dental practices, design-build is particularly valuable because the contractor understands specialty requirements like operatory layout, plumbing rough-in for dental chairs, vacuum systems, and sterilization room design from the start." },
+          { q: "Do dental offices need special ADA compliance considerations when building or remodeling?", a: "Yes. Dental offices must comply with ADA Title III requirements, which govern accessible design for commercial facilities open to the public. Key requirements include: accessible parking and entrance routes, exam room widths of at least 60 inches for turning radius, accessible restrooms, and accessible counters and treatment areas. Oklahoma follows the 2010 ADA Standards for Accessible Design. UDGOK builds ADA compliance into every dental project from day one." },
+          { q: "What should I look for when hiring a dental office contractor in Tulsa?", a: "When hiring a dental office contractor in Tulsa, look for: specific healthcare construction experience, an active Oklahoma contractor's license, familiarity with dental-specific MEP systems (vacuum, compressor, nitrous, gas), and verifiable local references from dental practices. Ask for project photos of completed dental offices, not just general commercial work. A contractor experienced in dental buildouts understands that operatory placement, plumbing rough-in, and electrical panel sizing need to accommodate future equipment upgrades." },
+          { q: "Can UDGOK build orthodontic, pediatric, and oral surgery offices?", a: "Yes. UDGOK has built all dental specialty types including general dentistry, orthodontic offices, pediatric dental clinics, oral surgery centers, and endodontic practices. Each specialty has unique requirements — orthodontic offices need open-bay layouts with centralized sterilization, pediatric offices require child-friendly design with wider corridors, and oral surgery suites need NFPA 99 medical gas systems and recovery rooms. We have dedicated experience with each." },
         ]}
         cta="Plan Your Dental Build →"
       />

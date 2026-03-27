@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, LocalBusinessJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Medical Office Design-Build Contractor Tulsa OK | 100+ Facilities",
@@ -35,6 +35,11 @@ export default function MedicalOfficePage() {
         name="Medical Office Design-Build Tulsa"
         description="Full-service medical office design-build in Tulsa, Oklahoma. UDGOK delivers turnkey clinics, specialty practices, and urgent care facilities with specialized MEP systems."
         url="https://udgok.com/medical-office-design-build-tulsa"
+      />
+      <LocalBusinessJsonLd
+        description="Tulsa, Oklahoma's top-rated medical office design-build contractor. 100+ healthcare facilities delivered including primary care clinics, urgent care centers, specialty practices, and multi-physician offices with ADA, HIPAA, and ASHRAE 170 compliance."
+        url="https://udgok.com/medical-office-design-build-tulsa"
+        specialization="Medical office construction, Healthcare design-build, Medical clinic build-out, Urgent care construction, ADA compliant medical office, HIPAA compliant construction, Medical-grade HVAC, Medical gas installation"
       />
       <ServicePage
         label="Medical Office"
@@ -113,6 +118,11 @@ export default function MedicalOfficePage() {
           { q: "What medical specialties do you build for?", a: "We build for all medical specialties including primary care, urgent care, dermatology, orthopedics, pain management, ophthalmology, cardiology, and multi-specialty group practices. Each specialty has unique layout, MEP, and equipment requirements we've built before." },
           { q: "Can you build a medical office in an existing retail space?", a: "Yes. We regularly convert retail and office spaces into medical suites. Key considerations include HVAC capacity for medical-grade air changes, plumbing access for exam rooms, electrical capacity for medical equipment, and ADA accessibility upgrades." },
           { q: "What cities do you build medical offices in?", a: "UDGOK builds medical offices across the Tulsa metro including Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sapulpa, Haskell, and Sand Springs. We also serve Oklahoma City and Dallas/Plano, TX." },
+          { q: "What HIPAA requirements apply to medical office construction?", a: "HIPAA requires physical safeguards to protect patient privacy during construction. Key building requirements include: sound-rated walls (STC 50+) between exam rooms and common areas, private consultation rooms for test results and treatment discussions, secure server rooms for electronic health records, and layout design preventing casual observation of patient screens. UDGOK incorporates HIPAA-compliant design into every medical office project." },
+          { q: "Does UDGOK install medical gas systems in Tulsa?", a: "Yes. UDGOK has ASSE 6010 certified medical gas installers on staff. We install oxygen, nitrous oxide, medical air, and vacuum systems to NFPA 99 standards with independent ASSE 6030 third-party verification. Medical gas systems are required for sedation dentistry, oral surgery suites, and ambulatory surgery centers in Oklahoma." },
+          { q: "What is the difference between a tenant improvement and ground-up medical office?", a: "A tenant improvement (TI) is a build-out within an existing commercial shell — you renovate an existing space to meet medical requirements. Ground-up construction is a new building from the foundation. TIs typically cost 20–35% less and take 3–5 months versus 10–14 months for ground-up. However, existing spaces may have limitations on HVAC capacity, plumbing access, and structural load-bearing that can increase TI costs." },
+          { q: "How do I budget for a medical office build-out in Oklahoma?", a: "Start with a per-square-foot estimate based on your specialty: primary care runs $150–$200/sq ft, urgent care $180–$240/sq ft, and specialty with imaging $250–$350/sq ft. Add 10–15% for contingency, plus furniture and medical equipment ($50,000–$500,000+ depending on specialty). UDGOK offers free preconstruction budgeting to help you establish an accurate total project cost before signing a lease." },
+          { q: "Does UDGOK handle healthcare regulatory compliance?", a: "Yes. Our team manages all regulatory requirements including OSHA workplace safety, ADA Title III accessibility, NFPA 99 medical gas compliance, Oklahoma State Department of Health inspections, and local building codes. For ambulatory surgery centers, we also manage AAAHC accreditation requirements. Compliance is built into our design process from day one, not added as an afterthought." },
         ]}
         cta="Plan Your Medical Office →"
       />
