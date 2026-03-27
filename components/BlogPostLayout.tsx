@@ -131,7 +131,7 @@ export default function BlogPostLayout({
 
       <article className="bg-white min-h-screen text-[#0B061B]" ref={containerRef}>
         {/* Parallax Article Hero */}
-        <section className="relative h-[70vh] w-full flex items-end pb-16 justify-center overflow-hidden bg-[#0B061B]">
+        <section className="relative h-[70vh] w-full flex items-end pb-16 justify-center overflow-hidden bg-[#0B061B] pt-[80px]">
           <motion.div
             className="absolute inset-0 z-0"
             style={{ y: heroY, opacity: heroOpacity }}
