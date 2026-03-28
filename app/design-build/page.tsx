@@ -125,6 +125,10 @@ export default function DesignBuildPage() {
           { q: "Can UDGOK handle permitting for my design-build project?", a: "Yes. Permitting is included in every UDGOK design-build contract. We prepare all construction documents, submit permit applications to the City of Tulsa or applicable jurisdiction, manage plan review comments, and coordinate all inspections through certificate of occupancy. Tulsa commercial permits typically take 2–4 weeks for review. Our team has established relationships with local building departments that help expedite the process." },
         ]}
         cta="Start Your Design-Build Project →"
+        videoSrc="/videos/women-on-field-ipad.mp4"
+        videoLabel="Behind the Scenes"
+        videoHeadingStart="Design Meets"
+        videoHeadingAccent="Construction"
       />
     </>
   );

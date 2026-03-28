@@ -47,6 +47,7 @@ export default function DentalOfficePage() {
         description="Purpose-built dental offices with integrated treatment room plumbing, equipment rough-in, and clinical workflow optimization."
         imageSrc="/images/dental-office-construction.png"
         imageAlt="Dental office construction Tulsa by UDGOK"
+        heroVideoSrc="/videos/happy-doctor-friends.mp4"
         tldr="UDGOK is Tulsa, Oklahoma's leading dental office construction contractor with 80+ completed clinics. We build general, pediatric, orthodontic, and oral surgery dental offices from 1,500 to 10,000+ sq ft, including operatory plumbing rough-in, medical gas systems, infection control HVAC, and ADA-compliant layouts. Typical dental build-outs in the Tulsa metro run $140–$280 per square foot and take 3–5 months from permit to certificate of occupancy."
         intro="Dental office construction requires a specialized approach — from chair outlet rough-in to nitrous oxide systems to infection control HVAC. UDGOK has built over 80 dental offices across Oklahoma and Texas, and we speak your language. We understand operatory flow, sterilization adjacencies, and the 37 utility connections every chair position needs. See our <a href='/guide-dental-buildout-checklist-oklahoma'>dental office build-out checklist</a> for a full step-by-step guide."
         stats={[
@@ -132,6 +133,10 @@ export default function DentalOfficePage() {
           { q: "Can UDGOK build orthodontic, pediatric, and oral surgery offices?", a: "Yes. UDGOK has built all dental specialty types including general dentistry, orthodontic offices, pediatric dental clinics, oral surgery centers, and endodontic practices. Each specialty has unique requirements — orthodontic offices need open-bay layouts with centralized sterilization, pediatric offices require child-friendly design with wider corridors, and oral surgery suites need NFPA 99 medical gas systems and recovery rooms. We have dedicated experience with each." },
         ]}
         cta="Plan Your Dental Build →"
+        videoSrc="/videos/doctor-walking-practice.mp4"
+        videoLabel="On-Site"
+        videoHeadingStart="From Drawings to"
+        videoHeadingAccent="Reality"
       />
     </>
   );

@@ -7,6 +7,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import MarqueeBanner from "@/components/MarqueeBanner";
 import AnimateIn from "@/components/AnimateIn";
 import CountUp from "@/components/CountUp";
+import VideoShowcase from "@/components/VideoShowcase";
 
 /* ── Card gradient palettes (one per card index) ── */
 const CARD_GRADIENTS = [
@@ -81,6 +82,8 @@ function FeatureModal({ feature, index, onClose }: { feature: { icon: string; ti
 interface Feature { icon: string; title: string; desc: string; }
 interface FAQ { q: string; a: string; }
 interface Testimonial { quote: string; author: string; role: string; location?: string; }
+interface GalleryImage { src: string; alt: string; caption: string; }
+interface PracticeOwnerBox { heading: string; bullets: string[]; }
 interface ServicePageProps {
   label: string;
   title: string;
@@ -99,11 +102,29 @@ interface ServicePageProps {
   sections?: { heading: string; body: string }[];
   /** Highly localized testimonial/case study injection for Helpful Content signals */
   testimonial?: Testimonial;
+  /** Doctor/owner-centric callout box rendered after TL;DR */
+  practiceOwnerBox?: PracticeOwnerBox;
+  /** Gallery of clinic photos/floorplans rendered after practice owner box */
+  galleryImages?: GalleryImage[];
+  /** Secondary CTA button in the bottom CTA section */
+  secondaryCta?: { text: string; href: string };
+  /** Large portfolio showcase images (full-width cards below gallery) */
+  portfolioImages?: { src: string; alt: string; caption: string; subcaption?: string }[];
+  /** Video walkthrough source path(s) for embedded autoplay section */
+  videoSrc?: string;
+  /** Customize the video section heading (defaults: "Video Tour" / "Walk Through Our" / "Work") */
+  videoLabel?: string;
+  videoHeadingStart?: string;
+  videoHeadingAccent?: string;
+  /** Background video for the hero area (replaces static image when provided) */
+  heroVideoSrc?: string;
 }
 
 export default function ServicePage({
   label, title, description, imageSrc, imageAlt, intro, features,
   cta = "Start Your Project →", stats, tldr, faqs, sections, testimonial,
+  practiceOwnerBox, galleryImages, secondaryCta, portfolioImages, videoSrc,
+  videoLabel, videoHeadingStart, videoHeadingAccent, heroVideoSrc,
 }: ServicePageProps) {
   const containerRef = useRef(null);
   const ctaSectionRef = useRef<HTMLElement>(null);
@@ -138,7 +159,7 @@ export default function ServicePage({
             mainEntity: faqs.map((f) => ({
               "@type": "Question",
               name: f.q,
-              acceptedAnswer: { "@type": "Answer", text: f.a },
+              acceptedAnswer: { "@type": "Answer", text: f.a.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim() },
             })),
           })}
         </Script>
@@ -147,15 +168,49 @@ export default function ServicePage({
       {/* 1. Epic Parallax Hero */}
       <section ref={containerRef} className="relative h-[85vh] w-full flex items-end justify-center overflow-hidden border-b border-white/10">
         <motion.div style={{ y: yParallax, opacity: opacityFade }} className="absolute inset-0 z-0 origin-top">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            className="object-cover scale-105"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B061B] via-[#0B061B]/60 to-[#0B061B]/30" />
-          <div className="absolute inset-0 bg-[#0B061B]/20 mix-blend-multiply" />
+          {heroVideoSrc ? (
+            <>
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover scale-105"
+              >
+                <source src={heroVideoSrc} type="video/mp4" />
+              </video>
+              {/* Cinematic color grading overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B061B] via-[#0B061B]/70 to-[#0B061B]/20" />
+              <div className="absolute inset-0 bg-[#0B061B]/25 mix-blend-multiply" />
+              {/* Subtle vignette for premium feel */}
+              <div className="absolute inset-0" style={{ boxShadow: "inset 0 0 150px 60px rgba(11,6,27,0.5)" }} />
+              {/* Watermark mask — bottom-right gradient + brand badge */}
+              <div
+                className="absolute bottom-0 right-0 w-72 h-40 pointer-events-none z-[2]"
+                style={{
+                  background: "linear-gradient(to top left, rgba(11,6,27,0.98) 0%, rgba(11,6,27,0.85) 35%, rgba(11,6,27,0.4) 65%, transparent 100%)",
+                }}
+              />
+              <div className="absolute bottom-8 right-8 flex items-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full border border-white/10 pointer-events-none z-[3] shadow-2xl">
+                <span className="w-2 h-2 rounded-full bg-[#FF4800] animate-pulse shadow-[0_0_10px_rgba(255,72,0,0.8)]" />
+                <span className="text-[0.65rem] font-bold tracking-[0.2em] uppercase text-white/80">
+                  UDGOK DESIGN
+                </span>
+              </div>
+            </>
+          ) : (
+            <>
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                className="object-cover scale-105"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B061B] via-[#0B061B]/60 to-[#0B061B]/30" />
+              <div className="absolute inset-0 bg-[#0B061B]/20 mix-blend-multiply" />
+            </>
+          )}
         </motion.div>
 
         <div className="relative z-10 w-full max-w-7xl px-6 md:px-12 pb-24 md:pb-32">
@@ -198,6 +253,133 @@ export default function ServicePage({
                   {tldr}
                 </p>
               </div>
+            </AnimateIn>
+          </div>
+        </section>
+      )}
+
+      {/* ── Practice Owner Callout Box ── */}
+      {practiceOwnerBox && (
+        <section className="border-b border-white/10">
+          <div className="max-w-5xl mx-auto px-6 md:px-12 py-14">
+            <AnimateIn>
+              <div className="relative rounded-2xl overflow-hidden border border-[#FF4800]/20 bg-gradient-to-br from-[#FF4800]/[0.07] via-[#0B061B] to-[#0B061B]">
+                {/* Top accent bar */}
+                <div className="h-1 bg-gradient-to-r from-[#FF4800] via-orange-400 to-[#FF4800]/30" />
+                <div className="p-8 md:p-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">🩺</span>
+                    <h3 className="text-lg md:text-xl font-extrabold uppercase tracking-tight text-white">
+                      {practiceOwnerBox.heading}
+                    </h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    {practiceOwnerBox.bullets.map((bullet, i) => (
+                      <div key={i} className="flex items-start gap-3 bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 hover:bg-white/[0.06] transition-colors">
+                        <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#FF4800]/20 flex items-center justify-center mt-0.5">
+                          <svg className="w-3.5 h-3.5 text-[#FF4800]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+                        </span>
+                        <span className="text-[0.92rem] text-white/70 leading-relaxed" dangerouslySetInnerHTML={{ __html: bullet }} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+        </section>
+      )}
+
+      {/* ── Clinic Photos & Floorplan Gallery ── */}
+      {galleryImages && galleryImages.length > 0 && (
+        <section className="border-b border-white/10 py-16 md:py-20">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <AnimateIn>
+              <div className="flex items-center gap-4 mb-10">
+                <span className="w-12 h-px bg-gradient-to-r from-[#FF4800] to-transparent" />
+                <span className="text-[#FF4800] text-[0.65rem] font-black tracking-[0.3em] uppercase">Our Work</span>
+              </div>
+            </AnimateIn>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {galleryImages.map((img, i) => (
+                <AnimateIn key={i} delay={i * 0.1} direction="up">
+                  <div className="group relative rounded-2xl overflow-hidden border border-white/[0.08] hover:border-white/[0.15] transition-all duration-500 shadow-xl shadow-black/40 hover:shadow-2xl">
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B061B] via-transparent to-transparent opacity-80" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <p className="text-[0.82rem] text-white/80 font-medium leading-snug">{img.caption}</p>
+                    </div>
+                  </div>
+                </AnimateIn>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+      {/* ── Portfolio Showcase (Full-Width Cards) ── */}
+      {portfolioImages && portfolioImages.length > 0 && (
+        <section className="border-b border-white/10 py-16 md:py-24 bg-[#05020B]">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <AnimateIn>
+              <div className="flex items-center gap-4 mb-4">
+                <span className="w-12 h-px bg-gradient-to-r from-[#FF4800] to-transparent" />
+                <span className="text-[#FF4800] text-[0.65rem] font-black tracking-[0.3em] uppercase">Portfolio</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-12">
+                Recent <span className="text-[#FF4800]">Projects</span>
+              </h2>
+            </AnimateIn>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {portfolioImages.map((img, i) => (
+                <AnimateIn key={i} delay={i * 0.12} direction="up">
+                  <div className="group relative rounded-2xl overflow-hidden border border-white/[0.08] hover:border-white/[0.18] transition-all duration-500 shadow-xl shadow-black/40 hover:shadow-2xl bg-[#0B061B]">
+                    <div className="relative aspect-[16/9] overflow-hidden">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B061B] via-[#0B061B]/20 to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-500" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                      <h3 className="text-lg md:text-xl font-extrabold text-white mb-1.5 tracking-tight">{img.caption}</h3>
+                      {img.subcaption && (
+                        <p className="text-[0.82rem] text-white/50 font-medium">{img.subcaption}</p>
+                      )}
+                    </div>
+                  </div>
+                </AnimateIn>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Video Walkthrough ── */}
+      {videoSrc && (
+        <section className="border-b border-white/10 py-16 md:py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#05020B] via-[#0B061B] to-[#0B061B]" />
+          <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
+            <AnimateIn>
+              <div className="flex items-center gap-4 mb-4">
+                <span className="w-12 h-px bg-gradient-to-r from-[#FF4800] to-transparent" />
+                <span className="text-[#FF4800] text-[0.65rem] font-black tracking-[0.3em] uppercase">{videoLabel || "Video Tour"}</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-10">
+                {videoHeadingStart || "Walk Through Our"}{" "}
+                <span className="text-[#FF4800]">{videoHeadingAccent || "Work"}</span>
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={0.15}>
+              <VideoShowcase src={videoSrc} hideWatermark />
             </AnimateIn>
           </div>
         </section>
@@ -498,11 +680,16 @@ export default function ServicePage({
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto font-medium">
               We provide accurate feasibility analysis and cost modeling before you sign a lease. Contact our project directors today.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 flex-wrap">
               <Link href="/contact" className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#FF4800] text-white font-bold text-sm tracking-[0.2em] uppercase hover:bg-orange-600 transition-colors rounded-full shadow-2xl hover:shadow-[#FF4800]/40 group">
                 {cta}
                 <span className="ml-4 transform group-hover:translate-x-1 transition-transform">→</span>
               </Link>
+              {secondaryCta && (
+                <Link href={secondaryCta.href} className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#0B061B] text-white font-bold text-sm tracking-[0.2em] uppercase hover:bg-gray-800 transition-colors rounded-full shadow-2xl border border-white/10 hover:border-white/20">
+                  {secondaryCta.text}
+                </Link>
+              )}
               <Link href="tel:+19185203823" className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#0B061B] text-white font-bold text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors rounded-full shadow-2xl">
                 Call (918) 520-3823
               </Link>
@@ -575,9 +762,10 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         className="overflow-hidden"
       >
-        <p className="px-8 pb-6 text-white/60 text-base leading-relaxed">
-          {a}
-        </p>
+        <div
+          className="px-8 pb-6 text-white/60 text-base leading-relaxed [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:space-y-2.5 [&_li]:leading-[1.7] [&_strong]:text-white/80 [&_strong]:font-semibold"
+          dangerouslySetInnerHTML={{ __html: a }}
+        />
       </motion.div>
     </div>
   );

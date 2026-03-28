@@ -49,6 +49,49 @@ export default function MedicalOfficePage() {
         imageAlt="Medical office design-build Tulsa by UDGOK"
         tldr="UDGOK is Tulsa's top-rated medical office design-build contractor. We deliver turnkey primary care clinics, urgent care facilities, and specialty practices with ADA-compliant layouts, medical-grade HVAC, and specialized MEP systems. Medical office construction in the Tulsa metro costs $150–$350 per square foot depending on specialty, with typical timelines of 4–7 months from design to occupancy."
         intro="Medical office construction demands precision that commercial contractors often can't deliver. Exam room dimensions, HVAC pressure relationships, ADA clearances, and infection control ventilation all require healthcare-specific expertise. UDGOK has delivered 100+ medical facilities across Oklahoma — from 1,200 sq ft solo practices to 15,000+ sq ft multi-physician specialty clinics. See our <a href='/guide-medical-office-cost-tulsa'>2026 medical office cost guide</a> for full per-square-foot pricing."
+        practiceOwnerBox={{
+          heading: "For Practice Owners",
+          bullets: [
+            "<strong>Minimize downtime</strong> — Stay open during construction with phased build-out scheduling that keeps your revenue flowing",
+            "<strong>Pass inspections on first try</strong> — ADA, Oklahoma Dept. of Health, and HIPAA compliance is built into every design from day one",
+            "<strong>Future-proof your practice</strong> — Expansion-ready plumbing, electrical, and HVAC so you can add operatories later without major rework",
+          ],
+        }}
+        galleryImages={[
+          {
+            src: "/images/clarus-brightsmile-reception.webp",
+            alt: "BrightSmile Dental reception area with front desk and patient seating Tulsa",
+            caption: "BrightSmile Dental — reception area with dual check-in stations and patient lounge",
+          },
+          {
+            src: "/images/clarus-operatory-walnut.webp",
+            alt: "Completed operatory with dental chair medical gas connections and walnut casework",
+            caption: "Operatory with medical gas, natural light & custom walnut casework",
+          },
+          {
+            src: "/images/clarus-consulting-room.webp",
+            alt: "Design consultation room with interactive floorplan display",
+            caption: "Design consultation room — review your layout on a 65\" interactive display",
+          },
+        ]}
+        portfolioImages={[
+          {
+            src: "/images/clarus-brightsmile-triptych.webp",
+            alt: "BrightSmile Dental complete project showcase reception operatory and 8-op floorplan",
+            caption: "BrightSmile Dental — Tulsa",
+            subcaption: "Reception, operatory & 8-op floorplan with imaging suite",
+          },
+          {
+            src: "/images/clarus-modern-family-triptych.webp",
+            alt: "Modern Family Dental Clinic reception hallway and 6-op dimensioned floorplan",
+            caption: "Modern Family Dental Clinic",
+            subcaption: "Reception, hallway & 6-op floorplan with full dimensions",
+          },
+        ]}
+        videoSrc="/videos/walking-on-field-lumber.mp4"
+        videoLabel="Field Review"
+        videoHeadingStart="Precision in"
+        videoHeadingAccent="Every Detail"
         stats={[
           { n: "100+", l: "Medical Facilities" },
           { n: "4–7mo", l: "Design to Occupancy" },
@@ -71,7 +114,7 @@ export default function MedicalOfficePage() {
         }}
         sections={[
           {
-            heading: "How much does medical office construction cost in Tulsa?",
+            heading: "How much does it cost to build a medical office in Tulsa?",
             body: `<p>Medical office construction costs in the Tulsa metro range from <strong>$150 to $350 per square foot</strong> depending on the medical specialty and equipment requirements.</p>
 <table><thead><tr><th>Practice Type</th><th>Cost per Sq Ft</th><th>Typical Size</th><th>Total Range</th></tr></thead>
 <tbody>
@@ -80,57 +123,88 @@ export default function MedicalOfficePage() {
 <tr><td>Dermatology / Med-Spa</td><td>$200–$280</td><td>2,500–4,000 sq ft</td><td>$500K–$1.1M</td></tr>
 <tr><td>Orthopedics / Imaging</td><td>$250–$350</td><td>4,000–10,000 sq ft</td><td>$1M–$3.5M</td></tr>
 </tbody></table>
-<p>Imaging suites (MRI, CT, X-ray) add significant cost due to shielding, structural reinforcement, and electrical requirements. Budget $150,000–$500,000+ for imaging room construction alone. Need a full budget breakdown? See our <a href='/guide-medical-office-cost-tulsa'>2026 medical office cost guide</a>.</p>`,
+<p><strong>Imaging suites</strong> (MRI, CT, X-ray) add significant cost due to lead shielding, structural reinforcement, and heavy electrical requirements — budget an additional $150,000–$500,000+ for imaging room construction alone. Need a full budget breakdown? See our <a href='/guide-medical-office-cost-tulsa'>2026 medical office cost guide</a>.</p>`,
           },
           {
             heading: "What HVAC requirements apply to medical offices in Oklahoma?",
-            body: `<p>Medical offices must meet <strong>ASHRAE Standard 170</strong> for healthcare ventilation. Requirements by room type include:</p>
+            body: `<p>Medical offices must meet <strong>ASHRAE Standard 170</strong> — the national standard for healthcare ventilation. In plain terms, each room type needs a specific amount of fresh air circulation and pressure control to keep patients and staff safe:</p>
 <ul>
-<li><strong>Exam rooms:</strong> Minimum 6 air changes per hour (ACH), negative or neutral pressure</li>
-<li><strong>Procedure rooms:</strong> 6–15 ACH with positive pressure relative to corridors</li>
-<li><strong>Waiting areas:</strong> 4–6 ACH with outdoor air ventilation per ASHRAE 62.1</li>
-<li><strong>Soiled utility rooms:</strong> Negative pressure with 10 ACH</li>
-<li><strong>Clean storage:</strong> Positive pressure with 4 ACH</li>
+<li><strong>Exam rooms:</strong> Minimum 6 air changes per hour — ensures clean air between patient visits</li>
+<li><strong>Procedure rooms:</strong> 6–15 air changes per hour with positive pressure — keeps airborne contaminants from entering during procedures</li>
+<li><strong>Waiting areas:</strong> 4–6 air changes per hour with fresh outdoor air — reduces cross-contamination in shared spaces</li>
+<li><strong>Soiled utility rooms:</strong> Negative pressure with 10 air changes per hour — contains odors and contaminants</li>
+<li><strong>Clean storage:</strong> Positive pressure with 4 air changes per hour — protects sterile supplies</li>
 </ul>
-<p>UDGOK designs and commissions HVAC systems that meet healthcare ventilation codes while controlling energy costs. Our typical medical office HVAC costs run $25–$50 per square foot installed. We also provide <a href='/medical-gas-installation'>medical gas installation</a> for practices that need oxygen, nitrous oxide, or medical air systems.</p>`,
+<p>UDGOK designs and commissions HVAC systems that meet all healthcare ventilation codes while keeping your energy bills manageable. Our typical medical office HVAC costs run $25–$50 per square foot installed. We also handle <a href='/medical-gas-installation'>medical gas installation</a> for practices that need oxygen, nitrous oxide, or medical air systems.</p>`,
           },
           {
             heading: "What ADA requirements must medical offices meet?",
-            body: `<p>Medical offices in Oklahoma must comply with the <strong>2010 ADA Standards for Accessible Design</strong> plus Oklahoma Accessibility Code. Key requirements include:</p>
+            body: `<p>Medical offices in Oklahoma must comply with the <strong>2010 ADA Standards for Accessible Design</strong> plus Oklahoma Accessibility Code. Here's what that means for your layout:</p>
 <ul>
-<li><strong>Accessible route:</strong> 36" minimum clear width through all hallways and exam areas</li>
-<li><strong>Exam rooms:</strong> 60" turning radius, 30"×48" clear floor space at exam tables</li>
-<li><strong>Reception counter:</strong> 36" maximum height portion for wheelchair accessibility</li>
-<li><strong>Restrooms:</strong> 60" turning radius, grab bars, accessible fixtures per ADA 604</li>
-<li><strong>Parking:</strong> Accessible spaces per Table 208.2 based on total parking provided</li>
-<li><strong>Signage:</strong> Tactile/Braille room signs, visual alarms, and accessible door hardware</li>
+<li><strong>Hallways & exam access:</strong> 36" minimum clear width — wide enough for wheelchairs and walkers throughout your clinic</li>
+<li><strong>Exam rooms:</strong> 60" turning radius with 30"×48" clear floor space at exam tables — ensures every patient can be comfortably examined</li>
+<li><strong>Reception counter:</strong> At least one 36"-high section — so wheelchair-using patients can interact at eye level</li>
+<li><strong>Restrooms:</strong> 60" turning radius, grab bars, and accessible fixtures — required in every patient-accessible restroom</li>
+<li><strong>Parking:</strong> Accessible spaces based on total parking count — including van-accessible spaces with 8' loading zones</li>
+<li><strong>Signage:</strong> Tactile/Braille room signs and visual alarms — required on all permanent rooms and spaces</li>
 </ul>
-<p>UDGOK includes full ADA compliance review in every medical office project at no additional cost. Failure to comply risks DOJ enforcement actions and patient discrimination lawsuits.</p>`,
+<p>UDGOK includes full ADA compliance review in every medical office project at no additional cost. Getting this wrong can mean costly retrofits, DOJ enforcement actions, and patient discrimination lawsuits.</p>`,
           },
           {
             heading: "How long does it take to build a medical office?",
             body: `<p>Medical office construction timelines depend on project complexity. Here are typical durations for Tulsa metro projects:</p>
 <ul>
-<li><strong>Simple tenant build-out (2,000–3,000 sq ft):</strong> 4–5 months total (6 weeks design, 2 weeks permitting, 10–12 weeks construction)</li>
-<li><strong>Multi-specialty clinic (5,000–10,000 sq ft):</strong> 6–9 months total</li>
-<li><strong>Ground-up medical office building:</strong> 10–14 months total including site work</li>
+<li><strong>Simple tenant build-out (2,000–3,000 sq ft):</strong> 4–5 months total — 6 weeks design, 2 weeks permitting, 10–12 weeks construction</li>
+<li><strong>Multi-specialty clinic (5,000–10,000 sq ft):</strong> 6–9 months total — more complex mechanical and layout coordination</li>
+<li><strong>Ground-up medical office building:</strong> 10–14 months total — includes site work, foundation, and full exterior</li>
 </ul>
-<p>UDGOK's <a href='/design-build'>design-build approach</a> saves 20% on schedule versus traditional design-bid-build by overlapping design and construction phases. Our <a href='/preconstruction'>preconstruction services</a> help lock in budgets before construction begins. For time-sensitive projects like practice relocations, we offer fast-track delivery starting at 12 weeks for a standard build-out.</p>`,
+<p>UDGOK's <a href='/design-build'>design-build approach</a> saves 20% on schedule versus the traditional design-bid-build method by overlapping design and construction phases. Our <a href='/preconstruction'>preconstruction services</a> help lock in your budget before construction begins. For time-sensitive projects like practice relocations, we offer fast-track delivery starting at 12 weeks for a standard build-out.</p>`,
           },
         ]}
         faqs={[
-          { q: "How much does it cost to build a medical office in Tulsa?", a: "Medical office construction in Tulsa costs $150–$350 per square foot. A standard 3,000 sq ft primary care office runs $450,000–$600,000. Specialty practices with imaging or procedure rooms cost more due to shielding, reinforcement, and specialized MEP systems." },
-          { q: "Do you handle medical office design and construction?", a: "Yes. UDGOK provides integrated design-build delivery, combining architecture, engineering, and construction under one contract. This eliminates coordination gaps between your architect and contractor, and typically saves 15–20% on total cost." },
-          { q: "What medical specialties do you build for?", a: "We build for all medical specialties including primary care, urgent care, dermatology, orthopedics, pain management, ophthalmology, cardiology, and multi-specialty group practices. Each specialty has unique layout, MEP, and equipment requirements we've built before." },
-          { q: "Can you build a medical office in an existing retail space?", a: "Yes. We regularly convert retail and office spaces into medical suites. Key considerations include HVAC capacity for medical-grade air changes, plumbing access for exam rooms, electrical capacity for medical equipment, and ADA accessibility upgrades." },
-          { q: "What cities do you build medical offices in?", a: "UDGOK builds medical offices across the Tulsa metro including Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sapulpa, Haskell, and Sand Springs. We also serve Oklahoma City and Dallas/Plano, TX." },
-          { q: "What HIPAA requirements apply to medical office construction?", a: "HIPAA requires physical safeguards to protect patient privacy during construction. Key building requirements include: sound-rated walls (STC 50+) between exam rooms and common areas, private consultation rooms for test results and treatment discussions, secure server rooms for electronic health records, and layout design preventing casual observation of patient screens. UDGOK incorporates HIPAA-compliant design into every medical office project." },
-          { q: "Does UDGOK install medical gas systems in Tulsa?", a: "Yes. UDGOK has ASSE 6010 certified medical gas installers on staff. We install oxygen, nitrous oxide, medical air, and vacuum systems to NFPA 99 standards with independent ASSE 6030 third-party verification. Medical gas systems are required for sedation dentistry, oral surgery suites, and ambulatory surgery centers in Oklahoma." },
-          { q: "What is the difference between a tenant improvement and ground-up medical office?", a: "A tenant improvement (TI) is a build-out within an existing commercial shell — you renovate an existing space to meet medical requirements. Ground-up construction is a new building from the foundation. TIs typically cost 20–35% less and take 3–5 months versus 10–14 months for ground-up. However, existing spaces may have limitations on HVAC capacity, plumbing access, and structural load-bearing that can increase TI costs." },
-          { q: "How do I budget for a medical office build-out in Oklahoma?", a: "Start with a per-square-foot estimate based on your specialty: primary care runs $150–$200/sq ft, urgent care $180–$240/sq ft, and specialty with imaging $250–$350/sq ft. Add 10–15% for contingency, plus furniture and medical equipment ($50,000–$500,000+ depending on specialty). UDGOK offers free preconstruction budgeting to help you establish an accurate total project cost before signing a lease." },
-          { q: "Does UDGOK handle healthcare regulatory compliance?", a: "Yes. Our team manages all regulatory requirements including OSHA workplace safety, ADA Title III accessibility, NFPA 99 medical gas compliance, Oklahoma State Department of Health inspections, and local building codes. For ambulatory surgery centers, we also manage AAAHC accreditation requirements. Compliance is built into our design process from day one, not added as an afterthought." },
+          {
+            q: "How much does it cost to build a medical office in Tulsa?",
+            a: "<ul><li><strong>Primary care (3,000 sq ft):</strong> $150–$200/sf → $450K–$600K total</li><li><strong>Urgent care (4,000 sq ft):</strong> $180–$240/sf → $720K–$960K total</li><li><strong>Specialty with imaging:</strong> $250–$350/sf — add $150K–$500K+ for imaging room construction</li><li><strong>Budget tip:</strong> Add 10–15% contingency, plus $50K–$500K+ for medical equipment depending on specialty</li></ul>",
+          },
+          {
+            q: "Do you handle medical office design and construction?",
+            a: "<ul><li><strong>Single contract:</strong> Architecture, engineering, and construction all under one roof — no coordination headaches</li><li><strong>Cost savings:</strong> Typically saves 15–20% vs. hiring a separate architect and contractor</li><li><strong>Faster delivery:</strong> Design and construction phases overlap, shaving weeks off your timeline</li></ul>",
+          },
+          {
+            q: "What medical specialties do you build for?",
+            a: "<ul><li><strong>Primary care & family medicine</strong> — standard exam rooms, nurse stations, lab</li><li><strong>Urgent care & walk-in clinics</strong> — X-ray rooms, procedure areas, high patient volume flow</li><li><strong>Dermatology & med-spa</strong> — procedure rooms with specialized lighting and ventilation</li><li><strong>Orthopedics & pain management</strong> — imaging suites, physical therapy areas, procedure rooms</li><li><strong>Ophthalmology & cardiology</strong> — specialized equipment rooms with reinforced floors and dedicated power</li><li><strong>Multi-specialty groups</strong> — shared resources with specialty-specific build-outs</li></ul>",
+          },
+          {
+            q: "Can you build a medical office in an existing retail space?",
+            a: "<ul><li><strong>Yes — we do this regularly.</strong> Converting retail or office space into a medical suite is often 20–35% less expensive than ground-up construction</li><li><strong>Key things we evaluate:</strong> HVAC capacity for medical-grade air changes, plumbing access for exam room sinks, electrical capacity for medical equipment, and ADA accessibility upgrades</li><li><strong>Common conversions:</strong> Strip malls, office parks, and standalone retail buildings — each has trade-offs we'll walk you through</li></ul>",
+          },
+          {
+            q: "What cities do you build medical offices in?",
+            a: "<ul><li><strong>Tulsa metro:</strong> Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sapulpa, Haskell, Sand Springs</li><li><strong>Oklahoma City metro:</strong> OKC, Edmond, Norman, Moore</li><li><strong>Texas expansion:</strong> Dallas/Plano, TX</li></ul>",
+          },
+          {
+            q: "What HIPAA requirements apply to medical office construction?",
+            a: "<ul><li><strong>Sound-rated walls (STC 50+):</strong> Prevents patient conversations from being overheard in adjacent rooms or hallways</li><li><strong>Private consultation rooms:</strong> Dedicated space for discussing test results and treatment plans</li><li><strong>Secure server rooms:</strong> Climate-controlled, access-restricted space for electronic health records (EHR) systems</li><li><strong>Layout privacy:</strong> Check-in counters and workstations designed to prevent casual viewing of patient screens</li></ul>",
+          },
+          {
+            q: "Does UDGOK install medical gas systems?",
+            a: "<ul><li><strong>ASSE 6010 certified installers</strong> on staff — the highest certification for medical gas installation</li><li><strong>Systems we install:</strong> Oxygen, nitrous oxide, medical air, and vacuum — all to NFPA 99 standards</li><li><strong>Third-party verified:</strong> Independent ASSE 6030 inspection on every medical gas project</li><li><strong>Required for:</strong> Sedation dentistry, oral surgery suites, and ambulatory surgery centers in Oklahoma</li></ul>",
+          },
+          {
+            q: "What is the difference between a tenant improvement and ground-up medical office?",
+            a: "<ul><li><strong>Tenant improvement (TI):</strong> Build-out within an existing commercial shell — renovate to meet medical requirements. Typically 20–35% less cost, 3–5 month timeline</li><li><strong>Ground-up:</strong> New building from the foundation up — full control over layout and systems. 10–14 month timeline, higher cost but no compromises</li><li><strong>Watch out for with TIs:</strong> Existing spaces may have limited HVAC capacity, poor plumbing access, or structural constraints that can increase costs</li></ul>",
+          },
+          {
+            q: "How do I budget for a medical office build-out in Oklahoma?",
+            a: "<ul><li><strong>Step 1 — Estimate by specialty:</strong> Primary care $150–$200/sf, urgent care $180–$240/sf, specialty with imaging $250–$350/sf</li><li><strong>Step 2 — Add contingency:</strong> 10–15% of construction cost for unexpected conditions</li><li><strong>Step 3 — Equipment budget:</strong> $50K–$500K+ depending on specialty (not included in construction cost)</li><li><strong>Free budgeting:</strong> UDGOK offers free preconstruction budgeting to establish your total project cost before you sign a lease</li></ul>",
+          },
+          {
+            q: "Does UDGOK handle healthcare regulatory compliance?",
+            a: "<ul><li><strong>OSHA workplace safety</strong> — proper ventilation, hazardous material storage, and egress requirements</li><li><strong>ADA Title III accessibility</strong> — full compliance built into every design</li><li><strong>NFPA 99 medical gas</strong> — certified installation and third-party verification</li><li><strong>Oklahoma Dept. of Health inspections</strong> — we manage the entire approval process</li><li><strong>AAAHC accreditation</strong> — for ambulatory surgery centers requiring facility accreditation</li><li><strong>Bottom line:</strong> Compliance is designed in from day one, not added as an afterthought</li></ul>",
+          },
         ]}
-        cta="Plan Your Medical Office →"
+        cta="See What Your Practice Could Look Like"
+        secondaryCta={{ text: "Compare 4-Op vs 6-Op Layouts", href: "/contact" }}
       />
     </>
   );
