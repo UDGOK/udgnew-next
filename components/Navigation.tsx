@@ -228,38 +228,44 @@ export default function Navigation() {
               Work
             </NavLink>
 
-            <button
+            <Link
+              href="/services"
               className={`nav-link-btn ${activeMenu === "services" ? "text-orange" : ""}`}
               onMouseEnter={() => setActiveMenu("services")}
+              onClick={(e) => { if (typeof window !== "undefined") e.preventDefault(); }}
               style={{
                 display: "flex", alignItems: "center", height: "100%", padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase",
                 color: activeMenu === "services" ? "#FF4800" : "rgba(255,255,255,0.85)", textDecoration: "none", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s ease",
               }}
             >
               Services
-            </button>
+            </Link>
 
-            <button
+            <Link
+              href="/about"
               className="nav-link-btn"
               onMouseEnter={() => setActiveMenu("company")}
+              onClick={(e) => { if (typeof window !== "undefined") e.preventDefault(); }}
               style={{
                 display: "flex", alignItems: "center", height: "100%", padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase",
                 color: activeMenu === "company" ? "#FF4800" : "rgba(255,255,255,0.85)", textDecoration: "none", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s ease",
               }}
             >
               Company
-            </button>
+            </Link>
 
-            <button
+            <Link
+              href="/resources"
               className="nav-link-btn"
               onMouseEnter={() => setActiveMenu("resources")}
+              onClick={(e) => { if (typeof window !== "undefined") e.preventDefault(); }}
               style={{
                 display: "flex", alignItems: "center", height: "100%", padding: "0 1.5rem", fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase",
                 color: activeMenu === "resources" ? "#FF4800" : "rgba(255,255,255,0.85)", textDecoration: "none", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s ease",
               }}
             >
               Resources
-            </button>
+            </Link>
 
             <NavLink href="/contact" active={isActive("/contact")}>
               Contact
@@ -274,7 +280,7 @@ export default function Navigation() {
             onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,72,0,0.15)"; e.currentTarget.style.borderColor = "rgba(255,72,0,0.5)"; e.currentTarget.style.color = "#FF4800"; }}
             onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,72,0,0.08)"; e.currentTarget.style.borderColor = "rgba(255,72,0,0.2)"; e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
           >
-            🔒 Bid Portal
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg> Bid Portal
           </Link>
 
           {/* Mobile Toggle */}
@@ -385,7 +391,7 @@ export default function Navigation() {
                   onClick={() => setMobileOpen(false)}
                   style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "1.3rem", fontWeight: 800, color: "#FF4800", textDecoration: "none", padding: "1rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", textTransform: "uppercase", letterSpacing: "-0.02em" }}
                 >
-                  🔒 Bid Portal
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg> Bid Portal
                 </Link>
               </motion.div>
 

@@ -117,7 +117,7 @@ export default function ContactUI() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs font-bold tracking-[0.1em] uppercase text-white/50 mb-2">Legal Name</label>
+                    <label className="block text-xs font-bold tracking-[0.1em] uppercase text-white/50 mb-2">Full Name</label>
                     <input 
                       required 
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FF4800] transition-colors" 

@@ -12,7 +12,6 @@ const items = [
 ];
 
 export default function MarqueeBanner() {
-  const tripled = [...items, ...items, ...items];
   return (
     <div
       style={{
@@ -22,34 +21,55 @@ export default function MarqueeBanner() {
         borderBottom: "4px solid #0B061B",
         position: "relative",
       }}
+      aria-label="Services ticker"
+      role="marquee"
     >
       {/* Fade edges */}
       <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "80px", background: "linear-gradient(to right, #FF4800, transparent)", zIndex: 2, pointerEvents: "none" }} />
       <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: "80px", background: "linear-gradient(to left, #FF4800, transparent)", zIndex: 2, pointerEvents: "none" }} />
 
       <div className="marquee-track">
-        {tripled.map((item, i) => (
-          <span
-            key={i}
-            style={{
-              flexShrink: 0,
-              fontSize: "0.75rem",
-              fontWeight: 800,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "#fff",
-              padding: "0 2.5rem",
-              whiteSpace: "nowrap",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "2.5rem",
-            }}
-          >
-            {item}
-            <span style={{ width: "5px", height: "5px", background: "rgba(255,255,255,0.6)", borderRadius: "50%", flexShrink: 0, display: "inline-block" }} />
-          </span>
-        ))}
+        {/* Primary copy — accessible */}
+        <div className="marquee-segment" style={{ display: "flex" }}>
+          {items.map((item, i) => (
+            <MarqueeItem key={`a-${i}`} text={item} />
+          ))}
+        </div>
+        {/* Duplicate copies for seamless loop — hidden from assistive tech */}
+        <div className="marquee-segment" aria-hidden="true" style={{ display: "flex" }}>
+          {items.map((item, i) => (
+            <MarqueeItem key={`b-${i}`} text={item} />
+          ))}
+        </div>
+        <div className="marquee-segment" aria-hidden="true" style={{ display: "flex" }}>
+          {items.map((item, i) => (
+            <MarqueeItem key={`c-${i}`} text={item} />
+          ))}
+        </div>
       </div>
     </div>
+  );
+}
+
+function MarqueeItem({ text }: { text: string }) {
+  return (
+    <span
+      style={{
+        flexShrink: 0,
+        fontSize: "0.75rem",
+        fontWeight: 800,
+        letterSpacing: "0.2em",
+        textTransform: "uppercase",
+        color: "#fff",
+        padding: "0 2.5rem",
+        whiteSpace: "nowrap",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "2.5rem",
+      }}
+    >
+      {text}
+      <span style={{ width: "5px", height: "5px", background: "rgba(255,255,255,0.6)", borderRadius: "50%", flexShrink: 0, display: "inline-block" }} />
+    </span>
   );
 }
