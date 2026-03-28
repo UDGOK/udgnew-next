@@ -38,6 +38,7 @@ export default function EyeClinicPage() {
         description="Precision-built optometry offices and surgical eye centers with dark rooms, laser suites, and specialized lighting design."
         imageSrc="/images/modern-medical-office-building-exterior-sunny-day.jpg"
         imageAlt="Eye clinic construction Tulsa by UDGOK"
+        heroVideoSrc="/videos/eye-clinic-hero.mp4"
         tldr="UDGOK has built 30+ optometry and ophthalmology clinics across Oklahoma. We construct exam lane layouts with precise 20-foot spacing, full blackout dark rooms, ANSI Z136-compliant laser suites, and retail-grade optical dispensaries. Eye clinic construction in Tulsa costs $180–$300 per square foot depending on whether the practice includes surgical capabilities."
         intro="Eye clinics demand a level of precision most contractors can't deliver. From blackout dark rooms and laser procedure suites to custom lane lengths and sub-floor plumbing for phoropter units — UDGOK has built over 30 optometry and ophthalmology facilities and understands every detail."
         stats={[
