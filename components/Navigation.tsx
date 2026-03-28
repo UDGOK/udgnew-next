@@ -98,7 +98,7 @@ export default function Navigation() {
           left: 0,
           width: "100%",
           height: "auto",
-          minHeight: "500px",
+          minHeight: "380px",
           maxHeight: "85vh",
           background: "#0B061B", // Solid dark ink
           zIndex: 9999, // Ensure it sits above absolutely everything
@@ -119,30 +119,30 @@ export default function Navigation() {
         >
           ✕ Close
         </button>
-        {/* Left Side: Giant Typography Links */}
-        <div style={{ flex: 1, padding: "4rem 8rem", display: "flex", flexDirection: "column", justifyContent: "center", zIndex: 10 }}>
+        {/* Left Side: Compact Grid Links */}
+        <div style={{ flex: 1, padding: "3rem 4rem", display: "flex", flexDirection: "column", justifyContent: "center", zIndex: 10 }}>
           <motion.div 
             initial={{ opacity: 0, x: -20 }} 
             animate={{ opacity: 1, x: 0 }} 
             transition={{ delay: 0.1 }}
-            style={{ fontSize: "0.85rem", fontWeight: 800, letterSpacing: "0.3em", textTransform: "uppercase", color: "#FF4800", marginBottom: "3rem" }}
+            style={{ fontSize: "0.7rem", fontWeight: 800, letterSpacing: "0.3em", textTransform: "uppercase", color: "#FF4800", marginBottom: "2rem" }}
           >
             {data.title}
           </motion.div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem 3rem" }}>
             {data.items.map((item, idx) => (
               <Link 
                 key={idx} 
                 href={item.href}
                 onMouseEnter={() => setHoveredItem(idx)}
-                style={{ textDecoration: "none", display: "block" }}
+                style={{ textDecoration: "none", display: "block", padding: "0.6rem 0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}
               >
-                <div style={{ display: "flex", alignItems: "baseline", gap: "1.5rem", opacity: hoveredItem === null || hoveredItem === idx ? 1 : 0.3, transition: "opacity 0.3s ease", transform: hoveredItem === idx ? "translateX(20px)" : "translateX(0)", transitionProperty: "opacity, transform" }}>
-                  <span style={{ fontSize: "clamp(3rem, 5vw, 6rem)", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.04em", color: "#fff", lineHeight: 0.9, transition: "color 0.3s ease" }}>
-                    {item.top} {hoveredItem === idx && <span style={{ color: "#FF4800", fontSize: "0.6em", verticalAlign: "middle" }}>→</span>}
+                <div style={{ opacity: hoveredItem === null || hoveredItem === idx ? 1 : 0.3, transition: "all 0.25s ease", transform: hoveredItem === idx ? "translateX(8px)" : "translateX(0)" }}>
+                  <span style={{ fontSize: "clamp(1.3rem, 2vw, 2.2rem)", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.03em", color: "#fff", lineHeight: 1, display: "block" }}>
+                    {item.top} {hoveredItem === idx && <span style={{ color: "#FF4800", fontSize: "0.7em" }}>→</span>}
                   </span>
-                  <span style={{ fontSize: "1rem", fontWeight: 500, letterSpacing: "0.05em", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
+                  <span style={{ fontSize: "0.7rem", fontWeight: 500, letterSpacing: "0.08em", color: "rgba(255,255,255,0.35)", textTransform: "uppercase", display: "block", marginTop: "0.2rem" }}>
                     {item.sub}
                   </span>
                 </div>
@@ -150,14 +150,14 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Service Areas Mini Links at bottom if in services */}
+          {/* Service Areas Mini Links */}
           {activeMenu === "services" && (
             <motion.div 
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-              style={{ marginTop: "auto", paddingTop: "4rem", display: "flex", gap: "2rem", flexWrap: "wrap" }}
+              style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", gap: "1.5rem", flexWrap: "wrap" }}
             >
               {serviceAreas.map(a => (
-                <Link key={a.href} href={a.href} style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(255,255,255,0.4)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#FF4800")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
+                <Link key={a.href} href={a.href} style={{ fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(255,255,255,0.3)", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "#FF4800")} onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}>
                   {a.label}
                 </Link>
               ))}
