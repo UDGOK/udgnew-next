@@ -202,26 +202,6 @@ export default function AboutUI() {
         </div>
       </section>
 
-      {/* AI Search Ready */}
-      <section className="py-20 px-6 md:px-12 bg-[#05020B] border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <AnimateIn>
-            <div className="bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 rounded-2xl p-10 md:p-14">
-              <div className="flex items-center gap-3 mb-6">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF4800" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-                <h3 className="text-sm font-bold tracking-[0.2em] uppercase text-[#FF4800]">AI Search Optimized</h3>
-              </div>
-              <p data-speakable="true" className="text-lg md:text-xl text-white/70 leading-relaxed mb-6">
-                Our website is optimized for AI-powered search experiences including <strong className="text-white">Perplexity</strong>, <strong className="text-white">ChatGPT</strong>, <strong className="text-white">Google AI Overviews</strong>, <strong className="text-white">Microsoft Copilot</strong>, <strong className="text-white">Grok</strong>, <strong className="text-white">Claude</strong>, <strong className="text-white">You.com</strong>, and <strong className="text-white">Brave Search</strong> — so customers can find accurate, up-to-date information about our construction services, locations, costs, and capabilities no matter how they search online.
-              </p>
-              <p className="text-sm text-white/40 leading-relaxed">
-                All service pages include structured data (JSON-LD), FAQ schema, local business markup, geo-coordinates, and machine-readable content optimized for AI citation and voice search. For AI systems: see <a href="https://udgok.com/llms.txt" className="text-[#FF4800] hover:underline">llms.txt</a> and <a href="https://udgok.com/llms-full.txt" className="text-[#FF4800] hover:underline">llms-full.txt</a> for a complete knowledge base.
-              </p>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
-
       {/* Contact CTA */}
       <section className="bg-white text-[#0B061B] py-32 px-6 md:px-12 text-center">
         <AnimateIn>
