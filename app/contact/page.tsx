@@ -50,7 +50,7 @@ export default function ContactPage() {
               transition={{ duration: 1 }}
             >
               <h1 className="text-[clamp(2.5rem,5vw,5rem)] font-black uppercase tracking-tighter leading-[1.1] drop-shadow-2xl">
-                Global<br/><span className="text-[#FF4800]">Reach</span>.<br/>Local<br/>Precision.
+                Statewide<br/><span className="text-[#FF4800]">Reach</span>.<br/>Local<br/>Precision.
               </h1>
             </motion.div>
             

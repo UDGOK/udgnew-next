@@ -13,10 +13,7 @@ function parse(raw: string): { prefix: string; num: number; suffix: string } {
 export default function CountUp({ value, duration = 1.8 }: { value: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref as React.RefObject<Element>, { once: true });
-  const [display, setDisplay] = useState<string>(() => {
-    const { prefix, suffix } = parse(value);
-    return prefix + "0" + suffix;
-  });
+  const [display, setDisplay] = useState<string>(value);
   const started = useRef(false);
 
   useEffect(() => {

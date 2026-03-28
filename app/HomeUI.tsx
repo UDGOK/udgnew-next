@@ -229,11 +229,11 @@ export default function HomeUI() {
               UDGOK made our dental practice build-out completely seamless. Their deep understanding of specialized healthcare requirements—from precise plumbing to medical gases—saved us months of delays.
             </h2>
             <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-              <div style={{ width: "60px", height: "60px", borderRadius: "50%", background: "#333", overflow: "hidden", position: "relative" }}>
-                 <Image src="/images/edyoung-1.jpg" alt="Dr Miller" fill style={{ objectFit: "cover", filter: "grayscale(100%)" }} />
+              <div style={{ width: "60px", height: "60px", borderRadius: "50%", background: "linear-gradient(135deg, #FF4800, #FF6B2B)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", fontWeight: 900, color: "#fff", letterSpacing: "-0.02em", flexShrink: 0 }}>
+                DY
               </div>
               <div>
-                <div style={{ fontSize: "1rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#fff" }}>Dr. James Miller</div>
+                <div style={{ fontSize: "1rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#fff" }}>Dental Practice Owner</div>
                 <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Tulsa, OK</div>
               </div>
             </div>
