@@ -237,6 +237,31 @@ export default function ContactUI() {
         </div>
       </section>
 
+      {/* ── Headquarters Location Map (HCU Signal) ── */}
+      <section className="border-b border-t border-white/10 bg-[#0B061B] relative">
+        <div className="absolute inset-0 z-10 pointer-events-none shadow-[inset_0_0_100px_rgba(11,6,27,1)]" />
+        <div className="absolute top-8 left-8 z-20 bg-black/50 backdrop-blur-md border border-white/10 p-6 rounded-2xl pointer-events-none">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#FF4800] animate-pulse" />
+            <span className="text-[0.65rem] font-bold tracking-[0.2em] uppercase text-[#FF4800]">Operations Center</span>
+          </div>
+          <p className="text-white text-lg font-black uppercase tracking-tight">Tulsa, Oklahoma</p>
+          <p className="text-white/50 text-sm font-medium mt-1">Serving the greater 5-state region.</p>
+        </div>
+        <div className="w-full h-[450px] relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103138.86884635678!2d-96.00936056557672!3d36.064508316711686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b68d9048a1d13f%3A0xcb06dc6c33e8b8fc!2s7739%20E%2038th%20St%20F%2C%20Tulsa%2C%20OK%2074145!5e0!3m2!1sen!2sus!4v1711654321000!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            className="filter invert hue-rotate-180 brightness-90 contrast-125 grayscale"
+            style={{ border: 0 }} 
+            allowFullScreen={false} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </section>
+
       {/* Modern FAQ Grid */}
       <section className="py-24 px-8 md:px-16 max-w-7xl mx-auto">
         <div className="mb-16">

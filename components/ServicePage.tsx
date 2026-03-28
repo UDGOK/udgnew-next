@@ -80,6 +80,7 @@ function FeatureModal({ feature, index, onClose }: { feature: { icon: string; ti
 
 interface Feature { icon: string; title: string; desc: string; }
 interface FAQ { q: string; a: string; }
+interface Testimonial { quote: string; author: string; role: string; location?: string; }
 interface ServicePageProps {
   label: string;
   title: string;
@@ -96,11 +97,13 @@ interface ServicePageProps {
   faqs?: FAQ[];
   /** Deep-content sections with Q&A-style headings */
   sections?: { heading: string; body: string }[];
+  /** Highly localized testimonial/case study injection for Helpful Content signals */
+  testimonial?: Testimonial;
 }
 
 export default function ServicePage({
   label, title, description, imageSrc, imageAlt, intro, features,
-  cta = "Start Your Project →", stats, tldr, faqs, sections,
+  cta = "Start Your Project →", stats, tldr, faqs, sections, testimonial,
 }: ServicePageProps) {
   const containerRef = useRef(null);
   const ctaSectionRef = useRef<HTMLElement>(null);
@@ -330,6 +333,34 @@ export default function ServicePage({
           )}
         </AnimatePresence>
       </section>
+
+      {/* ── Localized Testimonial Block (HCU Signal) ── */}
+      {testimonial && (
+        <section className="py-24 md:py-32 border-b border-white/10 relative overflow-hidden bg-[#05020B]">
+          {/* Ambient quote glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full pointer-events-none" style={{ background: "radial-gradient(ellipse, rgba(255,72,0,0.06) 0%, transparent 70%)", filter: "blur(80px)" }} />
+          
+          <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10 text-center">
+            <AnimateIn>
+              <div className="text-[clamp(6rem,12vw,15rem)] font-black text-[#FF4800] leading-none opacity-20 absolute -top-8 md:-top-16 left-1/2 -translate-x-1/2 pointer-events-none select-none">
+                "
+              </div>
+              <p className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-10 leading-[1.3] max-w-4xl mx-auto relative z-10 drop-shadow-xl">
+                {testimonial.quote}
+              </p>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <span className="w-8 h-1 bg-[#FF4800] mb-4" />
+                <span className="text-sm md:text-base font-bold uppercase tracking-[0.2em] text-white">
+                  {testimonial.author}
+                </span>
+                <span className="text-[0.7rem] md:text-xs font-bold uppercase tracking-[0.1em] text-white/50">
+                  {testimonial.role}{testimonial.location ? ` • ${testimonial.location}` : ""}
+                </span>
+              </div>
+            </AnimateIn>
+          </div>
+        </section>
+      )}
 
       {/* ── Deep Content Sections (Q&A-style headings) ── */}
       {sections && sections.length > 0 && (

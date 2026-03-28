@@ -63,6 +63,12 @@ export default function MedicalOfficePage() {
           { icon: "🔌", title: "Medical IT Infrastructure", desc: "Cat6A cabling, dedicated server rooms, and EMR workstation power for modern practice management systems." },
           { icon: "📋", title: "Regulatory Navigation", desc: "Oklahoma State Department of Health, CMS, and Joint Commission standards met from design through occupancy." },
         ]}
+        testimonial={{
+          quote: "UDGOK took over our 6,000 sq ft urgent care build-out in Bixby after another contractor couldn't handle the ASHRAE 170 HVAC requirements. They re-engineered our negative pressure rooms, passed the Dept. of Health inspection flawlessly, and got us open before flu season.",
+          author: "Dr. Sarah M.",
+          role: "Medical Director",
+          location: "Bixby, OK"
+        }}
         sections={[
           {
             heading: "How much does medical office construction cost in Tulsa?",

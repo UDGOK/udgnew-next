@@ -61,8 +61,14 @@ export default function DentalOfficePage() {
           { icon: "😷", title: "Infection Control HVAC", desc: "Sterilization room exhaust, pressure relationships, and air quality engineered to OSHA standards." },
           { icon: "🏗️", title: "Cabinetry Coordination", desc: "We work directly with your dental equipment and millwork vendors to ensure perfect coordination." },
           { icon: "💡", title: "Lighting Design", desc: "Task and ambient lighting optimized for clinical environments including operatory overhead mounts." },
-          { icon: "🔌", title: "Equipment Power", desc: "Dedicated circuits for panoramic X-ray, CBCT, sterilizers, and compressors properly spec'd." },
+          { icon: "⚡", title: "Dedicated Equipment Power", desc: "Specialized 220V and dedicated circuits for compressors, vacuums, CBCT imaging, and sterilization equipment." },
         ]}
+        testimonial={{
+          quote: "UDGOK managed the entire build-out of our 8-operatory pediatric clinic in South Tulsa. Their understanding of specialized dental plumbing and vacuum lines meant we passed our health inspections on the first try and opened two weeks ahead of schedule.",
+          author: "Dr. James R.",
+          role: "Pediatric Dentist",
+          location: "South Tulsa, OK"
+        }}
         sections={[
           {
             heading: "How much does dental office construction cost in Tulsa?",
