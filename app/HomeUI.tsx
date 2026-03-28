@@ -24,6 +24,15 @@ const process = [
   { n: "04", t: "Commissioning", d: "Complete system walk-throughs and final sign-offs." }
 ];
 
+const homeFaqs = [
+  { q: "How much does medical office construction cost in Tulsa?", a: "Medical office construction in Tulsa costs $150–$350 per square foot depending on specialty. A standard 3,000 sq ft primary care office runs $450,000–$750,000. Specialty practices with surgical suites or medical gas systems cost more. UDGOK provides free preconstruction budgets." },
+  { q: "How long does it take to build a dental office in Oklahoma?", a: "Most dental office builds take 3–5 months from permit issuance to certificate of occupancy. UDGOK's design-build approach saves 4–6 weeks compared to traditional construction by overlapping design, permitting, and procurement phases." },
+  { q: "What is design-build construction?", a: "Design-build is a construction delivery method where one company handles both design and construction. This eliminates the finger-pointing between separate architects and contractors, reduces change orders by 30–40%, and accelerates project delivery. UDGOK uses design-build on 90% of healthcare projects." },
+  { q: "Does UDGOK serve cities outside Tulsa?", a: "Yes. UDGOK serves the entire Tulsa metro including Broken Arrow, Bixby, Jenks, Owasso, Sand Springs, Sapulpa, and Haskell. We also serve Oklahoma City and the Dallas-Fort Worth area in Texas. Our headquarters are at 7739 E 38th Street, Suite F, Tulsa, OK 74145." },
+  { q: "What types of construction does UDGOK specialize in?", a: "UDGOK specializes in healthcare construction — dental offices, medical offices, eye clinics, oral surgery centers, and ambulatory surgery centers. We also build commercial projects including convenience stores, restaurants, retail centers, and tenant improvements." },
+  { q: "Is UDGOK licensed and insured?", a: "Yes. UDGOK is a licensed Oklahoma general contractor with full commercial general liability, workers' compensation, and professional liability insurance. We are licensed in Texas for DFW projects. Our EMR (safety rating) is 0.7 — well below the industry average of 1.0." },
+];
+
 // Reusable text reveal for big headings
 const SplitTextReveal = ({ text }: { text: string }) => {
   const words = text.split(" ");
@@ -229,6 +238,32 @@ export default function HomeUI() {
 
       {/* ── TESTIMONIALS ── */}
       <TestimonialCarousel />
+
+      {/* ── HOMEPAGE FAQ ── */}
+      <section style={{ padding: "6rem 2rem", background: "#0B061B", color: "#fff", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <AnimateIn>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "3rem" }}>
+              <span style={{ width: "48px", height: "2px", background: "#FF4800" }} />
+              <span style={{ fontSize: "0.75rem", fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FF4800" }}>Common Questions</span>
+            </div>
+            <h2 style={{ fontSize: "clamp(2rem,4vw,3.5rem)", fontWeight: 900, letterSpacing: "-0.03em", textTransform: "uppercase", marginBottom: "3rem", lineHeight: 1 }}>
+              Frequently Asked <span style={{ color: "#FF4800" }}>Questions</span>
+            </h2>
+          </AnimateIn>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+            {homeFaqs.map((faq, i) => (
+              <AnimateIn key={i} delay={i * 0.05}>
+                <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "2rem 0" }}>
+                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.75rem", color: "#fff" }}>{faq.q}</h3>
+                  <p style={{ fontSize: "1rem", lineHeight: 1.7, color: "rgba(255,255,255,0.6)", margin: 0 }}>{faq.a}</p>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── FINAL CTA ── */}
       <section style={{ padding: "8rem 2rem", background: "#fff", color: "#0B061B", textAlign: "center", borderTop: "1px solid rgba(0,0,0,0.1)" }}>
