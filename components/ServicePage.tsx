@@ -212,9 +212,7 @@ export default function ServicePage({
               <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">
                 Precision <span className="text-[#FF4800]">Execution</span>
               </h2>
-              <p className="text-lg text-white/60 leading-relaxed mb-12 max-w-xl">
-                {intro}
-              </p>
+              <p className="text-lg text-white/60 leading-relaxed mb-12 max-w-xl [&_a]:text-[#FF4800] [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-white [&_a]:transition-colors" dangerouslySetInnerHTML={{ __html: intro }} />
 
               <Link href="/contact" className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-[#FF4800] hover:bg-[#FF4800]/80 px-8 py-4 text-xs font-bold tracking-[0.2em] uppercase text-white transition-colors shadow-2xl shadow-[#FF4800]/20">
                 Discuss Your Project →

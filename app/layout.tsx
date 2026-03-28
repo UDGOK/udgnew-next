@@ -59,12 +59,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "UDGOK — Upscale Development Group",
     url: "https://udgok.com",
+    images: [
+      {
+        url: "https://udgok.com/images/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "UDGOK — AI-Powered Medical & Dental Design-Build",
     description:
       "Tulsa's trusted Design-Build partner for medical offices, dental clinics, and commercial construction. Serving Oklahoma and North Texas.",
+    images: ["https://udgok.com/images/og-default.png"],
   },
   alternates: {
     canonical: "https://udgok.com",
