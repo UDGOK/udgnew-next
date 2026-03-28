@@ -60,6 +60,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "restaurant-construction-tulsa",
     "sustainable-construction-tulsa",
     "adaptive-reuse-construction-tulsa",
+    "dental-office-remodel-tulsa",
+    "orthodontic-office-construction-tulsa",
   ].map((slug) => ({
     url: `${base}/${slug}`,
     lastModified: now,
