@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import MarqueeBanner from "@/components/MarqueeBanner";
 import AnimateIn from "@/components/AnimateIn";
 import ProcessScroll from "@/components/ProcessScroll";
@@ -79,9 +79,18 @@ export default function HomeUI() {
             <span style={{ color: "#FF4800", marginRight: "0.5rem" }}>◾</span> Premium Construction Firm
           </motion.div>
 
-          <h1 style={{ fontSize: "clamp(2.8rem, 10vw, 8rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 0.85, textTransform: "uppercase", marginBottom: "3rem", color: "#fff", textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}>
+          <h1 style={{ fontSize: "clamp(2.8rem, 10vw, 8rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 0.85, textTransform: "uppercase", marginBottom: "1.5rem", color: "#fff", textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}>
             <SplitTextReveal text="Building the Future of Healthcare" />
           </h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.1rem)", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)", marginBottom: "2rem" }}
+          >
+            Medical &amp; Dental Construction Experts in Tulsa, Oklahoma
+          </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -218,28 +227,8 @@ export default function HomeUI() {
 
       <ProcessScroll />
 
-      {/* ── HIGH-END TESTIMONIAL ── */}
-      <section style={{ padding: "8rem 2rem", background: "#0B061B", color: "#fff", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-10vh", right: "-10vw", width: "60vw", height: "60vw", background: "radial-gradient(circle, rgba(255,72,0,0.15) 0%, rgba(11,6,27,0) 70%)", borderRadius: "50%" }} />
-        
-        <div style={{ maxWidth: "1000px", margin: "0 auto", position: "relative", zIndex: 10 }}>
-          <AnimateIn>
-            <div style={{ fontSize: "6rem", color: "#FF4800", lineHeight: 0.5, marginBottom: "2rem", opacity: 0.5 }}>&ldquo;</div>
-            <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.4, marginBottom: "4rem" }}>
-              UDGOK made our dental practice build-out completely seamless. Their deep understanding of specialized healthcare requirements—from precise plumbing to medical gases—saved us months of delays.
-            </h2>
-            <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-              <div style={{ width: "60px", height: "60px", borderRadius: "50%", background: "linear-gradient(135deg, #FF4800, #FF6B2B)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", fontWeight: 900, color: "#fff", letterSpacing: "-0.02em", flexShrink: 0 }}>
-                DY
-              </div>
-              <div>
-                <div style={{ fontSize: "1rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#fff" }}>Dental Practice Owner</div>
-                <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Tulsa, OK</div>
-              </div>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+      {/* ── TESTIMONIALS ── */}
+      <TestimonialCarousel />
 
       {/* ── FINAL CTA ── */}
       <section style={{ padding: "8rem 2rem", background: "#fff", color: "#0B061B", textAlign: "center", borderTop: "1px solid rgba(0,0,0,0.1)" }}>
@@ -258,5 +247,96 @@ export default function HomeUI() {
         </AnimateIn>
       </section>
     </div>
+  );
+}
+
+const testimonials = [
+  {
+    quote: "UDGOK made our dental practice build-out completely seamless. Their deep understanding of specialized healthcare requirements—from precise plumbing to medical gases—saved us months of delays.",
+    initials: "DY",
+    name: "Dental Practice Owner",
+    location: "Tulsa, OK",
+    gradient: "linear-gradient(135deg, #FF4800, #FF6B2B)",
+  },
+  {
+    quote: "We interviewed four general contractors before choosing UDGOK. They were the only team that understood the HVAC requirements for our ophthalmology practice. Our dark rooms and laser suite were built to spec on the first pass—no rework.",
+    initials: "KP",
+    name: "Ophthalmology Clinic Owner",
+    location: "Broken Arrow, OK",
+    gradient: "linear-gradient(135deg, #6366F1, #818CF8)",
+  },
+  {
+    quote: "UDGOK delivered our 8,000 sq ft medical office two weeks ahead of schedule and under budget. Their preconstruction budgeting was accurate to within 3%. I've since referred them to three other physicians in my network.",
+    initials: "RS",
+    name: "Multi-Specialty Clinic Developer",
+    location: "Jenks, OK",
+    gradient: "linear-gradient(135deg, #059669, #34D399)",
+  },
+];
+
+function TestimonialCarousel() {
+  const [active, setActive] = useState(0);
+  const advance = useCallback(() => setActive((p) => (p + 1) % testimonials.length), []);
+
+  useEffect(() => {
+    const id = setInterval(advance, 6000);
+    return () => clearInterval(id);
+  }, [advance]);
+
+  const t = testimonials[active];
+
+  return (
+    <section style={{ padding: "8rem 2rem", background: "#0B061B", color: "#fff", position: "relative", overflow: "hidden" }}>
+      <div style={{ position: "absolute", top: "-10vh", right: "-10vw", width: "60vw", height: "60vw", background: "radial-gradient(circle, rgba(255,72,0,0.15) 0%, rgba(11,6,27,0) 70%)", borderRadius: "50%" }} />
+
+      <div style={{ maxWidth: "1000px", margin: "0 auto", position: "relative", zIndex: 10 }}>
+        <AnimateIn>
+          <div style={{ fontSize: "6rem", color: "#FF4800", lineHeight: 0.5, marginBottom: "2rem", opacity: 0.5 }}>&ldquo;</div>
+          <motion.h2
+            key={active}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            style={{ fontSize: "clamp(1.6rem,3.5vw,2.6rem)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.4, marginBottom: "4rem", minHeight: "8rem" }}
+          >
+            {t.quote}
+          </motion.h2>
+
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "2rem" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+              <div style={{ width: "60px", height: "60px", borderRadius: "50%", background: t.gradient, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", fontWeight: 900, color: "#fff", letterSpacing: "-0.02em", flexShrink: 0 }}>
+                {t.initials}
+              </div>
+              <div>
+                <div style={{ fontSize: "1rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#fff" }}>{t.name}</div>
+                <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.05em" }}>{t.location}</div>
+              </div>
+            </div>
+
+            {/* Dots */}
+            <div style={{ display: "flex", gap: "0.75rem" }}>
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  aria-label={`Testimonial ${i + 1}`}
+                  style={{
+                    width: active === i ? "32px" : "10px",
+                    height: "10px",
+                    borderRadius: "100px",
+                    background: active === i ? "#FF4800" : "rgba(255,255,255,0.2)",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    padding: 0,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </AnimateIn>
+      </div>
+    </section>
   );
 }

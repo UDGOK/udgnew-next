@@ -20,8 +20,11 @@ const menuContent = {
       { top: "Medical", sub: "Offices & Clinics", href: "/medical-office-design-build-tulsa", img: "/images/ai-medical-exterior.png" },
       { top: "Dental", sub: "Practices & Suites", href: "/dental-office-construction-tulsa", img: "/images/ai-dental-interior.png" },
       { top: "Surgical", sub: "Oral & Maxillofacial", href: "/oral-surgeon-office-construction-tulsa", img: "/images/ai-surgery-suite.png" },
+      { top: "Eye Clinics", sub: "Ophthalmology & Optometry", href: "/eye-clinic-construction-tulsa", img: "/images/modern-medical-office-building-exterior-sunny-day.jpg" },
       { top: "Specialty", sub: "Medical Gas Systems", href: "/medical-gas-installation", img: "/images/modern-medical-office-building-exterior-sunny-day.jpg" },
       { top: "Commercial", sub: "Retail & Build-Outs", href: "/tenant-improvements", img: "/images/ai-construction-mep.png" },
+      { top: "C-Stores", sub: "Convenience & Fuel", href: "/convenience-store-construction-tulsa", img: "/images/modern-jacksons-convenience-store-exterior-dusk.jpg" },
+      { top: "Restaurant", sub: "Dining & Hospitality", href: "/restaurant-construction-tulsa", img: "/images/ai_commercial_retail_plaza.png" },
     ]
   },
   company: {
