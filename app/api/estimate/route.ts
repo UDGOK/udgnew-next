@@ -98,7 +98,11 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error("Resend API Error (Estimate):", error);
-      return NextResponse.json({ error: "Email delivery failed", details: error }, { status: 500 });
+      return NextResponse.json({ 
+        error: "Email delivery failed", 
+        message: error.message || "Unknown Resend error",
+        details: error 
+      }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });

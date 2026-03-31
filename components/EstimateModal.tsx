@@ -59,7 +59,8 @@ export default function EstimateModal({ isOpen, onClose, data }: EstimateModalPr
         setTimeout(() => onClose(), 3000);
       } else {
         const errorData = await response.json();
-        setErrorMessage(errorData.error || "Failed to send estimate. Please call (918) 520-3823.");
+        const msg = errorData.message ? `${errorData.error}: ${errorData.message}` : errorData.error;
+        setErrorMessage(msg || "Failed to send estimate. Please call (918) 520-3823.");
       }
     } catch (err) {
       console.error(err);
