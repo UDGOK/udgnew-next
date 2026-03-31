@@ -160,13 +160,13 @@ export default function MedicalCostCalculator({ defaultType = "dental" }: { defa
                 <svg className="w-32 h-32 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-5 14h-4v-4H5V9h5V5h4v4h5v4h-5v4z"/></svg>
               </div>
               <div className="relative z-10">
-                <p className="text-[0.7rem] font-black uppercase tracking-[0.3em] text-white/80 mb-2">Estimated Investment Range</p>
-                <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-8">
-                  <h3 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
+                <p className="text-[0.7rem] font-black uppercase tracking-[0.3em] text-white/80 mb-4">Estimated Investment Range</p>
+                <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 mb-8">
+                  <h3 className="text-[clamp(2.2rem,5vw,3.8rem)] font-black text-white tracking-tighter leading-none">
                     {formatter.format(calculations.lowEnd)}
                   </h3>
-                  <span className="text-xl md:text-2xl font-bold text-white/60 tracking-tight">—</span>
-                  <h3 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
+                  <span className="text-xl md:text-2xl font-bold text-white/40 tracking-tight">—</span>
+                  <h3 className="text-[clamp(2.2rem,5vw,3.8rem)] font-black text-white tracking-tighter leading-none">
                     {formatter.format(calculations.highEnd)}
                   </h3>
                 </div>
