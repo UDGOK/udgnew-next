@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd, LocalBusinessJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, MedicalBusinessJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Medical Office Design-Build Contractor Tulsa OK | 100+ Facilities",
@@ -36,7 +36,7 @@ export default function MedicalOfficePage() {
         description="Full-service medical office design-build in Tulsa, Oklahoma. UDGOK delivers turnkey clinics, specialty practices, and urgent care facilities with specialized MEP systems."
         url="https://udgok.com/medical-office-design-build-tulsa"
       />
-      <LocalBusinessJsonLd
+      <MedicalBusinessJsonLd
         description="Tulsa, Oklahoma's top-rated medical office design-build contractor. 100+ healthcare facilities delivered including primary care clinics, urgent care centers, specialty practices, and multi-physician offices with ADA, HIPAA, and ASHRAE 170 compliance."
         url="https://udgok.com/medical-office-design-build-tulsa"
         specialization="Medical office construction, Healthcare design-build, Medical clinic build-out, Urgent care construction, ADA compliant medical office, HIPAA compliant construction, Medical-grade HVAC, Medical gas installation"

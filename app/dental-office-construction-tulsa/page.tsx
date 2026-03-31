@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd, LocalBusinessJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, MedicalBusinessJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Dental Office Construction Contractor Tulsa OK | 80+ Clinics Built",
@@ -36,7 +36,8 @@ export default function DentalOfficePage() {
         description="Specialized dental clinic construction in Tulsa, Oklahoma. UDGOK has built 80+ dental offices including operatories, sterilization centers, medical gas systems, and ADA-compliant patient spaces."
         url="https://udgok.com/dental-office-construction-tulsa"
       />
-      <LocalBusinessJsonLd
+      <MedicalBusinessJsonLd
+        medicalType="Dentist"
         description="Tulsa, Oklahoma's leading dental office construction contractor. 80+ dental clinics built including general, pediatric, orthodontic, and oral surgery offices with operatory plumbing, medical gas, and ADA-compliant layouts."
         url="https://udgok.com/dental-office-construction-tulsa"
         specialization="Dental office construction, Dental clinic build-out, Operatory plumbing rough-in, Medical gas installation, Dental office remodel, ADA compliant dental office, Infection control HVAC"

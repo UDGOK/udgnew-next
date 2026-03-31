@@ -239,3 +239,65 @@ export function AutoBreadcrumbJsonLd() {
 
   return <BreadcrumbJsonLd items={items} />;
 }
+
+/* ─── MedicalBusiness (for Healthcare pages) ─── */
+export function MedicalBusinessJsonLd({
+  name = "Upscale Development Group",
+  description,
+  url,
+  specialization,
+  medicalType = "MedicalBusiness",
+}: {
+  name?: string;
+  description: string;
+  url: string;
+  specialization?: string;
+  medicalType?: "MedicalBusiness" | "Dentist" | "Hospital";
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": [medicalType, "GeneralContractor"],
+    name,
+    alternateName: "UDGOK",
+    description,
+    url,
+    telephone: "+19185203823",
+    email: "projects@udgok.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "7739 E 38th Street, Ste F",
+      addressLocality: "Tulsa",
+      addressRegion: "OK",
+      postalCode: "74145",
+      addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 36.1054,
+      longitude: -95.8838,
+    },
+    areaServed: AREA_SERVED,
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "07:00",
+      closes: "18:00",
+    },
+    ...(specialization && {
+      knowsAbout: specialization.split(",").map((s) => s.trim()),
+    }),
+    sameAs: [
+      "https://www.facebook.com/udgok",
+      "https://www.linkedin.com/company/udgok",
+    ],
+    logo: "https://udgok.com/images/logo.png",
+    image: "https://udgok.com/images/logo.png",
+    priceRange: "$$$$",
+    foundingDate: "2015",
+  };
+  return (
+    <Script id={`schema-medical-${medicalType}`} type="application/ld+json">
+      {JSON.stringify(schema)}
+    </Script>
+  );
+}

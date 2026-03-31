@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, MedicalBusinessJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
+// ... existing metadata
   title: "Ambulatory Surgery Center Construction Oklahoma | UDGOK",
+// ...
   description:
     "Turnkey ambulatory surgery center (ASC) and outpatient facility construction in Tulsa, Oklahoma City, and Dallas. AAAHC/CMS-ready operating rooms, sterile processing, medical gas, and HVAC. 100% NFPA 99 first-pass certification.",
   keywords: [
@@ -37,6 +39,12 @@ export default function ASCPage() {
         name="Ambulatory Surgery Center Construction"
         description="Turnkey ambulatory surgery center (ASC) and outpatient facility construction including operating rooms, sterile processing, medical gas systems, and specialized HVAC. Serving Oklahoma and Texas."
         url="https://udgok.com/ambulatory-surgery-center-construction"
+      />
+      <MedicalBusinessJsonLd
+        name="UDGOK — ASC Construction Specialists"
+        description="Oklahoma's premier ASC builder, specializing in Revenue-First delivery and AAAHC/CMS-ready surgical infrastructure."
+        url="https://udgok.com/ambulatory-surgery-center-construction"
+        specialization="Ambulatory Surgery Center Construction, Operating Room Construction, Sterile Processing Design, NFPA 99 Medical Gas, CMS Certification Readiness"
       />
       <ServicePage
         label="Ambulatory Surgery Centers"
