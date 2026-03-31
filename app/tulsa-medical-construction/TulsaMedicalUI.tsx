@@ -170,7 +170,7 @@ export default function TulsaMedicalUI() {
 
                     <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
                         style={{ fontSize: "clamp(0.95rem, 2vw, 1.15rem)", lineHeight: 1.8, color: "rgba(255,255,255,0.55)", maxWidth: "700px", margin: "0 auto" }}>
-                        Oklahoma&apos;s most trusted healthcare construction contractor — 100+ medical and dental facilities delivered across the Tulsa metro. From single-operatory dental suites to multi-physician medical campuses and ambulatory surgery centers.
+                        Oklahoma&apos;s most trusted healthcare construction contractor — 100+ medical and dental facilities delivered across the Tulsa metro. We specialize in **Revenue-Ready** delivery, getting your practice open 30% faster than traditional builders while ensuring total HIPAA and clinical compliance.
                     </motion.p>
 
                     {/* Stats bar */}
@@ -186,15 +186,31 @@ export default function TulsaMedicalUI() {
 
             {/* ═══ TL;DR SPEAKABLE ═══ */}
             <section style={{ borderTop: "3px solid #FF4800", background: "rgba(255,72,0,0.04)" }}>
-                <div style={{ maxWidth: "900px", margin: "0 auto", padding: "2.5rem 2rem" }}>
-                    <Section>
-                        <div data-speakable="true" style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
-                            <div style={{ fontSize: "0.6rem", fontWeight: 800, color: "#FF4800", letterSpacing: "0.2em", textTransform: "uppercase", minWidth: "50px", paddingTop: "0.15rem" }}>TL;DR</div>
-                            <p style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, margin: 0 }}>
-                                UDGOK is Tulsa&apos;s most experienced healthcare construction contractor with 100+ medical and dental facilities delivered across the metro area. We build dental offices, medical office buildings, eye clinics, oral surgery centers, urgent care facilities, and ambulatory surgery centers. Our team includes ASSE 6010 certified medical gas installers, OSHA 30 superintendents, and PMP-certified project managers. Healthcare construction in Tulsa costs $140–$500 per square foot depending on specialty and complexity.
-                            </p>
-                        </div>
-                    </Section>
+                <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "4rem 2rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
+                        <Section>
+                            <div style={{ background: "rgba(255,72,0,0.08)", border: "1px solid rgba(255,72,0,0.3)", padding: "2rem", borderRadius: "8px" }}>
+                                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
+                                    <span style={{ fontSize: "1.5rem" }}>🚀</span>
+                                    <h3 style={{ fontSize: "1.1rem", fontWeight: 900, color: "#fff", textTransform: "uppercase", margin: 0 }}>Revenue-Ready Delivery</h3>
+                                </div>
+                                <p style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.7, margin: 0 }}>
+                                    Every day your clinic isn&apos;t open is lost revenue. Our <strong>Design-Build</strong> approach overlaps permitting and construction to get you seeing patients <strong>30% faster</strong>. We provide 48-hour feasibility models so you can sign your lease with zero budget anxiety.
+                                </p>
+                            </div>
+                        </Section>
+                        <Section delay={0.1}>
+                            <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.1)", padding: "2rem", borderRadius: "8px" }}>
+                                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
+                                    <span style={{ fontSize: "1.5rem" }}>👂</span>
+                                    <h3 style={{ fontSize: "1.1rem", fontWeight: 900, color: "#fff", textTransform: "uppercase", margin: 0 }}>Physician-Centric Design</h3>
+                                </div>
+                                <p style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.7, margin: 0 }}>
+                                    We build with your workflow in mind. From <strong>STC-50+ acoustic isolation</strong> for HIPAA-compliant consultations to clinical floor plans that minimize staff travel distances. We prioritize patient comfort and staff efficiency second only to clinical safety.
+                                </p>
+                            </div>
+                        </Section>
+                    </div>
                 </div>
             </section>
 
@@ -279,8 +295,8 @@ export default function TulsaMedicalUI() {
                         {[
                             { icon: "🔬", title: "100+ Healthcare Facilities", desc: "More healthcare square footage delivered in the Tulsa metro than any other local contractor. We know the inspectors, the subcontractors, and the clinical requirements." },
                             { icon: "⚕️", title: "ASSE 6010 Medical Gas", desc: "Certified medical gas installers on staff. Oxygen, nitrous oxide, medical air, and vacuum systems installed to NFPA 99 standards with independent ASSE 6030 verification." },
-                            { icon: "📐", title: "In-House Design-Build", desc: "Integrated design and construction under one contract. No finger-pointing between architect and contractor. Faster delivery, locked budgets, single accountability." },
-                            { icon: "🤖", title: "AI-Powered Estimating", desc: "Machine learning models trained on 100+ healthcare projects produce accurate conceptual estimates within 48 hours — not weeks. Budget certainty before you commit." },
+                            { icon: "📐", title: "In-House Design-Build", desc: "Our integrated methodology overlaps design and construction, reducing typical delivery times by 30% and eliminating change orders via absolute budget transparency." },
+                            { icon: "🔇", title: "Acoustic Privacy & HIPAA", desc: "Specialized wall assemblies and sound masking systems ensuring total STC-rated acoustic privacy between exam rooms for absolute HIPAA compliance." },
                             { icon: "🏛️", title: "Regulatory Expertise", desc: "OSHA 30 superintendents, ADA compliance, health department coordination, and AAAHC accreditation support. We handle the regulatory burden so you can focus on patients." },
                             { icon: "📊", title: "Transparent Pricing", desc: "Open-book GMP contracts with real-time cost reporting. You see every line-item, every subcontractor bid, and every cost decision in real time." },
                         ].map((item, i) => <ServiceCard key={i} icon={item.icon} title={item.title} desc={item.desc} i={i} />)}

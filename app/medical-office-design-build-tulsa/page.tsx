@@ -47,15 +47,15 @@ export default function MedicalOfficePage() {
         description="Turnkey medical offices engineered for clinical workflow, regulatory compliance, and patient experience."
         imageSrc="/images/ai-medical-exterior.png"
         imageAlt="Medical office design-build Tulsa by UDGOK"
-        tldr="UDGOK is Tulsa's top-rated medical office design-build contractor. We deliver turnkey primary care clinics, urgent care facilities, and specialty practices with ADA-compliant layouts, medical-grade HVAC, and specialized MEP systems. Medical office construction in the Tulsa metro costs $150–$350 per square foot depending on specialty, with typical timelines of 4–7 months from design to occupancy."
+        tldr="UDGOK is Tulsa's most experienced medical design-build firm, specializing in **Revenue-Ready** delivery for physician-owned practices. We overlap design and construction to get your clinic seeing patients 30% faster than traditional builders. From STC-50+ acoustic privacy for HIPAA compliance to specialized ASHRAE 170 ventilation, we build medical infrastructure that protects your clinical practice and your ROI."
         intro="Medical office construction demands precision that commercial contractors often can't deliver. Exam room dimensions, HVAC pressure relationships, ADA clearances, and infection control ventilation all require healthcare-specific expertise. UDGOK has delivered 100+ medical facilities across Oklahoma — from 1,200 sq ft solo practices to 15,000+ sq ft multi-physician specialty clinics. See our <a href='/guide-medical-office-cost-tulsa'>2026 medical office cost guide</a> for full per-square-foot pricing."
         practiceOwnerBox={{
-          heading: "For Practice Owners",
+          heading: "Maximizing ROI for Medical Practice Owners",
           bullets: [
-            "<strong>Minimize downtime</strong> — Stay open during construction with phased build-out scheduling that keeps your revenue flowing",
-            "<strong>Pass inspections on first try</strong> — ADA, Oklahoma Dept. of Health, and HIPAA compliance is built into every design from day one",
-            "<strong>Future-proof your practice</strong> — Expansion-ready plumbing, electrical, and HVAC so you can add operatories later without major rework",
-          ],
+            "<strong>Revenue-Ready Delivery:</strong> Our design-build methodology overlaps permitting and construction phases, getting your clinic open up to 60 days sooner than traditional methods.",
+            "<strong>Absolute HIPAA Privacy:</strong> We implement specialized STC-50+ acoustic wall assemblies and sound masking to ensure patient consultations remain completely private.",
+            "<strong>Clinical Workflow Optimization:</strong> We design layouts that minimize staff travel distances and optimize patient throughput, reducing daily operational stress for your team."
+          ]
         }}
         galleryImages={[
           {

@@ -44,14 +44,22 @@ export default function ASCPage() {
         description="Turnkey ASC and outpatient facility construction — from site selection to CMS certification. Operating rooms, sterile processing, and medical gas systems delivered on schedule."
         imageSrc="/images/asc-construction-hero.png"
         imageAlt="Ambulatory surgery center construction by UDGOK"
-        tldr="UDGOK delivers turnkey ambulatory surgery center (ASC) construction for single-specialty and multi-specialty surgical groups across Oklahoma and Texas. ASC construction costs range from $350–$650 per square foot depending on specialty, OR count, and imaging requirements. We handle every specialized system — Class B/C operating room HVAC with 20+ air changes/hour, NFPA 99 medical gas installation (O2, N2O, medical air, vacuum, WAGD), sterile processing department (SPD) design, and CMS/AAAHC-ready infrastructure. Our healthcare construction team completes ASC projects 23% faster than the industry average."
+        tldr="UDGOK is Oklahoma's premier ASC builder, specializing in **Revenue-First** delivery. We overlap design and construction to hit your 'First Case' date 3-4 months faster than traditional builders. From AAAHC/CMS-ready operating rooms to 100% NFPA 99 medical gas compliance, we build surgical infrastructure that maximizes both clinical safety and surgical group ROI."
         intro="The $105 billion ambulatory surgery center market is reshaping healthcare delivery. More procedures are migrating from hospital ORs to freestanding ASCs — driven by better patient outcomes, lower costs, and faster recovery. But ASC construction demands a contractor who understands operating room HVAC classifications, sterile processing workflows, medical gas zone requirements, and CMS Conditions for Coverage. UDGOK builds surgery centers daily, delivering clinical infrastructure that passes inspection on the first attempt."
         stats={[
           { n: "100%", l: "First-Pass CMS Ready" },
-          { n: "$350–650", l: "Cost per Sq Ft" },
+          { n: "3-4mo", l: "Faster ROI Gap" },
           { n: "23%", l: "Faster Than Average" },
           { n: "50+", l: "Healthcare Projects" },
         ]}
+        practiceOwnerBox={{
+          heading: "Optimizing ASC Hospital-to-Clinic Transitions",
+          bullets: [
+            "<strong>Revenue-First Delivery:</strong> We overlap design and early construction to hit your first-case date 4 months faster, generating immediate ROI for your surgical group.",
+            "<strong>CMS/AAAHC First-Pass Ready:</strong> We build to 100% NFPA 99 and CMS compliance, ensuring your accreditation survey is a success with zero major deficiencies.",
+            "<strong>Surgical Workflow Efficiency:</strong> One-way sterile processing flows and optimized OR-to-PACU transit times designed to maximize your daily case volume."
+          ]
+        }}
         features={[
           { icon: "🏥", title: "Operating Room Construction", desc: "Class B and Class C operating rooms with laminar airflow, 20+ air changes/hour, seamless wall/floor transitions, surgical lighting, and equipment ceiling booms." },
           { icon: "⚗️", title: "Medical Gas Systems", desc: "NFPA 99 certified installation of oxygen, nitrous oxide, medical air, vacuum, and waste anesthetic gas disposal (WAGD) with zone valve boxes and alarm panels." },

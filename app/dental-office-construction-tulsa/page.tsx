@@ -48,14 +48,22 @@ export default function DentalOfficePage() {
         imageSrc="/images/dental-office-construction.png"
         imageAlt="Dental office construction Tulsa by UDGOK"
         heroVideoSrc="/videos/happy-doctor-friends.mp4"
-        tldr="UDGOK is Tulsa, Oklahoma's leading dental office construction contractor with 80+ completed clinics. We build general, pediatric, orthodontic, and oral surgery dental offices from 1,500 to 10,000+ sq ft, including operatory plumbing rough-in, medical gas systems, infection control HVAC, and ADA-compliant layouts. Typical dental build-outs in the Tulsa metro run $140–$280 per square foot and take 3–5 months from permit to certificate of occupancy."
+        tldr="UDGOK is Tulsa's most experienced dental contractor with 80+ clinics built. We specialize in **Revenue-Ready** delivery, overlapping design and construction to get you seeing patients 30% faster than traditional builders. From STC-rated acoustic privacy between suites to precision med-gas and plumbing rough-ins, we build infrastructure that protects your clinical practice and your ROI."
         intro="Dental office construction requires a specialized approach — from chair outlet rough-in to nitrous oxide systems to infection control HVAC. UDGOK has built over 80 dental offices across Oklahoma and Texas, and we speak your language. We understand operatory flow, sterilization adjacencies, and the 37 utility connections every chair position needs. See our <a href='/guide-dental-buildout-checklist-oklahoma'>dental office build-out checklist</a> for a full step-by-step guide."
         stats={[
           { n: "80+", l: "Dental Offices Built" },
-          { n: "3–5mo", l: "Typical Timeline" },
+          { n: "3–6wk", l: "Faster Delivery" },
           { n: "100%", l: "ADA Compliant" },
           { n: "OSHA", l: "Safety Standards" },
         ]}
+        practiceOwnerBox={{
+          heading: "Maximizing ROI for Dental Practice Owners",
+          bullets: [
+            "<strong>Revenue-Ready Delivery:</strong> Our design-build methodology overlaps permitting and construction phases, getting your clinic open up to 45 days sooner.",
+            "<strong>Total HIPAA Privacy:</strong> We implement STC-50+ acoustic wall assemblies between operatories and consult rooms to ensure patient conversations remain completely private.",
+            "<strong>Clinical Workflow Optimization:</strong> We design operatory and sterilization flows that minimize staff travel distances, reducing fatigue and increasing patient throughput."
+          ]
+        }}
         features={[
           { icon: "🦷", title: "Treatment Room Rough-In", desc: "Precisely located chair outlets, water, drain, air, and vacuum connections for every operatory." },
           { icon: "💧", title: "Dental Plumbing Systems", desc: "Dedicated dental water supply, vacuum systems, and amalgam separators meeting EPA and local codes." },
