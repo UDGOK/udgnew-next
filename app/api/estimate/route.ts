@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     });
 
     const { error } = await resend.emails.send({
-      from: "UDGOK Website <noreply@udgok.com>",
+      from: "UDGOK Estimator <onboarding@resend.dev>",
       to: ["yasir@udgok.com"],
       replyTo: email,
       subject: `[Clinical Brief] New ${(type || "medical").toUpperCase()} Project: ${rooms || 0} Rooms — ${name || "Unknown"}`,
