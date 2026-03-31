@@ -20,6 +20,7 @@ export default function EstimateModal({ isOpen, onClose, data }: EstimateModalPr
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Form State
   const [formData, setFormData] = useState({
@@ -35,6 +36,7 @@ export default function EstimateModal({ isOpen, onClose, data }: EstimateModalPr
     if (isOpen) {
       setStep(1);
       setIsSuccess(false);
+      setErrorMessage("");
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -56,7 +58,8 @@ export default function EstimateModal({ isOpen, onClose, data }: EstimateModalPr
         setIsSuccess(true);
         setTimeout(() => onClose(), 3000);
       } else {
-        alert("Failed to send estimate. Please call (918) 520-3823.");
+        const errorData = await response.json();
+        setErrorMessage(errorData.error || "Failed to send estimate. Please call (918) 520-3823.");
       }
     } catch (err) {
       console.error(err);
@@ -116,6 +119,11 @@ export default function EstimateModal({ isOpen, onClose, data }: EstimateModalPr
                     <p className="text-white/40 text-sm">
                       Modeling a <span className="text-white font-bold">{data.rooms} {data.type === "dental" ? "Operatory" : "Clinical"} {data.type.toUpperCase()}</span> facility.
                     </p>
+                    {errorMessage && (
+                      <div className="mt-4 p-3 bg-red-500/20 border border-red-500/50 rounded-xl text-red-200 text-xs italic">
+                        {errorMessage}
+                      </div>
+                    )}
                   </div>
 
                   <form onSubmit={handleSubmit}>

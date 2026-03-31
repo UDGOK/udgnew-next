@@ -18,10 +18,10 @@ export async function POST(req: Request) {
     });
 
     const { error } = await resend.emails.send({
-      from: "UDGOK Clinical Estimator <noreply@udgok.com>",
+      from: "UDGOK Website <noreply@udgok.com>",
       to: ["yasir@udgok.com"],
       replyTo: email,
-      subject: `[Clinical Brief] New ${type.toUpperCase()} Project: ${rooms} Rooms — ${name}`,
+      subject: `[Clinical Brief] New ${(type || "medical").toUpperCase()} Project: ${rooms || 0} Rooms — ${name || "Unknown"}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; color: #333;">
           <div style="background: #0B061B; padding: 40px; text-align: center; border-radius: 12px 12px 0 0;">
@@ -97,13 +97,13 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      console.error("Resend error:", error);
-      return NextResponse.json({ error: "Email delivery failed" }, { status: 500 });
+      console.error("Resend API Error (Estimate):", error);
+      return NextResponse.json({ error: "Email delivery failed", details: error }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
   } catch (err) {
-    console.error("Estimate API Error:", err);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    console.error("Critical Estimate API Error:", err);
+    return NextResponse.json({ error: "Internal Server Error", details: err instanceof Error ? err.message : String(err) }, { status: 500 });
   }
 }
