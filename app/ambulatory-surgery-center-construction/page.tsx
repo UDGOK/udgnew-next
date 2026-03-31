@@ -121,6 +121,7 @@ export default function ASCPage() {
           { q: "Do you provide equipment planning for ASCs?", a: "Yes. Our preconstruction team coordinates with your equipment vendors to ensure proper infrastructure — electrical circuits, medical gas outlets, structural support, data connections, and equipment clearances — is designed into the construction documents from the start. This prevents costly change orders once construction begins." },
         ]}
         cta="Plan Your Surgery Center →"
+        calculatorType="asc"
       />
     </>
   );

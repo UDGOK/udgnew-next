@@ -205,6 +205,7 @@ export default function MedicalOfficePage() {
         ]}
         cta="See What Your Practice Could Look Like"
         secondaryCta={{ text: "Compare 4-Op vs 6-Op Layouts", href: "/contact" }}
+        calculatorType="medical"
       />
     </>
   );

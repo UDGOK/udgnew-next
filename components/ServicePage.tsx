@@ -8,6 +8,7 @@ import MarqueeBanner from "@/components/MarqueeBanner";
 import AnimateIn from "@/components/AnimateIn";
 import CountUp from "@/components/CountUp";
 import VideoShowcase from "@/components/VideoShowcase";
+import MedicalCostCalculator from "@/components/MedicalCostCalculator";
 
 /* ── Card gradient palettes (one per card index) ── */
 const CARD_GRADIENTS = [
@@ -118,6 +119,8 @@ interface ServicePageProps {
   videoHeadingAccent?: string;
   /** Background video for the hero area (replaces static image when provided) */
   heroVideoSrc?: string;
+  /** Optional interactive calculator type */
+  calculatorType?: "dental" | "medical" | "asc";
 }
 
 export default function ServicePage({
@@ -125,6 +128,7 @@ export default function ServicePage({
   cta = "Start Your Project →", stats, tldr, faqs, sections, testimonial,
   practiceOwnerBox, galleryImages, secondaryCta, portfolioImages, videoSrc,
   videoLabel, videoHeadingStart, videoHeadingAccent, heroVideoSrc,
+  calculatorType,
 }: ServicePageProps) {
   const containerRef = useRef(null);
   const ctaSectionRef = useRef<HTMLElement>(null);
@@ -323,6 +327,14 @@ export default function ServicePage({
           </div>
         </section>
       )}
+
+      {/* ── Interactive Clinical Calculator ── */}
+      {calculatorType && (
+        <section className="border-b border-white/10 bg-[#05020B]/50">
+          <MedicalCostCalculator defaultType={calculatorType} />
+        </section>
+      )}
+
       {/* ── Portfolio Showcase (Full-Width Cards) ── */}
       {portfolioImages && portfolioImages.length > 0 && (
         <section className="border-b border-white/10 py-16 md:py-24 bg-[#05020B]">

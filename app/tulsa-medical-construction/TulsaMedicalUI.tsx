@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import MedicalCostCalculator from "@/components/MedicalCostCalculator";
 
 /* ─── Animated Section ─── */
 function Section({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -327,6 +328,13 @@ export default function TulsaMedicalUI() {
                     </Section>
                 </div>
             </section>
+
+            {/* ═══ INTERACTIVE CALCULATOR ═══ */}
+            <Section>
+                <div style={{ borderTop: "2px solid rgba(255,255,255,0.04)", borderBottom: "2px solid rgba(255,255,255,0.04)", background: "rgba(5,2,11,0.5)" }}>
+                    <MedicalCostCalculator defaultType="medical" />
+                </div>
+            </Section>
 
             {/* ═══ FAQ ═══ */}
             <section style={{ maxWidth: "900px", margin: "0 auto", padding: "5rem 2rem" }}>

@@ -146,6 +146,7 @@ export default function DentalOfficePage() {
         videoLabel="On-Site"
         videoHeadingStart="From Drawings to"
         videoHeadingAccent="Reality"
+        calculatorType="dental"
       />
     </>
   );
