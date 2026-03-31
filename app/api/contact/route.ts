@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     }
 
     const { error } = await resend.emails.send({
-      from: "UDGOK Website <noreply@udgok.com>",
+      from: "UDGOK Website <onboarding@resend.dev>",
       to: ["yasir@futonix.com"],
       replyTo: email,
       subject: `New Project Inquiry from ${name}${projectType ? ` — ${projectType}` : ""}`,
