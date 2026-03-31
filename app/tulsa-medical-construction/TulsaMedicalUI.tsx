@@ -4,6 +4,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import MedicalCostCalculator from "@/components/MedicalCostCalculator";
+import EstimateModal from "@/components/EstimateModal";
 
 /* ─── Animated Section ─── */
 function Section({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -93,6 +94,7 @@ function ImageCard({ src, alt, caption }: { src: string; alt: string; caption: s
 
 /* ═══════════════════════ MAIN COMPONENT ═══════════════════════ */
 export default function TulsaMedicalUI() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const specialties = [
         { icon: "🏥", title: "Medical Office Buildings", desc: "Multi-tenant and single-tenant medical office buildings. Primary care, specialty clinics, urgent care facilities, and multi-physician campuses across the Tulsa metro.", href: "/medical-office-design-build-tulsa" },
@@ -359,9 +361,6 @@ export default function TulsaMedicalUI() {
                             <Link href="/construction-companies-tulsa" style={{ color: "#FF4800", textDecoration: "none", fontWeight: 700 }}>construction company in Tulsa, Oklahoma</Link>
                             {" "}— delivering commercial, medical, dental, industrial, and retail projects. Explore our{" "}
                             <Link href="/dental-office-construction-tulsa" style={{ color: "#FF4800", textDecoration: "none", fontWeight: 700 }}>dental office construction</Link>
-                            {" "}and{" "}
-                            <Link href="/medical-office-design-build-tulsa" style={{ color: "#FF4800", textDecoration: "none", fontWeight: 700 }}>medical office design-build</Link>
-                            {" "}pages for more.
                         </p>
                     </div>
                 </Section>
@@ -375,15 +374,29 @@ export default function TulsaMedicalUI() {
                         Get a free feasibility analysis and cost estimate for your medical, dental, or surgical facility. Most estimates delivered within 48 hours.
                     </p>
                     <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-                        <Link href="/contact" style={{ display: "inline-block", padding: "1rem 2.5rem", background: "#FF4800", color: "#fff", fontWeight: 800, fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", textDecoration: "none", transition: "background 0.3s" }}>
+                        <button 
+                            onClick={() => setIsModalOpen(true)}
+                            style={{ display: "inline-block", padding: "1rem 2.5rem", background: "#FF4800", color: "#fff", border: "none", cursor: "pointer", fontWeight: 800, fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", textDecoration: "none", transition: "background 0.3s" }}>
                             Start Your Project →
-                        </Link>
+                        </button>
                         <Link href="tel:+19185203823" style={{ display: "inline-block", padding: "1rem 2.5rem", background: "transparent", color: "#fff", fontWeight: 800, fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", textDecoration: "none", border: "2px solid rgba(255,255,255,0.15)", transition: "border-color 0.3s" }}>
                             Call (918) 520-3823
                         </Link>
                     </div>
                 </Section>
             </section>
+
+            <EstimateModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)}
+                data={{
+                    type: "medical",
+                    rooms: 5,
+                    lowEnd: 350000,
+                    highEnd: 550000,
+                    roiGap: 200000,
+                }}
+            />
         </div>
     );
 }

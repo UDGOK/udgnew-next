@@ -9,6 +9,7 @@ import AnimateIn from "@/components/AnimateIn";
 import CountUp from "@/components/CountUp";
 import VideoShowcase from "@/components/VideoShowcase";
 import MedicalCostCalculator from "@/components/MedicalCostCalculator";
+import EstimateModal from "@/components/EstimateModal";
 
 /* ── Card gradient palettes (one per card index) ── */
 const CARD_GRADIENTS = [
@@ -136,9 +137,10 @@ export default function ServicePage({
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacityFade = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.3, 0]);
 
-  /* Sticky CTA visibility: show after 500px scroll, hide when bottom CTA is visible */
   const [showSticky, setShowSticky] = useState(false);
   const [activeFeature, setActiveFeature] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     let ctaVisible = false;
     const onScroll = () => setShowSticky(window.scrollY > 500 && !ctaVisible);
@@ -693,10 +695,13 @@ export default function ServicePage({
               We provide accurate feasibility analysis and cost modeling before you sign a lease. Contact our project directors today.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 flex-wrap">
-              <Link href="/contact" className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#FF4800] text-white font-bold text-sm tracking-[0.2em] uppercase hover:bg-orange-600 transition-colors rounded-full shadow-2xl hover:shadow-[#FF4800]/40 group">
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#FF4800] text-white font-bold text-sm tracking-[0.2em] uppercase hover:bg-orange-600 transition-colors rounded-full shadow-2xl hover:shadow-[#FF4800]/40 group"
+              >
                 {cta}
                 <span className="ml-4 transform group-hover:translate-x-1 transition-transform">→</span>
-              </Link>
+              </button>
               {secondaryCta && (
                 <Link href={secondaryCta.href} className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#0B061B] text-white font-bold text-sm tracking-[0.2em] uppercase hover:bg-gray-800 transition-colors rounded-full shadow-2xl border border-white/10 hover:border-white/20">
                   {secondaryCta.text}
@@ -709,6 +714,7 @@ export default function ServicePage({
           </div>
         </AnimateIn>
       </section>
+
 
       {/* ── Sticky CTA Bar ── */}
       <AnimatePresence>
@@ -732,18 +738,29 @@ export default function ServicePage({
                 >
                   📞 (918) 520-3823
                 </Link>
-                <Link
-                  href="/contact"
+                <button
+                  onClick={() => setIsModalOpen(true)}
                   className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#FF4800] rounded-xl text-white text-xs font-bold tracking-wider uppercase hover:bg-[#FF4800]/80 transition-colors shadow-lg shadow-[#FF4800]/30"
                 >
                   Get Estimate →
-                </Link>
+                </button>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
+      <EstimateModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+        data={{
+          type: calculatorType || "medical",
+          rooms: 5, // Default for non-calculator entries
+          lowEnd: 250000,
+          highEnd: 450000,
+          roiGap: 150000,
+        }}
+      />
     </main>
   );
 }
