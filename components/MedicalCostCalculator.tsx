@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import EstimateModal from "@/components/EstimateModal";
 
 type PracticeType = "dental" | "medical" | "asc";
 type BudgetLevel = 0 | 1 | 2; // Economy, Standard, Premium
@@ -43,6 +44,7 @@ export default function MedicalCostCalculator({ defaultType = "dental" }: { defa
   const [rooms, setRooms] = useState(5);
   const [budget, setBudget] = useState<BudgetLevel>(1);
   const [isClient, setIsClient] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => setIsClient(true), []);
 
@@ -207,12 +209,12 @@ export default function MedicalCostCalculator({ defaultType = "dental" }: { defa
 
             {/* CTA */}
             <div className="flex flex-col md:flex-row items-center gap-4">
-              <Link 
-                href="/contact" 
+              <button 
+                onClick={() => setIsModalOpen(true)}
                 className="w-full md:flex-1 bg-[#FF4800] hover:bg-orange-600 text-white font-black text-xs uppercase tracking-[0.2em] py-6 rounded-2xl text-center shadow-xl shadow-[#FF4800]/20 transition-all hover:scale-[1.02] active:scale-95"
               >
                 Inquire About This Model →
-              </Link>
+              </button>
               <div className="hidden md:flex items-center gap-3 px-6 text-white/30 italic text-xs">
                 <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 Pricing includes all clinical MEP & specialized medical rough-ins.
@@ -221,6 +223,18 @@ export default function MedicalCostCalculator({ defaultType = "dental" }: { defa
           </div>
         </div>
       </div>
+
+      <EstimateModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+        data={{
+          type,
+          rooms,
+          lowEnd: calculations.lowEnd,
+          highEnd: calculations.highEnd,
+          roiGap: calculations.roiGap,
+        }}
+      />
     </section>
   );
 }
