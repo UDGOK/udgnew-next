@@ -194,14 +194,43 @@ export default function Navigation() {
 
   return (
     <>
+      {/* Backdrop Dimmer/Blur Overlay for Desktop Mega Menu */}
+      <AnimatePresence>
+        {activeMenu && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              position: "fixed",
+              top: "80px",
+              left: 0,
+              width: "100%",
+              height: "calc(100vh - 80px)",
+              backgroundColor: "rgba(11, 6, 27, 0.45)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              zIndex: 9998,
+              pointerEvents: "none",
+            }}
+          />
+        )}
+      </AnimatePresence>
+
       <header
         className="fixed top-0 left-0 w-full transition-all duration-300"
         style={{
           zIndex: 10000,
-          background: activeMenu ? "#0B061B" : (scrolled ? "rgba(11, 6, 27, 0.98)" : "rgba(255, 72, 0, 0.8)"),
-          backdropFilter: activeMenu ? "none" : "blur(16px)",
-          WebkitBackdropFilter: activeMenu ? "none" : "blur(16px)",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(255,255,255,0)",
+          background: activeMenu 
+            ? "#0B061B" 
+            : (pathname === "/" 
+                ? (scrolled ? "rgba(11, 6, 27, 0.98)" : "transparent") 
+                : "rgba(11, 6, 27, 0.98)"
+              ),
+          backdropFilter: activeMenu ? "none" : (pathname === "/" && !scrolled ? "none" : "blur(16px)"),
+          WebkitBackdropFilter: activeMenu ? "none" : (pathname === "/" && !scrolled ? "none" : "blur(16px)"),
+          borderBottom: scrolled || pathname !== "/" ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(255,255,255,0)",
           height: "80px",
         }}
         onMouseLeave={() => setActiveMenu(null)}

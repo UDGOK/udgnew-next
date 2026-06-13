@@ -69,11 +69,11 @@ export default function HomeUI() {
   return (
     <div style={{ background: "#F7F4F7", color: "#0B061B" }}>
       {/* ── HIGH-END HERO ── */}
-      <section ref={heroRef} style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+      <section ref={heroRef} style={{ position: "relative", minHeight: "100vh", marginTop: "-80px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
         {/* Parallax Background */}
         <motion.div style={{ position: "absolute", inset: -50, y: heroY, opacity: heroOpacity, zIndex: 0 }}>
           <video src="/videos/hero-video.mp4" autoPlay loop muted playsInline data-nosnippet aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0 }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(11,6,27,0.3) 0%, rgba(247,244,247,1) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(11, 6, 27, 0.75) 0%, rgba(11, 6, 27, 0.35) 50%, rgba(247, 244, 247, 1) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         </motion.div>
 
