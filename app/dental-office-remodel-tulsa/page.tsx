@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd, LocalBusinessJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, LocalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Dental Office Remodel & Renovation Tulsa OK",
@@ -17,9 +17,24 @@ export const metadata: Metadata = {
 };
 
 export default function DentalRemodelPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Dental Office Remodel & Renovation", url: "https://www.udgok.com/dental-office-remodel-tulsa" }
+  ];
+  const PAGE_FAQS = [
+          { q: "Can I keep my dental practice open during a remodel?", a: "Yes. UDGOK uses phased construction — we renovate one section at a time behind dust barriers and HEPA-filtered negative pressure containment. Your practice stays open and producing revenue throughout the entire renovation." },
+          { q: "How much does a dental office remodel cost in Tulsa?", a: "Dental office remodels in Tulsa cost $80–$200 per square foot depending on scope. A cosmetic refresh (paint, flooring, cabinetry) runs $80–$120/sf. A full renovation with HVAC, plumbing, and operatory reconfiguration runs $150–$200/sf. A typical 4-operatory refresh costs $45,000–$80,000." },
+          { q: "How long does a dental renovation take?", a: "A cosmetic refresh takes 2–4 weeks. A full operatory renovation takes 6–10 weeks when phased to keep the practice open. A complete gut-and-rebuild takes 3–5 months. UDGOK schedules demolition and noisy work on evenings and weekends." },
+          { q: "Do I need permits for a dental office remodel?", a: "Yes if you're changing plumbing, electrical, HVAC, or structural elements. Cosmetic updates (paint, flooring, cabinetry) typically don't require permits. UDGOK handles all permit applications, inspections, and code compliance." },
+          { q: "What ADA requirements apply to dental office renovations?", a: "When you remodel more than 30% of a dental office, ADA requires you to bring the entire facility up to current accessibility standards. This includes 32-inch clear doorways, accessible restrooms, wheelchair-accessible operatories, and proper signage. UDGOK's preconstruction audit identifies all ADA triggers before construction begins." },
+          { q: "Does UDGOK handle dental equipment installation during a remodel?", a: "We coordinate with your equipment vendors (A-dec, Pelton & Crane, Midmark, etc.) to ensure rough-in specifications are exact. We handle all structural, electrical, plumbing, and data prep. Equipment vendors typically handle final installation and calibration." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Dental Office Remodel & Renovation — Tulsa, Oklahoma"
         description="UDGOK provides minimal-downtime dental office remodels and renovations in Tulsa, OK. Operatory upgrades, ADA compliance retrofits, cabinetry replacement, HVAC modernization, and cosmetic overhauls for existing dental practices."
         url="https://www.udgok.com/dental-office-remodel-tulsa"
@@ -52,14 +67,7 @@ export default function DentalRemodelPage() {
           { icon: "💧", title: "Plumbing & Gas System Updates", desc: "Vacuum and compressor system upgrades, nitrous oxide plumbing relocation, amalgam separator installation, and waterline manifold replacements." },
         ]}
         tldr="UDGOK is Tulsa's top dental office remodel contractor. We renovate existing dental practices using phased construction so you never close your doors. We've completed 40+ dental remodels across Oklahoma with zero lost revenue days. Average operatory turnaround is 2–4 weeks. Call (918) 520-3823 for a free renovation consultation."
-        faqs={[
-          { q: "Can I keep my dental practice open during a remodel?", a: "Yes. UDGOK uses phased construction — we renovate one section at a time behind dust barriers and HEPA-filtered negative pressure containment. Your practice stays open and producing revenue throughout the entire renovation." },
-          { q: "How much does a dental office remodel cost in Tulsa?", a: "Dental office remodels in Tulsa cost $80–$200 per square foot depending on scope. A cosmetic refresh (paint, flooring, cabinetry) runs $80–$120/sf. A full renovation with HVAC, plumbing, and operatory reconfiguration runs $150–$200/sf. A typical 4-operatory refresh costs $45,000–$80,000." },
-          { q: "How long does a dental renovation take?", a: "A cosmetic refresh takes 2–4 weeks. A full operatory renovation takes 6–10 weeks when phased to keep the practice open. A complete gut-and-rebuild takes 3–5 months. UDGOK schedules demolition and noisy work on evenings and weekends." },
-          { q: "Do I need permits for a dental office remodel?", a: "Yes if you're changing plumbing, electrical, HVAC, or structural elements. Cosmetic updates (paint, flooring, cabinetry) typically don't require permits. UDGOK handles all permit applications, inspections, and code compliance." },
-          { q: "What ADA requirements apply to dental office renovations?", a: "When you remodel more than 30% of a dental office, ADA requires you to bring the entire facility up to current accessibility standards. This includes 32-inch clear doorways, accessible restrooms, wheelchair-accessible operatories, and proper signage. UDGOK's preconstruction audit identifies all ADA triggers before construction begins." },
-          { q: "Does UDGOK handle dental equipment installation during a remodel?", a: "We coordinate with your equipment vendors (A-dec, Pelton & Crane, Midmark, etc.) to ensure rough-in specifications are exact. We handle all structural, electrical, plumbing, and data prep. Equipment vendors typically handle final installation and calibration." },
-        ]}
+        faqs={PAGE_FAQS}
         sections={[
           { heading: "What is phased dental office renovation?", body: "Phased renovation is a construction method where we divide your dental office into isolated work zones and renovate one zone at a time. Zone 1 goes under construction behind negative-pressure dust barriers while you see patients in Zones 2 and 3. When Zone 1 is complete, patients move there while Zone 2 begins. This cycle repeats until the entire office is finished. UDGOK has refined this process over 40+ dental renovations to minimize downtime to zero lost production days. The key requirements are: (1) HEPA-filtered negative pressure in the construction zone, (2) dust barriers rated for healthcare environments, (3) after-hours demolition scheduling, and (4) weekend plumbing and HVAC tie-ins." },
           { heading: "How much does a dental operatory remodel cost in Oklahoma?", body: "Single operatory remodels in Oklahoma cost $12,000–$25,000 depending on scope. A basic cosmetic refresh (new cabinetry, flooring, lighting, paint) costs $12,000–$15,000 per operatory. A full gut-and-rebuild with new plumbing rough-ins, suction/air manifolds, electrical upgrades, and 12 o'clock delivery system prep costs $18,000–$25,000. Multi-operatory discounts typically reduce per-unit costs by 10–15%. UDGOK provides free preconstruction budgets with line-item cost breakdowns." },

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { LocalBusinessJsonLd } from "@/components/JsonLd";
+import { LocalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Commercial Construction & Design-Build Glenpool OK",
@@ -17,9 +17,23 @@ export const metadata: Metadata = {
 };
 
 export default function GlenpoolPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Glenpool Commercial Construction", url: "https://www.udgok.com/glenpool-ok-design-build" }
+  ];
+  const PAGE_FAQS = [
+          { q: "What types of commercial construction do you handle in Glenpool?", a: "We build a wide variety of commercial projects including retail strip centers, quick-service restaurants, dental/medical clinics, professional offices, and pre-engineered metal buildings (PEMB) for warehousing and light industrial." },
+          { q: "Why is design-build better than traditional construction?", a: "Design-build puts both the architectural design and the physical construction under a single contract with UDGOK. This eliminates adversarial conflicts between architects and builders, allows for faster project starts through overlapping phases, and provides guaranteed pricing much earlier in the process." },
+          { q: "Do you help with site selection and feasibility in Glenpool?", a: "Yes. During our pre-construction phase, we can assess potential lots for zoning compliance, utility access, soil conditions, and site development costs (like grading and retention ponds) before you finalize a land purchase." },
+          { q: "How do you handle local Glenpool city inspections?", a: "We manage the entire municipal process. We coordinate directly with the City of Glenpool for building permits, handle health department reviews if applicable (for food service or medical), and schedule all necessary phase inspections up to the final Certificate of Occupancy." },
+          { q: "What is the typical commercial construction cost in Glenpool, OK?", a: "For standard retail or flex space shells, costs typically run $100–$150 per square foot. Highly specialized spaces like medical offices or restaurants require advanced MEP (mechanical, electrical, plumbing) systems and usually cost $180–$250+ per square foot. We provide highly accurate line-item budgets during the design phase." },
+        ];
   return (
     <>
-      <LocalBusinessJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><LocalBusinessJsonLd
         description="Commercial design-build construction company serving Glenpool, Oklahoma and the Highway 75 corridor."
         url="https://www.udgok.com/glenpool-ok-design-build"
         specialization="commercial construction, design-build, retail development, medical office construction, light industrial"
@@ -45,13 +59,7 @@ export default function GlenpoolPage() {
           { icon: "📋", title: "Site Development & Permitting", desc: "Comprehensive site surveying, civil engineering, earthwork, and seamless coordination with City of Glenpool planning and zoning." },
         ]}
         tldr="UDGOK is a dedicated commercial construction and design-build contractor for Glenpool, OK, focusing on retail, medical, and light industrial developments along the Highway 75 corridor. Our single-source design-build approach ensures faster timelines and strict budget control. Call (918) 520-3823 for a project estimate."
-        faqs={[
-          { q: "What types of commercial construction do you handle in Glenpool?", a: "We build a wide variety of commercial projects including retail strip centers, quick-service restaurants, dental/medical clinics, professional offices, and pre-engineered metal buildings (PEMB) for warehousing and light industrial." },
-          { q: "Why is design-build better than traditional construction?", a: "Design-build puts both the architectural design and the physical construction under a single contract with UDGOK. This eliminates adversarial conflicts between architects and builders, allows for faster project starts through overlapping phases, and provides guaranteed pricing much earlier in the process." },
-          { q: "Do you help with site selection and feasibility in Glenpool?", a: "Yes. During our pre-construction phase, we can assess potential lots for zoning compliance, utility access, soil conditions, and site development costs (like grading and retention ponds) before you finalize a land purchase." },
-          { q: "How do you handle local Glenpool city inspections?", a: "We manage the entire municipal process. We coordinate directly with the City of Glenpool for building permits, handle health department reviews if applicable (for food service or medical), and schedule all necessary phase inspections up to the final Certificate of Occupancy." },
-          { q: "What is the typical commercial construction cost in Glenpool, OK?", a: "For standard retail or flex space shells, costs typically run $100–$150 per square foot. Highly specialized spaces like medical offices or restaurants require advanced MEP (mechanical, electrical, plumbing) systems and usually cost $180–$250+ per square foot. We provide highly accurate line-item budgets during the design phase." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Start Your Glenpool Project →"
       />
     </>

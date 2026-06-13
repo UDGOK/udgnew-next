@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Oral Surgery Center Construction Tulsa OK | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function OralSurgeryPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Oral Surgery Center Construction Tulsa", url: "https://www.udgok.com/oral-surgeon-office-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+          { q: "How much does it cost to build an oral surgery office?", a: "Oral surgery office construction costs $250–$350 per square foot blended across all areas. A 4,000 sq ft OMS practice with two surgical suites, recovery room, and CBCT suite typically costs $1,000,000–$1,400,000 for construction, plus $200,000–$400,000 for equipment." },
+          { q: "What medical gas systems does an oral surgery office need?", a: "A full OMS office requires oxygen (O2), nitrous oxide (N2O), medical air, vacuum, and waste anesthetic gas disposal (WAGD). UDGOK installs all five gas types with zone valve boxes, alarm panels, and ASSE 6030 third-party verification." },
+          { q: "How long does it take to build an oral surgery center?", a: "Most oral surgery office construction projects take 5–7 months from permit to occupancy. The extended timeline versus general dental is due to more complex MEP systems, additional inspections, and AAOMS facility evaluation requirements." },
+          { q: "Does UDGOK handle AAOMS facility compliance?", a: "Yes. We design and build all surgical suites to AAOMS office evaluation standards, including required ventilation rates, medical gas access, emergency equipment provisions, and recovery room configurations." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Oral Surgery Center Construction"
         description="Specialized oral surgery office construction including AAOMS-compliant surgery suites, medical gas systems, and sedation infrastructure in Tulsa, Oklahoma."
         url="https://www.udgok.com/oral-surgeon-office-construction-tulsa"
@@ -71,12 +84,7 @@ export default function OralSurgeryPage() {
 <p>A blended rate across a full 3,500–5,000 sq ft oral surgery practice is <strong>$250–$350 per square foot</strong>, or $875,000–$1,750,000 total construction cost. Medical gas systems alone range $35,000–$60,000.</p>`,
           },
         ]}
-        faqs={[
-          { q: "How much does it cost to build an oral surgery office?", a: "Oral surgery office construction costs $250–$350 per square foot blended across all areas. A 4,000 sq ft OMS practice with two surgical suites, recovery room, and CBCT suite typically costs $1,000,000–$1,400,000 for construction, plus $200,000–$400,000 for equipment." },
-          { q: "What medical gas systems does an oral surgery office need?", a: "A full OMS office requires oxygen (O2), nitrous oxide (N2O), medical air, vacuum, and waste anesthetic gas disposal (WAGD). UDGOK installs all five gas types with zone valve boxes, alarm panels, and ASSE 6030 third-party verification." },
-          { q: "How long does it take to build an oral surgery center?", a: "Most oral surgery office construction projects take 5–7 months from permit to occupancy. The extended timeline versus general dental is due to more complex MEP systems, additional inspections, and AAOMS facility evaluation requirements." },
-          { q: "Does UDGOK handle AAOMS facility compliance?", a: "Yes. We design and build all surgical suites to AAOMS office evaluation standards, including required ventilation rates, medical gas access, emergency equipment provisions, and recovery room configurations." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Plan Your Surgery Center →"
       />
     </>

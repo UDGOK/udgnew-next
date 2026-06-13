@@ -1,5 +1,5 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
-import Script from "next/script";
 import MedicalCostGuideUI from "./MedicalCostGuideUI";
 
 export const metadata: Metadata = {
@@ -46,14 +46,16 @@ const faqSchema = {
 };
 
 export default function GuideMedicalOfficeCostPage() {
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Medical Office Cost Guide", url: "https://www.udgok.com/guide-medical-office-cost-tulsa" }
+  ];
+
   return (
     <>
-      <Script id="schema-article" type="application/ld+json">
-        {JSON.stringify(articleSchema)}
-      </Script>
-      <Script id="schema-faq" type="application/ld+json">
-        {JSON.stringify(faqSchema)}
-      </Script>
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <MedicalCostGuideUI />
     </>
   );

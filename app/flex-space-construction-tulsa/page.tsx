@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Flex Space Construction Tulsa OK | Light Industrial & Office/Warehouse | UDGOK",
@@ -10,9 +10,22 @@ export const metadata: Metadata = {
 };
 
 export default function FlexSpaceConstructionTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Flex Space & Light Industrial Construction in Tulsa", url: "https://www.udgok.com/flex-space-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does flex space cost to build in Tulsa?", a: "Multi-tenant flex space costs $40–$70/sf in Tulsa. Single-user flex buildings with higher-end office finishes cost $60–$90/sf. A 10-bay, 30,000 SF multi-tenant flex facility costs $1.2M–$2.1M." },
+                    { q: "What is a typical bay size for flex space?", a: "Flex bays typically range from 2,000 to 5,000 SF with 200–400 SF of front office and the remainder as warehouse. Clear warehouse heights of 14–20'. Standard bay widths are 25–30'." },
+                    { q: "What businesses use flex space?", a: "Flex space tenants include e-commerce fulfillment, distribution, plumbing/HVAC/electrical contractors, automotive shops, showrooms, light manufacturing, creative studios, and service businesses that need both office and warehouse." },
+                    { q: "Can bays be combined in a flex building?", a: "Yes. UDGOK designs demising walls as non-bearing partitions that can be removed to combine adjacent bays without structural modification. This provides maximum flexibility for tenant changes." },
+                ];
+  return (
         <>
-            <ServiceJsonLd name="Flex Space Construction Tulsa" description="Flex space and light industrial construction in Tulsa — hybrid office/warehouse buildings." url="https://www.udgok.com/flex-space-construction-tulsa" />
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd name="Flex Space Construction Tulsa" description="Flex space and light industrial construction in Tulsa — hybrid office/warehouse buildings." url="https://www.udgok.com/flex-space-construction-tulsa" />
             <ServicePage
                 label="Flex Space"
                 title="Flex Space & Light Industrial Construction in Tulsa"
@@ -35,12 +48,7 @@ export default function FlexSpaceConstructionTulsaPage() {
                     { icon: "🏗️", title: "Tilt-Up & PEMB Options", desc: "Concrete tilt-up for a more permanent, premium appearance. PEMB for faster delivery and lower cost. Both options available." },
                     { icon: "📐", title: "Speculative & Build-to-Suit", desc: "UDGOK builds both speculative multi-tenant flex facilities for investors and single-user build-to-suit flex buildings for owner-occupants." },
                 ]}
-                faqs={[
-                    { q: "How much does flex space cost to build in Tulsa?", a: "Multi-tenant flex space costs $40–$70/sf in Tulsa. Single-user flex buildings with higher-end office finishes cost $60–$90/sf. A 10-bay, 30,000 SF multi-tenant flex facility costs $1.2M–$2.1M." },
-                    { q: "What is a typical bay size for flex space?", a: "Flex bays typically range from 2,000 to 5,000 SF with 200–400 SF of front office and the remainder as warehouse. Clear warehouse heights of 14–20'. Standard bay widths are 25–30'." },
-                    { q: "What businesses use flex space?", a: "Flex space tenants include e-commerce fulfillment, distribution, plumbing/HVAC/electrical contractors, automotive shops, showrooms, light manufacturing, creative studios, and service businesses that need both office and warehouse." },
-                    { q: "Can bays be combined in a flex building?", a: "Yes. UDGOK designs demising walls as non-bearing partitions that can be removed to combine adjacent bays without structural modification. This provides maximum flexibility for tenant changes." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Flex Space Project →"
             />
         </>

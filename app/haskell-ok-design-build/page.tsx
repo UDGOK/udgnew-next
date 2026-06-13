@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -16,8 +17,22 @@ export const metadata: Metadata = {
 };
 
 export default function HaskellPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction in Haskell, Oklahoma", url: "https://www.udgok.com/haskell-ok-design-build" }
+  ];
+  const PAGE_FAQS = [
+        { q: "Does UDGOK build in Haskell, Oklahoma?", a: "Yes. UDGOK serves Haskell and the surrounding eastern Tulsa metro area. Our office is approximately 30 minutes from Haskell, and we use the same licensed subcontractor network for all projects in the region." },
+        { q: "How much does construction cost in Haskell, Oklahoma?", a: "Construction costs in Haskell are typically 10–15% lower than Tulsa due to lower land costs and reduced municipal fees. Medical offices run $130–$280/sq ft, dental offices $120–$250/sq ft, and commercial build-outs $70–$130/sq ft." },
+        { q: "Is Haskell a good location for a medical or dental practice?", a: "Haskell serves as a healthcare access point for the eastern Tulsa metro and surrounding rural communities. Limited existing healthcare infrastructure means new practices face less competition. The proximity to both Tulsa and Muskogee provides a broad patient draw area." },
+        { q: "What types of projects has UDGOK built near Haskell?", a: "UDGOK has completed dental offices, medical clinics, convenience stores, and commercial tenant improvements throughout the Tulsa metro's eastern corridor. Our experience with rural and suburban Oklahoma construction includes navigating varied permit requirements and utility availability." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Haskell"
       title="Construction in Haskell, Oklahoma"
       description="Medical, dental, and commercial construction serving Haskell and the eastern Tulsa metro corridor."
@@ -39,13 +54,10 @@ export default function HaskellPage() {
         { icon: "🔄", title: "Renovations & Remodels", desc: "Occupied-space renovations for existing businesses and practices looking to modernize and expand." },
         { icon: "📋", title: "Haskell Permits & Code", desc: "Experienced navigation of local permitting and code compliance for efficient project approvals." },
       ]}
-      faqs={[
-        { q: "Does UDGOK build in Haskell, Oklahoma?", a: "Yes. UDGOK serves Haskell and the surrounding eastern Tulsa metro area. Our office is approximately 30 minutes from Haskell, and we use the same licensed subcontractor network for all projects in the region." },
-        { q: "How much does construction cost in Haskell, Oklahoma?", a: "Construction costs in Haskell are typically 10–15% lower than Tulsa due to lower land costs and reduced municipal fees. Medical offices run $130–$280/sq ft, dental offices $120–$250/sq ft, and commercial build-outs $70–$130/sq ft." },
-        { q: "Is Haskell a good location for a medical or dental practice?", a: "Haskell serves as a healthcare access point for the eastern Tulsa metro and surrounding rural communities. Limited existing healthcare infrastructure means new practices face less competition. The proximity to both Tulsa and Muskogee provides a broad patient draw area." },
-        { q: "What types of projects has UDGOK built near Haskell?", a: "UDGOK has completed dental offices, medical clinics, convenience stores, and commercial tenant improvements throughout the Tulsa metro's eastern corridor. Our experience with rural and suburban Oklahoma construction includes navigating varied permit requirements and utility availability." },
-      ]}
+      faqs={PAGE_FAQS}
       cta="Build in Haskell →"
     />
+  
+    </>
   );
 }

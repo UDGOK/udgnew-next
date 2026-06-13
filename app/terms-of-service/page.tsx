@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,9 +11,15 @@ export const metadata: Metadata = {
 export default function TermsOfServicePage() {
   const effective = "March 1, 2026";
 
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "1. Acceptance of Terms", url: "https://www.udgok.com/terms-of-service" }
+  ];
   return (
     <>
-      <section
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><section
         style={{
           background: "linear-gradient(180deg, #0B061B 0%, #111 100%)",
           padding: "8rem 2rem 4rem",

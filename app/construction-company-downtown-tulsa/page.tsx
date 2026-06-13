@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Construction Company Downtown Tulsa OK | Mixed-Use & Commercial | UDGOK",
@@ -14,9 +14,22 @@ export const metadata: Metadata = {
 };
 
 export default function ConstructionCompanyDowntownTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction Company in Downtown Tulsa, Oklahoma", url: "https://www.udgok.com/construction-company-downtown-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does construction cost in downtown Tulsa?", a: "Downtown Tulsa construction costs tend to be 10–20% higher than suburban projects due to access constraints, multi-story logistics, and historic building requirements. Restaurant build-outs run $175–$400/sf. Office conversions cost $90–$200/sf. Medical offices cost $200–$400/sf." },
+                    { q: "Does UDGOK build in the Tulsa Arts District?", a: "Yes. UDGOK has completed multiple projects in the Tulsa Arts District, Blue Dome District, and East Village. We understand the unique permitting, zoning, and design requirements of these downtown sub-districts." },
+                    { q: "What challenges exist with downtown Tulsa construction?", a: "Downtown challenges include: limited staging area, no laydown yard, multi-story material hoisting, coordination with active businesses and pedestrian traffic, parking limitations for workers, older utility infrastructure, and historic building structural constraints. UDGOK mitigates these through detailed pre-construction logistics planning." },
+                    { q: "Can UDGOK renovate historic buildings downtown?", a: "Yes. UDGOK has experience with adaptive reuse of historic and mid-century buildings in downtown Tulsa. We work with structural engineers to assess existing conditions, coordinate with the Tulsa Preservation Commission, and design renovations that preserve character while meeting modern code requirements." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Construction Company Downtown Tulsa"
                 description="Downtown Tulsa construction company — mixed-use developments, restaurant build-outs, office conversions, and medical facilities in Tulsa's urban core."
                 url="https://www.udgok.com/construction-company-downtown-tulsa"
@@ -43,12 +56,7 @@ export default function ConstructionCompanyDowntownTulsaPage() {
                     { icon: "🔧", title: "Tenant Improvements", desc: "Fast-track TI in downtown commercial buildings. We coordinate with building management, existing tenants, and the City of Tulsa for efficient delivery." },
                     { icon: "📋", title: "Urban Core Permitting", desc: "Navigation of downtown-specific zoning, historic district guidelines, parking requirements, and urban design standards." },
                 ]}
-                faqs={[
-                    { q: "How much does construction cost in downtown Tulsa?", a: "Downtown Tulsa construction costs tend to be 10–20% higher than suburban projects due to access constraints, multi-story logistics, and historic building requirements. Restaurant build-outs run $175–$400/sf. Office conversions cost $90–$200/sf. Medical offices cost $200–$400/sf." },
-                    { q: "Does UDGOK build in the Tulsa Arts District?", a: "Yes. UDGOK has completed multiple projects in the Tulsa Arts District, Blue Dome District, and East Village. We understand the unique permitting, zoning, and design requirements of these downtown sub-districts." },
-                    { q: "What challenges exist with downtown Tulsa construction?", a: "Downtown challenges include: limited staging area, no laydown yard, multi-story material hoisting, coordination with active businesses and pedestrian traffic, parking limitations for workers, older utility infrastructure, and historic building structural constraints. UDGOK mitigates these through detailed pre-construction logistics planning." },
-                    { q: "Can UDGOK renovate historic buildings downtown?", a: "Yes. UDGOK has experience with adaptive reuse of historic and mid-century buildings in downtown Tulsa. We work with structural engineers to assess existing conditions, coordinate with the Tulsa Preservation Commission, and design renovations that preserve character while meeting modern code requirements." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Downtown Project →"
             />
         </>

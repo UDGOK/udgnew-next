@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Construction Company South Tulsa OK | Medical, Commercial & Retail | UDGOK",
@@ -14,9 +14,22 @@ export const metadata: Metadata = {
 };
 
 export default function ConstructionCompanySouthTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction Company in South Tulsa, Oklahoma", url: "https://www.udgok.com/construction-company-south-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does commercial construction cost in South Tulsa?", a: "Commercial build-out costs in South Tulsa range from $80–$180/sf for retail, $60–$150/sf for office, $180–$350/sf for medical, and $150–$350/sf for restaurants. Costs are consistent with the broader Tulsa metro. UDGOK provides detailed line-item estimates before construction begins." },
+                    { q: "What areas of South Tulsa does UDGOK serve?", a: "UDGOK builds across all of South Tulsa — from 51st Street south to 101st Street, along Memorial Drive, South Yale, South Lewis, and the Creek Turnpike corridor. We also serve adjacent areas like Bixby, Jenks, and south Broken Arrow." },
+                    { q: "How long does a medical office build-out take in South Tulsa?", a: "A typical 3,000–5,000 SF medical office in South Tulsa takes 4–6 months from design through certificate of occupancy. UDGOK's design-build delivery compresses this timeline by 20–30% by overlapping design, permitting, and early site work." },
+                    { q: "Does UDGOK handle permits for South Tulsa projects?", a: "Yes. We manage the entire permitting process with the City of Tulsa DBCA, including plan submission, review coordination, inspections, and CO. Our established relationships with the south sector inspection team help keep projects on schedule." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Construction Company South Tulsa"
                 description="South Tulsa's most active commercial and medical construction company. 30+ projects along Memorial and Yale corridors."
                 url="https://www.udgok.com/construction-company-south-tulsa"
@@ -43,12 +56,7 @@ export default function ConstructionCompanySouthTulsaPage() {
                     { icon: "🏗️", title: "Design-Build Delivery", desc: "Single-source design-build for faster schedules, guaranteed pricing, and single-point accountability. One contract, one team." },
                     { icon: "📋", title: "South Tulsa Permitting", desc: "Established relationships with City of Tulsa DBCA for the south sector. Efficient plan review coordination and inspection scheduling." },
                 ]}
-                faqs={[
-                    { q: "How much does commercial construction cost in South Tulsa?", a: "Commercial build-out costs in South Tulsa range from $80–$180/sf for retail, $60–$150/sf for office, $180–$350/sf for medical, and $150–$350/sf for restaurants. Costs are consistent with the broader Tulsa metro. UDGOK provides detailed line-item estimates before construction begins." },
-                    { q: "What areas of South Tulsa does UDGOK serve?", a: "UDGOK builds across all of South Tulsa — from 51st Street south to 101st Street, along Memorial Drive, South Yale, South Lewis, and the Creek Turnpike corridor. We also serve adjacent areas like Bixby, Jenks, and south Broken Arrow." },
-                    { q: "How long does a medical office build-out take in South Tulsa?", a: "A typical 3,000–5,000 SF medical office in South Tulsa takes 4–6 months from design through certificate of occupancy. UDGOK's design-build delivery compresses this timeline by 20–30% by overlapping design, permitting, and early site work." },
-                    { q: "Does UDGOK handle permits for South Tulsa projects?", a: "Yes. We manage the entire permitting process with the City of Tulsa DBCA, including plan submission, review coordination, inspections, and CO. Our established relationships with the south sector inspection team help keep projects on schedule." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your South Tulsa Project →"
             />
         </>

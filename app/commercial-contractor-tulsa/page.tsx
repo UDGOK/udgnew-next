@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Commercial Contractor Tulsa OK | Office, Retail & TI | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function CommercialContractorTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Commercial Contractor in Tulsa, Oklahoma", url: "https://www.udgok.com/commercial-contractor-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does commercial construction cost in Tulsa?", a: "Commercial tenant improvements in Tulsa cost $80–$180 per square foot depending on scope. Ground-up commercial buildings run $120–$220/sq ft. A 3,000 sq ft restaurant build-out typically costs $300K–$600K. UDGOK provides detailed line-item estimates before construction begins." },
+                    { q: "How long does a commercial build-out take in Tulsa?", a: "Most commercial tenant improvements take 6–12 weeks. Restaurant build-outs with kitchen equipment take 10–16 weeks. Ground-up commercial buildings take 6–12 months. UDGOK's established subcontractor relationships in Tulsa help us maintain aggressive schedules." },
+                    { q: "Does UDGOK handle Tulsa commercial building permits?", a: "Yes. We manage the entire permitting process with the City of Tulsa Department of Building and Code Administration (DBCA), including plan submission, review coordination, inspections, and certificate of occupancy." },
+                    { q: "What types of commercial projects does UDGOK build in Tulsa?", a: "We build office spaces, restaurants, retail stores, medical offices, convenience stores, shopping centers, warehouses, and mixed-use developments. Our Tulsa portfolio includes 100+ commercial projects across every category." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Commercial Contractor Tulsa"
                 description="Commercial general contractor in Tulsa, Oklahoma. Tenant improvements, ground-up builds, office and restaurant construction."
                 url="https://www.udgok.com/commercial-contractor-tulsa"
@@ -44,12 +57,7 @@ export default function CommercialContractorTulsaPage() {
                     { icon: "🏗️", title: "Ground-Up Commercial", desc: "Shell buildings, multi-tenant centers, and single-tenant commercial buildings from site work through CO." },
                     { icon: "📋", title: "Tulsa Permitting", desc: "Established relationships with the City of Tulsa DBCA for efficient plan review, permitting, and inspections." },
                 ]}
-                faqs={[
-                    { q: "How much does commercial construction cost in Tulsa?", a: "Commercial tenant improvements in Tulsa cost $80–$180 per square foot depending on scope. Ground-up commercial buildings run $120–$220/sq ft. A 3,000 sq ft restaurant build-out typically costs $300K–$600K. UDGOK provides detailed line-item estimates before construction begins." },
-                    { q: "How long does a commercial build-out take in Tulsa?", a: "Most commercial tenant improvements take 6–12 weeks. Restaurant build-outs with kitchen equipment take 10–16 weeks. Ground-up commercial buildings take 6–12 months. UDGOK's established subcontractor relationships in Tulsa help us maintain aggressive schedules." },
-                    { q: "Does UDGOK handle Tulsa commercial building permits?", a: "Yes. We manage the entire permitting process with the City of Tulsa Department of Building and Code Administration (DBCA), including plan submission, review coordination, inspections, and certificate of occupancy." },
-                    { q: "What types of commercial projects does UDGOK build in Tulsa?", a: "We build office spaces, restaurants, retail stores, medical offices, convenience stores, shopping centers, warehouses, and mixed-use developments. Our Tulsa portfolio includes 100+ commercial projects across every category." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Commercial Project →"
             />
         </>

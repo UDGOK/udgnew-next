@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -14,8 +15,23 @@ export const metadata: Metadata = {
 };
 
 export default function TulsaDesignBuildPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Design-Build in Tulsa, Oklahoma", url: "https://www.udgok.com/tulsa-ok-design-build" }
+  ];
+  const PAGE_FAQS = [
+        { q: "How much does commercial construction cost in Tulsa, Oklahoma?", a: "Commercial construction in Tulsa ranges from $120–$350 per square foot depending on project type. General commercial office space runs $120–$180/sq ft, medical offices $150–$350/sq ft, dental offices $140–$280/sq ft, and retail build-outs $80–$150/sq ft." },
+        { q: "How long does it take to get a building permit in Tulsa?", a: "City of Tulsa commercial building permits typically take 2–4 weeks for plan review. Simple tenant improvements can be faster (10–15 days). UDGOK has established relationships with Tulsa Development Services that help streamline the process." },
+        { q: "What areas of Tulsa does UDGOK serve?", a: "We build throughout Tulsa including downtown, midtown, south Tulsa, east Tulsa, and the Brookside/Cherry Street areas. Our office is located at 7739 E 38th Street, Tulsa, OK 74145. We also serve all surrounding suburbs including Broken Arrow, Bixby, Jenks, Owasso, and Sand Springs." },
+        { q: "Does UDGOK handle both design and construction?", a: "Yes. UDGOK is a full-service design-build contractor. We manage architectural design, engineering, permitting, and construction under one contract. This saves 15–20% on cost and 20% on schedule versus traditional design-bid-build." },
+        { q: "Is UDGOK a licensed Oklahoma general contractor?", a: "Yes. UDGOK (Upscale Development Group) is a licensed Oklahoma General Contractor. Our team includes PMP-certified project managers, OSHA 30 trained superintendents, and ASSE 6010 certified medical gas installers." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Tulsa Design-Build"
       title="Design-Build in Tulsa, Oklahoma"
       description="Tulsa's integrated design-build contractor — one team, one contract, and a track record of 100+ delivered projects."
@@ -37,14 +53,10 @@ export default function TulsaDesignBuildPage() {
         { icon: "⚡", title: "Fast-Track Delivery", desc: "Phased permitting and overlapping design/construction phases cut months off your schedule." },
         { icon: "📋", title: "Local Permit Knowledge", desc: "Deep relationships with City of Tulsa, Tulsa County, and surrounding municipality plan review offices." },
       ]}
-      faqs={[
-        { q: "How much does commercial construction cost in Tulsa, Oklahoma?", a: "Commercial construction in Tulsa ranges from $120–$350 per square foot depending on project type. General commercial office space runs $120–$180/sq ft, medical offices $150–$350/sq ft, dental offices $140–$280/sq ft, and retail build-outs $80–$150/sq ft." },
-        { q: "How long does it take to get a building permit in Tulsa?", a: "City of Tulsa commercial building permits typically take 2–4 weeks for plan review. Simple tenant improvements can be faster (10–15 days). UDGOK has established relationships with Tulsa Development Services that help streamline the process." },
-        { q: "What areas of Tulsa does UDGOK serve?", a: "We build throughout Tulsa including downtown, midtown, south Tulsa, east Tulsa, and the Brookside/Cherry Street areas. Our office is located at 7739 E 38th Street, Tulsa, OK 74145. We also serve all surrounding suburbs including Broken Arrow, Bixby, Jenks, Owasso, and Sand Springs." },
-        { q: "Does UDGOK handle both design and construction?", a: "Yes. UDGOK is a full-service design-build contractor. We manage architectural design, engineering, permitting, and construction under one contract. This saves 15–20% on cost and 20% on schedule versus traditional design-bid-build." },
-        { q: "Is UDGOK a licensed Oklahoma general contractor?", a: "Yes. UDGOK (Upscale Development Group) is a licensed Oklahoma General Contractor. Our team includes PMP-certified project managers, OSHA 30 trained superintendents, and ASSE 6010 certified medical gas installers." },
-      ]}
+      faqs={PAGE_FAQS}
       cta="Start in Tulsa →"
     />
+  
+    </>
   );
 }

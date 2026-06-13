@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd, MedicalBusinessJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, MedicalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
 // ... existing metadata
@@ -21,9 +21,23 @@ export const metadata: Metadata = {
 };
 
 export default function ASCPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Surgery Center Construction", url: "https://www.udgok.com/ambulatory-surgery-center-construction" }
+  ];
+  const PAGE_FAQS = [
+          { q: "Does UDGOK handle CMS certification requirements for ASCs?", a: "Yes. We build every ASC to meet CMS Conditions for Coverage from day one. This includes specific requirements for OR ventilation, medical gas systems, emergency power, fire safety, infection control, and physical environment. We provide full documentation packages and coordinate all inspections required for Medicare certification." },
+          { q: "Can you build an ASC inside an existing medical office building?", a: "Yes — this is one of our specialties. Converting existing medical office space into an ASC requires significant MEP upgrades including OR-grade HVAC, medical gas systems, emergency power, and sterile processing. UDGOK evaluates the existing building systems to determine feasibility and provides accurate conversion budgets before you commit." },
+          { q: "What medical gas systems does an ASC require?", a: "A typical ASC requires oxygen (O2), nitrous oxide (N2O), medical air, surgical vacuum, and waste anesthetic gas disposal (WAGD). Each system includes source equipment, distribution piping, zone valve boxes, outlet stations, and master alarm panels — all installed and certified per NFPA 99 Health Care Facilities Code." },
+          { q: "How does UDGOK handle infection control during ASC construction?", a: "We implement Infection Control Risk Assessment (ICRA) protocols on every healthcare project. This includes negative-pressure containment barriers, HEPA filtration, sealed construction zones, dedicated debris removal paths, and air quality monitoring. For ASCs built within active medical facilities, we coordinate all work to prevent disruption to existing clinical operations." },
+          { q: "Do you provide equipment planning for ASCs?", a: "Yes. Our preconstruction team coordinates with your equipment vendors to ensure proper infrastructure — electrical circuits, medical gas outlets, structural support, data connections, and equipment clearances — is designed into the construction documents from the start. This prevents costly change orders once construction begins." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Ambulatory Surgery Center Construction"
         description="Turnkey ambulatory surgery center (ASC) and outpatient facility construction including operating rooms, sterile processing, medical gas systems, and specialized HVAC. Serving Oklahoma and Texas."
         url="https://www.udgok.com/ambulatory-surgery-center-construction"
@@ -101,13 +115,7 @@ export default function ASCPage() {
 <p><strong>Total timeline: 13–23 months</strong> depending on project complexity. UDGOK's design-build delivery model can compress this by 3–4 months by overlapping design and early construction phases.</p>`,
           },
         ]}
-        faqs={[
-          { q: "Does UDGOK handle CMS certification requirements for ASCs?", a: "Yes. We build every ASC to meet CMS Conditions for Coverage from day one. This includes specific requirements for OR ventilation, medical gas systems, emergency power, fire safety, infection control, and physical environment. We provide full documentation packages and coordinate all inspections required for Medicare certification." },
-          { q: "Can you build an ASC inside an existing medical office building?", a: "Yes — this is one of our specialties. Converting existing medical office space into an ASC requires significant MEP upgrades including OR-grade HVAC, medical gas systems, emergency power, and sterile processing. UDGOK evaluates the existing building systems to determine feasibility and provides accurate conversion budgets before you commit." },
-          { q: "What medical gas systems does an ASC require?", a: "A typical ASC requires oxygen (O2), nitrous oxide (N2O), medical air, surgical vacuum, and waste anesthetic gas disposal (WAGD). Each system includes source equipment, distribution piping, zone valve boxes, outlet stations, and master alarm panels — all installed and certified per NFPA 99 Health Care Facilities Code." },
-          { q: "How does UDGOK handle infection control during ASC construction?", a: "We implement Infection Control Risk Assessment (ICRA) protocols on every healthcare project. This includes negative-pressure containment barriers, HEPA filtration, sealed construction zones, dedicated debris removal paths, and air quality monitoring. For ASCs built within active medical facilities, we coordinate all work to prevent disruption to existing clinical operations." },
-          { q: "Do you provide equipment planning for ASCs?", a: "Yes. Our preconstruction team coordinates with your equipment vendors to ensure proper infrastructure — electrical circuits, medical gas outlets, structural support, data connections, and equipment clearances — is designed into the construction documents from the start. This prevents costly change orders once construction begins." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Plan Your Surgery Center →"
         calculatorType="asc"
       />

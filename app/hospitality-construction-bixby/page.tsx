@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Hospitality Construction Bixby OK | Hotels & Restaurants | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function HospitalityBixbyPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Hospitality Construction in Bixby, Oklahoma", url: "https://www.udgok.com/hospitality-construction-bixby" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does restaurant construction cost in Bixby?", a: "Full-service restaurant construction in Bixby costs $150–$350 per square foot depending on kitchen complexity and interior finishes. A 2,500 sq ft fast-casual restaurant typically costs $375K–$625K. QSR with drive-through runs $120–$250/sq ft." },
+                    { q: "Does UDGOK build commercial kitchens in Bixby?", a: "Yes. We install Type I and Type II exhaust hoods, Ansul fire suppression, grease interceptors, walk-in coolers and freezers, three-compartment sinks, and all commercial kitchen plumbing. Every kitchen we build passes Tulsa County Health Department inspection." },
+                    { q: "How fast can you build a restaurant in Bixby?", a: "A typical restaurant build-out (2,000–4,000 sq ft) takes 10–16 weeks from permit to opening. QSR projects with standardized designs can be completed in 8–12 weeks. UDGOK fast-tracks permitting with the City of Bixby." },
+                    { q: "Does UDGOK handle Bixby hospitality permits?", a: "Yes. We manage all permitting including City of Bixby building permits, Tulsa County Health Department food service permits, fire marshal reviews, and ODEQ grease trap compliance. Our established relationships with local officials streamline approvals." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Hospitality Construction Bixby"
                 description="Hospitality construction contractor in Bixby, Oklahoma — hotels, restaurants, QSR, and food service facilities."
                 url="https://www.udgok.com/hospitality-construction-bixby"
@@ -44,12 +57,7 @@ export default function HospitalityBixbyPage() {
                     { icon: "🎉", title: "Event Venues", desc: "Wedding venues, banquet halls, and entertainment spaces with AV infrastructure and flexible layouts." },
                     { icon: "📋", title: "Health & Fire Compliance", desc: "Built to pass Tulsa County Health Department and Bixby Fire Marshal inspections on the first visit." },
                 ]}
-                faqs={[
-                    { q: "How much does restaurant construction cost in Bixby?", a: "Full-service restaurant construction in Bixby costs $150–$350 per square foot depending on kitchen complexity and interior finishes. A 2,500 sq ft fast-casual restaurant typically costs $375K–$625K. QSR with drive-through runs $120–$250/sq ft." },
-                    { q: "Does UDGOK build commercial kitchens in Bixby?", a: "Yes. We install Type I and Type II exhaust hoods, Ansul fire suppression, grease interceptors, walk-in coolers and freezers, three-compartment sinks, and all commercial kitchen plumbing. Every kitchen we build passes Tulsa County Health Department inspection." },
-                    { q: "How fast can you build a restaurant in Bixby?", a: "A typical restaurant build-out (2,000–4,000 sq ft) takes 10–16 weeks from permit to opening. QSR projects with standardized designs can be completed in 8–12 weeks. UDGOK fast-tracks permitting with the City of Bixby." },
-                    { q: "Does UDGOK handle Bixby hospitality permits?", a: "Yes. We manage all permitting including City of Bixby building permits, Tulsa County Health Department food service permits, fire marshal reviews, and ODEQ grease trap compliance. Our established relationships with local officials streamline approvals." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Build Your Hospitality Project →"
             />
         </>

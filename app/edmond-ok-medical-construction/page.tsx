@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd, LocalBusinessJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, LocalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Medical Office Construction Edmond OK",
@@ -17,9 +17,23 @@ export const metadata: Metadata = {
 };
 
 export default function EdmondMedicalPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Medical & Dental Construction", url: "https://www.udgok.com/edmond-ok-medical-construction" }
+  ];
+  const PAGE_FAQS = [
+          { q: "Do you build both medical and dental offices in Edmond?", a: "Yes. We have specialized divisions for both. Medical construction focuses on infection control, imaging prep (lead lining), and patient flow. Dental construction is highly plumbing-intensive, requiring vacuum/air manifolds, nitrous oxide routing, and precise operatory equipment coordination." },
+          { q: "How much does medical office construction cost in Edmond, OK?", a: "Medical and dental office build-outs in Edmond typically cost between $180 and $250+ per square foot. The premium over standard office space is due to specialized HVAC (like negative pressure rooms), medical gas plumbing, heavy electrical requirements, and clinical-grade custom cabinetry." },
+          { q: "What is your experience with Ambulatory Surgery Centers (ASCs)?", a: "We have deep expertise in building ASCs. These facilities require hospital-grade infrastructure, including critical power backup systems, medical gas column integration, rigid sterilization/clean room workflows, and compliance with stringent Oklahoma Department of Health regulations." },
+          { q: "Can you remodel my existing Edmond dental practice while we remain open?", a: "Yes. We utilize a phased construction methodology specifically for operational practices. By using specialized dust containment (negative pressure HEPA barriers) and scheduling noisy/utility work for evenings and weekends, we allow your practice to continue serving patients and generating revenue during the remodel." },
+          { q: "What makes UDGOK different from other commercial contractors?", a: "Healthcare construction is uniquely complex; a standard commercial contractor often struggles with the intricate MEP (mechanical, electrical, plumbing) requirements of a clinic. UDGOK uses a true design-build process, integrating clinical architectural design with construction execution to guarantee pricing, ensure code compliance, and deliver on the promise of an elite facility." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Medical & Dental Office Construction — Edmond, OK"
         description="Specialized design-build construction for medical clinics, dental practices, and surgery centers in Edmond, Oklahoma."
         url="https://www.udgok.com/edmond-ok-medical-construction"
@@ -51,13 +65,7 @@ export default function EdmondMedicalPage() {
           { icon: "🏗️", title: "Design-Build Efficiency", desc: "A unified approach combining architectural planning and construction to compress timelines, eliminate change orders, and guarantee facility delivery dates." },
         ]}
         tldr="UDGOK is the premier medical office and dental clinic construction contractor in Edmond, OK. We provide specialized design-build services for healthcare providers, ensuring strict adherence to ASHRAE 170 infection control, ADA compliance, and medical gas installation standards. Average medical build-outs range from $180–$250+ per square foot. Call (918) 520-3823 for a secure project consultation."
-        faqs={[
-          { q: "Do you build both medical and dental offices in Edmond?", a: "Yes. We have specialized divisions for both. Medical construction focuses on infection control, imaging prep (lead lining), and patient flow. Dental construction is highly plumbing-intensive, requiring vacuum/air manifolds, nitrous oxide routing, and precise operatory equipment coordination." },
-          { q: "How much does medical office construction cost in Edmond, OK?", a: "Medical and dental office build-outs in Edmond typically cost between $180 and $250+ per square foot. The premium over standard office space is due to specialized HVAC (like negative pressure rooms), medical gas plumbing, heavy electrical requirements, and clinical-grade custom cabinetry." },
-          { q: "What is your experience with Ambulatory Surgery Centers (ASCs)?", a: "We have deep expertise in building ASCs. These facilities require hospital-grade infrastructure, including critical power backup systems, medical gas column integration, rigid sterilization/clean room workflows, and compliance with stringent Oklahoma Department of Health regulations." },
-          { q: "Can you remodel my existing Edmond dental practice while we remain open?", a: "Yes. We utilize a phased construction methodology specifically for operational practices. By using specialized dust containment (negative pressure HEPA barriers) and scheduling noisy/utility work for evenings and weekends, we allow your practice to continue serving patients and generating revenue during the remodel." },
-          { q: "What makes UDGOK different from other commercial contractors?", a: "Healthcare construction is uniquely complex; a standard commercial contractor often struggles with the intricate MEP (mechanical, electrical, plumbing) requirements of a clinic. UDGOK uses a true design-build process, integrating clinical architectural design with construction execution to guarantee pricing, ensure code compliance, and deliver on the promise of an elite facility." },
-        ]}
+        faqs={PAGE_FAQS}
         sections={[
           {
             heading: "The Design-Build Advantage for Edmond Healthcare",

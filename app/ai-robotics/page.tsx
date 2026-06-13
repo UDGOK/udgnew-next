@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -14,8 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function AIRoboticsPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "AI & Robotics", url: "https://www.udgok.com/ai-robotics" }
+  ];
+  const PAGE_FAQS = [
+        { q: "How does UDGOK use AI in construction?", a: "We use AI in three key areas: cost estimating (machine learning models trained on our project history), generative design (AI algorithms that optimize floor plans for workflow and cost), and predictive analytics (risk forecasting that identifies schedule and budget threats early)." },
+        { q: "What is robotic layout in construction?", a: "Robotic layout uses robotic total stations to automatically place thousands of control points on a construction floor with sub-millimeter accuracy. This eliminates manual tape-and-chalk layout errors that are common in complex medical and dental facilities." },
+        { q: "How do drones help in construction?", a: "UDGOK flies drones weekly on active projects to produce georeferenced aerial maps, volumetric cut-fill calculations for earthwork, and 3D point clouds that compare as-built conditions to BIM models. This provides real-time progress visibility for owners and catches deviations early." },
+        { q: "Does technology increase construction costs?", a: "No. The technology investment is absorbed in our overhead and actually reduces project costs by preventing rework, catching design errors earlier, and producing more accurate estimates. Clients receive better outcomes at the same or lower cost." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Innovation"
       title="AI & Robotics"
       description="UDGOK is deploying AI and robotics to deliver construction that is faster, more precise, and more transparent than traditional methods."
@@ -37,13 +52,10 @@ export default function AIRoboticsPage() {
         { icon: "📱", title: "Field Intelligence", desc: "Mobile-first field management with real-time RFI tracking, photo documentation, and punch list management connected to the BIM model." },
         { icon: "📊", title: "Predictive Analytics", desc: "Schedule risk analysis and cost forecasting powered by historical project data — catching problems before they become change orders." },
       ]}
-      faqs={[
-        { q: "How does UDGOK use AI in construction?", a: "We use AI in three key areas: cost estimating (machine learning models trained on our project history), generative design (AI algorithms that optimize floor plans for workflow and cost), and predictive analytics (risk forecasting that identifies schedule and budget threats early)." },
-        { q: "What is robotic layout in construction?", a: "Robotic layout uses robotic total stations to automatically place thousands of control points on a construction floor with sub-millimeter accuracy. This eliminates manual tape-and-chalk layout errors that are common in complex medical and dental facilities." },
-        { q: "How do drones help in construction?", a: "UDGOK flies drones weekly on active projects to produce georeferenced aerial maps, volumetric cut-fill calculations for earthwork, and 3D point clouds that compare as-built conditions to BIM models. This provides real-time progress visibility for owners and catches deviations early." },
-        { q: "Does technology increase construction costs?", a: "No. The technology investment is absorbed in our overhead and actually reduces project costs by preventing rework, catching design errors earlier, and producing more accurate estimates. Clients receive better outcomes at the same or lower cost." },
-      ]}
+      faqs={PAGE_FAQS}
       cta="Explore Our Technology →"
     />
+  
+    </>
   );
 }

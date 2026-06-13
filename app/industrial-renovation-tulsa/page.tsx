@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Industrial Renovation Contractor Tulsa OK | Retrofits, Crane Rails & Mezzanines | UDGOK",
@@ -10,9 +10,22 @@ export const metadata: Metadata = {
 };
 
 export default function IndustrialRenovationTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Industrial Renovation Contractor in Tulsa, Oklahoma", url: "https://www.udgok.com/industrial-renovation-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does industrial renovation cost in Tulsa?", a: "Industrial renovation in Tulsa costs $40–$150/sf depending on scope. LED lighting upgrades: $2–$5/sf. Insulation and envelope improvements: $5–$15/sf. Mezzanine additions: $40–$80/sf. Structural retrofits: $50–$100/sf. Full gut renovation: $80–$150/sf." },
+                    { q: "Can a crane be added to an existing building?", a: "In many cases, yes. UDGOK performs structural analysis of existing columns and foundations to determine if they can support crane loading. If additional capacity is needed, we reinforce columns and add pier foundations before installing crane rails and systems." },
+                    { q: "Can operations continue during industrial renovation?", a: "Yes. UDGOK specializes in phased renovation that keeps your operations running. We isolate work areas with temporary barriers, schedule loud/dusty work during off-hours, and coordinate equipment shutdowns to minimize impact on production." },
+                    { q: "Is it cheaper to renovate or build new?", a: "Renovation is typically 30–50% cheaper than new construction for equivalent space. However, if the existing structure has significant deficiencies (foundation problems, structural damage, outdated utility infrastructure), new construction may be more cost-effective long-term." },
+                ];
+  return (
         <>
-            <ServiceJsonLd name="Industrial Renovation Tulsa" description="Industrial renovation contractor in Tulsa — structural retrofits, crane rail installation, mezzanine additions." url="https://www.udgok.com/industrial-renovation-tulsa" />
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd name="Industrial Renovation Tulsa" description="Industrial renovation contractor in Tulsa — structural retrofits, crane rail installation, mezzanine additions." url="https://www.udgok.com/industrial-renovation-tulsa" />
             <ServicePage
                 label="Industrial Renovation"
                 title="Industrial Renovation Contractor in Tulsa, Oklahoma"
@@ -35,12 +48,7 @@ export default function IndustrialRenovationTulsaPage() {
                     { icon: "🔧", title: "Slab & Roof Repairs", desc: "Concrete floor repairs — crack injection, slab leveling, joint repair, and re-coating. Roof replacements — standing seam metal, single-ply membrane, and roof coating systems." },
                     { icon: "📋", title: "Code Compliance Renovations", desc: "Bringing older buildings up to current IBC 2021 standards — fire protection upgrades, ADA compliance, electrical system upgrades, and structural reinforcement." },
                 ]}
-                faqs={[
-                    { q: "How much does industrial renovation cost in Tulsa?", a: "Industrial renovation in Tulsa costs $40–$150/sf depending on scope. LED lighting upgrades: $2–$5/sf. Insulation and envelope improvements: $5–$15/sf. Mezzanine additions: $40–$80/sf. Structural retrofits: $50–$100/sf. Full gut renovation: $80–$150/sf." },
-                    { q: "Can a crane be added to an existing building?", a: "In many cases, yes. UDGOK performs structural analysis of existing columns and foundations to determine if they can support crane loading. If additional capacity is needed, we reinforce columns and add pier foundations before installing crane rails and systems." },
-                    { q: "Can operations continue during industrial renovation?", a: "Yes. UDGOK specializes in phased renovation that keeps your operations running. We isolate work areas with temporary barriers, schedule loud/dusty work during off-hours, and coordinate equipment shutdowns to minimize impact on production." },
-                    { q: "Is it cheaper to renovate or build new?", a: "Renovation is typically 30–50% cheaper than new construction for equivalent space. However, if the existing structure has significant deficiencies (foundation problems, structural damage, outdated utility infrastructure), new construction may be more cost-effective long-term." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Industrial Renovation →"
             />
         </>

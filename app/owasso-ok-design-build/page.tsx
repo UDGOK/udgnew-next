@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -14,8 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function OwassoPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction in Owasso, Oklahoma", url: "https://www.udgok.com/owasso-ok-design-build" }
+  ];
+  const PAGE_FAQS = [
+        { q: "How much does commercial construction cost in Owasso, Oklahoma?", a: "Commercial construction in Owasso is competitively priced with Tulsa metro rates: medical offices $150–$350/sq ft, dental offices $140–$280/sq ft, and retail build-outs $80–$150/sq ft. Owasso's available commercial land along US-169 makes ground-up development particularly attractive." },
+        { q: "Why is Owasso a good location for a medical or dental practice?", a: "Owasso has a population of 40,000+ with household incomes above the Oklahoma average, excellent schools (Owasso Public Schools), and growing residential developments that create sustained demand for healthcare services. The US-169 corridor provides high visibility and easy access." },
+        { q: "How long does permitting take in Owasso?", a: "Owasso Community Development typically processes commercial building permits in 2–3 weeks. UDGOK has an established track record with Owasso's plan review office for efficient approvals." },
+        { q: "Does UDGOK build convenience stores in Owasso?", a: "Yes. We build convenience stores, fuel stations, and QSR restaurants at high-traffic Owasso intersections. We handle everything from site work and fuel system coordination to interior build-out and equipment installation." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Owasso"
       title="Construction in Owasso, Oklahoma"
       description="Medical, dental, and commercial construction serving Owasso's rapidly growing north Tulsa metro corridor."
@@ -37,13 +52,10 @@ export default function OwassoPage() {
         { icon: "🏬", title: "Tenant Improvements", desc: "Build-outs in Owasso's established shopping centers and mixed-use developments." },
         { icon: "📋", title: "Owasso Permitting", desc: "Established track record with Owasso Community Development for efficient project approvals." },
       ]}
-      faqs={[
-        { q: "How much does commercial construction cost in Owasso, Oklahoma?", a: "Commercial construction in Owasso is competitively priced with Tulsa metro rates: medical offices $150–$350/sq ft, dental offices $140–$280/sq ft, and retail build-outs $80–$150/sq ft. Owasso's available commercial land along US-169 makes ground-up development particularly attractive." },
-        { q: "Why is Owasso a good location for a medical or dental practice?", a: "Owasso has a population of 40,000+ with household incomes above the Oklahoma average, excellent schools (Owasso Public Schools), and growing residential developments that create sustained demand for healthcare services. The US-169 corridor provides high visibility and easy access." },
-        { q: "How long does permitting take in Owasso?", a: "Owasso Community Development typically processes commercial building permits in 2–3 weeks. UDGOK has an established track record with Owasso's plan review office for efficient approvals." },
-        { q: "Does UDGOK build convenience stores in Owasso?", a: "Yes. We build convenience stores, fuel stations, and QSR restaurants at high-traffic Owasso intersections. We handle everything from site work and fuel system coordination to interior build-out and equipment installation." },
-      ]}
+      faqs={PAGE_FAQS}
       cta="Build in Owasso →"
     />
+  
+    </>
   );
 }

@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -14,8 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function BrokenArrowPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction in Broken Arrow, Oklahoma", url: "https://www.udgok.com/broken-arrow-ok-design-build" }
+  ];
+  const PAGE_FAQS = [
+        { q: "How much does construction cost in Broken Arrow, Oklahoma?", a: "Construction costs in Broken Arrow are comparable to Tulsa metro rates. Medical offices run $150–$350/sq ft, dental offices $140–$280/sq ft, and commercial build-outs $80–$180/sq ft. Broken Arrow's competitive land costs often make ground-up development more affordable than in Tulsa proper." },
+        { q: "How long does permitting take in Broken Arrow?", a: "Broken Arrow Development Services typically processes commercial building permits in 2–3 weeks. The city has streamlined its review process in recent years to keep pace with growth. UDGOK has established relationships with BA plan review staff." },
+        { q: "What areas of Broken Arrow does UDGOK build in?", a: "We build throughout Broken Arrow including the BA Expressway corridor, Rose District, Kenosha Street, Elm Place, and new developments along 71st Street and Aspen Avenue. Our Tulsa office is a 15-minute drive from most Broken Arrow project sites." },
+        { q: "Does UDGOK have experience with Broken Arrow commercial construction?", a: "Yes. UDGOK has completed 30+ projects in Broken Arrow including dental offices, medical clinics, retail build-outs, and convenience stores. We use the same local subcontractors who know the BA market and code requirements." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Broken Arrow"
       title="Construction in Broken Arrow, Oklahoma"
       description="Medical, dental, and commercial construction throughout Broken Arrow — from the Rose District to the BA Expressway corridor."
@@ -37,13 +52,10 @@ export default function BrokenArrowPage() {
         { icon: "📋", title: "City of Broken Arrow Permits", desc: "Established relationships with BA Development Services for efficient plan review and inspections." },
         { icon: "🔄", title: "Renovations", desc: "Occupied-facility renovations and phased expansions with minimal disruption to your operations." },
       ]}
-      faqs={[
-        { q: "How much does construction cost in Broken Arrow, Oklahoma?", a: "Construction costs in Broken Arrow are comparable to Tulsa metro rates. Medical offices run $150–$350/sq ft, dental offices $140–$280/sq ft, and commercial build-outs $80–$180/sq ft. Broken Arrow's competitive land costs often make ground-up development more affordable than in Tulsa proper." },
-        { q: "How long does permitting take in Broken Arrow?", a: "Broken Arrow Development Services typically processes commercial building permits in 2–3 weeks. The city has streamlined its review process in recent years to keep pace with growth. UDGOK has established relationships with BA plan review staff." },
-        { q: "What areas of Broken Arrow does UDGOK build in?", a: "We build throughout Broken Arrow including the BA Expressway corridor, Rose District, Kenosha Street, Elm Place, and new developments along 71st Street and Aspen Avenue. Our Tulsa office is a 15-minute drive from most Broken Arrow project sites." },
-        { q: "Does UDGOK have experience with Broken Arrow commercial construction?", a: "Yes. UDGOK has completed 30+ projects in Broken Arrow including dental offices, medical clinics, retail build-outs, and convenience stores. We use the same local subcontractors who know the BA market and code requirements." },
-      ]}
+      faqs={PAGE_FAQS}
       cta="Build in Broken Arrow →"
     />
+  
+    </>
   );
 }

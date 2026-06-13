@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -14,8 +15,21 @@ export const metadata: Metadata = {
 };
 
 export default function MarketIntelligencePage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Market Intelligence", url: "https://www.udgok.com/market-intelligence" }
+  ];
+  const PAGE_FAQS = [
+        { q: "How much does construction cost per square foot in Tulsa?", a: "Current Tulsa-area cost benchmarks: medical offices $150–$350/sq ft, dental offices $140–$280/sq ft, commercial office TI $50–$120/sq ft, retail build-outs $80–$180/sq ft, and ground-up retail/shell $120–$200/sq ft. These are 2026 figures based on actual UDGOK bid results." },
+        { q: "How long are construction material lead times right now?", a: "As of 2026, typical lead times in the Tulsa market: electrical switchgear 16–24 weeks, commercial HVAC units 8–14 weeks, fire sprinkler heads 4–6 weeks, custom millwork 6–10 weeks. UDGOK procures long-lead items during preconstruction to avoid schedule delays." },
+        { q: "Can UDGOK provide a market report for my project?", a: "Yes. We provide complimentary market intelligence briefings for qualified projects, including current cost benchmarks, subcontractor availability in your trade categories, and permit timeline estimates for your municipality." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Market Intelligence"
       title="Market Intelligence"
       description="Real construction cost data, subcontractor market conditions, and healthcare real estate trends from a contractor who builds 20+ projects per year."
@@ -37,12 +51,10 @@ export default function MarketIntelligencePage() {
         { icon: "🏥", title: "Healthcare Real Estate Trends", desc: "Insights on healthcare operator demand, lease rates, and development activity in Tulsa's medical corridors." },
         { icon: "📈", title: "Escalation Forecasting", desc: "Forward-looking cost escalation estimates based on current bid results, material indices, and labor market conditions." },
       ]}
-      faqs={[
-        { q: "How much does construction cost per square foot in Tulsa?", a: "Current Tulsa-area cost benchmarks: medical offices $150–$350/sq ft, dental offices $140–$280/sq ft, commercial office TI $50–$120/sq ft, retail build-outs $80–$180/sq ft, and ground-up retail/shell $120–$200/sq ft. These are 2026 figures based on actual UDGOK bid results." },
-        { q: "How long are construction material lead times right now?", a: "As of 2026, typical lead times in the Tulsa market: electrical switchgear 16–24 weeks, commercial HVAC units 8–14 weeks, fire sprinkler heads 4–6 weeks, custom millwork 6–10 weeks. UDGOK procures long-lead items during preconstruction to avoid schedule delays." },
-        { q: "Can UDGOK provide a market report for my project?", a: "Yes. We provide complimentary market intelligence briefings for qualified projects, including current cost benchmarks, subcontractor availability in your trade categories, and permit timeline estimates for your municipality." },
-      ]}
+      faqs={PAGE_FAQS}
       cta="Request Market Report →"
     />
+  
+    </>
   );
 }

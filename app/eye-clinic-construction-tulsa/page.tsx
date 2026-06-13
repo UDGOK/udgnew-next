@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Eye Clinic Construction Tulsa Oklahoma | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function EyeClinicPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Eye Clinic & Ophthalmology Construction Tulsa", url: "https://www.udgok.com/eye-clinic-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+          { q: "How much does it cost to build an eye clinic in Tulsa?", a: "Eye clinic construction costs $180–$350 per square foot in the Tulsa metro. A 2,500 sq ft optometry office with 4 exam lanes and a dispensary typically costs $450,000–$550,000. A surgical eye center with laser suites can exceed $1 million." },
+          { q: "What makes eye clinic construction different from regular medical offices?", a: "Eye clinics require precise 20-foot exam lane spacing, full blackout dark rooms, EMI-shielded laser suites, and specialized lighting control systems. These are highly technical spaces that most general contractors have never built." },
+          { q: "Can UDGOK build a LASIK surgery suite?", a: "Yes. We've built multiple laser eye surgery suites with ANSI Z136 safety compliance, dedicated clean power, humidity control, EMI shielding, and interlock warning systems. We coordinate directly with your laser equipment vendor for exact room specifications." },
+          { q: "How long does it take to build an eye clinic?", a: "A standard optometry office takes 3–5 months. An ophthalmology practice with surgical capabilities takes 5–7 months due to additional MEP complexity, specialized room construction, and equipment coordination." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Eye Clinic Construction"
         description="Ophthalmology and optometry clinic construction in Tulsa with specialized exam lanes, procedure rooms, and optical dispensaries."
         url="https://www.udgok.com/eye-clinic-construction-tulsa"
@@ -70,12 +83,7 @@ export default function EyeClinicPage() {
 <p>UDGOK has constructed dark rooms for 30+ ophthalmology practices and understands the exacting standards required for accurate diagnostic imaging.</p>`,
           },
         ]}
-        faqs={[
-          { q: "How much does it cost to build an eye clinic in Tulsa?", a: "Eye clinic construction costs $180–$350 per square foot in the Tulsa metro. A 2,500 sq ft optometry office with 4 exam lanes and a dispensary typically costs $450,000–$550,000. A surgical eye center with laser suites can exceed $1 million." },
-          { q: "What makes eye clinic construction different from regular medical offices?", a: "Eye clinics require precise 20-foot exam lane spacing, full blackout dark rooms, EMI-shielded laser suites, and specialized lighting control systems. These are highly technical spaces that most general contractors have never built." },
-          { q: "Can UDGOK build a LASIK surgery suite?", a: "Yes. We've built multiple laser eye surgery suites with ANSI Z136 safety compliance, dedicated clean power, humidity control, EMI shielding, and interlock warning systems. We coordinate directly with your laser equipment vendor for exact room specifications." },
-          { q: "How long does it take to build an eye clinic?", a: "A standard optometry office takes 3–5 months. An ophthalmology practice with surgical capabilities takes 5–7 months due to additional MEP complexity, specialized room construction, and equipment coordination." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Plan Your Eye Clinic →"
       />
     </>

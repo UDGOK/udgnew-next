@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd, LocalBusinessJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, LocalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Orthodontic Office Construction Tulsa OK",
@@ -17,9 +17,24 @@ export const metadata: Metadata = {
 };
 
 export default function OrthodonticOfficePage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Orthodontic Office Construction", url: "https://www.udgok.com/orthodontic-office-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+          { q: "How much does it cost to build an orthodontic office in Tulsa?", a: "Orthodontic office construction in Tulsa costs $150–$200 per square foot. A standard 2,500 sq ft practice with 8 open bay chairs, a records room, consultation suite, and sterilization center costs $375,000–$500,000. Practices adding CBCT suites and in-house 3D print labs should budget an additional $30,000–$60,000 for lead-lined walls, dedicated electrical, and ventilation." },
+          { q: "What is the difference between orthodontic and general dental construction?", a: "The three biggest differences are: (1) layout — orthodontics uses open treatment bays instead of enclosed operatories, requiring column-free spans and different HVAC zoning; (2) electrical — ortho offices need significantly more data/power drops per treatment position for scanners, monitors, and digital workflows; (3) flow — patient visit times average 15–30 minutes vs. 45–90 minutes in general dentistry, requiring wider corridors and faster patient turnover design." },
+          { q: "How many chairs should my orthodontic office have?", a: "The industry standard is 3–4 treatment chairs per doctor. A solo orthodontist typically needs 6–8 chairs. A two-doctor practice needs 10–14 chairs. UDGOK designs flexible open bay configurations that allow you to add 2–4 chairs without renovation by pre-roughing plumbing and electrical for future positions." },
+          { q: "Do I need a 3D print lab in my orthodontic office?", a: "If you're producing clear aligners in-house (SureSmile, uLab, or proprietary), yes. An in-house 3D print lab reduces per-aligner cost from $15–$25 (outsourced) to $2–$5 (in-house) and cuts turnaround from 5–10 days to same-day. UDGOK builds ventilated, resin-safe print rooms with sealed flooring, dedicated 20A circuits, and UV curing stations." },
+          { q: "What technology infrastructure does a modern orthodontic office need?", a: "At minimum: (1) Cat6a Ethernet to every chair position, (2) dedicated 20A circuits for iTero/3Shape scanners, (3) a 72×72 inch HVAC closet sized for server equipment, (4) HDMI/USB-C drops for patient-facing monitors at each chair, and (5) a CBCT alcove with lead-lined walls if placing imaging on-site. UDGOK pre-wires for all major practice management systems including Dolphin, OrthoFi, and Cloud 9." },
+          { q: "How long does it take to build an orthodontic office?", a: "Ground-up orthodontic office construction takes 4–6 months from permit issuance to certificate of occupancy. Tenant improvement build-outs take 3–4 months. UDGOK's design-build approach saves 4–6 weeks by overlapping architectural design, permit submittal, and equipment procurement." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Orthodontic Office Construction — Tulsa, Oklahoma"
         description="UDGOK designs and builds orthodontic offices in Tulsa, OK. Open bay treatment areas, Invisalign/iTero scan stations, 3D print labs, sterilization centers, and teen-friendly waiting areas — all purpose-built for modern orthodontic workflows."
         url="https://www.udgok.com/orthodontic-office-construction-tulsa"
@@ -52,14 +67,7 @@ export default function OrthodonticOfficePage() {
           { icon: "🏥", title: "Records & Consultation Suite", desc: "Private consultation rooms for treatment plan presentations with 55-65 inch displays, comfortable seating for parents and patients, and acoustic privacy for financial discussions." },
         ]}
         tldr="UDGOK is the only Tulsa contractor specializing in orthodontic office construction. We build open bay treatment areas, integrate iTero/3Shape digital scanning workflows, and design 3D print labs purpose-built for aligners. Average cost: $150–$200/sf in Tulsa. We've completed 15+ orthodontic offices across Oklahoma. Call (918) 520-3823 for a free consultation."
-        faqs={[
-          { q: "How much does it cost to build an orthodontic office in Tulsa?", a: "Orthodontic office construction in Tulsa costs $150–$200 per square foot. A standard 2,500 sq ft practice with 8 open bay chairs, a records room, consultation suite, and sterilization center costs $375,000–$500,000. Practices adding CBCT suites and in-house 3D print labs should budget an additional $30,000–$60,000 for lead-lined walls, dedicated electrical, and ventilation." },
-          { q: "What is the difference between orthodontic and general dental construction?", a: "The three biggest differences are: (1) layout — orthodontics uses open treatment bays instead of enclosed operatories, requiring column-free spans and different HVAC zoning; (2) electrical — ortho offices need significantly more data/power drops per treatment position for scanners, monitors, and digital workflows; (3) flow — patient visit times average 15–30 minutes vs. 45–90 minutes in general dentistry, requiring wider corridors and faster patient turnover design." },
-          { q: "How many chairs should my orthodontic office have?", a: "The industry standard is 3–4 treatment chairs per doctor. A solo orthodontist typically needs 6–8 chairs. A two-doctor practice needs 10–14 chairs. UDGOK designs flexible open bay configurations that allow you to add 2–4 chairs without renovation by pre-roughing plumbing and electrical for future positions." },
-          { q: "Do I need a 3D print lab in my orthodontic office?", a: "If you're producing clear aligners in-house (SureSmile, uLab, or proprietary), yes. An in-house 3D print lab reduces per-aligner cost from $15–$25 (outsourced) to $2–$5 (in-house) and cuts turnaround from 5–10 days to same-day. UDGOK builds ventilated, resin-safe print rooms with sealed flooring, dedicated 20A circuits, and UV curing stations." },
-          { q: "What technology infrastructure does a modern orthodontic office need?", a: "At minimum: (1) Cat6a Ethernet to every chair position, (2) dedicated 20A circuits for iTero/3Shape scanners, (3) a 72×72 inch HVAC closet sized for server equipment, (4) HDMI/USB-C drops for patient-facing monitors at each chair, and (5) a CBCT alcove with lead-lined walls if placing imaging on-site. UDGOK pre-wires for all major practice management systems including Dolphin, OrthoFi, and Cloud 9." },
-          { q: "How long does it take to build an orthodontic office?", a: "Ground-up orthodontic office construction takes 4–6 months from permit issuance to certificate of occupancy. Tenant improvement build-outs take 3–4 months. UDGOK's design-build approach saves 4–6 weeks by overlapping architectural design, permit submittal, and equipment procurement." },
-        ]}
+        faqs={PAGE_FAQS}
         sections={[
           { heading: "Why orthodontic offices need specialized construction", body: "A general dental operatory is a private 10×12 room with one chair, one sink, one suction line, and one air line. An orthodontic treatment bay is a 40-foot open span with 8–12 chairs, shared vacuum/air manifolds, digital scanner stations at every other position, and a doctor who needs visual oversight of all patients simultaneously. The HVAC requirements are different (40+ people in an open space vs. 2 people per room), the plumbing is different (shared manifolds vs. dedicated chair plumbing), the electrical is different (data-first vs. power-first), and the patient flow is 3× faster. Contractors who build general dental offices and try to 'adapt' for ortho inevitably produce inefficient layouts with bottlenecked corridors and inadequate infrastructure. UDGOK designs ortho-specific spaces from day one." },
           { heading: "How to design an open bay treatment area for orthodontics", body: "The ideal open bay uses column-free steel framing spanning 36–42 feet. Chairs are arranged in U-shape, L-shape, or linear configurations depending on floor plan geometry. Chair spacing is 5.5–6.5 feet center-to-center (tighter than general dental because ortho chairs are narrower). Each position gets: one vacuum drop, one air drop, one water drop, two power outlets, two Cat6a data drops, and one HDMI drop for a patient monitor. The doctor's path should allow visual contact with all chairs from any single position. UDGOK uses 3D walkthrough models to optimize doctor travel distance — our best layouts reduce average steps-per-patient to under 15." },

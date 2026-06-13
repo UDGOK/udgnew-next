@@ -1,5 +1,5 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
-import Script from "next/script";
 import DentalChecklistUI from "./DentalChecklistUI";
 
 export const metadata: Metadata = {
@@ -81,17 +81,17 @@ const faqSchema = {
 };
 
 export default function GuideDentalChecklistPage() {
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Dental Office Build-Out Checklist", url: "https://www.udgok.com/guide-dental-buildout-checklist-oklahoma" }
+  ];
+
   return (
     <>
-      <Script id="schema-howto" type="application/ld+json">
-        {JSON.stringify(howToSchema)}
-      </Script>
-      <Script id="schema-article" type="application/ld+json">
-        {JSON.stringify(articleSchema)}
-      </Script>
-      <Script id="schema-faq" type="application/ld+json">
-        {JSON.stringify(faqSchema)}
-      </Script>
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <DentalChecklistUI />
     </>
   );

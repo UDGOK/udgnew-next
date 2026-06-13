@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Retail Construction Tulsa OK | Store & Restaurant Build-Outs | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function RetailConstructionTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Retail Construction in Tulsa, Oklahoma", url: "https://www.udgok.com/retail-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does retail construction cost in Tulsa?", a: "Retail tenant improvements in Tulsa cost $80–$180 per square foot for standard build-outs. High-end boutiques and restaurant retail spaces run higher at $150–$350/sq ft. A 2,000 sq ft retail store fit-out typically costs $160K–$360K including MEP, finishes, and fixtures." },
+                    { q: "How long does a retail build-out take in Tulsa?", a: "Standard retail tenant improvements take 6–10 weeks. Fast-track retail projects with standardized designs can be completed in 4–6 weeks. UDGOK coordinates with landlords and the City of Tulsa to overlap permitting with procurement." },
+                    { q: "Does UDGOK work with retail landlords?", a: "Yes. We coordinate construction with landlords, property managers, and leasing agents. We review lease requirements, handle landlord approvals, and ensure TI work meets the property's building standards and insurance requirements." },
+                    { q: "Can UDGOK build national retail brand stores?", a: "Yes. We have experience building to national retail brand prototypes, matching corporate specifications for layout, fixtures, finishes, and signage. We work directly with brand representatives to ensure compliance." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Retail Construction Tulsa"
                 description="Retail construction contractor in Tulsa, Oklahoma. Store fit-outs, strip centers, restaurant build-outs, and retail renovations."
                 url="https://www.udgok.com/retail-construction-tulsa"
@@ -44,12 +57,7 @@ export default function RetailConstructionTulsaPage() {
                     { icon: "♿", title: "ADA Compliance", desc: "Every retail space we build meets ADA accessibility standards — entrances, restrooms, counter heights, and path of travel." },
                     { icon: "📋", title: "Fast-Track Permitting", desc: "Established relationships with City of Tulsa DBCA for expedited plan review and inspection scheduling." },
                 ]}
-                faqs={[
-                    { q: "How much does retail construction cost in Tulsa?", a: "Retail tenant improvements in Tulsa cost $80–$180 per square foot for standard build-outs. High-end boutiques and restaurant retail spaces run higher at $150–$350/sq ft. A 2,000 sq ft retail store fit-out typically costs $160K–$360K including MEP, finishes, and fixtures." },
-                    { q: "How long does a retail build-out take in Tulsa?", a: "Standard retail tenant improvements take 6–10 weeks. Fast-track retail projects with standardized designs can be completed in 4–6 weeks. UDGOK coordinates with landlords and the City of Tulsa to overlap permitting with procurement." },
-                    { q: "Does UDGOK work with retail landlords?", a: "Yes. We coordinate construction with landlords, property managers, and leasing agents. We review lease requirements, handle landlord approvals, and ensure TI work meets the property's building standards and insurance requirements." },
-                    { q: "Can UDGOK build national retail brand stores?", a: "Yes. We have experience building to national retail brand prototypes, matching corporate specifications for layout, fixtures, finishes, and signage. We work directly with brand representatives to ensure compliance." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Build Your Retail Space →"
             />
         </>

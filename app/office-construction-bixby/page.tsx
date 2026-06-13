@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Office Construction Bixby OK | Commercial Office Build-Outs | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function OfficeConstructionBixbyPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Office Construction in Bixby, Oklahoma", url: "https://www.udgok.com/office-construction-bixby" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does office construction cost in Bixby?", a: "Professional office build-outs in Bixby cost $100–$250 per square foot depending on finishes and infrastructure. Medical office suites run $150–$350/sq ft due to specialized plumbing, exam room requirements, and ADA compliance. A 3,000 sq ft professional office typically costs $300K–$750K." },
+                    { q: "Is Bixby a good location for a professional office?", a: "Yes. Bixby offers competitive lease rates ($14–$22/sq ft NNN) compared to Tulsa's $18–$28/sq ft. The city's high household incomes, growing population, and proximity to south Tulsa make it an excellent location for professional services, medical practices, and tech companies." },
+                    { q: "How long does office construction take in Bixby?", a: "A standard office build-out (2,000–5,000 sq ft) takes 6–10 weeks from permit to move-in. Medical office suites take 8–14 weeks due to specialized infrastructure. UDGOK fast-tracks Bixby permitting through established city relationships." },
+                    { q: "Does UDGOK handle office technology infrastructure?", a: "Yes. We install Cat6A structured cabling, server closets with proper cooling, wireless access point placement, conference room AV systems, and security infrastructure. Our office builds are move-in ready from day one." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Office Construction Bixby"
                 description="Office construction contractor in Bixby, Oklahoma — professional offices, medical offices, and commercial office build-outs."
                 url="https://www.udgok.com/office-construction-bixby"
@@ -44,12 +57,7 @@ export default function OfficeConstructionBixbyPage() {
                     { icon: "♿", title: "ADA Compliance", desc: "Fully ADA-compliant office spaces including accessible entrances, restrooms, and path of travel throughout." },
                     { icon: "📋", title: "Bixby Permits", desc: "Efficient permitting with the City of Bixby — we have established relationships with local development services staff." },
                 ]}
-                faqs={[
-                    { q: "How much does office construction cost in Bixby?", a: "Professional office build-outs in Bixby cost $100–$250 per square foot depending on finishes and infrastructure. Medical office suites run $150–$350/sq ft due to specialized plumbing, exam room requirements, and ADA compliance. A 3,000 sq ft professional office typically costs $300K–$750K." },
-                    { q: "Is Bixby a good location for a professional office?", a: "Yes. Bixby offers competitive lease rates ($14–$22/sq ft NNN) compared to Tulsa's $18–$28/sq ft. The city's high household incomes, growing population, and proximity to south Tulsa make it an excellent location for professional services, medical practices, and tech companies." },
-                    { q: "How long does office construction take in Bixby?", a: "A standard office build-out (2,000–5,000 sq ft) takes 6–10 weeks from permit to move-in. Medical office suites take 8–14 weeks due to specialized infrastructure. UDGOK fast-tracks Bixby permitting through established city relationships." },
-                    { q: "Does UDGOK handle office technology infrastructure?", a: "Yes. We install Cat6A structured cabling, server closets with proper cooling, wireless access point placement, conference room AV systems, and security infrastructure. Our office builds are move-in ready from day one." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Build Your Bixby Office →"
             />
         </>

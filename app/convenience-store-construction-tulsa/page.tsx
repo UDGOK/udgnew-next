@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Convenience Store Construction Tulsa Oklahoma | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function ConvenienceStorePage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Convenience Store Construction Tulsa", url: "https://www.udgok.com/convenience-store-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+          { q: "How much does it cost to build a convenience store?", a: "A ground-up convenience store in Oklahoma costs $1.2M–$3.2M total including the building ($750K–$2M), fuel systems ($150K–$400K), canopy ($80K–$200K), and site work ($150K–$400K). Costs vary based on store size, number of fuel positions, and food service scope." },
+          { q: "How long does it take to build a convenience store?", a: "Ground-up c-store construction takes 5–7 months from permit issuance to grand opening. Remodels and brand reimage projects can be completed in 6–12 weeks depending on scope." },
+          { q: "Does UDGOK build for national c-store brands?", a: "Yes. We build and remodel for both national/regional brands and independent operators. We're experienced with brand-specific construction standards, prototype compliance, and corporate approval processes." },
+          { q: "Can you remodel my store while I stay open?", a: "Yes. UDGOK specializes in occupied-store remodels and brand reimage programs. We phase the work to keep your store operational, typically working nights and weekends for interior demolition and during business hours for exterior improvements." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Convenience Store Construction"
         description="C-store and fuel station construction in Tulsa, Oklahoma. Ground-up builds and renovations for convenience retail."
         url="https://www.udgok.com/convenience-store-construction-tulsa"
@@ -72,12 +85,7 @@ export default function ConvenienceStorePage() {
 <p>UDGOK manages all regulatory permits and compliance documentation as part of our standard scope of work.</p>`,
           },
         ]}
-        faqs={[
-          { q: "How much does it cost to build a convenience store?", a: "A ground-up convenience store in Oklahoma costs $1.2M–$3.2M total including the building ($750K–$2M), fuel systems ($150K–$400K), canopy ($80K–$200K), and site work ($150K–$400K). Costs vary based on store size, number of fuel positions, and food service scope." },
-          { q: "How long does it take to build a convenience store?", a: "Ground-up c-store construction takes 5–7 months from permit issuance to grand opening. Remodels and brand reimage projects can be completed in 6–12 weeks depending on scope." },
-          { q: "Does UDGOK build for national c-store brands?", a: "Yes. We build and remodel for both national/regional brands and independent operators. We're experienced with brand-specific construction standards, prototype compliance, and corporate approval processes." },
-          { q: "Can you remodel my store while I stay open?", a: "Yes. UDGOK specializes in occupied-store remodels and brand reimage programs. We phase the work to keep your store operational, typically working nights and weekends for interior demolition and during business hours for exterior improvements." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Build Your C-Store →"
       />
     </>

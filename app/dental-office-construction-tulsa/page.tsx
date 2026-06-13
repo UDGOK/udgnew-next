@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd, MedicalBusinessJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, MedicalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Dental Office Construction Contractor Tulsa OK | 80+ Clinics Built",
@@ -15,9 +15,28 @@ export const metadata: Metadata = {
 };
 
 export default function DentalOfficePage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Dental Office Construction Tulsa", url: "https://www.udgok.com/dental-office-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+          { q: "How much does it cost to build a dental office in Tulsa, Oklahoma?", a: "A dental office build-out in Tulsa costs $140–$280 per square foot depending on the practice type. A standard 2,500 sq ft general dentistry office typically runs $340,000–$630,000 including all dental-specific infrastructure. This does not include dental equipment, which adds $80,000–$200,000+." },
+          { q: "How long does dental office construction take?", a: "Most dental office build-outs take 3–5 months from building permit to certificate of occupancy. UDGOK's design-build approach can reduce this by 4–6 weeks by overlapping design and permitting phases." },
+          { q: "What certifications does UDGOK hold for dental construction?", a: "UDGOK is a licensed Oklahoma General Contractor with ASSE 6010 certified medical gas installers, OSHA 30 trained superintendents, and PMP-certified project managers. We build to ADA, NFPA 99, and Oklahoma State Department of Health standards." },
+          { q: "Do you handle dental equipment installation?", a: "UDGOK coordinates directly with your dental equipment vendor (A-dec, Pelton & Crane, Planmeca, etc.) for precise chair outlet placement, but equipment procurement and installation is typically handled by the vendor. We rough-in all plumbing, electrical, data, and gas connections to their exact specifications." },
+          { q: "Can you build a dental office while my current lease is still active?", a: "Yes. We regularly fast-track dental build-outs so they're ready before your current lease expires. Our preconstruction team can begin design and permitting while you finalize your new lease, minimizing downtime between locations." },
+          { q: "What areas do you serve for dental construction?", a: "UDGOK builds dental offices across the Tulsa metro including Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sapulpa, and Haskell. We also serve Oklahoma City and the Dallas/Plano, TX metro." },
+          { q: "What is a design-build contractor for dental offices?", a: "A design-build dental office contractor handles both the architectural design and physical construction under a single contract, rather than the traditional model where you hire a separate architect and general contractor. This approach typically reduces total project cost by 5–15% and cuts project duration by 30–40% by eliminating the bid process and coordination gaps. For dental practices, design-build is particularly valuable because the contractor understands specialty requirements like operatory layout, plumbing rough-in for dental chairs, vacuum systems, and sterilization room design from the start." },
+          { q: "Do dental offices need special ADA compliance considerations when building or remodeling?", a: "Yes. Dental offices must comply with ADA Title III requirements, which govern accessible design for commercial facilities open to the public. Key requirements include: accessible parking and entrance routes, exam room widths of at least 60 inches for turning radius, accessible restrooms, and accessible counters and treatment areas. Oklahoma follows the 2010 ADA Standards for Accessible Design. UDGOK builds ADA compliance into every dental project from day one." },
+          { q: "What should I look for when hiring a dental office contractor in Tulsa?", a: "When hiring a dental office contractor in Tulsa, look for: specific healthcare construction experience, an active Oklahoma contractor's license, familiarity with dental-specific MEP systems (vacuum, compressor, nitrous, gas), and verifiable local references from dental practices. Ask for project photos of completed dental offices, not just general commercial work. A contractor experienced in dental buildouts understands that operatory placement, plumbing rough-in, and electrical panel sizing need to accommodate future equipment upgrades." },
+          { q: "Can UDGOK build orthodontic, pediatric, and oral surgery offices?", a: "Yes. UDGOK has built all dental specialty types including general dentistry, orthodontic offices, pediatric dental clinics, oral surgery centers, and endodontic practices. Each specialty has unique requirements — orthodontic offices need open-bay layouts with centralized sterilization, pediatric offices require child-friendly design with wider corridors, and oral surgery suites need NFPA 99 medical gas systems and recovery rooms. We have dedicated experience with each." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Dental Office Construction Tulsa"
         description="Specialized dental clinic construction in Tulsa, Oklahoma. UDGOK has built 80+ dental offices including operatories, sterilization centers, medical gas systems, and ADA-compliant patient spaces."
         url="https://www.udgok.com/dental-office-construction-tulsa"
@@ -115,18 +134,7 @@ export default function DentalOfficePage() {
 <p>UDGOK designs and installs HVAC systems that meet all healthcare codes while providing energy-efficient comfort for patients and staff.</p>`,
           },
         ]}
-        faqs={[
-          { q: "How much does it cost to build a dental office in Tulsa, Oklahoma?", a: "A dental office build-out in Tulsa costs $140–$280 per square foot depending on the practice type. A standard 2,500 sq ft general dentistry office typically runs $340,000–$630,000 including all dental-specific infrastructure. This does not include dental equipment, which adds $80,000–$200,000+." },
-          { q: "How long does dental office construction take?", a: "Most dental office build-outs take 3–5 months from building permit to certificate of occupancy. UDGOK's design-build approach can reduce this by 4–6 weeks by overlapping design and permitting phases." },
-          { q: "What certifications does UDGOK hold for dental construction?", a: "UDGOK is a licensed Oklahoma General Contractor with ASSE 6010 certified medical gas installers, OSHA 30 trained superintendents, and PMP-certified project managers. We build to ADA, NFPA 99, and Oklahoma State Department of Health standards." },
-          { q: "Do you handle dental equipment installation?", a: "UDGOK coordinates directly with your dental equipment vendor (A-dec, Pelton & Crane, Planmeca, etc.) for precise chair outlet placement, but equipment procurement and installation is typically handled by the vendor. We rough-in all plumbing, electrical, data, and gas connections to their exact specifications." },
-          { q: "Can you build a dental office while my current lease is still active?", a: "Yes. We regularly fast-track dental build-outs so they're ready before your current lease expires. Our preconstruction team can begin design and permitting while you finalize your new lease, minimizing downtime between locations." },
-          { q: "What areas do you serve for dental construction?", a: "UDGOK builds dental offices across the Tulsa metro including Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sapulpa, and Haskell. We also serve Oklahoma City and the Dallas/Plano, TX metro." },
-          { q: "What is a design-build contractor for dental offices?", a: "A design-build dental office contractor handles both the architectural design and physical construction under a single contract, rather than the traditional model where you hire a separate architect and general contractor. This approach typically reduces total project cost by 5–15% and cuts project duration by 30–40% by eliminating the bid process and coordination gaps. For dental practices, design-build is particularly valuable because the contractor understands specialty requirements like operatory layout, plumbing rough-in for dental chairs, vacuum systems, and sterilization room design from the start." },
-          { q: "Do dental offices need special ADA compliance considerations when building or remodeling?", a: "Yes. Dental offices must comply with ADA Title III requirements, which govern accessible design for commercial facilities open to the public. Key requirements include: accessible parking and entrance routes, exam room widths of at least 60 inches for turning radius, accessible restrooms, and accessible counters and treatment areas. Oklahoma follows the 2010 ADA Standards for Accessible Design. UDGOK builds ADA compliance into every dental project from day one." },
-          { q: "What should I look for when hiring a dental office contractor in Tulsa?", a: "When hiring a dental office contractor in Tulsa, look for: specific healthcare construction experience, an active Oklahoma contractor's license, familiarity with dental-specific MEP systems (vacuum, compressor, nitrous, gas), and verifiable local references from dental practices. Ask for project photos of completed dental offices, not just general commercial work. A contractor experienced in dental buildouts understands that operatory placement, plumbing rough-in, and electrical panel sizing need to accommodate future equipment upgrades." },
-          { q: "Can UDGOK build orthodontic, pediatric, and oral surgery offices?", a: "Yes. UDGOK has built all dental specialty types including general dentistry, orthodontic offices, pediatric dental clinics, oral surgery centers, and endodontic practices. Each specialty has unique requirements — orthodontic offices need open-bay layouts with centralized sterilization, pediatric offices require child-friendly design with wider corridors, and oral surgery suites need NFPA 99 medical gas systems and recovery rooms. We have dedicated experience with each." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Plan Your Dental Build →"
         videoSrc="/videos/doctor-walking-practice.mp4"
         videoLabel="On-Site"

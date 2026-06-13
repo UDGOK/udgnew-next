@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Construction Company East Tulsa OK | Industrial & Commercial | UDGOK",
@@ -14,9 +14,22 @@ export const metadata: Metadata = {
 };
 
 export default function ConstructionCompanyEastTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction Company in East Tulsa, Oklahoma", url: "https://www.udgok.com/construction-company-east-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does a warehouse cost to build in East Tulsa?", a: "Pre-engineered metal warehouse shells in East Tulsa cost $25–$50/sf turnkey. A 20,000 SF PEMB warehouse with slab, basic electrical, and dock doors costs approximately $500K–$1M. Larger distribution centers with ESFR sprinklers and office build-out cost $70–$120/sf." },
+                    { q: "What industrial zoning exists in East Tulsa?", a: "East Tulsa features IM (Industrial Moderate) and IL (Industrial Light) zoning along the I-44 corridor, 11th Street, and Pine Street corridors. These zones permit warehousing, light manufacturing, distribution, and flex space. Heavy industrial uses may require a special use permit." },
+                    { q: "Does UDGOK build convenience stores in East Tulsa?", a: "Yes. UDGOK builds convenience stores and gas stations across East Tulsa and the broader Tulsa metro. Our scope includes fuel system installation, walk-in cooler/freezer, commercial kitchen, and franchise prototype compliance." },
+                    { q: "What areas does UDGOK serve in East Tulsa?", a: "We build across the entire East Tulsa corridor — from Admiral Place south to the Creek Turnpike, and east from Highway 169 to Catoosa. This includes the 11th Street corridor, Pine Street industrial area, and the I-44/I-244 interchange zone." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Construction Company East Tulsa"
                 description="East Tulsa construction company — industrial, warehouse, convenience store, and commercial construction along the I-44 corridor."
                 url="https://www.udgok.com/construction-company-east-tulsa"
@@ -43,12 +56,7 @@ export default function ConstructionCompanyEastTulsaPage() {
                     { icon: "🏗️", title: "Ground-Up Commercial", desc: "Pad site builds, strip centers, and single-tenant commercial buildings along the East Tulsa commercial corridors." },
                     { icon: "📋", title: "East Tulsa Industrial Zoning", desc: "IM and IL zoned properties — we navigate use permits, environmental requirements, and industrial site development standards." },
                 ]}
-                faqs={[
-                    { q: "How much does a warehouse cost to build in East Tulsa?", a: "Pre-engineered metal warehouse shells in East Tulsa cost $25–$50/sf turnkey. A 20,000 SF PEMB warehouse with slab, basic electrical, and dock doors costs approximately $500K–$1M. Larger distribution centers with ESFR sprinklers and office build-out cost $70–$120/sf." },
-                    { q: "What industrial zoning exists in East Tulsa?", a: "East Tulsa features IM (Industrial Moderate) and IL (Industrial Light) zoning along the I-44 corridor, 11th Street, and Pine Street corridors. These zones permit warehousing, light manufacturing, distribution, and flex space. Heavy industrial uses may require a special use permit." },
-                    { q: "Does UDGOK build convenience stores in East Tulsa?", a: "Yes. UDGOK builds convenience stores and gas stations across East Tulsa and the broader Tulsa metro. Our scope includes fuel system installation, walk-in cooler/freezer, commercial kitchen, and franchise prototype compliance." },
-                    { q: "What areas does UDGOK serve in East Tulsa?", a: "We build across the entire East Tulsa corridor — from Admiral Place south to the Creek Turnpike, and east from Highway 169 to Catoosa. This includes the 11th Street corridor, Pine Street industrial area, and the I-44/I-244 interchange zone." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your East Tulsa Project →"
             />
         </>

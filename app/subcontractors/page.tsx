@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -14,8 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function SubcontractorsPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Subcontractor Portal", url: "https://www.udgok.com/subcontractors" }
+  ];
+  const PAGE_FAQS = [
+        { q: "How do I prequalify as a UDGOK subcontractor?", a: "Submit your prequalification package including proof of insurance, state contractor's license, EMR documentation, OSHA certifications, bonding capacity letter, and three recent project references. We review submissions within 5 business days." },
+        { q: "What trades does UDGOK need subcontractors for?", a: "We need all commercial construction trades: mechanical (HVAC), electrical, plumbing, fire protection, drywall/framing, flooring, painting, concrete, structural steel, roofing, site work, medical gas, and specialty finishes. Healthcare experience is preferred but not required for all trades." },
+        { q: "What are UDGOK's payment terms for subcontractors?", a: "We pay Net 30 from approved invoice date. Progress billing is monthly, and retainage terms are per project contract. UDGOK has a strong payment history — we believe paying subs on time is fundamental to quality construction." },
+        { q: "Does UDGOK have consistent work for subcontractors?", a: "Yes. With 20+ projects per year and a growing pipeline across Oklahoma and Texas, we offer consistent work volume for quality trade partners. Many of our subcontractors have worked with us on 10+ projects." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Trade Partners"
       title="Subcontractor Portal"
       description="UDGOK builds with the elite trades in Oklahoma. We run structured projects with proper preconstruction, so your crews show up to a job that's ready."
@@ -37,13 +52,10 @@ export default function SubcontractorsPage() {
         { icon: "📋", title: "References", desc: "Three verifiable project references from the past 36 months in your specific trade category." },
         { icon: "🎖️", title: "Certifications", desc: "Trade-specific certifications required (e.g., ASSE 6010 for medical gas, EPA 608 for HVAC)." },
       ]}
-      faqs={[
-        { q: "How do I prequalify as a UDGOK subcontractor?", a: "Submit your prequalification package including proof of insurance, state contractor's license, EMR documentation, OSHA certifications, bonding capacity letter, and three recent project references. We review submissions within 5 business days." },
-        { q: "What trades does UDGOK need subcontractors for?", a: "We need all commercial construction trades: mechanical (HVAC), electrical, plumbing, fire protection, drywall/framing, flooring, painting, concrete, structural steel, roofing, site work, medical gas, and specialty finishes. Healthcare experience is preferred but not required for all trades." },
-        { q: "What are UDGOK's payment terms for subcontractors?", a: "We pay Net 30 from approved invoice date. Progress billing is monthly, and retainage terms are per project contract. UDGOK has a strong payment history — we believe paying subs on time is fundamental to quality construction." },
-        { q: "Does UDGOK have consistent work for subcontractors?", a: "Yes. With 20+ projects per year and a growing pipeline across Oklahoma and Texas, we offer consistent work volume for quality trade partners. Many of our subcontractors have worked with us on 10+ projects." },
-      ]}
+      faqs={PAGE_FAQS}
       cta="Submit Prequalification →"
     />
+  
+    </>
   );
 }

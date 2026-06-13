@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Construction Company Midtown Tulsa OK | Cherry Street & Brookside | UDGOK",
@@ -14,9 +14,22 @@ export const metadata: Metadata = {
 };
 
 export default function ConstructionCompanyMidtownTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction Company in Midtown Tulsa, Oklahoma", url: "https://www.udgok.com/construction-company-midtown-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does a restaurant build-out cost on Cherry Street?", a: "Restaurant construction on Cherry Street and Brookside ranges from $150–$350/sf. A 2,000 SF restaurant with full commercial kitchen costs $300K–$700K. Costs are higher in Midtown due to tighter access, older infrastructure, and character-sensitive finishes." },
+                    { q: "Can UDGOK build in Tulsa's historic districts?", a: "Yes. UDGOK has experience navigating historic district guidelines and neighborhood overlay requirements in Midtown and Brookside. We coordinate with the Tulsa Preservation Commission when projects fall within designated historic areas." },
+                    { q: "What are the challenges of building in Midtown Tulsa?", a: "Midtown construction challenges include: limited staging and laydown area, tight site access, coordination with adjacent active businesses, older underground utilities, parking constraints during construction, and neighborhood aesthetic expectations. UDGOK mitigates these through careful phasing, off-hours deliveries, and proactive neighbor communication." },
+                    { q: "Does UDGOK build on Cherry Street and Brookside?", a: "Yes. UDGOK has completed 20+ projects in Midtown Tulsa, including restaurants, retail build-outs, medical offices, and office renovations along Cherry Street, Brookside (Peoria Ave / 33rd–41st), and the broader Midtown corridor." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Construction Company Midtown Tulsa"
                 description="Midtown Tulsa construction company specializing in boutique retail, medical, restaurant, and office construction along Cherry Street and Brookside."
                 url="https://www.udgok.com/construction-company-midtown-tulsa"
@@ -43,12 +56,7 @@ export default function ConstructionCompanyMidtownTulsaPage() {
                     { icon: "🔨", title: "Urban Infill Construction", desc: "Ground-up construction on tight infill lots. We manage construction logistics, adjacent business coordination, and limited staging areas." },
                     { icon: "📋", title: "Historic District Compliance", desc: "Navigation of historic district guidelines and neighborhood overlay requirements for projects in designated historic areas." },
                 ]}
-                faqs={[
-                    { q: "How much does a restaurant build-out cost on Cherry Street?", a: "Restaurant construction on Cherry Street and Brookside ranges from $150–$350/sf. A 2,000 SF restaurant with full commercial kitchen costs $300K–$700K. Costs are higher in Midtown due to tighter access, older infrastructure, and character-sensitive finishes." },
-                    { q: "Can UDGOK build in Tulsa's historic districts?", a: "Yes. UDGOK has experience navigating historic district guidelines and neighborhood overlay requirements in Midtown and Brookside. We coordinate with the Tulsa Preservation Commission when projects fall within designated historic areas." },
-                    { q: "What are the challenges of building in Midtown Tulsa?", a: "Midtown construction challenges include: limited staging and laydown area, tight site access, coordination with adjacent active businesses, older underground utilities, parking constraints during construction, and neighborhood aesthetic expectations. UDGOK mitigates these through careful phasing, off-hours deliveries, and proactive neighbor communication." },
-                    { q: "Does UDGOK build on Cherry Street and Brookside?", a: "Yes. UDGOK has completed 20+ projects in Midtown Tulsa, including restaurants, retail build-outs, medical offices, and office renovations along Cherry Street, Brookside (Peoria Ave / 33rd–41st), and the broader Midtown corridor." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Midtown Project →"
             />
         </>

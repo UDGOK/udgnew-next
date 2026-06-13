@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Construction Company North Tulsa OK | Commercial & Community | UDGOK",
@@ -14,9 +14,22 @@ export const metadata: Metadata = {
 };
 
 export default function ConstructionCompanyNorthTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction Company in North Tulsa, Oklahoma", url: "https://www.udgok.com/construction-company-north-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "Does UDGOK build in North Tulsa?", a: "Yes. UDGOK provides full commercial construction services in North Tulsa, including medical offices, retail spaces, convenience stores, community facilities, and tenant improvements. We serve the entire North Tulsa area from downtown north to Owasso." },
+                    { q: "What types of projects is UDGOK building in North Tulsa?", a: "North Tulsa projects include community health clinics, retail build-outs, convenience stores, mixed-use developments, and tenant improvements. The area is seeing significant new commercial investment along key corridors." },
+                    { q: "How much does commercial construction cost in North Tulsa?", a: "Commercial construction costs in North Tulsa are comparable to the broader Tulsa metro: $80–$180/sf for retail, $60–$150/sf for office, and $180–$350/sf for medical. Site-specific factors like existing conditions and utility connections affect final pricing." },
+                    { q: "Does UDGOK offer GMP contracts for North Tulsa projects?", a: "Yes. UDGOK offers Guaranteed Maximum Price (GMP) contracts for all projects, including North Tulsa. GMP provides budget certainty — if costs come in below the GMP, savings are shared with the owner." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Construction Company North Tulsa"
                 description="North Tulsa construction company — commercial, medical, retail, and community facilities."
                 url="https://www.udgok.com/construction-company-north-tulsa"
@@ -43,12 +56,7 @@ export default function ConstructionCompanyNorthTulsaPage() {
                     { icon: "🏢", title: "Mixed-Use Development", desc: "Multi-use buildings with ground-floor retail and upper-floor office or community space. Complex program coordination under one contract." },
                     { icon: "📋", title: "Community Partnership", desc: "UDGOK works with community development organizations, non-profits, and local government on projects that serve North Tulsa's revitalization." },
                 ]}
-                faqs={[
-                    { q: "Does UDGOK build in North Tulsa?", a: "Yes. UDGOK provides full commercial construction services in North Tulsa, including medical offices, retail spaces, convenience stores, community facilities, and tenant improvements. We serve the entire North Tulsa area from downtown north to Owasso." },
-                    { q: "What types of projects is UDGOK building in North Tulsa?", a: "North Tulsa projects include community health clinics, retail build-outs, convenience stores, mixed-use developments, and tenant improvements. The area is seeing significant new commercial investment along key corridors." },
-                    { q: "How much does commercial construction cost in North Tulsa?", a: "Commercial construction costs in North Tulsa are comparable to the broader Tulsa metro: $80–$180/sf for retail, $60–$150/sf for office, and $180–$350/sf for medical. Site-specific factors like existing conditions and utility connections affect final pricing." },
-                    { q: "Does UDGOK offer GMP contracts for North Tulsa projects?", a: "Yes. UDGOK offers Guaranteed Maximum Price (GMP) contracts for all projects, including North Tulsa. GMP provides budget certainty — if costs come in below the GMP, savings are shared with the owner." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your North Tulsa Project →"
             />
         </>

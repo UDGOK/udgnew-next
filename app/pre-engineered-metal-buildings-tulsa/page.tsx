@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Pre-Engineered Metal Buildings Tulsa OK | PEMB Red Iron | UDGOK",
@@ -10,9 +10,22 @@ export const metadata: Metadata = {
 };
 
 export default function PEMBTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Pre-Engineered Metal Buildings in Tulsa, Oklahoma", url: "https://www.udgok.com/pre-engineered-metal-buildings-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does a metal building cost in Tulsa, Oklahoma?", a: "A pre-engineered metal building in Tulsa costs $15–$25/sf for the building kit only (no foundation or erection). A turnkey shell with foundation, erection, insulation, and basic electrical costs $25–$50/sf. A fully finished PEMB with office build-out, HVAC, plumbing, and fire protection costs $50–$90/sf." },
+                    { q: "What is the current price of structural steel in Oklahoma?", a: "As of Q1 2026, fabricated PEMB steel averages $1,800–$2,400/ton delivered in Tulsa. Hot-rolled structural shapes (W-shapes) run $1,200–$1,600/ton. Steel prices are down 15–20% from 2022 peaks but remain elevated versus pre-pandemic levels." },
+                    { q: "How long does it take to erect a metal building?", a: "Steel erection for a pre-engineered metal building takes 2–4 weeks for a 10,000 SF building and 4–8 weeks for a 50,000+ SF building. Total project time from design through CO is 3–5 months for small PEMBs and 5–8 months for large facilities." },
+                    { q: "What wind load rating do metal buildings need in Oklahoma?", a: "Oklahoma building codes require minimum 90 mph wind speed ratings (3-second gust). PEMB manufacturers design to site-specific wind loads based on exposure category, building importance, and local amendments. All UDGOK PEMBs meet or exceed IBC 2021 wind requirements." },
+                ];
+  return (
         <>
-            <ServiceJsonLd name="Pre-Engineered Metal Buildings Tulsa" description="PEMB contractor in Tulsa, Oklahoma — red iron metal buildings for warehouses, shops, agricultural, and commercial use." url="https://www.udgok.com/pre-engineered-metal-buildings-tulsa" />
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd name="Pre-Engineered Metal Buildings Tulsa" description="PEMB contractor in Tulsa, Oklahoma — red iron metal buildings for warehouses, shops, agricultural, and commercial use." url="https://www.udgok.com/pre-engineered-metal-buildings-tulsa" />
             <ServicePage
                 label="Metal Buildings"
                 title="Pre-Engineered Metal Buildings in Tulsa, Oklahoma"
@@ -39,12 +52,7 @@ export default function PEMBTulsaPage() {
                     { heading: "What are current steel prices for metal buildings in Oklahoma?", body: "As of Q1 2026, fabricated structural steel for pre-engineered metal buildings averages $1,800–$2,400/ton delivered in the Tulsa metro. Hot-rolled structural steel (W-shapes) trades at $1,200–$1,600/ton. Steel coil for metal panels runs $900–$1,100/ton. These prices are down 15–20% from the 2022 peak but remain 30–40% above pre-pandemic levels. UDGOK monitors steel futures daily and recommends strategic timing for steel procurement on large projects." },
                     { heading: "PEMB vs conventional steel — which is right for your project?", body: "PEMB is ideal for rectangular, single-story buildings under 200' clear span — <a href='/warehouse-construction-tulsa'>warehouses</a>, shops, <a href='/agricultural-building-construction-oklahoma'>agricultural buildings</a>, and light commercial. Conventional steel is better for multi-story buildings, irregular geometries, heavy crane loads (30+ tons), or projects requiring architectural flexibility. PEMB costs 20–30% less and erects 30% faster. For most <a href='/industrial-buildings-tulsa'>industrial buildings in Tulsa</a>, PEMB is the clear winner on cost and schedule. Read our full <a href='/guide-pemb-vs-steel-oklahoma'>PEMB vs steel comparison guide</a> for detailed data." },
                 ]}
-                faqs={[
-                    { q: "How much does a metal building cost in Tulsa, Oklahoma?", a: "A pre-engineered metal building in Tulsa costs $15–$25/sf for the building kit only (no foundation or erection). A turnkey shell with foundation, erection, insulation, and basic electrical costs $25–$50/sf. A fully finished PEMB with office build-out, HVAC, plumbing, and fire protection costs $50–$90/sf." },
-                    { q: "What is the current price of structural steel in Oklahoma?", a: "As of Q1 2026, fabricated PEMB steel averages $1,800–$2,400/ton delivered in Tulsa. Hot-rolled structural shapes (W-shapes) run $1,200–$1,600/ton. Steel prices are down 15–20% from 2022 peaks but remain elevated versus pre-pandemic levels." },
-                    { q: "How long does it take to erect a metal building?", a: "Steel erection for a pre-engineered metal building takes 2–4 weeks for a 10,000 SF building and 4–8 weeks for a 50,000+ SF building. Total project time from design through CO is 3–5 months for small PEMBs and 5–8 months for large facilities." },
-                    { q: "What wind load rating do metal buildings need in Oklahoma?", a: "Oklahoma building codes require minimum 90 mph wind speed ratings (3-second gust). PEMB manufacturers design to site-specific wind loads based on exposure category, building importance, and local amendments. All UDGOK PEMBs meet or exceed IBC 2021 wind requirements." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Get Your Metal Building Estimate →"
             />
         </>

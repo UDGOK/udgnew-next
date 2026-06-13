@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
+
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 interface TOCItem {
@@ -68,67 +68,8 @@ export default function BlogPostLayout({
   const heroY = useTransform(heroProgress, [0, 1], ["0%", "50%"]);
   const heroOpacity = useTransform(heroProgress, [0, 0.4], [1, 0]);
 
-  // JSON-LD Structured Data for High-SEO
-  const schemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": `https://www.udgok.com/${typeof window !== "undefined" ? window.location.pathname.replace(/^\//, "") : ""}#article`,
-    "headline": title,
-    "description": description,
-    "image": `https://www.udgok.com${heroImage}`,
-    "datePublished": datePublished || "2026-01-15",
-    "dateModified": dateModified || "2026-03-26",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://www.udgok.com/${typeof window !== "undefined" ? window.location.pathname.replace(/^\//, "") : ""}`
-    },
-    "author": {
-      "@type": "Person",
-      "name": authorName || "Zack H.",
-      "jobTitle": authorTitle || "Lead Estimator / Project Manager",
-      "url": "https://www.udgok.com/about",
-      "sameAs": [
-        "https://www.linkedin.com/company/upscale-development-group"
-      ]
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Upscale Development Group",
-      "alternateName": "UDGOK",
-      "url": "https://www.udgok.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.udgok.com/images/udgok-logo.png"
-      }
-    },
-    "speakable": {
-      "@type": "SpeakableSpecification",
-      "cssSelector": ["h1", "[data-speakable]"]
-    }
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-
-      {/* FAQ JSON-LD (auto-generated when faqs prop provided) */}
-      {faqs && faqs.length > 0 && (
-        <Script id="schema-faq-blog" type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: faqs.map((f) => ({
-              "@type": "Question",
-              name: f.q,
-              acceptedAnswer: { "@type": "Answer", text: f.a },
-            })),
-          })}
-        </Script>
-      )}
-
       {/* Dynamic Reading Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-[#FF4800] origin-left z-[10001]"

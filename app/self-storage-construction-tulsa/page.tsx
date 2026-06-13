@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Self-Storage Facility Construction Tulsa OK | Climate-Controlled & Drive-Up | UDGOK",
@@ -10,9 +10,22 @@ export const metadata: Metadata = {
 };
 
 export default function SelfStorageConstructionTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Self-Storage Facility Construction in Tulsa, Oklahoma", url: "https://www.udgok.com/self-storage-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does it cost to build a self-storage facility in Tulsa?", a: "Single-story drive-up storage: $35–$55/sf. Multi-story climate-controlled: $55–$85/sf. A 50,000 rentable SF facility costs $2.5M–$4.25M. Costs include site development, buildings, doors, hallway systems, HVAC (if climate-controlled), security, and management office." },
+                    { q: "What is the best unit mix for self-storage?", a: "The optimal mix varies by market. A common Tulsa metro mix is: 10% 5x5, 20% 5x10, 30% 10x10, 20% 10x15, 15% 10x20, 5% 10x30. UDGOK works with your feasibility study to determine the right mix." },
+                    { q: "How long does it take to build a storage facility?", a: "A single-phase, 30,000 SF drive-up facility: 4–6 months. A two-story, 50,000 SF climate-controlled facility: 6–10 months. Multi-phase developments with 100,000+ SF are delivered in 2–3 phases over 12–18 months." },
+                    { q: "Should I build climate-controlled or drive-up storage?", a: "Climate-controlled commands 30–50% higher rental rates but costs 40–60% more to build. In the Tulsa market, climate-controlled facilities fill faster and retain tenants longer. Most new facilities include a mix of both for optimal revenue." },
+                ];
+  return (
         <>
-            <ServiceJsonLd name="Self-Storage Construction Tulsa" description="Self-storage facility construction in Tulsa — drive-up units, climate-controlled, boat/RV storage." url="https://www.udgok.com/self-storage-construction-tulsa" />
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd name="Self-Storage Construction Tulsa" description="Self-storage facility construction in Tulsa — drive-up units, climate-controlled, boat/RV storage." url="https://www.udgok.com/self-storage-construction-tulsa" />
             <ServicePage
                 label="Self-Storage"
                 title="Self-Storage Facility Construction in Tulsa, Oklahoma"
@@ -35,12 +48,7 @@ export default function SelfStorageConstructionTulsaPage() {
                     { icon: "📐", title: "Unit Mix Optimization", desc: "We analyze your market to determine the optimal mix of unit sizes (5x5, 5x10, 10x10, 10x15, 10x20, 10x30) for maximum revenue per buildable SF." },
                     { icon: "🏢", title: "Management Office", desc: "Professional retail-facing management office with customer counter, merchandise display, and restroom. Designed to project a premium brand image." },
                 ]}
-                faqs={[
-                    { q: "How much does it cost to build a self-storage facility in Tulsa?", a: "Single-story drive-up storage: $35–$55/sf. Multi-story climate-controlled: $55–$85/sf. A 50,000 rentable SF facility costs $2.5M–$4.25M. Costs include site development, buildings, doors, hallway systems, HVAC (if climate-controlled), security, and management office." },
-                    { q: "What is the best unit mix for self-storage?", a: "The optimal mix varies by market. A common Tulsa metro mix is: 10% 5x5, 20% 5x10, 30% 10x10, 20% 10x15, 15% 10x20, 5% 10x30. UDGOK works with your feasibility study to determine the right mix." },
-                    { q: "How long does it take to build a storage facility?", a: "A single-phase, 30,000 SF drive-up facility: 4–6 months. A two-story, 50,000 SF climate-controlled facility: 6–10 months. Multi-phase developments with 100,000+ SF are delivered in 2–3 phases over 12–18 months." },
-                    { q: "Should I build climate-controlled or drive-up storage?", a: "Climate-controlled commands 30–50% higher rental rates but costs 40–60% more to build. In the Tulsa market, climate-controlled facilities fill faster and retain tenants longer. Most new facilities include a mix of both for optimal revenue." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Storage Project →"
             />
         </>

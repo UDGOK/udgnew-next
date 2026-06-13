@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -114,9 +115,23 @@ function DentalSchema() {
 }
 
 export default function DentalOralSurgeryPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Dental & Oral Surgery Construction", url: "https://www.udgok.com/dental-oral-surgery-construction-specialists" }
+  ];
+  const PAGE_FAQS = [
+          { q: "What makes UDGOK different from general commercial contractors?", a: "UDGOK specializes in dental offices, oral surgery centers, and small medical clinics. Unlike general contractors who treat medical projects as just another job, we understand the unique infrastructure requirements: medical gas piping (O2/N2O), dental vacuum systems, amalgam separators, CBCT room shielding, infection control protocols, and HIPAA-compliant layouts. This specialization means faster completion, fewer change orders, and zero costly mistakes." },
+          { q: "How do you handle complex plumbing for multiple dental operatories?", a: "We design dental plumbing systems specifically for multi-operatory practices. This includes properly sized dental vacuum lines (wet-ring or dry vacuum), separate water lines for each chair with anti-retraction valves, amalgam separator installation per EPA regulations, and nitrous oxide piping with proper ventilation. We pre-plan all runs to minimize noise transmission and ensure adequate suction across all operatories simultaneously." },
+          { q: "Can you build while my dental practice stays open?", a: "Yes. Our Zero-Downtime Methodology uses phased construction, off-hours work (evenings/weekends), dust containment with negative air pressure, and temporary barriers to isolate construction zones. Most of our clients never close a single day during renovation — critical for practices that can't afford to lose $5,000–$15,000/day in patient revenue." },
+          { q: "What regulatory compliance do you handle for dental construction?", a: "We handle all regulatory requirements: Oklahoma State Department of Health codes, ADA accessibility, HIPAA implications for physical layout (sight lines, acoustic privacy), OSHA standards for clinical environments, EPA amalgam separator requirements, and local building codes. We coordinate all inspections including medical gas certification testing per NFPA 99." },
+          { q: "How much does dental office construction cost per square foot?", a: "Dental office construction in Oklahoma typically costs $150–$350 per square foot depending on operatory count, imaging requirements, and finish level. A standard 2,500 SF dental office with 6 operatories typically costs $375,000–$875,000. Oral surgery centers with surgical suites run higher at $250–$450/SF due to sterile HVAC, medical gas, and specialized equipment requirements. UDGOK provides free preconstruction budgets before lease signing." },
+        ];
   return (
     <>
-      <DentalSchema />
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><DentalSchema />
       <ServicePage
         label="Dental & Oral Surgery Specialists"
         title="Dental & Oral Surgery Construction"
@@ -175,13 +190,7 @@ export default function DentalOralSurgeryPage() {
 <p>UDGOK is optimized for 1,500–5,000 sq ft medical spaces. Every project gets senior-level attention. Our team understands dental infrastructure because it's all we do. We complete projects <strong>23% faster than industry average</strong> because we don't have to figure out your project type.</p>`,
           },
         ]}
-        faqs={[
-          { q: "What makes UDGOK different from general commercial contractors?", a: "UDGOK specializes in dental offices, oral surgery centers, and small medical clinics. Unlike general contractors who treat medical projects as just another job, we understand the unique infrastructure requirements: medical gas piping (O2/N2O), dental vacuum systems, amalgam separators, CBCT room shielding, infection control protocols, and HIPAA-compliant layouts. This specialization means faster completion, fewer change orders, and zero costly mistakes." },
-          { q: "How do you handle complex plumbing for multiple dental operatories?", a: "We design dental plumbing systems specifically for multi-operatory practices. This includes properly sized dental vacuum lines (wet-ring or dry vacuum), separate water lines for each chair with anti-retraction valves, amalgam separator installation per EPA regulations, and nitrous oxide piping with proper ventilation. We pre-plan all runs to minimize noise transmission and ensure adequate suction across all operatories simultaneously." },
-          { q: "Can you build while my dental practice stays open?", a: "Yes. Our Zero-Downtime Methodology uses phased construction, off-hours work (evenings/weekends), dust containment with negative air pressure, and temporary barriers to isolate construction zones. Most of our clients never close a single day during renovation — critical for practices that can't afford to lose $5,000–$15,000/day in patient revenue." },
-          { q: "What regulatory compliance do you handle for dental construction?", a: "We handle all regulatory requirements: Oklahoma State Department of Health codes, ADA accessibility, HIPAA implications for physical layout (sight lines, acoustic privacy), OSHA standards for clinical environments, EPA amalgam separator requirements, and local building codes. We coordinate all inspections including medical gas certification testing per NFPA 99." },
-          { q: "How much does dental office construction cost per square foot?", a: "Dental office construction in Oklahoma typically costs $150–$350 per square foot depending on operatory count, imaging requirements, and finish level. A standard 2,500 SF dental office with 6 operatories typically costs $375,000–$875,000. Oral surgery centers with surgical suites run higher at $250–$450/SF due to sterile HVAC, medical gas, and specialized equipment requirements. UDGOK provides free preconstruction budgets before lease signing." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Request Dental Construction Consultation →"
       />
     </>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Asphalt Repair Contractors Tulsa OK | Paving & Sealcoating | UDGOK",
@@ -15,9 +15,23 @@ export const metadata: Metadata = {
 };
 
 export default function AsphaltRepairTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Asphalt Repair Contractors in Tulsa, Oklahoma", url: "https://www.udgok.com/asphalt-repair-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does asphalt repair cost in Tulsa?", a: "Pothole patching in Tulsa costs $50–$200 per pothole depending on size. Sealcoating runs $0.15–$0.30 per square foot. Asphalt overlay costs $3–$7 per square foot. Full parking lot repaving runs $4–$10 per square foot. A 10,000 sq ft parking lot sealcoat typically costs $1,500–$3,000. UDGOK provides free on-site estimates for all Tulsa asphalt work." },
+                    { q: "How often should I sealcoat my parking lot in Oklahoma?", a: "In Oklahoma's climate, commercial parking lots should be sealcoated every 2–3 years. New asphalt should be sealcoated for the first time 6–12 months after installation. Regular sealcoating can extend pavement life from 15 years to 25+ years and is one of the most cost-effective maintenance investments for Tulsa property owners." },
+                    { q: "Can asphalt be repaired in cold weather in Tulsa?", a: "Yes, but with limitations. Hot-mix asphalt requires temperatures above 45°F for proper compaction. For emergency winter repairs, we use cold-mix asphalt patches that work in any temperature. The ideal paving season in Tulsa is March through November. UDGOK schedules major asphalt work during optimal weather windows." },
+                    { q: "Should I repair or replace my parking lot?", a: "If damage covers less than 25–30% of the surface, repairs and overlay are usually more cost-effective. If the subbase has failed, drainage is poor, or cracking covers more than 30%, full repaving is typically the better long-term investment. UDGOK provides free assessments to help Tulsa property owners make data-driven paving decisions." },
+                    { q: "Does UDGOK handle asphalt work for commercial properties only?", a: "We primarily serve commercial properties — parking lots, multi-family complexes, office parks, and retail centers. We also handle large residential driveways and HOA common-area paving. For standard residential asphalt driveways, we recommend checking our concrete driveway services, which are more durable in Oklahoma's climate." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Asphalt Repair Contractors Tulsa"
                 description="Commercial asphalt repair contractors in Tulsa, Oklahoma. Parking lot repair, patching, sealcoating, overlay, and full repaving services."
                 url="https://www.udgok.com/asphalt-repair-tulsa"
@@ -44,13 +58,7 @@ export default function AsphaltRepairTulsaPage() {
                     { icon: "🌧️", title: "Drainage Solutions", desc: "Parking lot drainage design, catch basin repair, and grading corrections that prevent standing water, base saturation, and premature pavement failure in Oklahoma's clay soils." },
                     { icon: "📋", title: "Maintenance Programs", desc: "Scheduled sealcoating, crack sealing, and inspection programs that extend asphalt lifespan and reduce total cost of ownership for commercial property managers." },
                 ]}
-                faqs={[
-                    { q: "How much does asphalt repair cost in Tulsa?", a: "Pothole patching in Tulsa costs $50–$200 per pothole depending on size. Sealcoating runs $0.15–$0.30 per square foot. Asphalt overlay costs $3–$7 per square foot. Full parking lot repaving runs $4–$10 per square foot. A 10,000 sq ft parking lot sealcoat typically costs $1,500–$3,000. UDGOK provides free on-site estimates for all Tulsa asphalt work." },
-                    { q: "How often should I sealcoat my parking lot in Oklahoma?", a: "In Oklahoma's climate, commercial parking lots should be sealcoated every 2–3 years. New asphalt should be sealcoated for the first time 6–12 months after installation. Regular sealcoating can extend pavement life from 15 years to 25+ years and is one of the most cost-effective maintenance investments for Tulsa property owners." },
-                    { q: "Can asphalt be repaired in cold weather in Tulsa?", a: "Yes, but with limitations. Hot-mix asphalt requires temperatures above 45°F for proper compaction. For emergency winter repairs, we use cold-mix asphalt patches that work in any temperature. The ideal paving season in Tulsa is March through November. UDGOK schedules major asphalt work during optimal weather windows." },
-                    { q: "Should I repair or replace my parking lot?", a: "If damage covers less than 25–30% of the surface, repairs and overlay are usually more cost-effective. If the subbase has failed, drainage is poor, or cracking covers more than 30%, full repaving is typically the better long-term investment. UDGOK provides free assessments to help Tulsa property owners make data-driven paving decisions." },
-                    { q: "Does UDGOK handle asphalt work for commercial properties only?", a: "We primarily serve commercial properties — parking lots, multi-family complexes, office parks, and retail centers. We also handle large residential driveways and HOA common-area paving. For standard residential asphalt driveways, we recommend checking our concrete driveway services, which are more durable in Oklahoma's climate." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Get Your Free Asphalt Estimate →"
             />
         </>

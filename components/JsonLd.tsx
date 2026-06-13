@@ -1,7 +1,3 @@
-"use client";
-import Script from "next/script";
-import { usePathname } from "next/navigation";
-
 /* ─── Shared org reference ─── */
 const ORG = {
   "@type": "Organization",
@@ -37,9 +33,10 @@ export function BreadcrumbJsonLd({ items }: { items: { name: string; url: string
     })),
   };
   return (
-    <Script id="schema-breadcrumb" type="application/ld+json">
-      {JSON.stringify(schema)}
-    </Script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }
 
@@ -62,9 +59,10 @@ export function ServiceJsonLd({
     category: "Construction",
   };
   return (
-    <Script id="schema-service" type="application/ld+json">
-      {JSON.stringify(schema)}
-    </Script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }
 
@@ -83,9 +81,10 @@ export function FAQJsonLd({ questions }: { questions: { q: string; a: string }[]
     })),
   };
   return (
-    <Script id="schema-faq" type="application/ld+json">
-      {JSON.stringify(schema)}
-    </Script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }
 
@@ -112,9 +111,10 @@ export function HowToJsonLd({
     })),
   };
   return (
-    <Script id="schema-howto" type="application/ld+json">
-      {JSON.stringify(schema)}
-    </Script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }
 
@@ -147,9 +147,10 @@ export function ArticleJsonLd({
     },
   };
   return (
-    <Script id="schema-article" type="application/ld+json">
-      {JSON.stringify(schema)}
-    </Script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }
 
@@ -216,34 +217,11 @@ export function LocalBusinessJsonLd({
     numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 50 },
   };
   return (
-    <Script id="schema-local-business" type="application/ld+json">
-      {JSON.stringify(schema)}
-    </Script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
-}
-
-/* ─── Auto-breadcrumb from pathname ─── */
-export function AutoBreadcrumbJsonLd() {
-  const pathname = usePathname();
-  if (!pathname || pathname === "/") return null;
-
-  const base = "https://www.udgok.com";
-  const segments = pathname.split("/").filter(Boolean);
-  const items = [{ name: "Home", url: base }];
-
-  let path = "";
-  for (const seg of segments) {
-    path += `/${seg}`;
-    const label = seg
-      .replace(/-/g, " ")
-      .replace(/\b\w/g, (c) => c.toUpperCase())
-      .replace(/Ok\b/g, "OK")
-      .replace(/Tulsa/g, "Tulsa")
-      .replace(/Udgok/g, "UDGOK");
-    items.push({ name: label, url: `${base}${path}` });
-  }
-
-  return <BreadcrumbJsonLd items={items} />;
 }
 
 /* ─── MedicalBusiness (for Healthcare pages) ─── */
@@ -302,8 +280,9 @@ export function MedicalBusinessJsonLd({
     foundingDate: "2015",
   };
   return (
-    <Script id={`schema-medical-${medicalType}`} type="application/ld+json">
-      {JSON.stringify(schema)}
-    </Script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { LocalBusinessJsonLd } from "@/components/JsonLd";
+import { LocalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Commercial Construction & Design-Build Claremore OK",
@@ -17,9 +17,23 @@ export const metadata: Metadata = {
 };
 
 export default function ClaremorePage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Claremore Commercial Construction", url: "https://www.udgok.com/claremore-ok-design-build" }
+  ];
+  const PAGE_FAQS = [
+          { q: "What types of commercial projects do you build in Claremore?", a: "We specialize in medical and dental offices, retail strip centers, standalone restaurants, pre-engineered metal buildings (PEMB), and tenant improvement build-outs across Claremore and Rogers County." },
+          { q: "Do you handle the architectural design and planning?", a: "Yes. Our design-build approach means we manage the entire process from initial site planning and architectural blueprints to engineering and final construction. This single-source responsibility prevents cost overruns and speeds up the timeline." },
+          { q: "How much does commercial construction cost per square foot in Claremore?", a: "Costs vary by facility type. Standard retail/flex space usually ranges from $100–$160 per square foot. Specialized medical or dental clinics range from $180–$250+ per square foot due to complex plumbing, medical gas, and advanced HVAC requirements." },
+          { q: "Do you manage the City of Claremore permitting process?", a: "Absolutely. We handle all pre-construction compliance, including submitting plans to the Claremore planning commission, securing necessary building permits, scheduling inspections, and coordinating with local utilities for site connections." },
+          { q: "How long does a typical design-build project take?", a: "A standard commercial shell and core takes about 4–6 months once permits are issued. Complex medical or highly customized facilities may take 6–9 months. Tenant interior fit-outs are much faster, typically concluding in 8–12 weeks." },
+        ];
   return (
     <>
-      <LocalBusinessJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><LocalBusinessJsonLd
         description="Commercial design-build construction company serving Claremore and Rogers County, Oklahoma."
         url="https://www.udgok.com/claremore-ok-design-build"
         specialization="commercial construction, design-build, medical office construction, retail construction, industrial facilities"
@@ -45,13 +59,7 @@ export default function ClaremorePage() {
           { icon: "📋", title: "Local Permitting & Compliance", desc: "Seamless navigation of Claremore city planning, Rogers county zoning, and local utility coordination to avoid bureaucratic delays." },
         ]}
         tldr="UDGOK is a leading commercial construction and design-build contractor serving Claremore, Oklahoma, and Rogers County. We specialize in medical offices, retail centers, and industrial facilities, offering a single-source design-build methodology that accelerates project delivery and controls costs. Call (918) 520-3823 for a project consultation."
-        faqs={[
-          { q: "What types of commercial projects do you build in Claremore?", a: "We specialize in medical and dental offices, retail strip centers, standalone restaurants, pre-engineered metal buildings (PEMB), and tenant improvement build-outs across Claremore and Rogers County." },
-          { q: "Do you handle the architectural design and planning?", a: "Yes. Our design-build approach means we manage the entire process from initial site planning and architectural blueprints to engineering and final construction. This single-source responsibility prevents cost overruns and speeds up the timeline." },
-          { q: "How much does commercial construction cost per square foot in Claremore?", a: "Costs vary by facility type. Standard retail/flex space usually ranges from $100–$160 per square foot. Specialized medical or dental clinics range from $180–$250+ per square foot due to complex plumbing, medical gas, and advanced HVAC requirements." },
-          { q: "Do you manage the City of Claremore permitting process?", a: "Absolutely. We handle all pre-construction compliance, including submitting plans to the Claremore planning commission, securing necessary building permits, scheduling inspections, and coordinating with local utilities for site connections." },
-          { q: "How long does a typical design-build project take?", a: "A standard commercial shell and core takes about 4–6 months once permits are issued. Complex medical or highly customized facilities may take 6–9 months. Tenant interior fit-outs are much faster, typically concluding in 8–12 weeks." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Start Your Claremore Project →"
       />
     </>

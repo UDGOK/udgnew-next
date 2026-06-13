@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Adaptive Reuse & Building Conversion Tulsa Oklahoma | UDGOK",
@@ -19,9 +19,23 @@ export const metadata: Metadata = {
 };
 
 export default function AdaptiveReusePage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Building Conversion & Adaptive Reuse", url: "https://www.udgok.com/adaptive-reuse-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+          { q: "How do I know if a building is suitable for adaptive reuse?", a: "UDGOK provides feasibility assessments before you commit to a lease or purchase. We evaluate the structural system (foundation, framing, roof), MEP capacity (electrical, plumbing, HVAC), code compliance for your intended use, parking adequacy, and ADA accessibility. This assessment identifies deal-breakers early and provides an accurate conversion budget — typically completed within 1–2 weeks." },
+          { q: "Is it cheaper to convert an existing building or build new?", a: "In most cases, adaptive reuse costs 15–30% less than new construction. The savings come from reusing the existing foundation, structure, and exterior envelope. However, severely deteriorated buildings, hazardous material abatement (asbestos, lead paint), or major structural deficiencies can narrow or eliminate the cost advantage. UDGOK's feasibility assessment gives you a clear comparison before you commit." },
+          { q: "Can you convert a warehouse or industrial building into office space?", a: "Yes. Warehouse-to-office and warehouse-to-creative-space conversions are increasingly popular in Tulsa. We install complete HVAC systems, upgrade electrical to commercial office standards, add ADA-compliant restrooms, build out interior partitions, and address fire code requirements for the change of occupancy. The industrial character — exposed brick, timber trusses, high ceilings — becomes a design asset." },
+          { q: "What about asbestos and lead paint in older buildings?", a: "UDGOK coordinates environmental testing (Phase 1 and Phase 2 assessments) before any demolition or renovation in older buildings. If asbestos or lead paint is identified, we manage licensed abatement contractors who remove hazardous materials in compliance with EPA and Oklahoma DEQ regulations. Abatement costs are factored into your preconstruction budget." },
+          { q: "Does UDGOK handle zoning changes for adaptive reuse projects?", a: "Yes. When the proposed use differs from the current zoning designation, we manage the variance or rezoning application process with the City of Tulsa or the applicable jurisdiction. We attend Board of Adjustment hearings, prepare required documentation, and coordinate with city planning staff to secure approval before construction begins." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Adaptive Reuse & Building Conversion"
         description="Adaptive reuse and building conversion construction in Tulsa, Oklahoma. Transforming underperforming commercial spaces into high-value medical, restaurant, office, and retail facilities."
         url="https://www.udgok.com/adaptive-reuse-construction-tulsa"
@@ -90,13 +104,7 @@ export default function AdaptiveReusePage() {
 <p>For a typical 5,000 SF medical office conversion in Tulsa, adaptive reuse saves $200K–$400K compared to building new — while delivering the space 3–4 months sooner.</p>`,
           },
         ]}
-        faqs={[
-          { q: "How do I know if a building is suitable for adaptive reuse?", a: "UDGOK provides feasibility assessments before you commit to a lease or purchase. We evaluate the structural system (foundation, framing, roof), MEP capacity (electrical, plumbing, HVAC), code compliance for your intended use, parking adequacy, and ADA accessibility. This assessment identifies deal-breakers early and provides an accurate conversion budget — typically completed within 1–2 weeks." },
-          { q: "Is it cheaper to convert an existing building or build new?", a: "In most cases, adaptive reuse costs 15–30% less than new construction. The savings come from reusing the existing foundation, structure, and exterior envelope. However, severely deteriorated buildings, hazardous material abatement (asbestos, lead paint), or major structural deficiencies can narrow or eliminate the cost advantage. UDGOK's feasibility assessment gives you a clear comparison before you commit." },
-          { q: "Can you convert a warehouse or industrial building into office space?", a: "Yes. Warehouse-to-office and warehouse-to-creative-space conversions are increasingly popular in Tulsa. We install complete HVAC systems, upgrade electrical to commercial office standards, add ADA-compliant restrooms, build out interior partitions, and address fire code requirements for the change of occupancy. The industrial character — exposed brick, timber trusses, high ceilings — becomes a design asset." },
-          { q: "What about asbestos and lead paint in older buildings?", a: "UDGOK coordinates environmental testing (Phase 1 and Phase 2 assessments) before any demolition or renovation in older buildings. If asbestos or lead paint is identified, we manage licensed abatement contractors who remove hazardous materials in compliance with EPA and Oklahoma DEQ regulations. Abatement costs are factored into your preconstruction budget." },
-          { q: "Does UDGOK handle zoning changes for adaptive reuse projects?", a: "Yes. When the proposed use differs from the current zoning designation, we manage the variance or rezoning application process with the City of Tulsa or the applicable jurisdiction. We attend Board of Adjustment hearings, prepare required documentation, and coordinate with city planning staff to secure approval before construction begins." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Assess Your Building →"
       />
     </>

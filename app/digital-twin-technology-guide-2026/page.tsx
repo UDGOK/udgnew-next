@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -14,8 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function DigitalTwinPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Digital Twin Technology in 2026", url: "https://www.udgok.com/digital-twin-technology-guide-2026" }
+  ];
+  const PAGE_FAQS = [
+        { q: "What is a Digital Twin in construction?", a: "A Digital Twin is a virtual replica of a physical building that contains all design, construction, and operational data. During construction, it's used for clash detection and scheduling. After construction, it serves as a living facility management tool synced with IoT sensors." },
+        { q: "How does a Digital Twin save money during construction?", a: "By detecting MEP clashes virtually ($0 to fix) instead of in the field ($5,000–$50,000+ per conflict). Digital Twins also reduce RFIs by 60%, prevent rework, and enable energy modeling that optimizes equipment sizing before purchase." },
+        { q: "Does UDGOK deliver a Digital Twin with every project?", a: "UDGOK delivers an as-built BIM model on every project that was coordinated in 3D. For clients who want a full IoT-integrated Digital Twin, we offer that as an enhanced VDC service." },
+        { q: "What software does a Digital Twin use?", a: "UDGOK uses Autodesk Revit for BIM authoring, Navisworks for coordination, and cloud platforms for real-time data integration. IoT sensor data flows through building automation systems into the Digital Twin dashboard." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Innovation & VDC"
       title="Digital Twin Technology in 2026"
       description="The definitive guide to how AI-powered Digital Twins are reshaping medical construction in Oklahoma."
@@ -38,12 +53,9 @@ export default function DigitalTwinPage() {
         { icon: "🔄", title: "Lifecycle Management", desc: "The as-built Digital Twin becomes your facility management tool — tracking equipment warranties, maintenance schedules, and space utilization." },
         { icon: "🧠", title: "AI-Powered Insights", desc: "Machine learning algorithms analyze the Digital Twin to predict maintenance needs and optimize energy consumption over time." },
       ]}
-      faqs={[
-        { q: "What is a Digital Twin in construction?", a: "A Digital Twin is a virtual replica of a physical building that contains all design, construction, and operational data. During construction, it's used for clash detection and scheduling. After construction, it serves as a living facility management tool synced with IoT sensors." },
-        { q: "How does a Digital Twin save money during construction?", a: "By detecting MEP clashes virtually ($0 to fix) instead of in the field ($5,000–$50,000+ per conflict). Digital Twins also reduce RFIs by 60%, prevent rework, and enable energy modeling that optimizes equipment sizing before purchase." },
-        { q: "Does UDGOK deliver a Digital Twin with every project?", a: "UDGOK delivers an as-built BIM model on every project that was coordinated in 3D. For clients who want a full IoT-integrated Digital Twin, we offer that as an enhanced VDC service." },
-        { q: "What software does a Digital Twin use?", a: "UDGOK uses Autodesk Revit for BIM authoring, Navisworks for coordination, and cloud platforms for real-time data integration. IoT sensor data flows through building automation systems into the Digital Twin dashboard." },
-      ]}
+      faqs={PAGE_FAQS}
     />
+  
+    </>
   );
 }

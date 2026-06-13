@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Virtual Design & Construction (VDC) | BIM Services | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function VDCPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Virtual Design & Construction Tulsa", url: "https://www.udgok.com/virtual-design-construction" }
+  ];
+  const PAGE_FAQS = [
+          { q: "What is VDC in construction?", a: "Virtual Design and Construction (VDC) is the process of creating detailed 3D digital models (BIM) of a building before construction begins. This allows the project team to detect conflicts, coordinate systems, and visualize construction sequencing virtually — preventing costly field problems." },
+          { q: "How does clash detection save money?", a: "Clash detection identifies conflicts between MEP systems, structural elements, and architectural features in the 3D model. Resolving a clash in the model costs $0. Resolving the same clash in the field after construction can cost $5,000–$50,000+ depending on the systems involved. UDGOK's VDC process reduces RFIs by 60%." },
+          { q: "What software does UDGOK use for BIM?", a: "We use Autodesk Revit for BIM authoring, Navisworks for clash detection and coordination, and Autodesk Construction Cloud for project collaboration. Field teams access models on tablets for real-time reference during construction." },
+          { q: "Do I get the BIM model after construction?", a: "Yes. UDGOK delivers an as-built BIM model at project completion. This digital twin of your building can be used for facility management, space planning, and future renovation projects — saving significant costs on future work." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Virtual Design and Construction (VDC/BIM)"
         description="BIM coordination, 3D modeling, and virtual design construction services for clash detection and project visualization."
         url="https://www.udgok.com/virtual-design-construction"
@@ -44,12 +57,7 @@ export default function VDCPage() {
           { icon: "🔄", title: "Digital Twin", desc: "As-built BIM models delivered at project completion for facility management and future renovation planning." },
           { icon: "📱", title: "Field Technology", desc: "Tablet-based BIM access in the field, drone progress photography, and 360° photo documentation at key milestones." },
         ]}
-        faqs={[
-          { q: "What is VDC in construction?", a: "Virtual Design and Construction (VDC) is the process of creating detailed 3D digital models (BIM) of a building before construction begins. This allows the project team to detect conflicts, coordinate systems, and visualize construction sequencing virtually — preventing costly field problems." },
-          { q: "How does clash detection save money?", a: "Clash detection identifies conflicts between MEP systems, structural elements, and architectural features in the 3D model. Resolving a clash in the model costs $0. Resolving the same clash in the field after construction can cost $5,000–$50,000+ depending on the systems involved. UDGOK's VDC process reduces RFIs by 60%." },
-          { q: "What software does UDGOK use for BIM?", a: "We use Autodesk Revit for BIM authoring, Navisworks for clash detection and coordination, and Autodesk Construction Cloud for project collaboration. Field teams access models on tablets for real-time reference during construction." },
-          { q: "Do I get the BIM model after construction?", a: "Yes. UDGOK delivers an as-built BIM model at project completion. This digital twin of your building can be used for facility management, space planning, and future renovation projects — saving significant costs on future work." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Explore VDC Capabilities →"
       />
     </>

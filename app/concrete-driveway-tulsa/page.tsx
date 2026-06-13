@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Concrete Driveway Contractor Tulsa OK | Install, Repair & Removal | UDGOK",
@@ -15,9 +15,24 @@ export const metadata: Metadata = {
 };
 
 export default function ConcreteDrivewayTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Concrete Driveway Contractor in Tulsa, Oklahoma", url: "https://www.udgok.com/concrete-driveway-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does a concrete driveway cost in Tulsa?", a: "A standard brushed concrete driveway in Tulsa costs $8–$12 per square foot installed. Stamped or decorative concrete runs $12–$18 per square foot. A typical 600 sq ft single-car driveway costs $4,800–$7,200 for standard finish. A 1,000 sq ft double-wide driveway costs $8,000–$18,000 depending on finish type. UDGOK provides free detailed estimates for all Tulsa driveway projects." },
+                    { q: "How long does it take to install a concrete driveway in Tulsa?", a: "A standard residential concrete driveway takes 2–4 days for demolition, excavation, forming, and pouring. Concrete requires 7 days minimum curing before light vehicle traffic and 28 days for full strength. Total project timeline from start to driving on it is typically 10–14 days. Stamped or colored concrete may add 1–2 days." },
+                    { q: "Does UDGOK remove old concrete driveways?", a: "Yes. We provide complete concrete removal services in Tulsa at $3–$6 per square foot, including demolition, hauling, and disposal. We can remove your existing driveway and pour a new one in a single project. Concrete removal in Tulsa OK includes all debris hauling and site cleanup." },
+                    { q: "What concrete driveway finish is best for Oklahoma weather?", a: "Brushed (broom finish) concrete is the most popular and cost-effective driveway finish in Tulsa — it provides slip resistance and handles freeze-thaw well. Exposed aggregate is also excellent for Oklahoma weather. Stamped concrete looks premium but requires periodic resealing (every 2–3 years) to maintain appearance through Oklahoma's seasonal swings." },
+                    { q: "Do I need a permit for a concrete driveway in Tulsa?", a: "In most cases, yes. The City of Tulsa requires a right-of-way approach permit for driveway work that connects to a public street. If you're expanding or relocating your driveway, additional zoning compliance may be required. UDGOK handles all Tulsa driveway permitting as part of our service." },
+                    { q: "How do I find a reliable concrete driveway contractor near me in Tulsa?", a: "Look for a concrete driveway specialist with Oklahoma contractor licensing, proof of insurance, a local physical address, and verifiable project references. UDGOK is based in Tulsa at 7739 E 38th St and has poured 200+ driveways across the Tulsa metro. We provide free written estimates with detailed line-item pricing." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Concrete Driveway Contractor Tulsa"
                 description="Professional concrete driveway contractor in Tulsa, Oklahoma. Installation, repair, replacement, and removal of concrete driveways for residential and commercial properties."
                 url="https://www.udgok.com/concrete-driveway-tulsa"
@@ -44,14 +59,7 @@ export default function ConcreteDrivewayTulsaPage() {
                     { icon: "🌡️", title: "Oklahoma Climate Engineering", desc: "Proper expansion joints, control joints, and subgrade compaction designed for Oklahoma's clay soils and freeze-thaw cycles. We build driveways that handle Tulsa weather without cracking." },
                     { icon: "📋", title: "Tulsa Permits & Code Compliance", desc: "We handle City of Tulsa driveway permits, right-of-way approach permits, setback requirements, and drainage compliance. Established relationships with Tulsa DBCA for efficient approvals." },
                 ]}
-                faqs={[
-                    { q: "How much does a concrete driveway cost in Tulsa?", a: "A standard brushed concrete driveway in Tulsa costs $8–$12 per square foot installed. Stamped or decorative concrete runs $12–$18 per square foot. A typical 600 sq ft single-car driveway costs $4,800–$7,200 for standard finish. A 1,000 sq ft double-wide driveway costs $8,000–$18,000 depending on finish type. UDGOK provides free detailed estimates for all Tulsa driveway projects." },
-                    { q: "How long does it take to install a concrete driveway in Tulsa?", a: "A standard residential concrete driveway takes 2–4 days for demolition, excavation, forming, and pouring. Concrete requires 7 days minimum curing before light vehicle traffic and 28 days for full strength. Total project timeline from start to driving on it is typically 10–14 days. Stamped or colored concrete may add 1–2 days." },
-                    { q: "Does UDGOK remove old concrete driveways?", a: "Yes. We provide complete concrete removal services in Tulsa at $3–$6 per square foot, including demolition, hauling, and disposal. We can remove your existing driveway and pour a new one in a single project. Concrete removal in Tulsa OK includes all debris hauling and site cleanup." },
-                    { q: "What concrete driveway finish is best for Oklahoma weather?", a: "Brushed (broom finish) concrete is the most popular and cost-effective driveway finish in Tulsa — it provides slip resistance and handles freeze-thaw well. Exposed aggregate is also excellent for Oklahoma weather. Stamped concrete looks premium but requires periodic resealing (every 2–3 years) to maintain appearance through Oklahoma's seasonal swings." },
-                    { q: "Do I need a permit for a concrete driveway in Tulsa?", a: "In most cases, yes. The City of Tulsa requires a right-of-way approach permit for driveway work that connects to a public street. If you're expanding or relocating your driveway, additional zoning compliance may be required. UDGOK handles all Tulsa driveway permitting as part of our service." },
-                    { q: "How do I find a reliable concrete driveway contractor near me in Tulsa?", a: "Look for a concrete driveway specialist with Oklahoma contractor licensing, proof of insurance, a local physical address, and verifiable project references. UDGOK is based in Tulsa at 7739 E 38th St and has poured 200+ driveways across the Tulsa metro. We provide free written estimates with detailed line-item pricing." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Get Your Free Driveway Estimate →"
             />
         </>

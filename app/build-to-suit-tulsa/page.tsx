@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Build to Suit Tulsa OK | Custom Commercial Development | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function BuildToSuitTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Build to Suit Construction in Tulsa, Oklahoma", url: "https://www.udgok.com/build-to-suit-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "What is build to suit construction?", a: "Build to suit (BTS) is a development approach where a building is custom-designed and constructed for a specific tenant. The developer or landlord owns the building and leases it to the tenant under a long-term NNN lease, or the tenant may own the land and building directly. BTS is common for medical offices, restaurants, retail, and office buildings in Tulsa." },
+                    { q: "How much does build to suit cost in Tulsa?", a: "Build-to-suit construction in Tulsa costs $120–$300 per square foot depending on building type, tenant specifications, and site conditions. A 5,000 sq ft medical office BTS typically costs $750K–$1.5M including site work. Retail pad BTS projects run $600K–$1.2M for a 3,000 sq ft building." },
+                    { q: "How long does a build-to-suit project take?", a: "Most BTS projects take 8–14 months from design kickoff to tenant move-in. This includes 2–3 months of design, 1–2 months of permitting, and 5–9 months of construction. UDGOK overlaps phases to compress schedules when possible." },
+                    { q: "Does UDGOK work with developers on build-to-suit projects?", a: "Yes. We partner with commercial real estate developers, landlords, and REITs on BTS projects across Tulsa. We provide preconstruction pricing, site feasibility analysis, and GMP contracts that give developers cost certainty before breaking ground." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Build to Suit Tulsa"
                 description="Build to suit construction and custom commercial development in Tulsa, Oklahoma for medical, retail, office, and industrial tenants."
                 url="https://www.udgok.com/build-to-suit-tulsa"
@@ -44,12 +57,7 @@ export default function BuildToSuitTulsaPage() {
                     { icon: "🤝", title: "Developer Partnerships", desc: "We work with developers and REITs on multi-building BTS campuses, handling GMP contracts and phased delivery." },
                     { icon: "📋", title: "Site Selection Support", desc: "We evaluate potential sites for buildability, utility access, soil conditions, and permitting feasibility before you commit." },
                 ]}
-                faqs={[
-                    { q: "What is build to suit construction?", a: "Build to suit (BTS) is a development approach where a building is custom-designed and constructed for a specific tenant. The developer or landlord owns the building and leases it to the tenant under a long-term NNN lease, or the tenant may own the land and building directly. BTS is common for medical offices, restaurants, retail, and office buildings in Tulsa." },
-                    { q: "How much does build to suit cost in Tulsa?", a: "Build-to-suit construction in Tulsa costs $120–$300 per square foot depending on building type, tenant specifications, and site conditions. A 5,000 sq ft medical office BTS typically costs $750K–$1.5M including site work. Retail pad BTS projects run $600K–$1.2M for a 3,000 sq ft building." },
-                    { q: "How long does a build-to-suit project take?", a: "Most BTS projects take 8–14 months from design kickoff to tenant move-in. This includes 2–3 months of design, 1–2 months of permitting, and 5–9 months of construction. UDGOK overlaps phases to compress schedules when possible." },
-                    { q: "Does UDGOK work with developers on build-to-suit projects?", a: "Yes. We partner with commercial real estate developers, landlords, and REITs on BTS projects across Tulsa. We provide preconstruction pricing, site feasibility analysis, and GMP contracts that give developers cost certainty before breaking ground." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Build-to-Suit Project →"
             />
         </>

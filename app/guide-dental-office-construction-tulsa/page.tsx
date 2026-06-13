@@ -1,5 +1,5 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
-import Script from "next/script";
 import DentalConstructionGuideUI from "./DentalConstructionGuideUI";
 
 export const metadata: Metadata = {
@@ -126,17 +126,17 @@ const localBusinessSchema = {
 };
 
 export default function DentalConstructionGuidePage() {
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Dental Office Construction Guide", url: "https://www.udgok.com/guide-dental-office-construction-tulsa" }
+  ];
+
     return (
         <>
-            <Script id="schema-article" type="application/ld+json">
-                {JSON.stringify(articleSchema)}
-            </Script>
-            <Script id="schema-faq" type="application/ld+json">
-                {JSON.stringify(faqSchema)}
-            </Script>
-            <Script id="schema-business" type="application/ld+json">
-                {JSON.stringify(localBusinessSchema)}
-            </Script>
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
             <DentalConstructionGuideUI />
         </>
     );

@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 import MarqueeBanner from "@/components/MarqueeBanner";
@@ -155,21 +154,6 @@ export default function ServicePage({
 
   return (
     <main className="bg-[#0B061B] min-h-screen text-white overflow-hidden pb-0">
-
-      {/* FAQ JSON-LD (auto-generated when faqs prop provided) */}
-      {faqs && faqs.length > 0 && (
-        <Script id="schema-faq-auto" type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: faqs.map((f) => ({
-              "@type": "Question",
-              name: f.q,
-              acceptedAnswer: { "@type": "Answer", text: f.a.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim() },
-            })),
-          })}
-        </Script>
-      )}
 
       {/* 1. Epic Parallax Hero */}
       <section ref={containerRef} className="relative h-[85vh] w-full flex items-end justify-center overflow-hidden border-b border-white/10">

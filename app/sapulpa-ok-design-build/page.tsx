@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -16,8 +17,22 @@ export const metadata: Metadata = {
 };
 
 export default function SapulpaPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction in Sapulpa, Oklahoma", url: "https://www.udgok.com/sapulpa-ok-design-build" }
+  ];
+  const PAGE_FAQS = [
+        { q: "How much does construction cost in Sapulpa, Oklahoma?", a: "Construction costs in Sapulpa are generally 5–10% lower than Tulsa proper due to lower site costs and Creek County fee structures. Medical offices run $140–$300/sq ft, dental offices $130–$260/sq ft, and commercial build-outs $75–$140/sq ft." },
+        { q: "Is Sapulpa a good location for a dental or medical practice?", a: "Yes. Sapulpa is the Creek County seat with a stable population of 21,000+ and serves as the healthcare hub for surrounding rural communities. Limited competition compared to Tulsa means new practices can capture significant patient volume. The proximity to Tulsa (15 miles) also allows drawing patients from the west Tulsa metro." },
+        { q: "Does UDGOK handle Sapulpa building permits?", a: "Yes. We manage the full permitting process with the City of Sapulpa, including plan submission, code review, and inspection scheduling. Sapulpa's permitting process is typically faster than larger metros." },
+        { q: "How far is Sapulpa from UDGOK's office?", a: "Sapulpa is approximately 15 miles (20 minutes) southwest of our Tulsa office at 7739 E 38th Street. We use the same trusted subcontractor network for Sapulpa projects." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Sapulpa"
       title="Construction in Sapulpa, Oklahoma"
       description="Medical, dental, and commercial construction serving Sapulpa — the gateway to Creek County and a historic Route 66 community."
@@ -39,13 +54,10 @@ export default function SapulpaPage() {
         { icon: "🏗️", title: "Ground-Up Development", desc: "Full site-to-CO design-build delivery for new commercial and healthcare developments in Sapulpa." },
         { icon: "📋", title: "Sapulpa Permit Coordination", desc: "Established working relationships with Sapulpa city staff for efficient plan review and inspection scheduling." },
       ]}
-      faqs={[
-        { q: "How much does construction cost in Sapulpa, Oklahoma?", a: "Construction costs in Sapulpa are generally 5–10% lower than Tulsa proper due to lower site costs and Creek County fee structures. Medical offices run $140–$300/sq ft, dental offices $130–$260/sq ft, and commercial build-outs $75–$140/sq ft." },
-        { q: "Is Sapulpa a good location for a dental or medical practice?", a: "Yes. Sapulpa is the Creek County seat with a stable population of 21,000+ and serves as the healthcare hub for surrounding rural communities. Limited competition compared to Tulsa means new practices can capture significant patient volume. The proximity to Tulsa (15 miles) also allows drawing patients from the west Tulsa metro." },
-        { q: "Does UDGOK handle Sapulpa building permits?", a: "Yes. We manage the full permitting process with the City of Sapulpa, including plan submission, code review, and inspection scheduling. Sapulpa's permitting process is typically faster than larger metros." },
-        { q: "How far is Sapulpa from UDGOK's office?", a: "Sapulpa is approximately 15 miles (20 minutes) southwest of our Tulsa office at 7739 E 38th Street. We use the same trusted subcontractor network for Sapulpa projects." },
-      ]}
+      faqs={PAGE_FAQS}
       cta="Build in Sapulpa →"
     />
+  
+    </>
   );
 }

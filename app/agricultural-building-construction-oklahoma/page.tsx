@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Agricultural Building Construction Oklahoma | Barns, Shops & Equipment Shelters | UDGOK",
@@ -10,9 +10,22 @@ export const metadata: Metadata = {
 };
 
 export default function AgriculturalBuildingConstructionOklahomaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Agricultural Building Construction in Oklahoma", url: "https://www.udgok.com/agricultural-building-construction-oklahoma" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does an agricultural building cost in Oklahoma?", a: "Basic PEMB equipment shelters: $20–$30/sf. Enclosed, insulated farm shops with concrete floor: $30–$60/sf. Livestock barns: $25–$50/sf. Hay barns with open sides: $15–$25/sf. All costs are for turnkey delivery including slab, erection, and basic electrical." },
+                    { q: "What size clear span can an ag building have?", a: "PEMB agricultural buildings can achieve clear spans up to 200'+ without interior columns. Most ag buildings use 60–100' clear spans for equipment access and material handling." },
+                    { q: "Does UDGOK build agricultural buildings outside Tulsa?", a: "Yes. UDGOK builds agricultural buildings across Oklahoma — from the Tulsa metro to rural communities statewide. We also serve agricultural operations in North Texas." },
+                    { q: "How long does it take to build an ag building?", a: "A basic equipment shelter takes 6–10 weeks. An insulated farm shop with concrete floor takes 2–4 months. Livestock facilities with specialized ventilation take 3–5 months." },
+                ];
+  return (
         <>
-            <ServiceJsonLd name="Agricultural Building Construction Oklahoma" description="Agricultural building construction in Oklahoma — barns, equipment shelters, hay storage, livestock facilities." url="https://www.udgok.com/agricultural-building-construction-oklahoma" />
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd name="Agricultural Building Construction Oklahoma" description="Agricultural building construction in Oklahoma — barns, equipment shelters, hay storage, livestock facilities." url="https://www.udgok.com/agricultural-building-construction-oklahoma" />
             <ServicePage
                 label="Agricultural"
                 title="Agricultural Building Construction in Oklahoma"
@@ -35,12 +48,7 @@ export default function AgriculturalBuildingConstructionOklahomaPage() {
                     { icon: "🌀", title: "Oklahoma Wind Engineering", desc: "Every ag building engineered for 90 mph wind loads per IBC 2021. Open-front structures get additional engineering for component and cladding pressures." },
                     { icon: "🏗️", title: "PEMB Construction", desc: "Pre-engineered metal buildings are the most cost-effective construction method for agriculture. Factory-fabricated, fast erection, and designed for clear-span access." },
                 ]}
-                faqs={[
-                    { q: "How much does an agricultural building cost in Oklahoma?", a: "Basic PEMB equipment shelters: $20–$30/sf. Enclosed, insulated farm shops with concrete floor: $30–$60/sf. Livestock barns: $25–$50/sf. Hay barns with open sides: $15–$25/sf. All costs are for turnkey delivery including slab, erection, and basic electrical." },
-                    { q: "What size clear span can an ag building have?", a: "PEMB agricultural buildings can achieve clear spans up to 200'+ without interior columns. Most ag buildings use 60–100' clear spans for equipment access and material handling." },
-                    { q: "Does UDGOK build agricultural buildings outside Tulsa?", a: "Yes. UDGOK builds agricultural buildings across Oklahoma — from the Tulsa metro to rural communities statewide. We also serve agricultural operations in North Texas." },
-                    { q: "How long does it take to build an ag building?", a: "A basic equipment shelter takes 6–10 weeks. An insulated farm shop with concrete floor takes 2–4 months. Livestock facilities with specialized ventilation take 3–5 months." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Ag Building Project →"
             />
         </>

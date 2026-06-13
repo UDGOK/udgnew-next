@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Restaurant & Commercial Kitchen Construction Tulsa | UDGOK",
@@ -19,9 +19,23 @@ export const metadata: Metadata = {
 };
 
 export default function RestaurantConstructionPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Restaurant & Kitchen Build-Outs", url: "https://www.udgok.com/restaurant-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+          { q: "Does UDGOK coordinate health department inspections?", a: "Yes. We coordinate all city health department plan reviews and inspections, including Tulsa Health Department, Broken Arrow, Jenks, and surrounding jurisdictions. We build for inspection confidence — proper hand sink placement at every station, food-safe wall and floor finishes, three-compartment sink sizing, and pest-proof construction. Our goal is a clean pass on your first inspection." },
+          { q: "Can you build a restaurant inside an existing retail space?", a: "Absolutely. Most restaurant build-outs in Tulsa are conversions of existing retail or office spaces. We handle all the heavy infrastructure — cutting concrete for grease traps and floor drains, upgrading electrical panels for commercial kitchen loads, installing rooftop exhaust fans, and adding make-up air units. We evaluate the existing space before lease signing to identify any deal-breakers." },
+          { q: "Do you handle bar and brewery construction?", a: "Yes. We build bars, breweries, tap rooms, and cocktail lounges including specialized systems: glycol-cooled beer line runs, keg cooler rooms, glass washers, ice machines, soda systems, under-bar plumbing, and decorative bar construction. We ensure compliance with Oklahoma ABLE Commission requirements for licensed premises." },
+          { q: "What's the biggest mistake in restaurant construction?", a: "Improperly sized make-up air. When a kitchen hood exhausts 3,000+ CFM of air, that air must be replaced. Without adequate make-up air, you get negative pressure — doors won't close, HVAC struggles, and energy costs skyrocket. UDGOK properly sizes make-up air for every hood system, which many contractors overlook." },
+          { q: "Can you work on an accelerated timeline?", a: "Yes. UDGOK offers fast-track restaurant construction by overlapping design, permitting, and early procurement phases. We've completed fast-casual build-outs in as few as 8 weeks by pre-ordering long-lead equipment, submitting permits immediately after design, and running parallel work crews. Every day saved is a day closer to revenue." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Restaurant & Commercial Kitchen Construction"
         description="Restaurant construction, commercial kitchen build-outs, bar construction, and food service facility renovations in Tulsa, Oklahoma. Full health department and fire code compliance."
         url="https://www.udgok.com/restaurant-construction-tulsa"
@@ -89,13 +103,7 @@ export default function RestaurantConstructionPage() {
 <p><strong>Total: 8–16 weeks</strong> from permit to opening, depending on complexity. Fast-casual concepts can be completed in 8–10 weeks; full-service restaurants typically take 12–16 weeks.</p>`,
           },
         ]}
-        faqs={[
-          { q: "Does UDGOK coordinate health department inspections?", a: "Yes. We coordinate all city health department plan reviews and inspections, including Tulsa Health Department, Broken Arrow, Jenks, and surrounding jurisdictions. We build for inspection confidence — proper hand sink placement at every station, food-safe wall and floor finishes, three-compartment sink sizing, and pest-proof construction. Our goal is a clean pass on your first inspection." },
-          { q: "Can you build a restaurant inside an existing retail space?", a: "Absolutely. Most restaurant build-outs in Tulsa are conversions of existing retail or office spaces. We handle all the heavy infrastructure — cutting concrete for grease traps and floor drains, upgrading electrical panels for commercial kitchen loads, installing rooftop exhaust fans, and adding make-up air units. We evaluate the existing space before lease signing to identify any deal-breakers." },
-          { q: "Do you handle bar and brewery construction?", a: "Yes. We build bars, breweries, tap rooms, and cocktail lounges including specialized systems: glycol-cooled beer line runs, keg cooler rooms, glass washers, ice machines, soda systems, under-bar plumbing, and decorative bar construction. We ensure compliance with Oklahoma ABLE Commission requirements for licensed premises." },
-          { q: "What's the biggest mistake in restaurant construction?", a: "Improperly sized make-up air. When a kitchen hood exhausts 3,000+ CFM of air, that air must be replaced. Without adequate make-up air, you get negative pressure — doors won't close, HVAC struggles, and energy costs skyrocket. UDGOK properly sizes make-up air for every hood system, which many contractors overlook." },
-          { q: "Can you work on an accelerated timeline?", a: "Yes. UDGOK offers fast-track restaurant construction by overlapping design, permitting, and early procurement phases. We've completed fast-casual build-outs in as few as 8 weeks by pre-ordering long-lead equipment, submitting permits immediately after design, and running parallel work crews. Every day saved is a day closer to revenue." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Get a Restaurant Estimate →"
       />
     </>

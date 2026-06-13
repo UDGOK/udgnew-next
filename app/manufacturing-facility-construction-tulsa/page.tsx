@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Manufacturing Facility Construction Tulsa OK | Crane Systems & Heavy Industrial | UDGOK",
@@ -10,9 +10,22 @@ export const metadata: Metadata = {
 };
 
 export default function ManufacturingFacilityConstructionTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Manufacturing Facility Construction in Tulsa, Oklahoma", url: "https://www.udgok.com/manufacturing-facility-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does a manufacturing facility cost to build in Tulsa?", a: "Manufacturing facility construction in Tulsa costs $90–$200/sf depending on crane capacity, clear height, and process equipment. A 20,000 SF light manufacturing facility costs $1.8M–$2.5M. A 50,000 SF heavy manufacturing plant with 30-ton crane costs $4.5M–$8M." },
+                    { q: "Can UDGOK install crane systems in new buildings?", a: "Yes. UDGOK designs and installs overhead bridge crane systems with capacities from 5 to 50 tons. Crane structures are integrated into the building's primary frame during design for optimal structural performance and cost efficiency." },
+                    { q: "What floor slab thickness is needed for manufacturing?", a: "Manufacturing facility slabs typically range from 6\" to 12\" depending on equipment loads, forklift traffic, and crane column loads. Heavy point loads may require local slab thickening, haunch beams, or separate equipment foundations." },
+                    { q: "How long does it take to build a manufacturing facility?", a: "Light manufacturing (no crane): 5–8 months. Medium manufacturing (10-ton crane, standard MEP): 8–12 months. Heavy manufacturing (30+ ton crane, complex process): 10–16 months. UDGOK overlaps design and site work to compress timelines." },
+                ];
+  return (
         <>
-            <ServiceJsonLd name="Manufacturing Facility Construction Tulsa" description="Manufacturing facility and factory construction in Tulsa, Oklahoma — crane systems, reinforced foundations, heavy MEP." url="https://www.udgok.com/manufacturing-facility-construction-tulsa" />
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd name="Manufacturing Facility Construction Tulsa" description="Manufacturing facility and factory construction in Tulsa, Oklahoma — crane systems, reinforced foundations, heavy MEP." url="https://www.udgok.com/manufacturing-facility-construction-tulsa" />
             <ServicePage
                 label="Manufacturing"
                 title="Manufacturing Facility Construction in Tulsa, Oklahoma"
@@ -35,12 +48,7 @@ export default function ManufacturingFacilityConstructionTulsaPage() {
                     { icon: "🌀", title: "Industrial Ventilation", desc: "Process exhaust, make-up air, dust collection, fume extraction, and temperature control systems. Designed for OSHA compliance and worker comfort." },
                     { icon: "🔧", title: "Process Equipment Integration", desc: "Coordination with your equipment vendors for anchorage, utility rough-ins, clearance requirements, and rigging access during installation." },
                 ]}
-                faqs={[
-                    { q: "How much does a manufacturing facility cost to build in Tulsa?", a: "Manufacturing facility construction in Tulsa costs $90–$200/sf depending on crane capacity, clear height, and process equipment. A 20,000 SF light manufacturing facility costs $1.8M–$2.5M. A 50,000 SF heavy manufacturing plant with 30-ton crane costs $4.5M–$8M." },
-                    { q: "Can UDGOK install crane systems in new buildings?", a: "Yes. UDGOK designs and installs overhead bridge crane systems with capacities from 5 to 50 tons. Crane structures are integrated into the building's primary frame during design for optimal structural performance and cost efficiency." },
-                    { q: "What floor slab thickness is needed for manufacturing?", a: "Manufacturing facility slabs typically range from 6\" to 12\" depending on equipment loads, forklift traffic, and crane column loads. Heavy point loads may require local slab thickening, haunch beams, or separate equipment foundations." },
-                    { q: "How long does it take to build a manufacturing facility?", a: "Light manufacturing (no crane): 5–8 months. Medium manufacturing (10-ton crane, standard MEP): 8–12 months. Heavy manufacturing (30+ ton crane, complex process): 10–16 months. UDGOK overlaps design and site work to compress timelines." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Manufacturing Project →"
             />
         </>

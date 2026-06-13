@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -14,8 +15,21 @@ export const metadata: Metadata = {
 };
 
 export default function PartnersPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Partners & Affiliations", url: "https://www.udgok.com/partners" }
+  ];
+  const PAGE_FAQS = [
+        { q: "What professional associations is UDGOK a member of?", a: "UDGOK is a member of the Associated General Contractors of America (AGC) and the Associated Builders and Contractors (ABC). These memberships reflect our commitment to industry standards, continuing education, and best practices." },
+        { q: "What certifications does UDGOK hold?", a: "Our team holds ASSE 6010 (medical gas installer), OSHA 30 (construction safety), and PMP (project management) certifications. We build to NFPA 99 healthcare facility standards and coordinate with ASSE 6030 certified verifiers for medical gas testing." },
+        { q: "Which dental equipment vendors does UDGOK work with?", a: "We coordinate with all major dental equipment vendors including Patterson Dental, Henry Schein, Benco Dental, and specialty manufacturers. We ensure operatory rough-in dimensions, utilities, and structural provisions exactly match your equipment specifications." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Industry"
       title="Partners & Affiliations"
       description="UDGOK builds within a vetted network of trusted partners — from professional associations to specialty subcontractors."
@@ -37,12 +51,10 @@ export default function PartnersPage() {
         { icon: "🏛️", title: "Regional Chambers", desc: "Proud members supporting local economic development and business growth in the Tulsa metro." },
         { icon: "🏗️", title: "State Associations", desc: "Contributing members to Oklahoma's construction and structural development associations." },
       ]}
-      faqs={[
-        { q: "What professional associations is UDGOK a member of?", a: "UDGOK is a member of the Associated General Contractors of America (AGC) and the Associated Builders and Contractors (ABC). These memberships reflect our commitment to industry standards, continuing education, and best practices." },
-        { q: "What certifications does UDGOK hold?", a: "Our team holds ASSE 6010 (medical gas installer), OSHA 30 (construction safety), and PMP (project management) certifications. We build to NFPA 99 healthcare facility standards and coordinate with ASSE 6030 certified verifiers for medical gas testing." },
-        { q: "Which dental equipment vendors does UDGOK work with?", a: "We coordinate with all major dental equipment vendors including Patterson Dental, Henry Schein, Benco Dental, and specialty manufacturers. We ensure operatory rough-in dimensions, utilities, and structural provisions exactly match your equipment specifications." },
-      ]}
+      faqs={PAGE_FAQS}
       cta="Become a Partner →"
     />
+  
+    </>
   );
 }

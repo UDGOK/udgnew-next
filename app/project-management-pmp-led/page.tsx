@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "PMP Construction Project Management Tulsa | UDGOK",
@@ -17,9 +17,23 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectManagementPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "PMP-Certified Project Leadership", url: "https://www.udgok.com/project-management-pmp-led" }
+  ];
+  const PAGE_FAQS = [
+          { q: "What does PMP-certified project management mean for my construction project?", a: "PMP certification means your project manager has passed a rigorous PMI exam covering scope management, cost control, scheduling, risk management, and stakeholder communication. This translates to fewer change orders, tighter schedule adherence, and full budget transparency on your construction project." },
+          { q: "How does UDGOK track construction schedules?", a: "We use Critical Path Method (CPM) scheduling — the industry standard for identifying the longest sequence of dependent activities. We monitor float (schedule flexibility), track schedule performance index (SPI), publish weekly look-ahead schedules, and immediately flag any activity that threatens the critical path." },
+          { q: "Can I access project information remotely?", a: "Yes. UDGOK provides cloud-based access to all project documents including plans, RFIs, submittals, daily reports, photo logs, budgets, and schedules. You can view real-time project status from any device, anywhere — no software installation required." },
+          { q: "How does UDGOK prevent cost overruns?", a: "We prevent cost overruns through accurate preconstruction budgets, real-time committed cost tracking, proactive value engineering, and immediate change order documentation. You see your budget status at any time — approved costs, committed costs, pending changes, and projected final cost." },
+          { q: "What size projects does UDGOK manage?", a: "UDGOK manages commercial construction projects from 1,500 SF tenant improvements to 50,000+ SF ground-up commercial buildings. Our sweet spot is 2,000–20,000 SF medical, dental, and commercial projects in the Tulsa metro area." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="PMP Construction Project Management"
         description="Professional construction project management utilizing PMI methodologies, CPM scheduling, and cloud-based collaboration tools for commercial projects in Tulsa, Oklahoma."
         url="https://www.udgok.com/project-management-pmp-led"
@@ -73,13 +87,7 @@ export default function ProjectManagementPage() {
 <p>Gone are the days of paper napkins and guesswork. Every data point is captured, tracked, and available for your review in real time.</p>`,
           },
         ]}
-        faqs={[
-          { q: "What does PMP-certified project management mean for my construction project?", a: "PMP certification means your project manager has passed a rigorous PMI exam covering scope management, cost control, scheduling, risk management, and stakeholder communication. This translates to fewer change orders, tighter schedule adherence, and full budget transparency on your construction project." },
-          { q: "How does UDGOK track construction schedules?", a: "We use Critical Path Method (CPM) scheduling — the industry standard for identifying the longest sequence of dependent activities. We monitor float (schedule flexibility), track schedule performance index (SPI), publish weekly look-ahead schedules, and immediately flag any activity that threatens the critical path." },
-          { q: "Can I access project information remotely?", a: "Yes. UDGOK provides cloud-based access to all project documents including plans, RFIs, submittals, daily reports, photo logs, budgets, and schedules. You can view real-time project status from any device, anywhere — no software installation required." },
-          { q: "How does UDGOK prevent cost overruns?", a: "We prevent cost overruns through accurate preconstruction budgets, real-time committed cost tracking, proactive value engineering, and immediate change order documentation. You see your budget status at any time — approved costs, committed costs, pending changes, and projected final cost." },
-          { q: "What size projects does UDGOK manage?", a: "UDGOK manages commercial construction projects from 1,500 SF tenant improvements to 50,000+ SF ground-up commercial buildings. Our sweet spot is 2,000–20,000 SF medical, dental, and commercial projects in the Tulsa metro area." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Schedule Consultation →"
       />
     </>

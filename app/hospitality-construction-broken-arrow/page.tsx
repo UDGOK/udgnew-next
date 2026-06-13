@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Hospitality Construction Broken Arrow OK | Hotels & Restaurants | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function HospitalityBrokenArrowPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Hospitality Construction in Broken Arrow, Oklahoma", url: "https://www.udgok.com/hospitality-construction-broken-arrow" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does hospitality construction cost in Broken Arrow?", a: "Restaurant construction in Broken Arrow costs $150–$350/sq ft for full-service and $120–$250/sq ft for QSR. Hotel construction runs $150–$300/sq ft depending on brand and service level. Broken Arrow's competitive land costs make it favorable compared to Tulsa proper for ground-up hospitality development." },
+                    { q: "Where are the best locations for hospitality in Broken Arrow?", a: "The BA Expressway corridor is the highest-traffic commercial zone. The Rose District offers walkable dining and entertainment. Kenosha Street and the Elm Place corridor provide growing residential neighborhoods with demand for neighborhood restaurants and QSR." },
+                    { q: "Does UDGOK build to hotel brand standards?", a: "Yes. We have experience building to IHG, Marriott, and Hilton brand prototype specifications. We coordinate with brand representatives for design compliance, fixtures, and PIP (Property Improvement Plan) requirements." },
+                    { q: "How long does restaurant permitting take in Broken Arrow?", a: "Broken Arrow Development Services typically processes commercial building permits in 2–3 weeks. Health department and fire marshal reviews run concurrently. UDGOK manages all three approval tracks simultaneously to minimize schedule impact." },
+                ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
                 name="Hospitality Construction Broken Arrow"
                 description="Hospitality construction contractor in Broken Arrow, Oklahoma — hotels, restaurants, QSR, and event venues."
                 url="https://www.udgok.com/hospitality-construction-broken-arrow"
@@ -44,12 +57,7 @@ export default function HospitalityBrokenArrowPage() {
                     { icon: "🎭", title: "Rose District Venues", desc: "Entertainment, dining, and event venue construction in Broken Arrow's walkable Rose District downtown." },
                     { icon: "📋", title: "BA Permits & Compliance", desc: "Full permitting management with Broken Arrow Development Services, health department, and fire marshal." },
                 ]}
-                faqs={[
-                    { q: "How much does hospitality construction cost in Broken Arrow?", a: "Restaurant construction in Broken Arrow costs $150–$350/sq ft for full-service and $120–$250/sq ft for QSR. Hotel construction runs $150–$300/sq ft depending on brand and service level. Broken Arrow's competitive land costs make it favorable compared to Tulsa proper for ground-up hospitality development." },
-                    { q: "Where are the best locations for hospitality in Broken Arrow?", a: "The BA Expressway corridor is the highest-traffic commercial zone. The Rose District offers walkable dining and entertainment. Kenosha Street and the Elm Place corridor provide growing residential neighborhoods with demand for neighborhood restaurants and QSR." },
-                    { q: "Does UDGOK build to hotel brand standards?", a: "Yes. We have experience building to IHG, Marriott, and Hilton brand prototype specifications. We coordinate with brand representatives for design compliance, fixtures, and PIP (Property Improvement Plan) requirements." },
-                    { q: "How long does restaurant permitting take in Broken Arrow?", a: "Broken Arrow Development Services typically processes commercial building permits in 2–3 weeks. Health department and fire marshal reviews run concurrently. UDGOK manages all three approval tracks simultaneously to minimize schedule impact." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Build in Broken Arrow →"
             />
         </>

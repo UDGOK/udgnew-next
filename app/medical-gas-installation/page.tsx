@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Medical Gas Installation Oklahoma | NFPA 99 Certified | UDGOK",
@@ -15,9 +15,23 @@ export const metadata: Metadata = {
 };
 
 export default function MedicalGasPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Medical Gas Installation", url: "https://www.udgok.com/medical-gas-installation" }
+  ];
+  const PAGE_FAQS = [
+          { q: "How much does medical gas installation cost for a dental office?", a: "Medical gas installation for a standard 4–6 chair dental office costs $15,000–$35,000 for piping, outlets, zone valves, and alarm panels. Offices adding nitrous oxide sedation should budget an additional $8,000–$15,000 for N2O piping and WAGD systems." },
+          { q: "What is ASSE 6010 certification?", a: "ASSE 6010 is a certification from the American Society of Sanitary Engineering that qualifies an individual to install medical gas piping systems. NFPA 99 requires all medical gas brazing and installation to be performed by ASSE 6010 certified personnel." },
+          { q: "Is third-party testing required for medical gas systems?", a: "Yes. NFPA 99 Section 5.1.12 requires that medical gas systems be tested and verified by an ASSE 6030 certified verifier who is independent of the installing contractor. UDGOK arranges this third-party verification for every project." },
+          { q: "Do you install medical gas systems for existing practices?", a: "Yes. We retrofit medical gas systems into existing dental and medical offices, including adding nitrous oxide to practices that didn't originally have it. Retrofit installations typically cost 10–20% more than new construction due to access challenges." },
+          { q: "What areas does UDGOK serve for medical gas installation?", a: "We install medical gas systems across Oklahoma including Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sapulpa, Oklahoma City, and throughout northeast Oklahoma. We also serve the Dallas/Plano, TX metro area." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Medical Gas Installation"
         description="Licensed NFPA 99 medical gas installation and ASSE 6030 verification for dental offices, surgical centers, and healthcare facilities across Oklahoma."
         url="https://www.udgok.com/medical-gas-installation"
@@ -82,13 +96,7 @@ export default function MedicalGasPage() {
 <p>UDGOK provides complete test documentation and third-party verification certificates that satisfy OSDH (Oklahoma State Department of Health) and Joint Commission requirements.</p>`,
           },
         ]}
-        faqs={[
-          { q: "How much does medical gas installation cost for a dental office?", a: "Medical gas installation for a standard 4–6 chair dental office costs $15,000–$35,000 for piping, outlets, zone valves, and alarm panels. Offices adding nitrous oxide sedation should budget an additional $8,000–$15,000 for N2O piping and WAGD systems." },
-          { q: "What is ASSE 6010 certification?", a: "ASSE 6010 is a certification from the American Society of Sanitary Engineering that qualifies an individual to install medical gas piping systems. NFPA 99 requires all medical gas brazing and installation to be performed by ASSE 6010 certified personnel." },
-          { q: "Is third-party testing required for medical gas systems?", a: "Yes. NFPA 99 Section 5.1.12 requires that medical gas systems be tested and verified by an ASSE 6030 certified verifier who is independent of the installing contractor. UDGOK arranges this third-party verification for every project." },
-          { q: "Do you install medical gas systems for existing practices?", a: "Yes. We retrofit medical gas systems into existing dental and medical offices, including adding nitrous oxide to practices that didn't originally have it. Retrofit installations typically cost 10–20% more than new construction due to access challenges." },
-          { q: "What areas does UDGOK serve for medical gas installation?", a: "We install medical gas systems across Oklahoma including Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sapulpa, Oklahoma City, and throughout northeast Oklahoma. We also serve the Dallas/Plano, TX metro area." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Get a Medical Gas Quote →"
       />
     </>

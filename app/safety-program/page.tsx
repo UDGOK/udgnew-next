@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Construction Safety Program | OSHA Compliant | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function SafetyProgramPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Safety Program", url: "https://www.udgok.com/safety-program" }
+  ];
+  const PAGE_FAQS = [
+          { q: "What is UDGOK's EMR rating?", a: "UDGOK maintains a 0.7 EMR (Experience Modification Rate), well below the industry average of 1.0. A lower EMR indicates fewer workplace injuries and lower insurance costs for owners and developers." },
+          { q: "Are UDGOK superintendents OSHA certified?", a: "Yes. Every UDGOK superintendent holds an OSHA 30-hour construction safety certification. All field workers are required to have OSHA 10-hour minimum. We exceed industry safety training standards." },
+          { q: "Does UDGOK have a written safety program?", a: "Yes. We maintain a comprehensive corporate safety program and develop site-specific safety plans for every project during preconstruction. These plans address fall protection, confined space, hot work, electrical safety, and emergency response procedures." },
+          { q: "What is a toolbox talk?", a: "A toolbox talk is a brief, mandatory pre-shift safety meeting covering hazards specific to the day's work. UDGOK requires documented toolbox talks at the start of every shift on every project — 100% compliance, no exceptions." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Construction Safety Program"
         description="OSHA-compliant safety management program for all UDGOK construction projects with zero-incident goal."
         url="https://www.udgok.com/safety-program"
@@ -44,12 +57,7 @@ export default function SafetyProgramPage() {
           { icon: "🚑", title: "Emergency Response", desc: "Site-specific emergency action plans with posted routes, nearest hospital maps, and first-aid trained personnel on every crew." },
           { icon: "📊", title: "Safety Metrics", desc: "Monthly safety audits, near-miss reporting culture, and transparent EMR tracking shared with owners and subcontractors." },
         ]}
-        faqs={[
-          { q: "What is UDGOK's EMR rating?", a: "UDGOK maintains a 0.7 EMR (Experience Modification Rate), well below the industry average of 1.0. A lower EMR indicates fewer workplace injuries and lower insurance costs for owners and developers." },
-          { q: "Are UDGOK superintendents OSHA certified?", a: "Yes. Every UDGOK superintendent holds an OSHA 30-hour construction safety certification. All field workers are required to have OSHA 10-hour minimum. We exceed industry safety training standards." },
-          { q: "Does UDGOK have a written safety program?", a: "Yes. We maintain a comprehensive corporate safety program and develop site-specific safety plans for every project during preconstruction. These plans address fall protection, confined space, hot work, electrical safety, and emergency response procedures." },
-          { q: "What is a toolbox talk?", a: "A toolbox talk is a brief, mandatory pre-shift safety meeting covering hazards specific to the day's work. UDGOK requires documented toolbox talks at the start of every shift on every project — 100% compliance, no exceptions." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Contact Our Safety Team →"
       />
     </>

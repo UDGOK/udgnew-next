@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Shopping Center Construction Tulsa Oklahoma | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function ShoppingCenterPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Shopping Center Construction Tulsa", url: "https://www.udgok.com/shopping-center-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+          { q: "How much does it cost to build a shopping center in Tulsa?", a: "Shopping center shell construction costs $120–$200 per square foot in the Tulsa metro. A 20,000 sq ft strip center with site work typically costs $3.5M–$5.5M total. Tenant finish adds $80–$180/sq ft depending on use type." },
+          { q: "How long does it take to build a strip mall?", a: "A typical strip center (10,000–25,000 sq ft) takes 6–10 months from permit to CO. UDGOK phases construction so anchor tenants can open early, generating lease revenue while remaining bays are completed." },
+          { q: "Does UDGOK handle site development?", a: "Yes. We provide full site-to-CO delivery including earthwork, utilities, parking, detention, landscaping, and building construction. We also coordinate with civil engineers for platting and zoning." },
+          { q: "Can you build a mixed-use retail and medical center?", a: "Absolutely. Mixed-use is a growing trend in Oklahoma. We build retail shell buildings with medical tenant suites, ensuring the medical spaces have proper HVAC, plumbing, and ADA infrastructure while maintaining the retail character of the overall development." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Shopping Center Construction"
         description="Retail shopping center and strip mall construction in Tulsa. New builds, renovations, and tenant spaces."
         url="https://www.udgok.com/shopping-center-construction-tulsa"
@@ -44,12 +57,7 @@ export default function ShoppingCenterPage() {
           { icon: "🌿", title: "Landscaping & Hardscape", desc: "Inviting exterior environments with drought-tolerant landscaping, shade structures, and seating areas." },
           { icon: "📐", title: "Phased Delivery", desc: "Strategic phasing to open anchor tenants first and generate revenue while remaining phases are under construction." },
         ]}
-        faqs={[
-          { q: "How much does it cost to build a shopping center in Tulsa?", a: "Shopping center shell construction costs $120–$200 per square foot in the Tulsa metro. A 20,000 sq ft strip center with site work typically costs $3.5M–$5.5M total. Tenant finish adds $80–$180/sq ft depending on use type." },
-          { q: "How long does it take to build a strip mall?", a: "A typical strip center (10,000–25,000 sq ft) takes 6–10 months from permit to CO. UDGOK phases construction so anchor tenants can open early, generating lease revenue while remaining bays are completed." },
-          { q: "Does UDGOK handle site development?", a: "Yes. We provide full site-to-CO delivery including earthwork, utilities, parking, detention, landscaping, and building construction. We also coordinate with civil engineers for platting and zoning." },
-          { q: "Can you build a mixed-use retail and medical center?", a: "Absolutely. Mixed-use is a growing trend in Oklahoma. We build retail shell buildings with medical tenant suites, ensuring the medical spaces have proper HVAC, plumbing, and ADA infrastructure while maintaining the retail character of the overall development." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Develop Your Retail Center →"
       />
     </>

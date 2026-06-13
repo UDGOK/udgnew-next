@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -14,8 +15,21 @@ export const metadata: Metadata = {
 };
 
 export default function PropertyIntelligencePage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Property Intelligence", url: "https://www.udgok.com/property-intelligence" }
+  ];
+  const PAGE_FAQS = [
+        { q: "What is property intelligence for medical offices?", a: "Property intelligence is a data-driven evaluation of a potential building or land site for medical/dental use. UDGOK analyzes demographics, zoning, utility capacity, parking, structural condition, and construction feasibility before you commit to a lease or land purchase." },
+        { q: "Does UDGOK offer free site evaluations?", a: "Yes. We offer a complimentary initial site evaluation for qualified healthcare projects. This includes a preliminary assessment of zoning, utility capacity, parking, and construction feasibility. Detailed feasibility studies with cost estimates are provided as part of our preconstruction services." },
+        { q: "Why is site selection important for medical offices?", a: "The wrong site can add $50,000–$200,000+ to your construction costs due to utility upgrades, structural modifications, ADA remediation, or zoning variances. UDGOK's property intelligence prevents these surprises before you sign a lease or purchase agreement." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Data & Insights"
       title="Property Intelligence"
       description="Don't guess on site selection. We use AI and GIS data to evaluate sites for zoning, utilities, demographics, and construction feasibility."
@@ -38,11 +52,9 @@ export default function PropertyIntelligencePage() {
         { icon: "📋", title: "Zoning Review", desc: "Verify medical/dental use is permitted under current zoning and identify any conditional use requirements." },
         { icon: "🏗️", title: "Structural Evaluation", desc: "Assess floor load capacity, roof condition, and structural suitability for medical imaging equipment." },
       ]}
-      faqs={[
-        { q: "What is property intelligence for medical offices?", a: "Property intelligence is a data-driven evaluation of a potential building or land site for medical/dental use. UDGOK analyzes demographics, zoning, utility capacity, parking, structural condition, and construction feasibility before you commit to a lease or land purchase." },
-        { q: "Does UDGOK offer free site evaluations?", a: "Yes. We offer a complimentary initial site evaluation for qualified healthcare projects. This includes a preliminary assessment of zoning, utility capacity, parking, and construction feasibility. Detailed feasibility studies with cost estimates are provided as part of our preconstruction services." },
-        { q: "Why is site selection important for medical offices?", a: "The wrong site can add $50,000–$200,000+ to your construction costs due to utility upgrades, structural modifications, ADA remediation, or zoning variances. UDGOK's property intelligence prevents these surprises before you sign a lease or purchase agreement." },
-      ]}
+      faqs={PAGE_FAQS}
     />
+  
+    </>
   );
 }

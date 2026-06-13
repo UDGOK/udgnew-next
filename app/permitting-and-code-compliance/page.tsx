@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Permitting & Code Compliance Tulsa Oklahoma | UDGOK",
@@ -17,9 +17,23 @@ export const metadata: Metadata = {
 };
 
 export default function PermittingPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Permitting & Code Compliance", url: "https://www.udgok.com/permitting-and-code-compliance" }
+  ];
+  const PAGE_FAQS = [
+          { q: "How much does a commercial building permit cost in Tulsa?", a: "Commercial building permit fees in Tulsa are based on project valuation. Typical fees range from $1,500–$5,000 for tenant improvements and $5,000–$25,000+ for ground-up commercial construction. Additional fees may apply for mechanical, electrical, and plumbing permits, fire alarm permits, and plan review fees." },
+          { q: "Does UDGOK handle permits in Broken Arrow and Jenks?", a: "Yes. UDGOK manages permits across the entire Tulsa metro including Tulsa, Broken Arrow, Jenks, Owasso, Bixby, Sand Springs, and Oklahoma City. We have working relationships with plan reviewers and inspectors in all of these jurisdictions." },
+          { q: "What happens if a permit is rejected?", a: "Plan review comments are normal — not rejections. UDGOK responds to all reviewer comments within 48 hours, makes required drawing revisions, and resubmits. Our experience with local code requirements means fewer comment cycles and faster approvals than most contractors achieve." },
+          { q: "Do I need a separate permit for medical gas installation?", a: "Medical gas systems require separate certification testing per NFPA 99, but the installation is typically covered under the mechanical permit. UDGOK coordinates all medical gas inspections and third-party certification for dental and medical facilities." },
+          { q: "Can UDGOK expedite the permitting process?", a: "Yes. UDGOK's familiarity with local plan reviewers, complete initial submittals, and rapid comment response times result in faster permit turnaround. We also attend pre-application meetings to resolve potential issues before formal submittal, which eliminates the most common cause of delays." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Permitting and Code Compliance"
         description="Construction permitting, zoning, building code compliance, and inspection management for commercial projects in Tulsa, Oklahoma."
         url="https://www.udgok.com/permitting-and-code-compliance"
@@ -87,13 +101,7 @@ export default function PermittingPage() {
 </ol>`,
           },
         ]}
-        faqs={[
-          { q: "How much does a commercial building permit cost in Tulsa?", a: "Commercial building permit fees in Tulsa are based on project valuation. Typical fees range from $1,500–$5,000 for tenant improvements and $5,000–$25,000+ for ground-up commercial construction. Additional fees may apply for mechanical, electrical, and plumbing permits, fire alarm permits, and plan review fees." },
-          { q: "Does UDGOK handle permits in Broken Arrow and Jenks?", a: "Yes. UDGOK manages permits across the entire Tulsa metro including Tulsa, Broken Arrow, Jenks, Owasso, Bixby, Sand Springs, and Oklahoma City. We have working relationships with plan reviewers and inspectors in all of these jurisdictions." },
-          { q: "What happens if a permit is rejected?", a: "Plan review comments are normal — not rejections. UDGOK responds to all reviewer comments within 48 hours, makes required drawing revisions, and resubmits. Our experience with local code requirements means fewer comment cycles and faster approvals than most contractors achieve." },
-          { q: "Do I need a separate permit for medical gas installation?", a: "Medical gas systems require separate certification testing per NFPA 99, but the installation is typically covered under the mechanical permit. UDGOK coordinates all medical gas inspections and third-party certification for dental and medical facilities." },
-          { q: "Can UDGOK expedite the permitting process?", a: "Yes. UDGOK's familiarity with local plan reviewers, complete initial submittals, and rapid comment response times result in faster permit turnaround. We also attend pre-application meetings to resolve potential issues before formal submittal, which eliminates the most common cause of delays." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Expedite Your Permit →"
       />
     </>

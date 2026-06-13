@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Warehouse Construction Tulsa OK | Distribution Centers & PEMB | UDGOK",
@@ -10,9 +10,22 @@ export const metadata: Metadata = {
 };
 
 export default function WarehouseConstructionTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Warehouse Construction in Tulsa, Oklahoma", url: "https://www.udgok.com/warehouse-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does warehouse construction cost in Tulsa?", a: "Warehouse construction in Tulsa ranges from $25–$50/sf for a PEMB shell (foundation, erection, insulation, basic electrical) to $70–$120/sf for a full distribution center with ESFR sprinklers, dock-high loading, and office build-out. A standard 20,000 SF warehouse costs $500K–$1.8M depending on specification." },
+                    { q: "How long does it take to build a warehouse in Tulsa?", a: "A 10,000 SF PEMB warehouse takes 3–5 months. A 50,000 SF warehouse with full MEP takes 5–8 months. A 100,000+ SF distribution center takes 8–12 months. UDGOK compresses schedules by 20–30% through design-build delivery." },
+                    { q: "What is the best foundation for a warehouse in Oklahoma?", a: "Most Tulsa warehouses use monolithic slab-on-grade with turned-down edge beams. High-rack warehouses may need drilled piers for concentrated column loads. UDGOK performs soil testing on every project and designs foundations based on geotechnical recommendations." },
+                    { q: "Does UDGOK build warehouses outside Tulsa?", a: "Yes. UDGOK builds warehouses across the Tulsa metro (East Tulsa, Broken Arrow, Catoosa, Sapulpa), statewide (OKC, Muskogee), and in the Dallas-Fort Worth metro." },
+                ];
+  return (
         <>
-            <ServiceJsonLd name="Warehouse Construction Tulsa" description="Tulsa warehouse construction — clear-span warehouses, distribution centers, and PEMB warehouse buildings from 10,000 to 200,000+ SF." url="https://www.udgok.com/warehouse-construction-tulsa" />
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd name="Warehouse Construction Tulsa" description="Tulsa warehouse construction — clear-span warehouses, distribution centers, and PEMB warehouse buildings from 10,000 to 200,000+ SF." url="https://www.udgok.com/warehouse-construction-tulsa" />
             <ServicePage
                 label="Warehouse Construction"
                 title="Warehouse Construction in Tulsa, Oklahoma"
@@ -35,12 +48,7 @@ export default function WarehouseConstructionTulsaPage() {
                     { icon: "📐", title: "Clear Heights to 40'+", desc: "High bay warehouse construction with clear heights from 24' to 40'+. Maximize vertical storage density with taller eave heights and deeper racking systems." },
                     { icon: "⚡", title: "LED Lighting & Power", desc: "High bay LED lighting systems, 3-phase power distribution, and electrical infrastructure sized for current and future equipment loads." },
                 ]}
-                faqs={[
-                    { q: "How much does warehouse construction cost in Tulsa?", a: "Warehouse construction in Tulsa ranges from $25–$50/sf for a PEMB shell (foundation, erection, insulation, basic electrical) to $70–$120/sf for a full distribution center with ESFR sprinklers, dock-high loading, and office build-out. A standard 20,000 SF warehouse costs $500K–$1.8M depending on specification." },
-                    { q: "How long does it take to build a warehouse in Tulsa?", a: "A 10,000 SF PEMB warehouse takes 3–5 months. A 50,000 SF warehouse with full MEP takes 5–8 months. A 100,000+ SF distribution center takes 8–12 months. UDGOK compresses schedules by 20–30% through design-build delivery." },
-                    { q: "What is the best foundation for a warehouse in Oklahoma?", a: "Most Tulsa warehouses use monolithic slab-on-grade with turned-down edge beams. High-rack warehouses may need drilled piers for concentrated column loads. UDGOK performs soil testing on every project and designs foundations based on geotechnical recommendations." },
-                    { q: "Does UDGOK build warehouses outside Tulsa?", a: "Yes. UDGOK builds warehouses across the Tulsa metro (East Tulsa, Broken Arrow, Catoosa, Sapulpa), statewide (OKC, Muskogee), and in the Dallas-Fort Worth metro." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Warehouse Project →"
             />
         </>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Sustainable & Green Construction Tulsa Oklahoma | UDGOK",
@@ -19,9 +19,23 @@ export const metadata: Metadata = {
 };
 
 export default function SustainableConstructionPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Green Commercial Construction", url: "https://www.udgok.com/sustainable-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+          { q: "Is LEED certification worth it for a commercial building in Oklahoma?", a: "It depends on your goals. LEED certification adds $3–$15 per square foot in documentation and commissioning costs on top of the green construction premium. The benefits include higher property values (10–20% premium), lower operating costs, easier tenant recruitment, and corporate ESG compliance. For owner-occupied buildings, the energy savings alone typically justify the investment within 5 years." },
+          { q: "Can you make an existing building more sustainable?", a: "Yes. UDGOK retrofits existing commercial buildings with energy-efficient HVAC upgrades, LED lighting conversions, building envelope improvements, low-flow plumbing fixtures, and solar panel installation. We conduct energy audits to identify the highest-ROI improvements and can pursue LEED for Existing Buildings certification." },
+          { q: "How does sustainable construction benefit medical and dental offices?", a: "Healthcare facilities especially benefit from green building. Low-VOC materials improve indoor air quality for patients and staff. Energy-efficient HVAC reduces operating costs for facilities that run 10–12 hours/day. Enhanced ventilation systems — already required for medical gas and infection control — dovetail perfectly with LEED indoor environmental quality credits. And patients increasingly choose healthcare providers who demonstrate environmental responsibility." },
+          { q: "What is embodied carbon and how do you reduce it?", a: "Embodied carbon is the CO2 emitted during manufacturing, transportation, and installation of building materials — before the building even opens. UDGOK reduces embodied carbon by specifying recycled steel (97% recycled content), fly ash concrete (30% cement replacement), locally sourced materials (reduced transport), and FSC-certified wood. These choices can reduce embodied carbon by 30–40% compared to conventional material selections." },
+          { q: "Does UDGOK track construction waste diversion?", a: "Yes. We implement a Construction & Demolition Waste Management Plan on every project. We source-separate materials on site — metals, concrete, wood, cardboard, drywall — and track diversion rates by weight. Our projects consistently achieve 75%+ diversion from landfills, which also qualifies for LEED Materials & Resources credits." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Sustainable & Green Construction"
         description="Sustainable commercial construction services including LEED-ready builds, energy-efficient HVAC, recycled materials, solar-ready design, and green building practices in Tulsa, Oklahoma."
         url="https://www.udgok.com/sustainable-construction-tulsa"
@@ -87,13 +101,7 @@ export default function SustainableConstructionPage() {
 <p>UDGOK's preconstruction team helps you identify and maximize applicable incentives, ensuring your sustainable construction investment delivers the best possible financial return.</p>`,
           },
         ]}
-        faqs={[
-          { q: "Is LEED certification worth it for a commercial building in Oklahoma?", a: "It depends on your goals. LEED certification adds $3–$15 per square foot in documentation and commissioning costs on top of the green construction premium. The benefits include higher property values (10–20% premium), lower operating costs, easier tenant recruitment, and corporate ESG compliance. For owner-occupied buildings, the energy savings alone typically justify the investment within 5 years." },
-          { q: "Can you make an existing building more sustainable?", a: "Yes. UDGOK retrofits existing commercial buildings with energy-efficient HVAC upgrades, LED lighting conversions, building envelope improvements, low-flow plumbing fixtures, and solar panel installation. We conduct energy audits to identify the highest-ROI improvements and can pursue LEED for Existing Buildings certification." },
-          { q: "How does sustainable construction benefit medical and dental offices?", a: "Healthcare facilities especially benefit from green building. Low-VOC materials improve indoor air quality for patients and staff. Energy-efficient HVAC reduces operating costs for facilities that run 10–12 hours/day. Enhanced ventilation systems — already required for medical gas and infection control — dovetail perfectly with LEED indoor environmental quality credits. And patients increasingly choose healthcare providers who demonstrate environmental responsibility." },
-          { q: "What is embodied carbon and how do you reduce it?", a: "Embodied carbon is the CO2 emitted during manufacturing, transportation, and installation of building materials — before the building even opens. UDGOK reduces embodied carbon by specifying recycled steel (97% recycled content), fly ash concrete (30% cement replacement), locally sourced materials (reduced transport), and FSC-certified wood. These choices can reduce embodied carbon by 30–40% compared to conventional material selections." },
-          { q: "Does UDGOK track construction waste diversion?", a: "Yes. We implement a Construction & Demolition Waste Management Plan on every project. We source-separate materials on site — metals, concrete, wood, cardboard, drywall — and track diversion rates by weight. Our projects consistently achieve 75%+ diversion from landfills, which also qualifies for LEED Materials & Resources credits." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Build Sustainably →"
       />
     </>

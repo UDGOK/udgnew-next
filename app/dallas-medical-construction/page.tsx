@@ -1,3 +1,4 @@
+import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
@@ -14,8 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function DallasMedicalPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Dallas-Fort Worth Medical Construction", url: "https://www.udgok.com/dallas-medical-construction" }
+  ];
+  const PAGE_FAQS = [
+        { q: "Does UDGOK build in Dallas-Fort Worth?", a: "Yes. UDGOK is a Texas-licensed contractor now actively serving the DFW metro including Dallas, Plano, Frisco, McKinney, Allen, and surrounding cities. We bring 100+ completed healthcare projects of experience from Oklahoma." },
+        { q: "How much does medical construction cost in Dallas?", a: "Medical construction in DFW runs $170–$400/sq ft depending on specialty and location within the metroplex. Dental offices in DFW cost $150–$300/sq ft. Dallas rates are typically 10–15% higher than Oklahoma due to higher labor and material costs." },
+        { q: "What sets UDGOK apart from DFW medical builders?", a: "Healthcare is our specialty, not a sideline. We have ASSE 6010 certified medical gas installers, OSHA 30 superintendents, and 100+ completed healthcare facilities. Most DFW GCs are commercial builders who occasionally take medical projects. We're a medical builder who occasionally takes commercial projects." },
+        { q: "Is UDGOK licensed in Texas?", a: "Yes. UDGOK holds appropriate Texas business registrations and carries full commercial general liability, workers' compensation, and professional liability insurance for Texas projects." },
+      ];
   return (
-    <ServicePage
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} />
+      <ServicePage
       label="Dallas-Fort Worth"
       title="Dallas-Fort Worth Medical Construction"
       description="UDGOK brings Oklahoma's most trusted medical and dental construction expertise to the Dallas-Fort Worth metroplex."
@@ -37,13 +52,10 @@ export default function DallasMedicalPage() {
         { icon: "⛽", title: "Commercial Construction", desc: "Convenience stores, retail build-outs, and commercial tenant improvements throughout DFW." },
         { icon: "📋", title: "TX Permitting Expertise", desc: "Deep knowledge of Texas DSHS, TDH, and local municipality permitting for healthcare facilities." },
       ]}
-      faqs={[
-        { q: "Does UDGOK build in Dallas-Fort Worth?", a: "Yes. UDGOK is a Texas-licensed contractor now actively serving the DFW metro including Dallas, Plano, Frisco, McKinney, Allen, and surrounding cities. We bring 100+ completed healthcare projects of experience from Oklahoma." },
-        { q: "How much does medical construction cost in Dallas?", a: "Medical construction in DFW runs $170–$400/sq ft depending on specialty and location within the metroplex. Dental offices in DFW cost $150–$300/sq ft. Dallas rates are typically 10–15% higher than Oklahoma due to higher labor and material costs." },
-        { q: "What sets UDGOK apart from DFW medical builders?", a: "Healthcare is our specialty, not a sideline. We have ASSE 6010 certified medical gas installers, OSHA 30 superintendents, and 100+ completed healthcare facilities. Most DFW GCs are commercial builders who occasionally take medical projects. We're a medical builder who occasionally takes commercial projects." },
-        { q: "Is UDGOK licensed in Texas?", a: "Yes. UDGOK holds appropriate Texas business registrations and carries full commercial general liability, workers' compensation, and professional liability insurance for Texas projects." },
-      ]}
+      faqs={PAGE_FAQS}
       cta="Start Your DFW Project →"
     />
+  
+    </>
   );
 }

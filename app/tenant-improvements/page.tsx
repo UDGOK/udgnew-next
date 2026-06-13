@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Tenant Improvements Tulsa Oklahoma | UDGOK",
@@ -15,9 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default function TenantImprovementsPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Tenant Improvements & Build-Outs Tulsa", url: "https://www.udgok.com/tenant-improvements" }
+  ];
+  const PAGE_FAQS = [
+          { q: "How much do tenant improvements cost in Tulsa?", a: "TI costs range from $50–$280 per square foot depending on use type. General office TI runs $50–$120/sq ft, retail $80–$180/sq ft, and medical/dental $140–$280/sq ft. UDGOK provides free preliminary budgets before lease signing." },
+          { q: "How long does a tenant improvement project take?", a: "Simple office TI (2,000 sq ft) can be completed in 6–8 weeks. Medical and dental TI projects typically take 3–5 months. UDGOK's fast-track approach overlaps permitting and procurement to minimize the time between lease execution and move-in." },
+          { q: "Should I get a TI estimate before signing my lease?", a: "Absolutely. UDGOK offers free preconstruction estimates so you know the actual cost before committing to a lease. This helps you negotiate a better TI allowance with your landlord and avoid budget surprises after signing." },
+          { q: "Does UDGOK coordinate with landlords?", a: "Yes. We handle all landlord coordination including base building MEP tie-ins, rooftop equipment placement, structural modifications, and compliance with building rules and regulations. We also manage the landlord's required insurance and permit documentation." },
+        ];
   return (
     <>
-      <ServiceJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd
         name="Tenant Improvement Construction"
         description="Commercial tenant improvement and build-out services in Tulsa. Office, medical, retail, and restaurant space renovations."
         url="https://www.udgok.com/tenant-improvements"
@@ -68,12 +81,7 @@ export default function TenantImprovementsPage() {
 <p>UDGOK provides preconstruction budgets before lease signing so you understand the actual TI cost versus the landlord's allowance. This prevents surprises and strengthens your lease negotiation position.</p>`,
           },
         ]}
-        faqs={[
-          { q: "How much do tenant improvements cost in Tulsa?", a: "TI costs range from $50–$280 per square foot depending on use type. General office TI runs $50–$120/sq ft, retail $80–$180/sq ft, and medical/dental $140–$280/sq ft. UDGOK provides free preliminary budgets before lease signing." },
-          { q: "How long does a tenant improvement project take?", a: "Simple office TI (2,000 sq ft) can be completed in 6–8 weeks. Medical and dental TI projects typically take 3–5 months. UDGOK's fast-track approach overlaps permitting and procurement to minimize the time between lease execution and move-in." },
-          { q: "Should I get a TI estimate before signing my lease?", a: "Absolutely. UDGOK offers free preconstruction estimates so you know the actual cost before committing to a lease. This helps you negotiate a better TI allowance with your landlord and avoid budget surprises after signing." },
-          { q: "Does UDGOK coordinate with landlords?", a: "Yes. We handle all landlord coordination including base building MEP tie-ins, rooftop equipment placement, structural modifications, and compliance with building rules and regulations. We also manage the landlord's required insurance and permit documentation." },
-        ]}
+        faqs={PAGE_FAQS}
         cta="Get a TI Estimate →"
       />
     </>

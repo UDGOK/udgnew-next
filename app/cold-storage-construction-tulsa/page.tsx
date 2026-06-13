@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Cold Storage Construction Tulsa OK | Food Processing Facilities | UDGOK",
@@ -10,9 +10,22 @@ export const metadata: Metadata = {
 };
 
 export default function ColdStorageConstructionTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Cold Storage & Food Processing Construction in Tulsa", url: "https://www.udgok.com/cold-storage-construction-tulsa" }
+  ];
+  const PAGE_FAQS = [
+                    { q: "How much does cold storage construction cost in Tulsa?", a: "Cold storage construction in Tulsa costs $120–$250/sf. Cooler space (34–40°F) costs $120–$160/sf. Freezer space (0°F) costs $160–$220/sf. Deep freeze (-10 to -20°F) costs $200–$250/sf. Costs include insulated panels, refrigeration rough-ins, USDA-compliant finishes, and heated sub-slab for freezer areas." },
+                    { q: "What insulation is used for cold storage buildings?", a: "Cold storage buildings use insulated metal panels (IMP) with polyurethane or polyisocyanurate foam cores. Panel thickness ranges from 4\" (R-28) for cooler space to 8\" (R-56) for deep freeze. Cam-lock and tongue-and-groove joints create a continuous thermal envelope." },
+                    { q: "Does cold storage require a heated floor?", a: "Yes, for freezer space below 32°F. A heated sub-slab system (typically glycol tubes in a sand layer below the slab) prevents frost heave — the expansion of moisture in the subgrade that can crack and lift concrete floors. Cooler space above 34°F does not typically require heated floors." },
+                    { q: "Can UDGOK build USDA-inspected food processing facilities?", a: "Yes. UDGOK builds food processing and cold storage facilities that meet USDA and FDA food safety requirements including food-grade wall finishes, seamless flooring, coved bases, wash-down electrical, proper drainage, and ventilation for processing areas." },
+                ];
+  return (
         <>
-            <ServiceJsonLd name="Cold Storage Construction Tulsa" description="Cold storage and food processing construction in Tulsa, Oklahoma — insulated panels, vapor barriers, USDA/FDA compliant." url="https://www.udgok.com/cold-storage-construction-tulsa" />
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <FAQJsonLd questions={PAGE_FAQS} /><ServiceJsonLd name="Cold Storage Construction Tulsa" description="Cold storage and food processing construction in Tulsa, Oklahoma — insulated panels, vapor barriers, USDA/FDA compliant." url="https://www.udgok.com/cold-storage-construction-tulsa" />
             <ServicePage
                 label="Cold Storage"
                 title="Cold Storage & Food Processing Construction in Tulsa"
@@ -35,12 +48,7 @@ export default function ColdStorageConstructionTulsaPage() {
                     { icon: "🚪", title: "Cold Storage Doors & Docks", desc: "Insulated dock doors, air curtains, strip curtains, and thermal docks. Fast-acting roll-up doors for high-traffic openings to minimize temperature loss." },
                     { icon: "🏗️", title: "Heated Floor Systems", desc: "Sub-slab glycol heating systems to prevent frost heave under freezer floors. Essential for any space below 32°F. UDGOK designs and installs complete heated slab assemblies." },
                 ]}
-                faqs={[
-                    { q: "How much does cold storage construction cost in Tulsa?", a: "Cold storage construction in Tulsa costs $120–$250/sf. Cooler space (34–40°F) costs $120–$160/sf. Freezer space (0°F) costs $160–$220/sf. Deep freeze (-10 to -20°F) costs $200–$250/sf. Costs include insulated panels, refrigeration rough-ins, USDA-compliant finishes, and heated sub-slab for freezer areas." },
-                    { q: "What insulation is used for cold storage buildings?", a: "Cold storage buildings use insulated metal panels (IMP) with polyurethane or polyisocyanurate foam cores. Panel thickness ranges from 4\" (R-28) for cooler space to 8\" (R-56) for deep freeze. Cam-lock and tongue-and-groove joints create a continuous thermal envelope." },
-                    { q: "Does cold storage require a heated floor?", a: "Yes, for freezer space below 32°F. A heated sub-slab system (typically glycol tubes in a sand layer below the slab) prevents frost heave — the expansion of moisture in the subgrade that can crack and lift concrete floors. Cooler space above 34°F does not typically require heated floors." },
-                    { q: "Can UDGOK build USDA-inspected food processing facilities?", a: "Yes. UDGOK builds food processing and cold storage facilities that meet USDA and FDA food safety requirements including food-grade wall finishes, seamless flooring, coved bases, wash-down electrical, proper drainage, and ventilation for processing areas." },
-                ]}
+                faqs={PAGE_FAQS}
                 cta="Start Your Cold Storage Project →"
             />
         </>

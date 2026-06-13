@@ -6,7 +6,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollUI from "@/components/ScrollUI";
 import SmoothScroll from "@/components/SmoothScroll";
-import { AutoBreadcrumbJsonLd } from "@/components/JsonLd";
+import { AutoBreadcrumbJsonLd } from "@/components/AutoBreadcrumbJsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
