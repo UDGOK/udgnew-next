@@ -72,7 +72,7 @@ export default function HomeUI() {
       <section ref={heroRef} style={{ position: "relative", minHeight: "100vh", marginTop: "-80px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
         {/* Parallax Background */}
         <motion.div style={{ position: "absolute", inset: -50, y: heroY, opacity: heroOpacity, zIndex: 0 }}>
-          <video src="/videos/hero-video.mp4" autoPlay loop muted playsInline data-nosnippet aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0 }} />
+          <video src="/videos/hero-video.mp4" poster="/images/ai-medical-exterior.png" autoPlay loop muted playsInline data-nosnippet aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0 }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(11, 6, 27, 0.75) 0%, rgba(11, 6, 27, 0.35) 50%, rgba(247, 244, 247, 1) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         </motion.div>
@@ -96,6 +96,7 @@ export default function HomeUI() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
+            className="speakable-content"
             style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.1rem)", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)", marginBottom: "2rem" }}
           >
             Medical &amp; Dental Construction Experts in Tulsa, Oklahoma
@@ -105,6 +106,7 @@ export default function HomeUI() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="speakable-content"
             style={{ fontSize: "clamp(1rem, 2vw, 1.4rem)", lineHeight: 1.6, color: "rgba(255,255,255,0.8)", maxWidth: "650px", margin: "0 auto 4rem", fontWeight: 500 }}
           >
             Design-build excellence for medical offices, dental practices, and commercial spaces across Oklahoma and Texas.

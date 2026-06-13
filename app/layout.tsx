@@ -121,6 +121,18 @@ export default function RootLayout({
               url: "https://udgok.com",
               logo: "https://udgok.com/logo.png",
               description: "Top-rated construction company in Tulsa, Oklahoma. UDGOK builds commercial, medical, dental, industrial, and retail projects. 100+ projects delivered. Design-build, GMP pricing, AI-powered estimating.",
+              founder: {
+                "@type": "Person",
+                name: "Yasir Jahangir",
+                jobTitle: "Principal / Owner",
+                sameAs: [
+                  "https://www.linkedin.com/company/upscale-development-group"
+                ]
+              },
+              speakable: {
+                "@type": "SpeakableSpecification",
+                cssSelector: [".speakable-content"]
+              },
               foundingDate: "2015",
               telephone: "+1-918-520-3823",
               email: "projects@udgok.com",
