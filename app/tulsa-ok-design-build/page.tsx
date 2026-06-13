@@ -4,32 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "General Contractor Tulsa OK | Design-Build | UDGOK",
   description: "Tulsa's best general contractor. UDGOK delivers integrated design-build for medical, dental, commercial, and retail construction across Tulsa, Oklahoma. 100+ projects delivered.",
-  keywords: [
-    "tulsa general contractor",
-    "general contractor Tulsa Oklahoma",
-    "best general contractor Tulsa Oklahoma",
-    "construction in Tulsa OK",
-    "design-build contractor Tulsa OK",
-    "medical office construction Tulsa",
-    "dental office construction Tulsa OK",
-    "commercial construction Tulsa",
-    "healthcare construction Tulsa Oklahoma",
-    "tenant improvement Tulsa OK",
-    "construction company Tulsa",
-    "medical clinic build-out Tulsa",
-    "dental clinic construction Tulsa",
-    "office renovation Tulsa OK",
-    "convenience store construction Tulsa",
-    "shopping center construction Tulsa",
-    "ground-up construction Tulsa Oklahoma",
-  ],
   openGraph: {
     title: "Design-Build Contractor Tulsa OK | UDGOK",
     description: "Tulsa's integrated design-build contractor for medical, dental, and commercial construction. 100+ projects delivered.",
-    url: "https://udgok.com/tulsa-ok-design-build",
+    url: "https://www.udgok.com/tulsa-ok-design-build",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/tulsa-ok-design-build" },
+  alternates: { canonical: "https://www.udgok.com/tulsa-ok-design-build" },
 };
 
 export default function TulsaDesignBuildPage() {

@@ -6,23 +6,14 @@ export const metadata: Metadata = {
   title: "Medical Office Construction Edmond OK",
   description:
     "Edmond's leading contractor for premium medical and dental office construction. Design-build expertise for clinics, surgery centers, and specialized healthcare facilities.",
-  keywords: [
-    "medical office construction Edmond OK",
-    "dental office contractor Edmond",
-    "medical building construction Edmond",
-    "surgery center contractor Edmond Oklahoma",
-    "design-build medical contractor Edmond",
-    "healthcare facility builder Oklahoma County",
-    "clinic construction Edmond OK",
-  ],
   openGraph: {
     title: "Medical Office Construction | Edmond OK | UDGOK",
     description: "Premium medical, dental, and healthcare facility construction in Edmond, Oklahoma. A specialized design-build approach.",
-    url: "https://udgok.com/edmond-ok-medical-construction",
+    url: "https://www.udgok.com/edmond-ok-medical-construction",
     type: "website",
-    images: [{ url: "https://udgok.com/images/edmond-hero.png", width: 1200, height: 630 }],
+    images: [{ url: "https://www.udgok.com/images/edmond-hero.png", width: 1200, height: 630 }],
   },
-  alternates: { canonical: "https://udgok.com/edmond-ok-medical-construction" },
+  alternates: { canonical: "https://www.udgok.com/edmond-ok-medical-construction" },
 };
 
 export default function EdmondMedicalPage() {
@@ -31,12 +22,12 @@ export default function EdmondMedicalPage() {
       <ServiceJsonLd
         name="Medical & Dental Office Construction — Edmond, OK"
         description="Specialized design-build construction for medical clinics, dental practices, and surgery centers in Edmond, Oklahoma."
-        url="https://udgok.com/edmond-ok-medical-construction"
-        image="https://udgok.com/images/edmond-hero.png"
+        url="https://www.udgok.com/edmond-ok-medical-construction"
+        image="https://www.udgok.com/images/edmond-hero.png"
       />
       <LocalBusinessJsonLd
         description="Premium healthcare construction contractor in Edmond, OK. Specializing in medical offices, dental clinics, and ambulatory surgery centers."
-        url="https://udgok.com/edmond-ok-medical-construction"
+        url="https://www.udgok.com/edmond-ok-medical-construction"
         specialization="medical office construction, dental office construction, healthcare contractor, surgery center construction, design-build medical"
       />
       <ServicePage

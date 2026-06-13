@@ -5,25 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Virtual Design & Construction (VDC) | BIM Services | UDGOK",
   description: "Virtual Design and Construction (VDC) and BIM services in Tulsa and Oklahoma. UDGOK uses advanced 3D modeling, clash detection, and digital twin technology to improve project outcomes.",
-  keywords: [
-    "virtual design construction Tulsa",
-    "virtual design Tulsa",
-    "virtual design Bixby",
-    "VDC services Oklahoma",
-    "BIM modeling Tulsa OK",
-    "clash detection construction",
-    "4D scheduling construction",
-    "digital twin construction Oklahoma",
-    "Revit BIM coordination",
-    "Navisworks clash detection",
-  ],
   openGraph: {
     title: "Virtual Design & Construction (VDC) | BIM | UDGOK",
     description: "BIM coordination, 3D modeling, and VDC services in Tulsa OK. 60% RFI reduction through advanced clash detection.",
-    url: "https://udgok.com/virtual-design-construction",
+    url: "https://www.udgok.com/virtual-design-construction",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/virtual-design-construction" },
+  alternates: { canonical: "https://www.udgok.com/virtual-design-construction" },
 };
 
 export default function VDCPage() {
@@ -32,7 +20,7 @@ export default function VDCPage() {
       <ServiceJsonLd
         name="Virtual Design and Construction (VDC/BIM)"
         description="BIM coordination, 3D modeling, and virtual design construction services for clash detection and project visualization."
-        url="https://udgok.com/virtual-design-construction"
+        url="https://www.udgok.com/virtual-design-construction"
       />
       <ServicePage
         label="Virtual Design & Construction"

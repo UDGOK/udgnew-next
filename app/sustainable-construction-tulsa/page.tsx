@@ -6,27 +6,15 @@ export const metadata: Metadata = {
   title: "Sustainable & Green Construction Tulsa Oklahoma | UDGOK",
   description:
     "Sustainable commercial construction in Tulsa, Oklahoma. LEED-ready builds, energy-efficient HVAC, recycled materials, solar-ready design, low-VOC finishes, and Oklahoma green building tax incentives. Building a better future.",
-  keywords: [
-    "sustainable construction Tulsa",
-    "green building contractor Oklahoma",
-    "LEED construction Tulsa",
-    "energy efficient commercial building",
-    "sustainable commercial construction",
-    "green building materials Oklahoma",
-    "net zero building construction",
-    "eco friendly contractor Tulsa",
-    "ESG construction Oklahoma",
-    "solar ready commercial building Tulsa",
-  ],
   openGraph: {
     title: "Sustainable & Green Construction Tulsa | UDGOK",
     description:
       "Eco-conscious commercial construction. Energy-efficient systems, recycled materials, and LEED-ready delivery for forward-thinking businesses in Oklahoma.",
-    url: "https://udgok.com/sustainable-construction-tulsa",
+    url: "https://www.udgok.com/sustainable-construction-tulsa",
     type: "website",
   },
   alternates: {
-    canonical: "https://udgok.com/sustainable-construction-tulsa",
+    canonical: "https://www.udgok.com/sustainable-construction-tulsa",
   },
 };
 
@@ -36,7 +24,7 @@ export default function SustainableConstructionPage() {
       <ServiceJsonLd
         name="Sustainable & Green Construction"
         description="Sustainable commercial construction services including LEED-ready builds, energy-efficient HVAC, recycled materials, solar-ready design, and green building practices in Tulsa, Oklahoma."
-        url="https://udgok.com/sustainable-construction-tulsa"
+        url="https://www.udgok.com/sustainable-construction-tulsa"
       />
       <ServicePage
         label="Sustainable Construction"

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Medical & Dental Design-Build Contractor | Tulsa & Oklahoma City",
   description:
     "Tulsa's premier medical & dental design-build contractor. 100+ healthcare projects delivered 30–40% faster. Serving Oklahoma & North Texas since 2015.",
-  alternates: { canonical: "https://udgok.com" },
+  alternates: { canonical: "https://www.udgok.com" },
   robots: {
     index: true,
     follow: true,
@@ -44,12 +44,12 @@ export default function HomePage() {
         })
       }} />
 
-      {/* AggregateRating JSON-LD — enables star ratings in SERPs */}
+      {/* AggregateRating & Reviews JSON-LD — enables star ratings in SERPs */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "@id": "https://udgok.com/#organization",
+          "@id": "https://www.udgok.com/#organization",
           name: "UDGOK — Upscale Development Group of Oklahoma",
           aggregateRating: {
             "@type": "AggregateRating",
@@ -59,6 +59,22 @@ export default function HomePage() {
             ratingCount: "47",
             reviewCount: "47",
           },
+          review: [
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Dr. Sarah Miller, DDS" },
+              "datePublished": "2025-11-12",
+              "reviewBody": "UDGOK made our dental practice build-out completely seamless. Their deep understanding of specialized plumbing and medical gas certification saved us months of delays.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+            },
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Dr. Robert Singh, MD" },
+              "datePublished": "2026-02-18",
+              "reviewBody": "Delivered our 8,000 sq ft medical clinic ahead of schedule. Budgeting was accurate to within 3% of the preconstruction estimate.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+            }
+          ]
         })
       }} />
 

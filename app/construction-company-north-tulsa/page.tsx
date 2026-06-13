@@ -5,24 +5,12 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Construction Company North Tulsa OK | Commercial & Community | UDGOK",
     description: "North Tulsa construction company. UDGOK builds commercial, medical, retail, and community facilities across North Tulsa. Design-build with GMP pricing. Free estimates within 48 hours.",
-    keywords: [
-        "construction company north tulsa",
-        "north tulsa construction",
-        "commercial construction north tulsa",
-        "contractor north tulsa ok",
-        "construction companies north tulsa ok",
-        "north tulsa builder",
-        "general contractor north tulsa",
-        "medical construction north tulsa ok",
-        "retail construction north tulsa",
-        "community construction tulsa",
-    ],
     openGraph: {
         title: "Construction Company North Tulsa | UDGOK",
         description: "Commercial, medical, retail, and community construction across North Tulsa.",
-        url: "https://udgok.com/construction-company-north-tulsa",
+        url: "https://www.udgok.com/construction-company-north-tulsa",
     },
-    alternates: { canonical: "https://udgok.com/construction-company-north-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/construction-company-north-tulsa" },
 };
 
 export default function ConstructionCompanyNorthTulsaPage() {
@@ -31,7 +19,7 @@ export default function ConstructionCompanyNorthTulsaPage() {
             <ServiceJsonLd
                 name="Construction Company North Tulsa"
                 description="North Tulsa construction company — commercial, medical, retail, and community facilities."
-                url="https://udgok.com/construction-company-north-tulsa"
+                url="https://www.udgok.com/construction-company-north-tulsa"
             />
             <ServicePage
                 label="North Tulsa"

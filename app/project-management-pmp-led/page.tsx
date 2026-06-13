@@ -6,26 +6,14 @@ export const metadata: Metadata = {
   title: "PMP Construction Project Management Tulsa | UDGOK",
   description:
     "PMP-certified construction project management in Tulsa, Oklahoma. CPM scheduling, risk management, real-time cost control, and cloud-based communication for commercial builds.",
-  keywords: [
-    "construction project management Tulsa",
-    "PMP certified contractor Tulsa",
-    "construction scheduling Oklahoma",
-    "CPM scheduling construction",
-    "commercial construction management",
-    "construction cost control Tulsa",
-    "Procore construction management",
-    "construction project timeline",
-    "construction risk management",
-    "general contractor project management",
-  ],
   openGraph: {
     title: "PMP-Certified Project Management | UDGOK Tulsa",
     description:
       "Professional PMI methodologies applied to commercial construction. On time. On budget. No surprises.",
-    url: "https://udgok.com/project-management-pmp-led",
+    url: "https://www.udgok.com/project-management-pmp-led",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/project-management-pmp-led" },
+  alternates: { canonical: "https://www.udgok.com/project-management-pmp-led" },
 };
 
 export default function ProjectManagementPage() {
@@ -34,7 +22,7 @@ export default function ProjectManagementPage() {
       <ServiceJsonLd
         name="PMP Construction Project Management"
         description="Professional construction project management utilizing PMI methodologies, CPM scheduling, and cloud-based collaboration tools for commercial projects in Tulsa, Oklahoma."
-        url="https://udgok.com/project-management-pmp-led"
+        url="https://www.udgok.com/project-management-pmp-led"
       />
       <ServicePage
         label="Project Management"

@@ -5,28 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Retail Construction Tulsa OK | Store & Restaurant Build-Outs | UDGOK",
     description: "Retail construction contractor in Tulsa, Oklahoma. UDGOK builds store fit-outs, restaurant spaces, strip center tenant improvements, and retail renovations. 500K+ SF delivered.",
-    keywords: [
-        "retail construction Tulsa",
-        "retail construction Tulsa OK",
-        "retail contractor Tulsa Oklahoma",
-        "retail builders in Tulsa",
-        "store construction Tulsa",
-        "retail build-out Tulsa",
-        "retail tenant improvement Tulsa",
-        "retail renovation Tulsa OK",
-        "storefront construction Tulsa",
-        "retail space build-out Oklahoma",
-        "retail interior construction Tulsa",
-        "strip center construction Tulsa",
-        "retail general contractor Tulsa",
-    ],
     openGraph: {
         title: "Retail Construction Tulsa OK | 500K+ SF | UDGOK",
         description: "Store fit-outs, restaurant build-outs, and retail tenant improvements in Tulsa, Oklahoma.",
-        url: "https://udgok.com/retail-construction-tulsa",
+        url: "https://www.udgok.com/retail-construction-tulsa",
         type: "website",
     },
-    alternates: { canonical: "https://udgok.com/retail-construction-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/retail-construction-tulsa" },
 };
 
 export default function RetailConstructionTulsaPage() {
@@ -35,7 +20,7 @@ export default function RetailConstructionTulsaPage() {
             <ServiceJsonLd
                 name="Retail Construction Tulsa"
                 description="Retail construction contractor in Tulsa, Oklahoma. Store fit-outs, strip centers, restaurant build-outs, and retail renovations."
-                url="https://udgok.com/retail-construction-tulsa"
+                url="https://www.udgok.com/retail-construction-tulsa"
             />
             <ServicePage
                 label="Retail Construction"

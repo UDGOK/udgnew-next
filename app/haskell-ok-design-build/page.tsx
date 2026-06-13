@@ -5,30 +5,14 @@ export const metadata: Metadata = {
   title: "Design-Build Contractor Haskell OK | UDGOK",
   description:
     "Medical and commercial construction contractor serving Haskell, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects in Haskell and the surrounding Muskogee County area.",
-  keywords: [
-    "construction company Haskell OK",
-    "general contractor Haskell Oklahoma",
-    "design-build contractor Haskell",
-    "dental office construction Haskell OK",
-    "medical office construction Haskell Oklahoma",
-    "commercial construction Haskell OK",
-    "tenant improvement Haskell Oklahoma",
-    "medical clinic build-out Haskell",
-    "healthcare construction Haskell OK",
-    "building contractor Haskell Oklahoma",
-    "dental clinic construction Haskell",
-    "office renovation Haskell OK",
-    "construction near Muskogee OK",
-    "ground-up construction Haskell Oklahoma",
-  ],
   openGraph: {
     title: "Design-Build Contractor Haskell OK | UDGOK",
     description:
       "Medical, dental, and commercial construction in Haskell, Oklahoma. Tulsa-based design-build contractor serving Haskell and Muskogee County.",
-    url: "https://udgok.com/haskell-ok-design-build",
+    url: "https://www.udgok.com/haskell-ok-design-build",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/haskell-ok-design-build" },
+  alternates: { canonical: "https://www.udgok.com/haskell-ok-design-build" },
 };
 
 export default function HaskellPage() {

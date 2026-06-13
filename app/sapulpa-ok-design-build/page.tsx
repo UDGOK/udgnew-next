@@ -5,30 +5,14 @@ export const metadata: Metadata = {
   title: "Design-Build Contractor Sapulpa OK | UDGOK",
   description:
     "Medical and commercial construction contractor in Sapulpa, Oklahoma. UDGOK delivers dental office construction, medical clinic build-outs, and commercial design-build along Historic Route 66 and the Sapulpa corridor.",
-  keywords: [
-    "construction company Sapulpa OK",
-    "general contractor Sapulpa Oklahoma",
-    "design-build contractor Sapulpa",
-    "dental office construction Sapulpa",
-    "medical office construction Sapulpa OK",
-    "commercial construction Sapulpa Oklahoma",
-    "tenant improvement Sapulpa",
-    "medical clinic build-out Sapulpa",
-    "healthcare construction Sapulpa OK",
-    "building contractor Sapulpa Oklahoma",
-    "dental clinic construction Sapulpa OK",
-    "office renovation Sapulpa",
-    "convenience store construction Sapulpa",
-    "ground-up construction Sapulpa OK",
-  ],
   openGraph: {
     title: "Design-Build Contractor Sapulpa OK | UDGOK",
     description:
       "Medical, dental, and commercial construction in Sapulpa, Oklahoma. Trusted local design-build contractor serving the Route 66 corridor.",
-    url: "https://udgok.com/sapulpa-ok-design-build",
+    url: "https://www.udgok.com/sapulpa-ok-design-build",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/sapulpa-ok-design-build" },
+  alternates: { canonical: "https://www.udgok.com/sapulpa-ok-design-build" },
 };
 
 export default function SapulpaPage() {

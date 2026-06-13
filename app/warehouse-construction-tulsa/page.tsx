@@ -5,20 +5,14 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Warehouse Construction Tulsa OK | Distribution Centers & PEMB | UDGOK",
     description: "Tulsa warehouse construction company. Clear-span warehouses from 10,000 to 200,000+ SF — pre-engineered metal, dock-high loading, ESFR sprinklers, heavy-duty slabs. UDGOK delivers turnkey warehouse projects at $25–$90/sf.",
-    keywords: [
-        "warehouse construction tulsa", "warehouse builder tulsa ok", "distribution center construction oklahoma",
-        "warehouse construction cost tulsa", "build a warehouse tulsa", "industrial warehouse tulsa ok",
-        "warehouse contractor oklahoma", "pre-engineered warehouse tulsa", "dock high warehouse tulsa",
-        "clear span warehouse oklahoma", "warehouse construction cost per square foot tulsa",
-    ],
-    openGraph: { title: "Warehouse Construction Tulsa OK | UDGOK", description: "Clear-span warehouses and distribution centers from 10,000 to 200,000+ SF in Tulsa, Oklahoma.", url: "https://udgok.com/warehouse-construction-tulsa" },
-    alternates: { canonical: "https://udgok.com/warehouse-construction-tulsa" },
+    openGraph: { title: "Warehouse Construction Tulsa OK | UDGOK", description: "Clear-span warehouses and distribution centers from 10,000 to 200,000+ SF in Tulsa, Oklahoma.", url: "https://www.udgok.com/warehouse-construction-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/warehouse-construction-tulsa" },
 };
 
 export default function WarehouseConstructionTulsaPage() {
     return (
         <>
-            <ServiceJsonLd name="Warehouse Construction Tulsa" description="Tulsa warehouse construction — clear-span warehouses, distribution centers, and PEMB warehouse buildings from 10,000 to 200,000+ SF." url="https://udgok.com/warehouse-construction-tulsa" />
+            <ServiceJsonLd name="Warehouse Construction Tulsa" description="Tulsa warehouse construction — clear-span warehouses, distribution centers, and PEMB warehouse buildings from 10,000 to 200,000+ SF." url="https://www.udgok.com/warehouse-construction-tulsa" />
             <ServicePage
                 label="Warehouse Construction"
                 title="Warehouse Construction in Tulsa, Oklahoma"

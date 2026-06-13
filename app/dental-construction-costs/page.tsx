@@ -6,7 +6,7 @@ import { LocalBusinessJsonLd, ArticleJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Complete Guide to Dental Office Construction Costs in Oklahoma",
   description: "Comprehensive breakdown of per-square-foot costs, equipment requirements, and budget factors for dental builds in Tulsa and surrounding areas.",
-  alternates: { canonical: "https://udgok.com/dental-construction-costs" },
+  alternates: { canonical: "https://www.udgok.com/dental-construction-costs" },
 };
 
 const toc = [
@@ -23,16 +23,16 @@ export default function DentalConstructionCosts() {
     <>
       <LocalBusinessJsonLd
         description="Comprehensive guide to dental office construction costs in Tulsa and Oklahoma. UDGOK has built 80+ dental offices and provides transparent per-square-foot pricing for general, specialty, and surgical dental build-outs."
-        url="https://udgok.com/dental-construction-costs"
+        url="https://www.udgok.com/dental-construction-costs"
         specialization="Dental construction costs, Dental office build-out pricing, Dental operatory rough-in cost, Medical gas system cost, Dental office construction budget"
       />
       <ArticleJsonLd
         title="Complete Guide to Dental Office Construction Costs in Oklahoma"
         description="Comprehensive breakdown of per-square-foot costs, equipment requirements, and budget factors for dental builds in Tulsa and surrounding areas."
-        url="https://udgok.com/dental-construction-costs"
+        url="https://www.udgok.com/dental-construction-costs"
         datePublished="2026-01-15"
         dateModified="2026-03-26"
-        image="https://udgok.com/images/ai-dental-interior.png"
+        image="https://www.udgok.com/images/ai-dental-interior.png"
       />
       <BlogPostLayout
         title="Complete Guide to Dental Office Construction Costs in Oklahoma"
@@ -42,6 +42,10 @@ export default function DentalConstructionCosts() {
         readTime="8 Min Read"
         heroImage="/images/ai-dental-interior.png"
         toc={toc}
+        authorName="Yasir Jahangir"
+        authorTitle="Owner & Lead Estimator"
+        datePublished="2026-01-15"
+        dateModified="2026-03-26"
         tldr="Dental office construction in Tulsa, Oklahoma costs $140–$280 per square foot for standard build-outs and $250–$350/sq ft for practices with surgical suites. A typical 2,500 SF dental office runs $425,000–$700,000 in construction costs, plus $80,000–$200,000+ for dental equipment. Each operatory requires $10,000–$18,000 in utility infrastructure including under-slab plumbing, compressed air, electrical, and data cabling."
         faqs={[
           { q: "How much does it cost to build a dental office in Oklahoma?", a: "Dental office construction in Oklahoma ranges from $140/sq ft for a basic build-out to $350/sq ft for a premium office with a surgical suite. A standard 2,500 SF dental office typically costs $425,000–$700,000 in construction, plus $80,000–$200,000+ for dental equipment and installation." },

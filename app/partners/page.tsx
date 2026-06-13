@@ -4,20 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Partners & Affiliations | UDGOK Construction",
   description: "UDGOK's industry partnerships and professional affiliations. Members of AGC, ABC, ASSE certified, and active participants in Tulsa's healthcare and commercial construction community.",
-  keywords: [
-    "construction industry partners Tulsa",
-    "AGC member Oklahoma",
-    "ABC member contractor",
-    "ASSE certified contractor",
-    "construction partnerships Oklahoma",
-  ],
   openGraph: {
     title: "Partners & Affiliations | UDGOK",
     description: "AGC and ABC member. ASSE and NFPA certified. Partnered with top architectural firms and medical equipment vendors.",
-    url: "https://udgok.com/partners",
+    url: "https://www.udgok.com/partners",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/partners" },
+  alternates: { canonical: "https://www.udgok.com/partners" },
 };
 
 export default function PartnersPage() {

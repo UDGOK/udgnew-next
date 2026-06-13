@@ -4,20 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Subcontractor Portal | Bid Opportunities | UDGOK",
   description: "UDGOK subcontractor prequalification and bid opportunities. Join our network of trusted trade partners for medical, dental, and commercial construction projects in Oklahoma and Texas.",
-  keywords: [
-    "subcontractor opportunities Tulsa",
-    "construction bid opportunities Oklahoma",
-    "subcontractor prequalification Tulsa",
-    "trade partner construction Oklahoma",
-    "construction subcontractor Tulsa OK",
-  ],
   openGraph: {
     title: "Subcontractor Portal | UDGOK Construction",
     description: "Join UDGOK's trade partner network. Net 30 pay, 200+ projects, and a fair bid process.",
-    url: "https://udgok.com/subcontractors",
+    url: "https://www.udgok.com/subcontractors",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/subcontractors" },
+  alternates: { canonical: "https://www.udgok.com/subcontractors" },
 };
 
 export default function SubcontractorsPage() {

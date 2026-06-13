@@ -5,27 +5,13 @@ import { ServiceJsonLd, MedicalBusinessJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Medical Office Design-Build Contractor Tulsa OK | 100+ Facilities",
   description: "Tulsa's top medical office design-build contractor. 100+ healthcare facilities delivered. $150–$350/sf with ADA, HIPAA, and ASHRAE 170 compliance.",
-  keywords: [
-    "medical office construction Tulsa",
-    "medical office design-build Oklahoma",
-    "medical clinic build-out Tulsa OK",
-    "healthcare construction Tulsa",
-    "urgent care construction Oklahoma",
-    "medical office contractor Tulsa",
-    "specialty clinic construction Tulsa",
-    "medical office HVAC systems",
-    "ADA compliant medical office",
-    "medical office cost per square foot Oklahoma",
-    "physician office build-out",
-    "medical tenant improvement Tulsa",
-  ],
   openGraph: {
     title: "Medical Office Design-Build Tulsa OK | UDGOK",
     description: "Turnkey medical office construction in Tulsa. Specialized HVAC, ADA compliance, and medical-grade systems for clinics and specialty practices.",
-    url: "https://udgok.com/medical-office-design-build-tulsa",
+    url: "https://www.udgok.com/medical-office-design-build-tulsa",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/medical-office-design-build-tulsa" },
+  alternates: { canonical: "https://www.udgok.com/medical-office-design-build-tulsa" },
 };
 
 export default function MedicalOfficePage() {
@@ -34,11 +20,11 @@ export default function MedicalOfficePage() {
       <ServiceJsonLd
         name="Medical Office Design-Build Tulsa"
         description="Full-service medical office design-build in Tulsa, Oklahoma. UDGOK delivers turnkey clinics, specialty practices, and urgent care facilities with specialized MEP systems."
-        url="https://udgok.com/medical-office-design-build-tulsa"
+        url="https://www.udgok.com/medical-office-design-build-tulsa"
       />
       <MedicalBusinessJsonLd
         description="Tulsa, Oklahoma's top-rated medical office design-build contractor. 100+ healthcare facilities delivered including primary care clinics, urgent care centers, specialty practices, and multi-physician offices with ADA, HIPAA, and ASHRAE 170 compliance."
-        url="https://udgok.com/medical-office-design-build-tulsa"
+        url="https://www.udgok.com/medical-office-design-build-tulsa"
         specialization="Medical office construction, Healthcare design-build, Medical clinic build-out, Urgent care construction, ADA compliant medical office, HIPAA compliant construction, Medical-grade HVAC, Medical gas installation"
       />
       <ServicePage

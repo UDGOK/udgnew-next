@@ -6,26 +6,14 @@ export const metadata: Metadata = {
   title: "Permitting & Code Compliance Tulsa Oklahoma | UDGOK",
   description:
     "Expert construction permitting and code compliance services in Tulsa, Broken Arrow, Jenks, and Owasso. We navigate IBC 2018, ADA, NFPA, and local zoning so you can build faster with zero delays.",
-  keywords: [
-    "building permits Tulsa",
-    "code compliance Oklahoma",
-    "construction permitting service Tulsa",
-    "commercial building inspections Tulsa",
-    "Tulsa building permit timeline",
-    "Oklahoma construction code requirements",
-    "ADA compliance contractor Tulsa",
-    "IBC 2018 Oklahoma",
-    "certificate of occupancy Tulsa",
-    "construction permit expediting",
-  ],
   openGraph: {
     title: "Permitting & Code Compliance Tulsa | UDGOK",
     description:
       "We cut through the red tape. Expert navigation of building codes and municipal processes in Tulsa and surrounding areas.",
-    url: "https://udgok.com/permitting-and-code-compliance",
+    url: "https://www.udgok.com/permitting-and-code-compliance",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/permitting-and-code-compliance" },
+  alternates: { canonical: "https://www.udgok.com/permitting-and-code-compliance" },
 };
 
 export default function PermittingPage() {
@@ -34,7 +22,7 @@ export default function PermittingPage() {
       <ServiceJsonLd
         name="Permitting and Code Compliance"
         description="Construction permitting, zoning, building code compliance, and inspection management for commercial projects in Tulsa, Oklahoma."
-        url="https://udgok.com/permitting-and-code-compliance"
+        url="https://www.udgok.com/permitting-and-code-compliance"
       />
       <ServicePage
         label="Permitting & Code Compliance"

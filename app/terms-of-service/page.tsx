@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Terms of Service",
   description:
     "Terms of Service for Upscale Development Group (UDGOK). Governs use of our website, bid portal, construction calculators, and outlines project engagement terms, liability limitations, and dispute resolution.",
-  alternates: { canonical: "https://udgok.com/terms-of-service" },
+  alternates: { canonical: "https://www.udgok.com/terms-of-service" },
 };
 
 export default function TermsOfServicePage() {

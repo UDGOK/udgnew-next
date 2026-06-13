@@ -5,27 +5,13 @@ import { ServiceJsonLd, MedicalBusinessJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Dental Office Construction Contractor Tulsa OK | 80+ Clinics Built",
   description: "Tulsa's most experienced dental office contractor. 80+ clinics built with medical gas, infection control HVAC, and operatory plumbing. $140–$280/sf.",
-  keywords: [
-    "dental office construction Tulsa",
-    "dental clinic build-out Oklahoma",
-    "dental operatory construction Tulsa OK",
-    "dental office contractor Tulsa",
-    "dental office plumbing rough-in",
-    "dental office HVAC infection control",
-    "dental chair outlet installation",
-    "dental office design-build Tulsa",
-    "dental construction cost Tulsa Oklahoma",
-    "pediatric dental office construction",
-    "orthodontist office build-out Tulsa",
-    "dental office medical gas installation",
-  ],
   openGraph: {
     title: "Dental Office Construction Tulsa OK | 80+ Clinics Built | UDGOK",
     description: "Tulsa's most experienced dental office contractor. 80+ clinics built with specialized plumbing, medical gas, and infection control HVAC.",
-    url: "https://udgok.com/dental-office-construction-tulsa",
+    url: "https://www.udgok.com/dental-office-construction-tulsa",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/dental-office-construction-tulsa" },
+  alternates: { canonical: "https://www.udgok.com/dental-office-construction-tulsa" },
 };
 
 export default function DentalOfficePage() {
@@ -34,12 +20,12 @@ export default function DentalOfficePage() {
       <ServiceJsonLd
         name="Dental Office Construction Tulsa"
         description="Specialized dental clinic construction in Tulsa, Oklahoma. UDGOK has built 80+ dental offices including operatories, sterilization centers, medical gas systems, and ADA-compliant patient spaces."
-        url="https://udgok.com/dental-office-construction-tulsa"
+        url="https://www.udgok.com/dental-office-construction-tulsa"
       />
       <MedicalBusinessJsonLd
         medicalType="Dentist"
         description="Tulsa, Oklahoma's leading dental office construction contractor. 80+ dental clinics built including general, pediatric, orthodontic, and oral surgery offices with operatory plumbing, medical gas, and ADA-compliant layouts."
-        url="https://udgok.com/dental-office-construction-tulsa"
+        url="https://www.udgok.com/dental-office-construction-tulsa"
         specialization="Dental office construction, Dental clinic build-out, Operatory plumbing rough-in, Medical gas installation, Dental office remodel, ADA compliant dental office, Infection control HVAC"
       />
       <ServicePage

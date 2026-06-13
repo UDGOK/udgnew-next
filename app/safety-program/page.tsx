@@ -5,22 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Construction Safety Program | OSHA Compliant | UDGOK",
   description: "UDGOK's comprehensive jobsite safety program. Industry-leading 0.7 EMR, OSHA 30 certified supervision, daily toolbox talks, and zero-incident culture across all Oklahoma and Texas projects.",
-  keywords: [
-    "construction safety program Oklahoma",
-    "OSHA compliant contractor Tulsa",
-    "construction safety Tulsa OK",
-    "on-site safety staffing Tulsa",
-    "EMR rating contractor",
-    "jobsite safety program",
-    "construction safety plan",
-  ],
   openGraph: {
     title: "Construction Safety Program | 0.7 EMR | UDGOK",
     description: "Industry-leading safety with 0.7 EMR, OSHA 30 supervision, and zero lost-time incident goal.",
-    url: "https://udgok.com/safety-program",
+    url: "https://www.udgok.com/safety-program",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/safety-program" },
+  alternates: { canonical: "https://www.udgok.com/safety-program" },
 };
 
 export default function SafetyProgramPage() {
@@ -29,7 +20,7 @@ export default function SafetyProgramPage() {
       <ServiceJsonLd
         name="Construction Safety Program"
         description="OSHA-compliant safety management program for all UDGOK construction projects with zero-incident goal."
-        url="https://udgok.com/safety-program"
+        url="https://www.udgok.com/safety-program"
       />
       <ServicePage
         label="Safety"

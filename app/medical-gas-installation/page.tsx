@@ -5,27 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Medical Gas Installation Oklahoma | NFPA 99 Certified | UDGOK",
   description: "Certified NFPA 99 medical gas installation in Tulsa and Oklahoma. UDGOK installs and certifies oxygen, nitrous oxide, medical air, and vacuum systems for dental and medical practices.",
-  keywords: [
-    "medical gas installation Oklahoma",
-    "medical gas installer Tulsa",
-    "NFPA 99 medical gas systems",
-    "dental medical gas installation",
-    "nitrous oxide installation dental office",
-    "oxygen piping system Oklahoma",
-    "vacuum system installation dental",
-    "ASSE 6010 certified installer",
-    "medical gas certification Oklahoma",
-    "medical air compressor installation",
-    "WAGD system installation",
-    "medical gas testing verification",
-  ],
   openGraph: {
     title: "Medical Gas Installation Oklahoma | NFPA 99 | UDGOK",
     description: "ASSE 6010 certified medical gas installation for dental and medical facilities. Oxygen, N2O, medical air, and vacuum systems across Oklahoma.",
-    url: "https://udgok.com/medical-gas-installation",
+    url: "https://www.udgok.com/medical-gas-installation",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/medical-gas-installation" },
+  alternates: { canonical: "https://www.udgok.com/medical-gas-installation" },
 };
 
 export default function MedicalGasPage() {
@@ -34,7 +20,7 @@ export default function MedicalGasPage() {
       <ServiceJsonLd
         name="Medical Gas Installation"
         description="Licensed NFPA 99 medical gas installation and ASSE 6030 verification for dental offices, surgical centers, and healthcare facilities across Oklahoma."
-        url="https://udgok.com/medical-gas-installation"
+        url="https://www.udgok.com/medical-gas-installation"
       />
       <ServicePage
         label="Medical Gas Systems"

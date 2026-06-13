@@ -4,21 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Oklahoma City Medical Office Construction | UDGOK",
   description: "UDGOK provides expert medical office and dental clinic construction across Oklahoma City. Design-build services for healthcare providers in the OKC metro.",
-  keywords: [
-    "medical construction Oklahoma City",
-    "dental office construction OKC",
-    "healthcare construction Oklahoma City",
-    "medical office builder OKC",
-    "dental clinic construction OKC",
-    "design-build contractor Oklahoma City",
-  ],
   openGraph: {
     title: "Oklahoma City Medical Construction | UDGOK",
     description: "Tulsa's premier healthcare construction expertise now serving the Oklahoma City metro area.",
-    url: "https://udgok.com/oklahoma-city-medical-construction",
+    url: "https://www.udgok.com/oklahoma-city-medical-construction",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/oklahoma-city-medical-construction" },
+  alternates: { canonical: "https://www.udgok.com/oklahoma-city-medical-construction" },
 };
 
 export default function OKCPage() {

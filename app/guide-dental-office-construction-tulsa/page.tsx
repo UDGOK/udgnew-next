@@ -7,29 +7,15 @@ export const metadata: Metadata = {
         "The Ultimate 2026 Guide to Dental Office Construction in Tulsa | UDGOK",
     description:
         "Planning a dental clinic in Tulsa? Discover 2026 costs, timelines, and expert tips to successfully build your dream practice. Get a quote today!",
-    keywords: [
-        "dental office construction Tulsa",
-        "dental office build-out costs Tulsa",
-        "Tulsa dental contractors",
-        "how to build a dental clinic in Tulsa",
-        "dental construction costs 2026",
-        "dental office design Tulsa OK",
-        "dental clinic construction timeline",
-        "dental office MEP systems",
-        "dental operatory construction",
-        "dental office construction cost per square foot",
-        "dental office design-build Tulsa",
-        "dental clinic build-out Oklahoma",
-    ],
     openGraph: {
         title: "The Ultimate 2026 Guide to Dental Office Construction in Tulsa",
         description:
             "2026 costs, timelines, expert design insights, and local SEO tips to build your dream dental practice in Tulsa, Oklahoma.",
-        url: "https://udgok.com/guide-dental-office-construction-tulsa",
+        url: "https://www.udgok.com/guide-dental-office-construction-tulsa",
         type: "article",
         images: [
             {
-                url: "https://udgok.com/images/dental-construction-guide-hero.png",
+                url: "https://www.udgok.com/images/dental-construction-guide-hero.png",
                 width: 1200,
                 height: 630,
                 alt: "Dental office construction guide — modern operatory under construction",
@@ -37,7 +23,7 @@ export const metadata: Metadata = {
         ],
     },
     alternates: {
-        canonical: "https://udgok.com/guide-dental-office-construction-tulsa",
+        canonical: "https://www.udgok.com/guide-dental-office-construction-tulsa",
     },
 };
 
@@ -49,26 +35,26 @@ const articleSchema = {
         "The Ultimate 2026 Guide to Dental Office Construction in Tulsa",
     description:
         "A comprehensive guide to dental office construction costs, timelines, expert design insights, and local SEO tips for building a dental practice in Tulsa, Oklahoma.",
-    image: "https://udgok.com/images/dental-construction-guide-hero.png",
+    image: "https://www.udgok.com/images/dental-construction-guide-hero.png",
     datePublished: "2026-03-12",
     dateModified: "2026-03-12",
     author: {
         "@type": "Organization",
         name: "UDGOK — Upscale Development Group",
-        url: "https://udgok.com",
+        url: "https://www.udgok.com",
     },
     publisher: {
         "@type": "Organization",
         name: "UDGOK — Upscale Development Group",
-        url: "https://udgok.com",
+        url: "https://www.udgok.com",
         logo: {
             "@type": "ImageObject",
-            url: "https://udgok.com/images/logo.png",
+            url: "https://www.udgok.com/images/logo.png",
         },
     },
     mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": "https://udgok.com/guide-dental-office-construction-tulsa",
+        "@id": "https://www.udgok.com/guide-dental-office-construction-tulsa",
     },
 };
 
@@ -111,7 +97,7 @@ const localBusinessSchema = {
     name: "UDGOK — Upscale Development Group",
     description:
         "Tulsa's most trusted dental and medical construction contractor. 100+ healthcare facilities delivered across the Tulsa metro and Oklahoma.",
-    url: "https://udgok.com",
+    url: "https://www.udgok.com",
     telephone: "+19185203823",
     address: {
         "@type": "PostalAddress",

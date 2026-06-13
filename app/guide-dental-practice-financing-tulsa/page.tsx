@@ -7,30 +7,16 @@ export const metadata: Metadata = {
     "Financing Your Tulsa Dental Practice: Remodel vs. Rebuild & 2026 Tax Strategies | UDGOK",
   description:
     "Weighing a remodel vs. rebuild for your Tulsa dental practice? Learn 2026 financing options, tax strategies, and ROI tips to fund your dream clinic.",
-  keywords: [
-    "dental practice financing Tulsa",
-    "remodel vs rebuild dental clinic Tulsa",
-    "dental practice loans Tulsa",
-    "Section 179 dental equipment 2026",
-    "best dental practice lenders 2026",
-    "how much does it cost to remodel a dental office Tulsa",
-    "dental clinic renovation financing options",
-    "dental office remodel cost Oklahoma",
-    "SBA 504 dental practice loan",
-    "dental equipment financing 2026",
-    "dental construction tax deductions",
-    "cost segregation dental office",
-  ],
   openGraph: {
     title:
       "Financing Your Tulsa Dental Practice: Remodel vs. Rebuild & 2026 Tax Strategies",
     description:
       "2026 financing options, remodel vs. rebuild comparison, Section 179 tax strategies, and SEO protection tips for Oklahoma dentists.",
-    url: "https://udgok.com/guide-dental-practice-financing-tulsa",
+    url: "https://www.udgok.com/guide-dental-practice-financing-tulsa",
     type: "article",
     images: [
       {
-        url: "https://udgok.com/images/dental-financing-guide-hero.png",
+        url: "https://www.udgok.com/images/dental-financing-guide-hero.png",
         width: 1200,
         height: 630,
         alt: "Dental practice financing guide — remodel vs rebuild comparison",
@@ -38,7 +24,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://udgok.com/guide-dental-practice-financing-tulsa",
+    canonical: "https://www.udgok.com/guide-dental-practice-financing-tulsa",
   },
 };
 
@@ -50,26 +36,26 @@ const articleSchema = {
     "Financing Your Tulsa Dental Practice: Remodel vs. Rebuild & 2026 Tax Strategies",
   description:
     "A comprehensive guide to dental practice financing options, remodel vs. rebuild analysis, 2026 tax strategies, and local SEO protection during renovation for Tulsa, Oklahoma dentists.",
-  image: "https://udgok.com/images/dental-financing-guide-hero.png",
+  image: "https://www.udgok.com/images/dental-financing-guide-hero.png",
   datePublished: "2026-03-13",
   dateModified: "2026-03-13",
   author: {
     "@type": "Organization",
     name: "UDGOK — Upscale Development Group",
-    url: "https://udgok.com",
+    url: "https://www.udgok.com",
   },
   publisher: {
     "@type": "Organization",
     name: "UDGOK — Upscale Development Group",
-    url: "https://udgok.com",
+    url: "https://www.udgok.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://udgok.com/images/logo.png",
+      url: "https://www.udgok.com/images/logo.png",
     },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://udgok.com/guide-dental-practice-financing-tulsa",
+    "@id": "https://www.udgok.com/guide-dental-practice-financing-tulsa",
   },
 };
 
@@ -120,7 +106,7 @@ const localBusinessSchema = {
   name: "UDGOK — Upscale Development Group",
   description:
     "Oklahoma's most trusted dental and medical construction contractor. Expert in dental office remodels, full build-outs, and healthcare facility construction across the Tulsa metro.",
-  url: "https://udgok.com",
+  url: "https://www.udgok.com",
   telephone: "+19185203823",
   address: {
     "@type": "PostalAddress",

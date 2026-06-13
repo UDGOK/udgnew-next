@@ -195,8 +195,8 @@ export default function Footer() {
           "@type": "GeneralContractor",
           "name": "Upscale Development Group",
           "alternateName": "UDGOK",
-          "url": "https://udgok.com",
-          "logo": "https://udgok.com/images/logo.png",
+          "url": "https://www.udgok.com",
+          "logo": "https://www.udgok.com/images/logo.png",
           "description": "Tulsa-based AI-powered Design-Build construction firm specializing in medical offices, dental clinics, oral surgery centers, eye clinics, and commercial buildings across Oklahoma and North Texas.",
           "foundingDate": "2015",
           "numberOfEmployees": {
@@ -238,14 +238,14 @@ export default function Footer() {
             "@type": "OfferCatalog",
             "name": "Construction Services",
             "itemListElement": [
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Medical Office Design-Build", "url": "https://udgok.com/medical-office-design-build-tulsa"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dental Office Construction", "url": "https://udgok.com/dental-office-construction-tulsa"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Oral Surgery Center Construction", "url": "https://udgok.com/oral-surgeon-office-construction-tulsa"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Eye Clinic Construction", "url": "https://udgok.com/eye-clinic-construction-tulsa"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Medical Gas Installation", "url": "https://udgok.com/medical-gas-installation"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Tenant Improvements", "url": "https://udgok.com/tenant-improvements"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Virtual Design & Construction (VDC)", "url": "https://udgok.com/virtual-design-construction"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Preconstruction Services", "url": "https://udgok.com/preconstruction"}}
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Medical Office Design-Build", "url": "https://www.udgok.com/medical-office-design-build-tulsa"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dental Office Construction", "url": "https://www.udgok.com/dental-office-construction-tulsa"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Oral Surgery Center Construction", "url": "https://www.udgok.com/oral-surgeon-office-construction-tulsa"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Eye Clinic Construction", "url": "https://www.udgok.com/eye-clinic-construction-tulsa"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Medical Gas Installation", "url": "https://www.udgok.com/medical-gas-installation"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Tenant Improvements", "url": "https://www.udgok.com/tenant-improvements"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Virtual Design & Construction (VDC)", "url": "https://www.udgok.com/virtual-design-construction"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Preconstruction Services", "url": "https://www.udgok.com/preconstruction"}}
             ]
           },
           "sameAs": [
@@ -297,16 +297,16 @@ export default function Footer() {
           "@context": "https://schema.org",
           "@type": "WebSite",
           "name": "UDGOK — Upscale Development Group",
-          "url": "https://udgok.com",
+          "url": "https://www.udgok.com",
           "description": "AI-Powered Medical and Dental Design-Build Construction in Oklahoma and Texas.",
           "publisher": {
             "@type": "Organization",
             "name": "Upscale Development Group",
-            "url": "https://udgok.com"
+            "url": "https://www.udgok.com"
           },
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://udgok.com/resources?q={search_term_string}",
+            "target": "https://www.udgok.com/resources?q={search_term_string}",
             "query-input": "required name=search_term_string"
           },
           "speakable": {

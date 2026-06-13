@@ -5,24 +5,12 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Construction Company East Tulsa OK | Industrial & Commercial | UDGOK",
     description: "East Tulsa construction company. UDGOK builds warehouses, industrial facilities, convenience stores, and commercial projects along the I-44 corridor. Pre-engineered metal buildings, flex space, distribution centers.",
-    keywords: [
-        "construction company east tulsa",
-        "east tulsa construction",
-        "industrial construction east tulsa",
-        "warehouse construction east tulsa ok",
-        "contractor east tulsa",
-        "commercial construction east tulsa ok",
-        "convenience store construction east tulsa",
-        "construction companies east tulsa ok",
-        "east tulsa builder",
-        "i-44 corridor construction tulsa",
-    ],
     openGraph: {
         title: "Construction Company East Tulsa | Industrial & Commercial | UDGOK",
         description: "Industrial, warehouse, convenience store, and commercial construction along East Tulsa's I-44 corridor.",
-        url: "https://udgok.com/construction-company-east-tulsa",
+        url: "https://www.udgok.com/construction-company-east-tulsa",
     },
-    alternates: { canonical: "https://udgok.com/construction-company-east-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/construction-company-east-tulsa" },
 };
 
 export default function ConstructionCompanyEastTulsaPage() {
@@ -31,7 +19,7 @@ export default function ConstructionCompanyEastTulsaPage() {
             <ServiceJsonLd
                 name="Construction Company East Tulsa"
                 description="East Tulsa construction company — industrial, warehouse, convenience store, and commercial construction along the I-44 corridor."
-                url="https://udgok.com/construction-company-east-tulsa"
+                url="https://www.udgok.com/construction-company-east-tulsa"
             />
             <ServicePage
                 label="East Tulsa"

@@ -6,25 +6,14 @@ export const metadata: Metadata = {
   title: "Orthodontic Office Construction Tulsa OK",
   description:
     "Tulsa's only contractor specializing in orthodontist office design-build. Open bay layouts, Invisalign scan stations, 3D print labs, teen-friendly design, and iTero integration — built by UDGOK.",
-  keywords: [
-    "orthodontic office construction Tulsa",
-    "orthodontist office build-out Oklahoma",
-    "orthodontist contractor Tulsa",
-    "orthodontic practice design-build",
-    "open bay orthodontic office Tulsa",
-    "orthodontic clinic construction OK",
-    "braces office construction Tulsa",
-    "Invisalign office build-out Oklahoma",
-    "orthodontic office design Broken Arrow",
-  ],
   openGraph: {
     title: "Orthodontic Office Construction | Tulsa OK | UDGOK",
     description: "Tulsa's specialist orthodontic office builder. Open bay layouts, digital workflow integration, and teen-friendly design. Call (918) 520-3823.",
-    url: "https://udgok.com/orthodontic-office-construction-tulsa",
+    url: "https://www.udgok.com/orthodontic-office-construction-tulsa",
     type: "website",
-    images: [{ url: "https://udgok.com/images/orthodontic-office-hero.png", width: 1200, height: 630 }],
+    images: [{ url: "https://www.udgok.com/images/orthodontic-office-hero.png", width: 1200, height: 630 }],
   },
-  alternates: { canonical: "https://udgok.com/orthodontic-office-construction-tulsa" },
+  alternates: { canonical: "https://www.udgok.com/orthodontic-office-construction-tulsa" },
 };
 
 export default function OrthodonticOfficePage() {
@@ -33,12 +22,12 @@ export default function OrthodonticOfficePage() {
       <ServiceJsonLd
         name="Orthodontic Office Construction — Tulsa, Oklahoma"
         description="UDGOK designs and builds orthodontic offices in Tulsa, OK. Open bay treatment areas, Invisalign/iTero scan stations, 3D print labs, sterilization centers, and teen-friendly waiting areas — all purpose-built for modern orthodontic workflows."
-        url="https://udgok.com/orthodontic-office-construction-tulsa"
-        image="https://udgok.com/images/orthodontic-office-hero.png"
+        url="https://www.udgok.com/orthodontic-office-construction-tulsa"
+        image="https://www.udgok.com/images/orthodontic-office-hero.png"
       />
       <LocalBusinessJsonLd
         description="Orthodontic office design-build contractor in Tulsa, Oklahoma. Specialist in open bay treatment layouts, digital orthodontic integration, and teen-friendly practice design."
-        url="https://udgok.com/orthodontic-office-construction-tulsa"
+        url="https://www.udgok.com/orthodontic-office-construction-tulsa"
         specialization="orthodontic office construction, orthodontist build-out, open bay treatment area, Invisalign office, iTero scanner station, orthodontic 3D print lab, dental specialty construction"
       />
       <ServicePage

@@ -5,24 +5,12 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Construction Company Midtown Tulsa OK | Cherry Street & Brookside | UDGOK",
     description: "Midtown Tulsa construction company. UDGOK builds boutique retail, medical offices, restaurants, and office renovations along Cherry Street, Brookside, and the Midtown corridor. 20+ projects delivered.",
-    keywords: [
-        "construction company midtown tulsa",
-        "midtown tulsa construction",
-        "cherry street construction tulsa",
-        "brookside construction tulsa",
-        "contractor midtown tulsa ok",
-        "restaurant construction cherry street",
-        "commercial construction midtown tulsa",
-        "boutique retail construction tulsa",
-        "construction companies midtown tulsa ok",
-        "brookside builder tulsa",
-    ],
     openGraph: {
         title: "Construction Company Midtown Tulsa | Cherry Street & Brookside | UDGOK",
         description: "Boutique retail, medical, restaurant, and office construction in Tulsa's Midtown, Cherry Street, and Brookside districts.",
-        url: "https://udgok.com/construction-company-midtown-tulsa",
+        url: "https://www.udgok.com/construction-company-midtown-tulsa",
     },
-    alternates: { canonical: "https://udgok.com/construction-company-midtown-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/construction-company-midtown-tulsa" },
 };
 
 export default function ConstructionCompanyMidtownTulsaPage() {
@@ -31,7 +19,7 @@ export default function ConstructionCompanyMidtownTulsaPage() {
             <ServiceJsonLd
                 name="Construction Company Midtown Tulsa"
                 description="Midtown Tulsa construction company specializing in boutique retail, medical, restaurant, and office construction along Cherry Street and Brookside."
-                url="https://udgok.com/construction-company-midtown-tulsa"
+                url="https://www.udgok.com/construction-company-midtown-tulsa"
             />
             <ServicePage
                 label="Midtown Tulsa"

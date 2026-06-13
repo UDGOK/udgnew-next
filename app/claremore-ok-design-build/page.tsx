@@ -6,23 +6,14 @@ export const metadata: Metadata = {
   title: "Commercial Construction & Design-Build Claremore OK",
   description:
     "Claremore's premier commercial design-build contractor. Specializing in medical clinics, retail centers, and industrial facilities in Rogers County. View our Oklahoma portfolio.",
-  keywords: [
-    "commercial contractor Claremore OK",
-    "design-build contractor Claremore",
-    "Claremore construction companies",
-    "medical office construction Claremore",
-    "Rogers county commercial builder",
-    "retail construction Claremore",
-    "industrial construction Claremore OK",
-  ],
   openGraph: {
     title: "Commercial Construction & Design-Build | Claremore OK | UDGOK",
     description: "Premium commercial construction and design-build services in Claremore, Oklahoma. Medical, retail, and industrial facilities.",
-    url: "https://udgok.com/claremore-ok-design-build",
+    url: "https://www.udgok.com/claremore-ok-design-build",
     type: "website",
-    images: [{ url: "https://udgok.com/images/claremore-hero.png", width: 1200, height: 630 }],
+    images: [{ url: "https://www.udgok.com/images/claremore-hero.png", width: 1200, height: 630 }],
   },
-  alternates: { canonical: "https://udgok.com/claremore-ok-design-build" },
+  alternates: { canonical: "https://www.udgok.com/claremore-ok-design-build" },
 };
 
 export default function ClaremorePage() {
@@ -30,7 +21,7 @@ export default function ClaremorePage() {
     <>
       <LocalBusinessJsonLd
         description="Commercial design-build construction company serving Claremore and Rogers County, Oklahoma."
-        url="https://udgok.com/claremore-ok-design-build"
+        url="https://www.udgok.com/claremore-ok-design-build"
         specialization="commercial construction, design-build, medical office construction, retail construction, industrial facilities"
       />
       <ServicePage

@@ -6,23 +6,14 @@ export const metadata: Metadata = {
   title: "Commercial Construction & Design-Build Glenpool OK",
   description:
     "Glenpool's premier commercial design-build contractor. Specializing in retail, medical, and light industrial construction along the Highway 75 corridor.",
-  keywords: [
-    "commercial contractor Glenpool OK",
-    "design-build contractor Glenpool",
-    "Glenpool construction companies",
-    "medical office construction Glenpool",
-    "retail construction Glenpool OK",
-    "commercial builder south Tulsa county",
-    "Highway 75 commercial construction",
-  ],
   openGraph: {
     title: "Commercial Construction & Design-Build | Glenpool OK | UDGOK",
     description: "Premium commercial construction services in Glenpool, Oklahoma. Retail, medical, and industrial facilities.",
-    url: "https://udgok.com/glenpool-ok-design-build",
+    url: "https://www.udgok.com/glenpool-ok-design-build",
     type: "website",
-    images: [{ url: "https://udgok.com/images/glenpool-hero.png", width: 1200, height: 630 }],
+    images: [{ url: "https://www.udgok.com/images/glenpool-hero.png", width: 1200, height: 630 }],
   },
-  alternates: { canonical: "https://udgok.com/glenpool-ok-design-build" },
+  alternates: { canonical: "https://www.udgok.com/glenpool-ok-design-build" },
 };
 
 export default function GlenpoolPage() {
@@ -30,7 +21,7 @@ export default function GlenpoolPage() {
     <>
       <LocalBusinessJsonLd
         description="Commercial design-build construction company serving Glenpool, Oklahoma and the Highway 75 corridor."
-        url="https://udgok.com/glenpool-ok-design-build"
+        url="https://www.udgok.com/glenpool-ok-design-build"
         specialization="commercial construction, design-build, retail development, medical office construction, light industrial"
       />
       <ServicePage

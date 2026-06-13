@@ -5,23 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Preconstruction Services Tulsa Oklahoma | UDGOK",
   description: "Expert preconstruction services in Tulsa and Oklahoma. UDGOK provides early budgeting, constructability review, scheduling, and value engineering to de-risk your project before breaking ground.",
-  keywords: [
-    "preconstruction services Tulsa",
-    "construction estimating Oklahoma",
-    "value engineering construction",
-    "constructability review Tulsa OK",
-    "GMP development construction",
-    "construction budgeting Oklahoma",
-    "preconstruction cost estimating",
-    "construction scheduling Tulsa",
-  ],
   openGraph: {
     title: "Preconstruction Services Tulsa OK | ±5% Budget Accuracy | UDGOK",
     description: "Early-stage budgeting, value engineering, and constructability reviews for medical and commercial projects.",
-    url: "https://udgok.com/preconstruction",
+    url: "https://www.udgok.com/preconstruction",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/preconstruction" },
+  alternates: { canonical: "https://www.udgok.com/preconstruction" },
 };
 
 export default function PreconstructionPage() {
@@ -30,7 +20,7 @@ export default function PreconstructionPage() {
       <ServiceJsonLd
         name="Preconstruction Services"
         description="Preconstruction estimating, value engineering, and constructability reviews for medical, dental, and commercial projects in Oklahoma."
-        url="https://udgok.com/preconstruction"
+        url="https://www.udgok.com/preconstruction"
       />
       <ServicePage
         label="Preconstruction"

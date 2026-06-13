@@ -5,23 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Eye Clinic Construction Tulsa Oklahoma | UDGOK",
   description: "Specialized eye clinic and ophthalmology office construction in Tulsa, OK. UDGOK builds optometry and surgical eye centers with dark rooms, laser suites, and precise lighting control.",
-  keywords: [
-    "eye clinic construction Tulsa",
-    "ophthalmology office build-out Oklahoma",
-    "optometry office construction Tulsa OK",
-    "LASIK suite construction",
-    "dark room construction eye clinic",
-    "eye doctor office build-out",
-    "optical dispensary construction Tulsa",
-    "eye surgery center construction Oklahoma",
-  ],
   openGraph: {
     title: "Eye Clinic Construction Tulsa OK | 30+ Clinics Built | UDGOK",
     description: "Specialized ophthalmology and optometry construction with dark rooms, laser suites, and precision lighting.",
-    url: "https://udgok.com/eye-clinic-construction-tulsa",
+    url: "https://www.udgok.com/eye-clinic-construction-tulsa",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/eye-clinic-construction-tulsa" },
+  alternates: { canonical: "https://www.udgok.com/eye-clinic-construction-tulsa" },
 };
 
 export default function EyeClinicPage() {
@@ -30,7 +20,7 @@ export default function EyeClinicPage() {
       <ServiceJsonLd
         name="Eye Clinic Construction"
         description="Ophthalmology and optometry clinic construction in Tulsa with specialized exam lanes, procedure rooms, and optical dispensaries."
-        url="https://udgok.com/eye-clinic-construction-tulsa"
+        url="https://www.udgok.com/eye-clinic-construction-tulsa"
       />
       <ServicePage
         label="Eye Clinic Construction"

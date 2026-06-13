@@ -6,27 +6,15 @@ export const metadata: Metadata = {
   title: "Restaurant & Commercial Kitchen Construction Tulsa | UDGOK",
   description:
     "Restaurant construction, commercial kitchen build-outs, and food service facility renovations in Tulsa, Oklahoma. Hood ventilation, grease traps, walk-in coolers, ADA compliance, and health department-ready construction.",
-  keywords: [
-    "restaurant construction Tulsa",
-    "commercial kitchen build out",
-    "restaurant build out cost per square foot",
-    "restaurant contractor Tulsa Oklahoma",
-    "commercial kitchen construction",
-    "restaurant renovation Tulsa",
-    "bar construction contractor",
-    "food service facility construction",
-    "restaurant hood ventilation installation",
-    "grease trap installation Tulsa",
-  ],
   openGraph: {
     title: "Restaurant & Commercial Kitchen Construction Tulsa | UDGOK",
     description:
       "Full-service restaurant construction from kitchen rough-in to grand opening. Hood ventilation, grease traps, bar build-outs, and health department compliance.",
-    url: "https://udgok.com/restaurant-construction-tulsa",
+    url: "https://www.udgok.com/restaurant-construction-tulsa",
     type: "website",
   },
   alternates: {
-    canonical: "https://udgok.com/restaurant-construction-tulsa",
+    canonical: "https://www.udgok.com/restaurant-construction-tulsa",
   },
 };
 
@@ -36,7 +24,7 @@ export default function RestaurantConstructionPage() {
       <ServiceJsonLd
         name="Restaurant & Commercial Kitchen Construction"
         description="Restaurant construction, commercial kitchen build-outs, bar construction, and food service facility renovations in Tulsa, Oklahoma. Full health department and fire code compliance."
-        url="https://udgok.com/restaurant-construction-tulsa"
+        url="https://www.udgok.com/restaurant-construction-tulsa"
       />
       <ServicePage
         label="Restaurant Construction"

@@ -5,21 +5,14 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Manufacturing Facility Construction Tulsa OK | Crane Systems & Heavy Industrial | UDGOK",
     description: "Manufacturing facility construction in Tulsa, Oklahoma. Overhead crane systems up to 50 tons, reinforced foundations, high bay clear heights 30–60 ft, 3-phase power infrastructure. $90–$200/sf.",
-    keywords: [
-        "manufacturing facility construction tulsa", "manufacturing plant construction oklahoma",
-        "factory construction tulsa ok", "heavy industrial construction tulsa",
-        "crane building construction oklahoma", "manufacturing building tulsa",
-        "industrial plant construction oklahoma", "manufacturing facility cost per square foot",
-        "factory builder tulsa ok", "heavy industrial contractor oklahoma",
-    ],
-    openGraph: { title: "Manufacturing Facility Construction Tulsa OK | UDGOK", description: "Heavy industrial — crane systems, reinforced foundations, high bay clear heights. $90–$200/sf.", url: "https://udgok.com/manufacturing-facility-construction-tulsa" },
-    alternates: { canonical: "https://udgok.com/manufacturing-facility-construction-tulsa" },
+    openGraph: { title: "Manufacturing Facility Construction Tulsa OK | UDGOK", description: "Heavy industrial — crane systems, reinforced foundations, high bay clear heights. $90–$200/sf.", url: "https://www.udgok.com/manufacturing-facility-construction-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/manufacturing-facility-construction-tulsa" },
 };
 
 export default function ManufacturingFacilityConstructionTulsaPage() {
     return (
         <>
-            <ServiceJsonLd name="Manufacturing Facility Construction Tulsa" description="Manufacturing facility and factory construction in Tulsa, Oklahoma — crane systems, reinforced foundations, heavy MEP." url="https://udgok.com/manufacturing-facility-construction-tulsa" />
+            <ServiceJsonLd name="Manufacturing Facility Construction Tulsa" description="Manufacturing facility and factory construction in Tulsa, Oklahoma — crane systems, reinforced foundations, heavy MEP." url="https://www.udgok.com/manufacturing-facility-construction-tulsa" />
             <ServicePage
                 label="Manufacturing"
                 title="Manufacturing Facility Construction in Tulsa, Oklahoma"

@@ -5,27 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Hospitality Construction Bixby OK | Hotels & Restaurants | UDGOK",
     description: "Hospitality construction contractor in Bixby, Oklahoma. UDGOK builds hotels, restaurants, QSR, event venues, and food service facilities in one of Tulsa's fastest-growing suburbs.",
-    keywords: [
-        "hospitality construction Bixby",
-        "hospitality construction Bixby OK",
-        "hotel construction Bixby Oklahoma",
-        "restaurant construction Bixby",
-        "restaurant build-out Bixby OK",
-        "QSR construction Bixby Oklahoma",
-        "food service construction Bixby",
-        "hospitality contractor Bixby",
-        "hotel renovation Bixby OK",
-        "commercial kitchen construction Bixby",
-        "event venue construction Bixby",
-        "hospitality builder Bixby Oklahoma",
-    ],
     openGraph: {
         title: "Hospitality Construction Bixby OK | UDGOK",
         description: "Hotels, restaurants, QSR, and food service construction in Bixby, Oklahoma.",
-        url: "https://udgok.com/hospitality-construction-bixby",
+        url: "https://www.udgok.com/hospitality-construction-bixby",
         type: "website",
     },
-    alternates: { canonical: "https://udgok.com/hospitality-construction-bixby" },
+    alternates: { canonical: "https://www.udgok.com/hospitality-construction-bixby" },
 };
 
 export default function HospitalityBixbyPage() {
@@ -34,7 +20,7 @@ export default function HospitalityBixbyPage() {
             <ServiceJsonLd
                 name="Hospitality Construction Bixby"
                 description="Hospitality construction contractor in Bixby, Oklahoma — hotels, restaurants, QSR, and food service facilities."
-                url="https://udgok.com/hospitality-construction-bixby"
+                url="https://www.udgok.com/hospitality-construction-bixby"
             />
             <ServicePage
                 label="Hospitality Construction"

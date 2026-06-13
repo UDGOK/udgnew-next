@@ -4,7 +4,7 @@ import BlogPostLayout from "@/components/BlogPostLayout";
 export const metadata: Metadata = {
   title: "Commercial Broker's Construction Guide | UDGOK",
   description: "A construction guide for commercial real estate brokers in Oklahoma. Help your healthcare and commercial tenants understand TI costs, timelines, and what to ask their contractor.",
-  alternates: { canonical: "https://udgok.com/guide-commercial-brokers" },
+  alternates: { canonical: "https://www.udgok.com/guide-commercial-brokers" },
 };
 
 export default function GuideBrokersPage() {

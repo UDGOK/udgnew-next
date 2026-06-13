@@ -5,21 +5,13 @@ import DentalChecklistUI from "./DentalChecklistUI";
 export const metadata: Metadata = {
   title: "Dental Office Build-Out Checklist for Oklahoma (2026)",
   description: "Step-by-step dental office build-out checklist from pre-design to move-in. Cost per operatory, equipment rough-in specs, and regulatory requirements for Oklahoma.",
-  keywords: [
-    "dental office build-out checklist",
-    "dental office construction checklist Oklahoma",
-    "dental build out cost per operatory",
-    "dental construction timeline Tulsa",
-    "dental office regulatory requirements Oklahoma",
-    "dental operatory cost breakdown",
-  ],
   openGraph: {
     title: "Dental Office Build-Out Checklist — Oklahoma 2026 | UDGOK",
     description: "80+ dental offices built. The complete build-out checklist for Oklahoma dental practices.",
-    url: "https://udgok.com/guide-dental-buildout-checklist-oklahoma",
+    url: "https://www.udgok.com/guide-dental-buildout-checklist-oklahoma",
     type: "article",
   },
-  alternates: { canonical: "https://udgok.com/guide-dental-buildout-checklist-oklahoma" },
+  alternates: { canonical: "https://www.udgok.com/guide-dental-buildout-checklist-oklahoma" },
 };
 
 const articleSchema = {

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://udgok.com";
+  const base = "https://www.udgok.com";
   const now = new Date().toISOString();
 
   // ── Core Pages ──

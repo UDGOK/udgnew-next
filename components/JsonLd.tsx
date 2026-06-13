@@ -7,8 +7,8 @@ const ORG = {
   "@type": "Organization",
   name: "Upscale Development Group",
   alternateName: "UDGOK",
-  url: "https://udgok.com",
-  logo: "https://udgok.com/images/logo.png",
+  url: "https://www.udgok.com",
+  logo: "https://www.udgok.com/images/logo.png",
 };
 
 const AREA_SERVED = [
@@ -120,10 +120,11 @@ export function HowToJsonLd({
 
 /* ─── Article ─── */
 export function ArticleJsonLd({
-  title, description, url, datePublished, dateModified, image,
+  title, description, url, datePublished, dateModified, image, authorName, authorTitle,
 }: {
   title: string; description: string; url: string;
   datePublished: string; dateModified?: string; image?: string;
+  authorName?: string; authorTitle?: string;
 }) {
   const schema = {
     "@context": "https://schema.org",
@@ -134,10 +135,15 @@ export function ArticleJsonLd({
     datePublished,
     dateModified: dateModified || datePublished,
     ...(image && { image }),
-    author: ORG,
+    author: {
+      "@type": "Person",
+      name: authorName || "Yasir Jahangir",
+      jobTitle: authorTitle || "Owner & Lead Estimator",
+      url: "https://www.udgok.com/about",
+    },
     publisher: {
       ...ORG,
-      logo: { "@type": "ImageObject", url: "https://udgok.com/images/logo.png" },
+      logo: { "@type": "ImageObject", url: "https://www.udgok.com/images/logo.png" },
     },
   };
   return (
@@ -203,8 +209,8 @@ export function LocalBusinessJsonLd({
       "https://www.facebook.com/udgok",
       "https://www.linkedin.com/company/udgok",
     ],
-    logo: "https://udgok.com/images/logo.png",
-    image: "https://udgok.com/images/logo.png",
+    logo: "https://www.udgok.com/images/logo.png",
+    image: "https://www.udgok.com/images/logo.png",
     priceRange: "$$$$",
     foundingDate: "2015",
     numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 50 },
@@ -221,7 +227,7 @@ export function AutoBreadcrumbJsonLd() {
   const pathname = usePathname();
   if (!pathname || pathname === "/") return null;
 
-  const base = "https://udgok.com";
+  const base = "https://www.udgok.com";
   const segments = pathname.split("/").filter(Boolean);
   const items = [{ name: "Home", url: base }];
 
@@ -290,8 +296,8 @@ export function MedicalBusinessJsonLd({
       "https://www.facebook.com/udgok",
       "https://www.linkedin.com/company/udgok",
     ],
-    logo: "https://udgok.com/images/logo.png",
-    image: "https://udgok.com/images/logo.png",
+    logo: "https://www.udgok.com/images/logo.png",
+    image: "https://www.udgok.com/images/logo.png",
     priceRange: "$$$$",
     foundingDate: "2015",
   };

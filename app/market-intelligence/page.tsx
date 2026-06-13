@@ -4,21 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Construction Market Intelligence Oklahoma | UDGOK",
   description: "Real-time Oklahoma and Texas construction market intelligence. Current cost data, subcontractor availability, permit timelines, and healthcare real estate trends from a 20+ project/year contractor.",
-  keywords: [
-    "construction market intelligence Oklahoma",
-    "construction cost data Tulsa",
-    "subcontractor availability Oklahoma",
-    "construction cost per square foot Tulsa",
-    "construction material lead times",
-    "healthcare real estate trends Oklahoma",
-  ],
   openGraph: {
     title: "Construction Market Intelligence | UDGOK",
     description: "Real-time cost data, subcontractor capacity, and permit timelines from 20+ projects/year in Oklahoma.",
-    url: "https://udgok.com/market-intelligence",
+    url: "https://www.udgok.com/market-intelligence",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/market-intelligence" },
+  alternates: { canonical: "https://www.udgok.com/market-intelligence" },
 };
 
 export default function MarketIntelligencePage() {

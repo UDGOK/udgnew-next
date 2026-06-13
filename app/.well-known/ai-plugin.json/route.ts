@@ -13,11 +13,11 @@ export async function GET() {
       auth: { type: "none" },
       api: {
         type: "openapi",
-        url: "https://udgok.com/llms-full.txt",
+        url: "https://www.udgok.com/llms-full.txt",
       },
-      logo_url: "https://udgok.com/logo.png",
+      logo_url: "https://www.udgok.com/logo.png",
       contact_email: "projects@udgok.com",
-      legal_info_url: "https://udgok.com/terms-of-service",
+      legal_info_url: "https://www.udgok.com/terms-of-service",
     },
     {
       headers: {

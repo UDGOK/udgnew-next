@@ -4,7 +4,7 @@ import BlogPostLayout from "@/components/BlogPostLayout";
 export const metadata: Metadata = {
   title: "Developer's Guide to Medical Office Construction | UDGOK",
   description: "A complete guide for real estate developers building medical office projects in Oklahoma. Site selection, programming, budgeting, permitting, and delivery strategy.",
-  alternates: { canonical: "https://udgok.com/guide-developers" },
+  alternates: { canonical: "https://www.udgok.com/guide-developers" },
 };
 
 export default function GuideDevelopersPage() {

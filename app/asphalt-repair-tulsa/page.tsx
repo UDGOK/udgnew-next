@@ -5,29 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Asphalt Repair Contractors Tulsa OK | Paving & Sealcoating | UDGOK",
     description: "Asphalt repair contractors near Tulsa, Oklahoma. UDGOK provides parking lot repair, asphalt patching, sealcoating, overlay, and full repaving for commercial properties across the Tulsa metro.",
-    keywords: [
-        "asphalt repair contractors near me",
-        "asphalt repair tulsa",
-        "asphalt repair contractors tulsa",
-        "asphalt paving tulsa ok",
-        "parking lot repair tulsa",
-        "asphalt patching tulsa",
-        "sealcoating tulsa oklahoma",
-        "asphalt contractor tulsa",
-        "commercial asphalt repair tulsa",
-        "asphalt overlay tulsa ok",
-        "parking lot paving tulsa",
-        "asphalt maintenance tulsa",
-        "pothole repair tulsa ok",
-        "asphalt resurfacing tulsa",
-    ],
     openGraph: {
         title: "Asphalt Repair Contractors Tulsa OK | UDGOK",
         description: "Commercial asphalt repair, paving, sealcoating, and parking lot maintenance in Tulsa, Oklahoma.",
-        url: "https://udgok.com/asphalt-repair-tulsa",
+        url: "https://www.udgok.com/asphalt-repair-tulsa",
         type: "website",
     },
-    alternates: { canonical: "https://udgok.com/asphalt-repair-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/asphalt-repair-tulsa" },
 };
 
 export default function AsphaltRepairTulsaPage() {
@@ -36,7 +20,7 @@ export default function AsphaltRepairTulsaPage() {
             <ServiceJsonLd
                 name="Asphalt Repair Contractors Tulsa"
                 description="Commercial asphalt repair contractors in Tulsa, Oklahoma. Parking lot repair, patching, sealcoating, overlay, and full repaving services."
-                url="https://udgok.com/asphalt-repair-tulsa"
+                url="https://www.udgok.com/asphalt-repair-tulsa"
             />
             <ServicePage
                 label="Asphalt Repair"

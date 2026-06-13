@@ -5,21 +5,14 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Self-Storage Facility Construction Tulsa OK | Climate-Controlled & Drive-Up | UDGOK",
     description: "Self-storage facility construction in Tulsa, Oklahoma. Drive-up units, climate-controlled multi-story, boat/RV storage. Roll-up doors, hallway systems, security infrastructure. $35–$85/sf.",
-    keywords: [
-        "self storage construction tulsa", "self storage builder oklahoma",
-        "storage facility construction tulsa ok", "climate controlled storage construction",
-        "self storage building cost", "self storage contractor tulsa",
-        "mini storage construction oklahoma", "storage facility cost per square foot",
-        "self storage development tulsa", "build a storage facility oklahoma",
-    ],
-    openGraph: { title: "Self-Storage Construction Tulsa OK | UDGOK", description: "Drive-up and climate-controlled self-storage facilities. $35–$85/sf.", url: "https://udgok.com/self-storage-construction-tulsa" },
-    alternates: { canonical: "https://udgok.com/self-storage-construction-tulsa" },
+    openGraph: { title: "Self-Storage Construction Tulsa OK | UDGOK", description: "Drive-up and climate-controlled self-storage facilities. $35–$85/sf.", url: "https://www.udgok.com/self-storage-construction-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/self-storage-construction-tulsa" },
 };
 
 export default function SelfStorageConstructionTulsaPage() {
     return (
         <>
-            <ServiceJsonLd name="Self-Storage Construction Tulsa" description="Self-storage facility construction in Tulsa — drive-up units, climate-controlled, boat/RV storage." url="https://udgok.com/self-storage-construction-tulsa" />
+            <ServiceJsonLd name="Self-Storage Construction Tulsa" description="Self-storage facility construction in Tulsa — drive-up units, climate-controlled, boat/RV storage." url="https://www.udgok.com/self-storage-construction-tulsa" />
             <ServicePage
                 label="Self-Storage"
                 title="Self-Storage Facility Construction in Tulsa, Oklahoma"

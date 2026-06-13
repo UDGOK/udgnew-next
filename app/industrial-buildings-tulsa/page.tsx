@@ -5,35 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Industrial Building Contractor Tulsa OK | Metal Buildings & Warehouses | UDGOK",
     description: "Tulsa's top industrial building contractor. UDGOK builds pre-engineered metal buildings (PEMB), warehouses, manufacturing facilities, cold storage, self-storage, and flex space. PEMB costs $25–$50/sf — 30% cheaper than conventional steel. 100+ industrial projects delivered.",
-    keywords: [
-        "industrial building contractor Tulsa",
-        "industrial buildings Tulsa OK",
-        "metal buildings Tulsa",
-        "pre-engineered metal buildings Tulsa",
-        "PEMB Tulsa Oklahoma",
-        "red iron metal buildings Tulsa",
-        "warehouse construction Tulsa OK",
-        "metal building contractor Oklahoma",
-        "industrial construction Tulsa",
-        "steel buildings Tulsa Oklahoma",
-        "self-storage construction Tulsa",
-        "manufacturing facility construction Tulsa",
-        "cold storage construction Oklahoma",
-        "warehouse builder Tulsa OK",
-        "metal building erection Tulsa",
-        "industrial building cost Tulsa",
-        "commercial metal buildings Oklahoma",
-        "agricultural buildings Tulsa",
-        "flex space construction Tulsa",
-        "Tulsa construction company",
-    ],
     openGraph: {
         title: "Industrial Building Contractor Tulsa OK | UDGOK",
         description: "Pre-engineered metal buildings, warehouses, manufacturing, cold storage, and self-storage in Tulsa, Oklahoma. 100+ industrial projects delivered.",
-        url: "https://udgok.com/industrial-buildings-tulsa",
+        url: "https://www.udgok.com/industrial-buildings-tulsa",
         type: "website",
     },
-    alternates: { canonical: "https://udgok.com/industrial-buildings-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/industrial-buildings-tulsa" },
 };
 
 /* ── FAQ JSON-LD ── */
@@ -73,7 +51,7 @@ export default function IndustrialBuildingsTulsaPage() {
             <ServiceJsonLd
                 name="Industrial Building Contractor Tulsa"
                 description="Industrial building contractor in Tulsa, Oklahoma — pre-engineered metal buildings, warehouses, manufacturing facilities, cold storage, self-storage, and flex space construction."
-                url="https://udgok.com/industrial-buildings-tulsa"
+                url="https://www.udgok.com/industrial-buildings-tulsa"
             />
             <IndustrialFaqJsonLd />
             <IndustrialBuildingsUI />

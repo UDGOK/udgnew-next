@@ -6,24 +6,14 @@ export const metadata: Metadata = {
   title: "Dental Office Remodel & Renovation Tulsa OK",
   description:
     "Tulsa's top-rated dental office remodel contractor. Minimal-downtime renovations for existing practices — operatory upgrades, ADA compliance retrofits, and full cosmetic overhauls. 80+ dental projects completed.",
-  keywords: [
-    "dental office remodel Tulsa",
-    "dental renovation contractor Oklahoma",
-    "dental office renovation Tulsa OK",
-    "dental practice remodel near me",
-    "dental operatory upgrade Tulsa",
-    "dental office redesign Oklahoma",
-    "dental clinic renovation Broken Arrow",
-    "dental office facelift Tulsa",
-  ],
   openGraph: {
     title: "Dental Office Remodel & Renovation | Tulsa OK | UDGOK",
     description: "Minimal-downtime dental renovations in Tulsa. Operatory upgrades, ADA retrofits, and cosmetic overhauls — 80+ dental projects completed.",
-    url: "https://udgok.com/dental-office-remodel-tulsa",
+    url: "https://www.udgok.com/dental-office-remodel-tulsa",
     type: "website",
-    images: [{ url: "https://udgok.com/images/dental-remodel-hero.png", width: 1200, height: 630 }],
+    images: [{ url: "https://www.udgok.com/images/dental-remodel-hero.png", width: 1200, height: 630 }],
   },
-  alternates: { canonical: "https://udgok.com/dental-office-remodel-tulsa" },
+  alternates: { canonical: "https://www.udgok.com/dental-office-remodel-tulsa" },
 };
 
 export default function DentalRemodelPage() {
@@ -32,12 +22,12 @@ export default function DentalRemodelPage() {
       <ServiceJsonLd
         name="Dental Office Remodel & Renovation — Tulsa, Oklahoma"
         description="UDGOK provides minimal-downtime dental office remodels and renovations in Tulsa, OK. Operatory upgrades, ADA compliance retrofits, cabinetry replacement, HVAC modernization, and cosmetic overhauls for existing dental practices."
-        url="https://udgok.com/dental-office-remodel-tulsa"
-        image="https://udgok.com/images/dental-remodel-hero.png"
+        url="https://www.udgok.com/dental-office-remodel-tulsa"
+        image="https://www.udgok.com/images/dental-remodel-hero.png"
       />
       <LocalBusinessJsonLd
         description="Dental office remodel and renovation contractor in Tulsa, Oklahoma. Minimal-downtime practice renovations with 80+ dental projects completed."
-        url="https://udgok.com/dental-office-remodel-tulsa"
+        url="https://www.udgok.com/dental-office-remodel-tulsa"
         specialization="dental office remodel, dental renovation, operatory upgrade, ADA retrofit, dental practice renovation, dental cabinetry, dental HVAC modernization"
       />
       <ServicePage

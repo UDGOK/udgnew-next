@@ -4,22 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Digital Twin Construction Guide 2026 | UDGOK",
   description: "Learn how UDGOK leverages Digital Twin technology and BIM to eliminate clashes, optimize schedules, and reduce costs in medical office construction. Complete 2026 guide.",
-  keywords: [
-    "digital twin construction",
-    "digital twin BIM guide",
-    "digital twin medical construction",
-    "BIM as-built model",
-    "construction digital twin 2026",
-    "IoT sensors construction",
-    "digital twin facility management",
-  ],
   openGraph: {
     title: "Digital Twin Construction Guide 2026 | UDGOK",
     description: "The definitive guide to AI-powered Digital Twins in medical construction. Clash detection, energy modeling, and 4D scheduling.",
-    url: "https://udgok.com/digital-twin-technology-guide-2026",
+    url: "https://www.udgok.com/digital-twin-technology-guide-2026",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/digital-twin-technology-guide-2026" },
+  alternates: { canonical: "https://www.udgok.com/digital-twin-technology-guide-2026" },
 };
 
 export default function DigitalTwinPage() {

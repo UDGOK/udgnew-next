@@ -6,27 +6,15 @@ export const metadata: Metadata = {
   title: "Adaptive Reuse & Building Conversion Tulsa Oklahoma | UDGOK",
   description:
     "Adaptive reuse and building conversion construction in Tulsa, Oklahoma. Transform vacant offices, warehouses, and retail spaces into medical clinics, restaurants, and modern commercial facilities. 15-30% cost savings vs new construction.",
-  keywords: [
-    "adaptive reuse construction Tulsa",
-    "building conversion contractor Oklahoma",
-    "office to medical conversion",
-    "warehouse to retail conversion",
-    "adaptive reuse contractor",
-    "building repurposing Tulsa",
-    "change of occupancy construction",
-    "commercial building renovation Tulsa",
-    "historic building renovation Oklahoma",
-    "office conversion construction",
-  ],
   openGraph: {
     title: "Adaptive Reuse & Building Conversion | UDGOK Tulsa",
     description:
       "Transform underperforming buildings into high-value assets. Office-to-medical, warehouse-to-retail, retail-to-restaurant conversions. 15–30% cost savings vs new construction.",
-    url: "https://udgok.com/adaptive-reuse-construction-tulsa",
+    url: "https://www.udgok.com/adaptive-reuse-construction-tulsa",
     type: "website",
   },
   alternates: {
-    canonical: "https://udgok.com/adaptive-reuse-construction-tulsa",
+    canonical: "https://www.udgok.com/adaptive-reuse-construction-tulsa",
   },
 };
 
@@ -36,7 +24,7 @@ export default function AdaptiveReusePage() {
       <ServiceJsonLd
         name="Adaptive Reuse & Building Conversion"
         description="Adaptive reuse and building conversion construction in Tulsa, Oklahoma. Transforming underperforming commercial spaces into high-value medical, restaurant, office, and retail facilities."
-        url="https://udgok.com/adaptive-reuse-construction-tulsa"
+        url="https://www.udgok.com/adaptive-reuse-construction-tulsa"
       />
       <ServicePage
         label="Adaptive Reuse"

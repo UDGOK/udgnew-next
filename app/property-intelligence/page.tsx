@@ -4,21 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Commercial Property Intelligence Tulsa | Site Evaluation | UDGOK",
   description: "AI-driven property intelligence to evaluate medical and dental office sites in Tulsa and Dallas. GIS demographics, utility assessment, and construction feasibility studies before you sign a lease.",
-  keywords: [
-    "property intelligence Tulsa",
-    "site evaluation medical office",
-    "commercial property analysis Oklahoma",
-    "medical office site selection Tulsa",
-    "construction feasibility study Oklahoma",
-    "GIS demographics healthcare Tulsa",
-  ],
   openGraph: {
     title: "Property Intelligence | Site Evaluation | UDGOK",
     description: "AI-driven site evaluation for medical and dental office locations in Tulsa and Dallas.",
-    url: "https://udgok.com/property-intelligence",
+    url: "https://www.udgok.com/property-intelligence",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/property-intelligence" },
+  alternates: { canonical: "https://www.udgok.com/property-intelligence" },
 };
 
 export default function PropertyIntelligencePage() {

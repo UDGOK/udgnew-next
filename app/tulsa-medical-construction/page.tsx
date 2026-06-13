@@ -5,29 +5,13 @@ import { MedicalBusinessJsonLd, FAQJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Tulsa Medical Construction | Healthcare Construction Contractors Oklahoma | UDGOK",
   description: "Healthcare construction contractors serving Oklahoma and Tulsa. UDGOK has built 100+ medical and dental facilities, from dental offices to ambulatory surgery centers. Oklahoma's most trusted healthcare builder.",
-  keywords: [
-    "healthcare construction contractors Oklahoma",
-    "Tulsa medical construction",
-    "healthcare construction Tulsa OK",
-    "medical builder Tulsa Oklahoma",
-    "medical build out firm",
-    "local medical office contractor",
-    "dental construction Tulsa",
-    "ambulatory surgery center Tulsa",
-    "medical facility construction Tulsa",
-    "healthcare design-build Tulsa",
-    "medical office contractor Tulsa OK",
-    "healthcare construction Oklahoma",
-    "medical construction contractor Oklahoma",
-    "healthcare construction contractors Oklahoma",
-  ],
   openGraph: {
     title: "Tulsa Medical Construction | 100+ Facilities | UDGOK",
     description: "Tulsa's #1 medical and dental construction contractor. 100+ healthcare facilities delivered across the metro.",
-    url: "https://udgok.com/tulsa-medical-construction",
+    url: "https://www.udgok.com/tulsa-medical-construction",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/tulsa-medical-construction" },
+  alternates: { canonical: "https://www.udgok.com/tulsa-medical-construction" },
 };
 
 const faqs = [
@@ -46,7 +30,7 @@ export default function TulsaMedicalPage() {
       <MedicalBusinessJsonLd
         name="UDGOK — Healthcare Construction Contractors"
         description="Tulsa's most trusted healthcare construction contractor — 100+ medical and dental facilities delivered across the metro."
-        url="https://udgok.com/tulsa-medical-construction"
+        url="https://www.udgok.com/tulsa-medical-construction"
         specialization="Medical office construction, Dental office construction, Ambulatory surgery center construction, Medical gas installation, Healthcare design-build"
       />
       <TulsaMedicalUI />

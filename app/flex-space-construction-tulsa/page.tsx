@@ -5,21 +5,14 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Flex Space Construction Tulsa OK | Light Industrial & Office/Warehouse | UDGOK",
     description: "Flex space and light industrial construction in Tulsa, Oklahoma. Hybrid office/warehouse buildings with storefront entries and rear dock loading. Multi-tenant or single-user. $40–$90/sf.",
-    keywords: [
-        "flex space construction tulsa", "light industrial construction tulsa ok",
-        "flex space builder oklahoma", "office warehouse construction tulsa",
-        "light industrial building tulsa", "flex space cost per square foot",
-        "multi-tenant industrial tulsa", "flex space contractor oklahoma",
-        "office warehouse combo tulsa ok", "light industrial contractor tulsa",
-    ],
-    openGraph: { title: "Flex Space Construction Tulsa OK | UDGOK", description: "Hybrid office/warehouse buildings — multi-tenant or single-user. $40–$90/sf.", url: "https://udgok.com/flex-space-construction-tulsa" },
-    alternates: { canonical: "https://udgok.com/flex-space-construction-tulsa" },
+    openGraph: { title: "Flex Space Construction Tulsa OK | UDGOK", description: "Hybrid office/warehouse buildings — multi-tenant or single-user. $40–$90/sf.", url: "https://www.udgok.com/flex-space-construction-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/flex-space-construction-tulsa" },
 };
 
 export default function FlexSpaceConstructionTulsaPage() {
     return (
         <>
-            <ServiceJsonLd name="Flex Space Construction Tulsa" description="Flex space and light industrial construction in Tulsa — hybrid office/warehouse buildings." url="https://udgok.com/flex-space-construction-tulsa" />
+            <ServiceJsonLd name="Flex Space Construction Tulsa" description="Flex space and light industrial construction in Tulsa — hybrid office/warehouse buildings." url="https://www.udgok.com/flex-space-construction-tulsa" />
             <ServicePage
                 label="Flex Space"
                 title="Flex Space & Light Industrial Construction in Tulsa"

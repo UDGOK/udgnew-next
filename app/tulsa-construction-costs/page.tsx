@@ -5,29 +5,12 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Tulsa Construction Costs 2026 | Cost Per Square Foot by Building Type | UDGOK",
     description: "Real construction cost data for Tulsa, Oklahoma (2026). Cost per square foot for medical, dental, commercial, industrial, retail, restaurant, and warehouse construction. Interactive estimator tool. Based on 100+ completed projects.",
-    keywords: [
-        "tulsa construction costs",
-        "construction cost per square foot tulsa",
-        "how much does construction cost in tulsa",
-        "commercial construction cost tulsa ok",
-        "medical office construction cost oklahoma",
-        "warehouse construction cost tulsa",
-        "restaurant build-out cost tulsa",
-        "construction cost estimator tulsa",
-        "tulsa building costs 2026",
-        "oklahoma construction cost index",
-        "cost to build in tulsa oklahoma",
-        "construction cost per sf tulsa",
-        "tulsa construction price per square foot",
-        "commercial building cost oklahoma",
-        "construction budget tulsa ok",
-    ],
     openGraph: {
         title: "Tulsa Construction Cost Index 2026 | Free Estimator",
         description: "Real construction costs by building type in Tulsa, OK. Interactive estimator, historical trends, and cost drivers. Based on 100+ completed projects.",
-        url: "https://udgok.com/tulsa-construction-costs",
+        url: "https://www.udgok.com/tulsa-construction-costs",
     },
-    alternates: { canonical: "https://udgok.com/tulsa-construction-costs" },
+    alternates: { canonical: "https://www.udgok.com/tulsa-construction-costs" },
 };
 
 /* ── FAQ JSON-LD ── */
@@ -62,7 +45,7 @@ export default function TulsaConstructionCostsPage() {
             <ServiceJsonLd
                 name="Tulsa Construction Cost Index 2026"
                 description="Real construction cost data and free estimator for Tulsa, Oklahoma. Cost per square foot by building type, historical trends, and cost drivers."
-                url="https://udgok.com/tulsa-construction-costs"
+                url="https://www.udgok.com/tulsa-construction-costs"
             />
             <CostFaqJsonLd />
             <TulsaConstructionCostsUI />

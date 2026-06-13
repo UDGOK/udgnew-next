@@ -5,21 +5,14 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Industrial Renovation Contractor Tulsa OK | Retrofits, Crane Rails & Mezzanines | UDGOK",
     description: "Industrial renovation contractor in Tulsa, Oklahoma. Structural retrofits, crane rail installation, mezzanine additions, energy efficiency upgrades, and code compliance renovations for existing industrial buildings.",
-    keywords: [
-        "industrial renovation tulsa", "industrial renovation contractor oklahoma",
-        "factory renovation tulsa ok", "crane rail installation tulsa",
-        "mezzanine construction tulsa", "industrial retrofit contractor oklahoma",
-        "warehouse renovation tulsa", "industrial building renovation cost",
-        "seismic upgrade contractor oklahoma", "industrial energy efficiency tulsa",
-    ],
-    openGraph: { title: "Industrial Renovation Contractor Tulsa OK | UDGOK", description: "Structural retrofits, crane rails, mezzanines, and code compliance renovations.", url: "https://udgok.com/industrial-renovation-tulsa" },
-    alternates: { canonical: "https://udgok.com/industrial-renovation-tulsa" },
+    openGraph: { title: "Industrial Renovation Contractor Tulsa OK | UDGOK", description: "Structural retrofits, crane rails, mezzanines, and code compliance renovations.", url: "https://www.udgok.com/industrial-renovation-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/industrial-renovation-tulsa" },
 };
 
 export default function IndustrialRenovationTulsaPage() {
     return (
         <>
-            <ServiceJsonLd name="Industrial Renovation Tulsa" description="Industrial renovation contractor in Tulsa — structural retrofits, crane rail installation, mezzanine additions." url="https://udgok.com/industrial-renovation-tulsa" />
+            <ServiceJsonLd name="Industrial Renovation Tulsa" description="Industrial renovation contractor in Tulsa — structural retrofits, crane rail installation, mezzanine additions." url="https://www.udgok.com/industrial-renovation-tulsa" />
             <ServicePage
                 label="Industrial Renovation"
                 title="Industrial Renovation Contractor in Tulsa, Oklahoma"

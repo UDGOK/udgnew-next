@@ -4,23 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Dallas-Fort Worth Medical Construction | UDGOK",
   description: "Medical and dental office construction in Dallas-Fort Worth, TX. UDGOK delivers healthcare facility construction in DFW with NFPA 99 and AAAHC-ready expertise.",
-  keywords: [
-    "medical construction Dallas TX",
-    "dental office construction DFW",
-    "healthcare construction Dallas Fort Worth",
-    "medical office builder Plano TX",
-    "dental clinic construction Dallas",
-    "design-build contractor Dallas TX",
-    "medical construction Frisco TX",
-    "healthcare builder DFW Texas",
-  ],
   openGraph: {
     title: "Dallas-Fort Worth Medical Construction | UDGOK",
     description: "Oklahoma's most trusted medical construction contractor now serving Dallas-Fort Worth with 100+ healthcare projects of experience.",
-    url: "https://udgok.com/dallas-medical-construction",
+    url: "https://www.udgok.com/dallas-medical-construction",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/dallas-medical-construction" },
+  alternates: { canonical: "https://www.udgok.com/dallas-medical-construction" },
 };
 
 export default function DallasMedicalPage() {

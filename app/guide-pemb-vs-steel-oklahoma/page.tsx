@@ -5,21 +5,13 @@ import PembVsSteelUI from "./PembVsSteelUI";
 export const metadata: Metadata = {
   title: "PEMB vs Conventional Steel for Oklahoma Warehouses (2026)",
   description: "Pre-engineered metal buildings vs conventional steel: cost, timeline, and performance comparison. PEMB $18–$35/sf vs conventional $30–$60/sf. Oklahoma-specific data.",
-  keywords: [
-    "PEMB vs conventional steel Oklahoma",
-    "pre-engineered metal buildings cost",
-    "metal building vs steel frame warehouse",
-    "PEMB cost per square foot 2026",
-    "warehouse construction cost Oklahoma",
-    "metal building contractor Tulsa",
-  ],
   openGraph: {
     title: "PEMB vs Conventional Steel — Oklahoma 2026 | UDGOK",
     description: "Side-by-side comparison with real cost data from Oklahoma's top industrial building contractor.",
-    url: "https://udgok.com/guide-pemb-vs-steel-oklahoma",
+    url: "https://www.udgok.com/guide-pemb-vs-steel-oklahoma",
     type: "article",
   },
-  alternates: { canonical: "https://udgok.com/guide-pemb-vs-steel-oklahoma" },
+  alternates: { canonical: "https://www.udgok.com/guide-pemb-vs-steel-oklahoma" },
 };
 
 const articleSchema = {
@@ -27,11 +19,11 @@ const articleSchema = {
   "@type": "Article",
   headline: "PEMB vs Conventional Steel for Oklahoma Warehouses (2026 Data)",
   description: "Comprehensive comparison of pre-engineered metal buildings versus conventional steel construction for warehouses and industrial facilities in Oklahoma.",
-  author: { "@type": "Organization", name: "UDGOK — Upscale Development Group", url: "https://udgok.com" },
-  publisher: { "@type": "Organization", name: "UDGOK", url: "https://udgok.com" },
+  author: { "@type": "Organization", name: "UDGOK — Upscale Development Group", url: "https://www.udgok.com" },
+  publisher: { "@type": "Organization", name: "UDGOK", url: "https://www.udgok.com" },
   datePublished: "2026-03-01",
   dateModified: "2026-03-21",
-  mainEntityOfPage: "https://udgok.com/guide-pemb-vs-steel-oklahoma",
+  mainEntityOfPage: "https://www.udgok.com/guide-pemb-vs-steel-oklahoma",
 };
 
 const faqSchema = {

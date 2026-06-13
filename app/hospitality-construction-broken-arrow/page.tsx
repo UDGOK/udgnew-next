@@ -5,27 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Hospitality Construction Broken Arrow OK | Hotels & Restaurants | UDGOK",
     description: "Hospitality construction contractor serving Broken Arrow, Oklahoma. UDGOK builds hotels, restaurants, QSR, and food service facilities throughout Broken Arrow and the BA Expressway corridor.",
-    keywords: [
-        "hospitality construction Broken Arrow",
-        "hospitality construction Broken Arrow OK",
-        "hotel construction Broken Arrow Oklahoma",
-        "restaurant construction Broken Arrow",
-        "restaurant build-out Broken Arrow OK",
-        "QSR construction Broken Arrow",
-        "food service construction Broken Arrow OK",
-        "hospitality contractor Broken Arrow",
-        "hotel renovation Broken Arrow Oklahoma",
-        "commercial kitchen Broken Arrow",
-        "BA Expressway restaurant construction",
-        "hospitality builder Broken Arrow",
-    ],
     openGraph: {
         title: "Hospitality Construction Broken Arrow OK | UDGOK",
         description: "Hotels, restaurants, QSR, and food service construction throughout Broken Arrow, Oklahoma.",
-        url: "https://udgok.com/hospitality-construction-broken-arrow",
+        url: "https://www.udgok.com/hospitality-construction-broken-arrow",
         type: "website",
     },
-    alternates: { canonical: "https://udgok.com/hospitality-construction-broken-arrow" },
+    alternates: { canonical: "https://www.udgok.com/hospitality-construction-broken-arrow" },
 };
 
 export default function HospitalityBrokenArrowPage() {
@@ -34,7 +20,7 @@ export default function HospitalityBrokenArrowPage() {
             <ServiceJsonLd
                 name="Hospitality Construction Broken Arrow"
                 description="Hospitality construction contractor in Broken Arrow, Oklahoma — hotels, restaurants, QSR, and event venues."
-                url="https://udgok.com/hospitality-construction-broken-arrow"
+                url="https://www.udgok.com/hospitality-construction-broken-arrow"
             />
             <ServicePage
                 label="Hospitality Construction"

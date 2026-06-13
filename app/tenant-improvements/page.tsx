@@ -5,23 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Tenant Improvements Tulsa Oklahoma | UDGOK",
   description: "Commercial tenant improvement and build-out contractor in Tulsa, OK. UDGOK delivers fast, high-quality TI work for medical, dental, retail, and office spaces. 200+ TI projects completed.",
-  keywords: [
-    "tenant improvement Tulsa OK",
-    "commercial build-out Tulsa",
-    "TI contractor Tulsa Oklahoma",
-    "office build-out Tulsa",
-    "medical tenant improvement",
-    "retail tenant improvement Oklahoma",
-    "restaurant build-out Tulsa",
-    "tenant improvement cost per square foot",
-  ],
   openGraph: {
     title: "Tenant Improvement Contractor Tulsa OK | 200+ Projects | UDGOK",
     description: "Fast-track commercial build-outs for medical, dental, retail, and office spaces across Tulsa metro.",
-    url: "https://udgok.com/tenant-improvements",
+    url: "https://www.udgok.com/tenant-improvements",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/tenant-improvements" },
+  alternates: { canonical: "https://www.udgok.com/tenant-improvements" },
 };
 
 export default function TenantImprovementsPage() {
@@ -30,7 +20,7 @@ export default function TenantImprovementsPage() {
       <ServiceJsonLd
         name="Tenant Improvement Construction"
         description="Commercial tenant improvement and build-out services in Tulsa. Office, medical, retail, and restaurant space renovations."
-        url="https://udgok.com/tenant-improvements"
+        url="https://www.udgok.com/tenant-improvements"
       />
       <ServicePage
         label="Tenant Improvements"

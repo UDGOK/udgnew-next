@@ -6,23 +6,12 @@ import Image from "next/image";
 export const metadata: Metadata = {
     title: "AI & Robotic Surgery in 2026: How Autonomous Systems Are Redefining Care | UDGOK",
     description: "By 2026, AI-enabled robotic surgery delivers superior precision, autonomous procedures, and intercontinental telesurgery — demanding radical healthcare infrastructure upgrades.",
-    keywords: [
-        "AI robotic surgery 2026",
-        "autonomous surgery AI",
-        "robotic surgical systems",
-        "telesurgery intercontinental",
-        "surgical robot infrastructure",
-        "healthcare construction AI",
-        "medical facility power systems",
-        "IEC 60601 surgical",
-        "UDGOK healthcare construction",
-    ],
     openGraph: {
         title: "AI & Robotic Surgery in 2026 | UDGOK Intelligence",
         description: "How autonomous surgical robots, intercontinental telesurgery, and AI analytics are redefining care — and the infrastructure required to support them.",
         type: "article",
     },
-    alternates: { canonical: "https://udgok.com/ai-robotic-surgery-2026" },
+    alternates: { canonical: "https://www.udgok.com/ai-robotic-surgery-2026" },
 };
 
 const toc = [

@@ -5,33 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Concrete Driveway Contractor Tulsa OK | Install, Repair & Removal | UDGOK",
     description: "Tulsa's trusted concrete driveway contractor. UDGOK builds, repairs, and replaces concrete driveways across Tulsa, Bixby, Broken Arrow & Oklahoma. Stamped, brushed & exposed aggregate. Free estimates.",
-    keywords: [
-        "driveway contractors",
-        "concrete driveway services",
-        "concrete driveway specialist",
-        "concrete driveways tulsa",
-        "concrete driveway tulsa",
-        "tulsa concrete driveway",
-        "concrete driveway contractor",
-        "concrete driveway installer",
-        "concrete driveway tulsa ok",
-        "concrete removal tulsa ok",
-        "concrete driveway contractors",
-        "concrete driveway repair tulsa",
-        "concrete driveway replacement tulsa",
-        "stamped concrete driveway tulsa",
-        "concrete contractor tulsa oklahoma",
-        "driveway construction tulsa ok",
-        "residential concrete tulsa",
-        "concrete flatwork tulsa",
-    ],
     openGraph: {
         title: "Concrete Driveway Contractor Tulsa OK | UDGOK",
         description: "Professional concrete driveway installation, repair, and removal in Tulsa, Oklahoma. Stamped, brushed & exposed aggregate finishes.",
-        url: "https://udgok.com/concrete-driveway-tulsa",
+        url: "https://www.udgok.com/concrete-driveway-tulsa",
         type: "website",
     },
-    alternates: { canonical: "https://udgok.com/concrete-driveway-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/concrete-driveway-tulsa" },
 };
 
 export default function ConcreteDrivewayTulsaPage() {
@@ -40,7 +20,7 @@ export default function ConcreteDrivewayTulsaPage() {
             <ServiceJsonLd
                 name="Concrete Driveway Contractor Tulsa"
                 description="Professional concrete driveway contractor in Tulsa, Oklahoma. Installation, repair, replacement, and removal of concrete driveways for residential and commercial properties."
-                url="https://udgok.com/concrete-driveway-tulsa"
+                url="https://www.udgok.com/concrete-driveway-tulsa"
             />
             <ServicePage
                 label="Concrete Driveways"

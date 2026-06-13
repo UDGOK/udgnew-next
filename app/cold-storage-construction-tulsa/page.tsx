@@ -5,20 +5,14 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Cold Storage Construction Tulsa OK | Food Processing Facilities | UDGOK",
     description: "Cold storage and food processing construction in Tulsa, Oklahoma. Temperature-controlled facilities, insulated metal panels, USDA/FDA compliant. Walk-in coolers, freezers, blast chillers. $120–$250/sf.",
-    keywords: [
-        "cold storage construction tulsa", "food processing facility construction oklahoma",
-        "cold storage builder tulsa ok", "refrigerated warehouse tulsa", "freezer facility construction",
-        "USDA compliant construction oklahoma", "cold storage cost per square foot",
-        "food grade construction tulsa", "cold storage contractor oklahoma", "refrigeration construction tulsa ok",
-    ],
-    openGraph: { title: "Cold Storage Construction Tulsa OK | UDGOK", description: "Temperature-controlled facilities, USDA/FDA compliant, $120–$250/sf.", url: "https://udgok.com/cold-storage-construction-tulsa" },
-    alternates: { canonical: "https://udgok.com/cold-storage-construction-tulsa" },
+    openGraph: { title: "Cold Storage Construction Tulsa OK | UDGOK", description: "Temperature-controlled facilities, USDA/FDA compliant, $120–$250/sf.", url: "https://www.udgok.com/cold-storage-construction-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/cold-storage-construction-tulsa" },
 };
 
 export default function ColdStorageConstructionTulsaPage() {
     return (
         <>
-            <ServiceJsonLd name="Cold Storage Construction Tulsa" description="Cold storage and food processing construction in Tulsa, Oklahoma — insulated panels, vapor barriers, USDA/FDA compliant." url="https://udgok.com/cold-storage-construction-tulsa" />
+            <ServiceJsonLd name="Cold Storage Construction Tulsa" description="Cold storage and food processing construction in Tulsa, Oklahoma — insulated panels, vapor barriers, USDA/FDA compliant." url="https://www.udgok.com/cold-storage-construction-tulsa" />
             <ServicePage
                 label="Cold Storage"
                 title="Cold Storage & Food Processing Construction in Tulsa"

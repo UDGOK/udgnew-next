@@ -5,27 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Office Construction Company Tulsa OK | Commercial Office Build-Outs | UDGOK",
     description: "Tulsa's top office construction company. UDGOK delivers commercial office buildouts, professional office spaces, corporate interiors, and tenant improvements across Tulsa and Oklahoma.",
-    keywords: [
-        "office construction company Tulsa",
-        "office construction Tulsa OK",
-        "commercial office buildouts OK",
-        "commercial office buildouts Oklahoma",
-        "office build-out Tulsa",
-        "office contractor Tulsa Oklahoma",
-        "professional office construction Tulsa",
-        "corporate office build-out Tulsa",
-        "office tenant improvement Tulsa OK",
-        "office renovation Tulsa",
-        "office space construction Tulsa",
-        "commercial office contractor Oklahoma",
-    ],
     openGraph: {
         title: "Office Construction Company Tulsa OK | UDGOK",
         description: "Commercial office buildouts, professional offices, and tenant improvements in Tulsa, Oklahoma.",
-        url: "https://udgok.com/office-construction-tulsa",
+        url: "https://www.udgok.com/office-construction-tulsa",
         type: "website",
     },
-    alternates: { canonical: "https://udgok.com/office-construction-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/office-construction-tulsa" },
 };
 
 export default function OfficeConstructionTulsaPage() {
@@ -34,7 +20,7 @@ export default function OfficeConstructionTulsaPage() {
             <ServiceJsonLd
                 name="Office Construction Company Tulsa"
                 description="Commercial office construction company in Tulsa, Oklahoma — professional offices, corporate interiors, and commercial office buildouts."
-                url="https://udgok.com/office-construction-tulsa"
+                url="https://www.udgok.com/office-construction-tulsa"
             />
             <ServicePage
                 label="Office Construction"

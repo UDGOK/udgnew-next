@@ -120,6 +120,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://udgok.com/sitemap.xml",
+    sitemap: "https://www.udgok.com/sitemap.xml",
   };
 }

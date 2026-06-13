@@ -5,24 +5,12 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Construction Company Downtown Tulsa OK | Mixed-Use & Commercial | UDGOK",
     description: "Downtown Tulsa construction company. UDGOK builds mixed-use developments, restaurant build-outs, office conversions, and medical facilities in Tulsa's urban core. Design-build with GMP pricing.",
-    keywords: [
-        "construction company downtown tulsa",
-        "downtown tulsa construction",
-        "commercial construction downtown tulsa",
-        "contractor downtown tulsa ok",
-        "restaurant construction downtown tulsa",
-        "office construction downtown tulsa",
-        "mixed use construction tulsa",
-        "construction companies downtown tulsa ok",
-        "downtown tulsa builder",
-        "tulsa arts district construction",
-    ],
     openGraph: {
         title: "Construction Company Downtown Tulsa | UDGOK",
         description: "Mixed-use, restaurant, office, and medical construction in Tulsa's downtown core and arts district.",
-        url: "https://udgok.com/construction-company-downtown-tulsa",
+        url: "https://www.udgok.com/construction-company-downtown-tulsa",
     },
-    alternates: { canonical: "https://udgok.com/construction-company-downtown-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/construction-company-downtown-tulsa" },
 };
 
 export default function ConstructionCompanyDowntownTulsaPage() {
@@ -31,7 +19,7 @@ export default function ConstructionCompanyDowntownTulsaPage() {
             <ServiceJsonLd
                 name="Construction Company Downtown Tulsa"
                 description="Downtown Tulsa construction company — mixed-use developments, restaurant build-outs, office conversions, and medical facilities in Tulsa's urban core."
-                url="https://udgok.com/construction-company-downtown-tulsa"
+                url="https://www.udgok.com/construction-company-downtown-tulsa"
             />
             <ServicePage
                 label="Downtown Tulsa"

@@ -4,23 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "AI & Robotics in Construction | UDGOK",
   description: "UDGOK leverages AI, robotics, and advanced technology to deliver faster, smarter, and more precise construction for medical and commercial projects across Oklahoma and Texas.",
-  keywords: [
-    "AI construction Oklahoma",
-    "robotics construction Tulsa",
-    "robotic layout construction",
-    "AI estimating construction",
-    "drone photogrammetry construction",
-    "generative design construction",
-    "construction technology Oklahoma",
-    "BIM digital twin construction",
-  ],
   openGraph: {
     title: "AI & Robotics in Construction | UDGOK",
     description: "AI-powered estimating, robotic layout, drone photogrammetry, and generative design for construction projects.",
-    url: "https://udgok.com/ai-robotics",
+    url: "https://www.udgok.com/ai-robotics",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/ai-robotics" },
+  alternates: { canonical: "https://www.udgok.com/ai-robotics" },
 };
 
 export default function AIRoboticsPage() {

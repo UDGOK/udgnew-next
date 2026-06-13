@@ -4,31 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Design-Build Contractor Bixby OK | Medical & Office Construction | UDGOK",
   description: "Medical construction and office construction contractor in Bixby, Oklahoma. UDGOK builds dental offices, medical clinics, professional offices, and commercial projects in one of Tulsa's fastest-growing suburbs.",
-  keywords: [
-    "medical construction Bixby",
-    "office construction Bixby",
-    "commercial construction company Bixby",
-    "commercial real estate construction Bixby",
-    "design builders Bixby",
-    "retail construction Bixby",
-    "construction company Bixby OK",
-    "general contractor Bixby Oklahoma",
-    "design-build contractor Bixby",
-    "dental office construction Bixby OK",
-    "medical office construction Bixby",
-    "commercial construction Bixby Oklahoma",
-    "tenant improvement Bixby OK",
-    "medical clinic build-out Bixby",
-    "healthcare construction Bixby OK",
-    "office build-out Bixby OK",
-  ],
   openGraph: {
     title: "Design-Build Contractor Bixby OK | UDGOK",
     description: "Medical, dental, and commercial construction in Bixby, Oklahoma — Tulsa's fastest-growing suburb.",
-    url: "https://udgok.com/bixby-ok-design-build",
+    url: "https://www.udgok.com/bixby-ok-design-build",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/bixby-ok-design-build" },
+  alternates: { canonical: "https://www.udgok.com/bixby-ok-design-build" },
 };
 
 export default function BixbyPage() {

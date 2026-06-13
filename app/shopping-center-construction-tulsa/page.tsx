@@ -5,23 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Shopping Center Construction Tulsa Oklahoma | UDGOK",
   description: "Shopping center and strip mall construction in Tulsa and Oklahoma. UDGOK builds multi-tenant retail centers, anchored strip plazas, and mixed-use developments. 500K+ SF delivered.",
-  keywords: [
-    "shopping center construction Tulsa",
-    "strip mall construction Oklahoma",
-    "retail center developer Tulsa OK",
-    "multi-tenant retail construction",
-    "commercial real estate construction Tulsa",
-    "mixed-use development Oklahoma",
-    "retail pad site construction",
-    "shell building construction Tulsa",
-  ],
   openGraph: {
     title: "Shopping Center Construction Tulsa OK | 500K+ SF | UDGOK",
     description: "Multi-tenant retail centers, strip plazas, and mixed-use developments built for developer returns.",
-    url: "https://udgok.com/shopping-center-construction-tulsa",
+    url: "https://www.udgok.com/shopping-center-construction-tulsa",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/shopping-center-construction-tulsa" },
+  alternates: { canonical: "https://www.udgok.com/shopping-center-construction-tulsa" },
 };
 
 export default function ShoppingCenterPage() {
@@ -30,7 +20,7 @@ export default function ShoppingCenterPage() {
       <ServiceJsonLd
         name="Shopping Center Construction"
         description="Retail shopping center and strip mall construction in Tulsa. New builds, renovations, and tenant spaces."
-        url="https://udgok.com/shopping-center-construction-tulsa"
+        url="https://www.udgok.com/shopping-center-construction-tulsa"
       />
       <ServicePage
         label="Retail Center Construction"

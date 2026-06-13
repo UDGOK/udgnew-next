@@ -5,23 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Convenience Store Construction Tulsa Oklahoma | UDGOK",
   description: "Convenience store and fuel canopy construction in Tulsa and Oklahoma. UDGOK builds ground-up c-stores, remodels, and fuel station upgrades for major brands and independents. 40+ c-stores built.",
-  keywords: [
-    "convenience store construction Tulsa",
-    "c-store construction Oklahoma",
-    "fuel station construction Tulsa OK",
-    "gas station construction Oklahoma",
-    "convenience store contractor Tulsa",
-    "fuel canopy construction",
-    "c-store remodel Tulsa",
-    "underground storage tank installation",
-  ],
   openGraph: {
     title: "Convenience Store Construction Tulsa OK | 40+ Built | UDGOK",
     description: "Ground-up c-store construction, fuel canopies, and remodels for brands and independents across Oklahoma.",
-    url: "https://udgok.com/convenience-store-construction-tulsa",
+    url: "https://www.udgok.com/convenience-store-construction-tulsa",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/convenience-store-construction-tulsa" },
+  alternates: { canonical: "https://www.udgok.com/convenience-store-construction-tulsa" },
 };
 
 export default function ConvenienceStorePage() {
@@ -30,7 +20,7 @@ export default function ConvenienceStorePage() {
       <ServiceJsonLd
         name="Convenience Store Construction"
         description="C-store and fuel station construction in Tulsa, Oklahoma. Ground-up builds and renovations for convenience retail."
-        url="https://udgok.com/convenience-store-construction-tulsa"
+        url="https://www.udgok.com/convenience-store-construction-tulsa"
       />
       <ServicePage
         label="C-Store Construction"

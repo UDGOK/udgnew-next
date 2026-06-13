@@ -5,21 +5,14 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Agricultural Building Construction Oklahoma | Barns, Shops & Equipment Shelters | UDGOK",
     description: "Agricultural building construction in Oklahoma. Barns, equipment shelters, hay storage, livestock facilities, grain storage, and shop buildings. Pre-engineered metal and conventional construction. UDGOK serves Tulsa metro and statewide.",
-    keywords: [
-        "agricultural building construction oklahoma", "ag building tulsa",
-        "barn construction oklahoma", "farm building contractor tulsa",
-        "equipment shelter construction oklahoma", "metal ag building tulsa ok",
-        "livestock facility construction", "hay storage building oklahoma",
-        "agricultural contractor tulsa", "shop building construction oklahoma",
-    ],
-    openGraph: { title: "Agricultural Building Construction Oklahoma | UDGOK", description: "Barns, equipment shelters, livestock facilities, and shop buildings.", url: "https://udgok.com/agricultural-building-construction-oklahoma" },
-    alternates: { canonical: "https://udgok.com/agricultural-building-construction-oklahoma" },
+    openGraph: { title: "Agricultural Building Construction Oklahoma | UDGOK", description: "Barns, equipment shelters, livestock facilities, and shop buildings.", url: "https://www.udgok.com/agricultural-building-construction-oklahoma" },
+    alternates: { canonical: "https://www.udgok.com/agricultural-building-construction-oklahoma" },
 };
 
 export default function AgriculturalBuildingConstructionOklahomaPage() {
     return (
         <>
-            <ServiceJsonLd name="Agricultural Building Construction Oklahoma" description="Agricultural building construction in Oklahoma — barns, equipment shelters, hay storage, livestock facilities." url="https://udgok.com/agricultural-building-construction-oklahoma" />
+            <ServiceJsonLd name="Agricultural Building Construction Oklahoma" description="Agricultural building construction in Oklahoma — barns, equipment shelters, hay storage, livestock facilities." url="https://www.udgok.com/agricultural-building-construction-oklahoma" />
             <ServicePage
                 label="Agricultural"
                 title="Agricultural Building Construction in Oklahoma"

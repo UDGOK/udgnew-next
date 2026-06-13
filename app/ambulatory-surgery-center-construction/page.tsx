@@ -8,27 +8,15 @@ export const metadata: Metadata = {
 // ...
   description:
     "Turnkey ambulatory surgery center (ASC) and outpatient facility construction in Tulsa, Oklahoma City, and Dallas. AAAHC/CMS-ready operating rooms, sterile processing, medical gas, and HVAC. 100% NFPA 99 first-pass certification.",
-  keywords: [
-    "ambulatory surgery center construction",
-    "ASC construction Oklahoma",
-    "outpatient surgery center contractor",
-    "ambulatory surgery center build out cost",
-    "operating room construction Tulsa",
-    "surgical suite construction",
-    "ASC design build Oklahoma",
-    "CMS certified surgery center construction",
-    "outpatient facility construction cost per square foot",
-    "sterile processing department construction",
-  ],
   openGraph: {
     title: "Ambulatory Surgery Center Construction | UDGOK",
     description:
       "Turnkey ASC and outpatient facility construction. AAAHC/CMS-ready operating rooms, sterile processing, NFPA 99 medical gas. Serving Oklahoma and Texas.",
-    url: "https://udgok.com/ambulatory-surgery-center-construction",
+    url: "https://www.udgok.com/ambulatory-surgery-center-construction",
     type: "website",
   },
   alternates: {
-    canonical: "https://udgok.com/ambulatory-surgery-center-construction",
+    canonical: "https://www.udgok.com/ambulatory-surgery-center-construction",
   },
 };
 
@@ -38,12 +26,12 @@ export default function ASCPage() {
       <ServiceJsonLd
         name="Ambulatory Surgery Center Construction"
         description="Turnkey ambulatory surgery center (ASC) and outpatient facility construction including operating rooms, sterile processing, medical gas systems, and specialized HVAC. Serving Oklahoma and Texas."
-        url="https://udgok.com/ambulatory-surgery-center-construction"
+        url="https://www.udgok.com/ambulatory-surgery-center-construction"
       />
       <MedicalBusinessJsonLd
         name="UDGOK — ASC Construction Specialists"
         description="Oklahoma's premier ASC builder, specializing in Revenue-First delivery and AAAHC/CMS-ready surgical infrastructure."
-        url="https://udgok.com/ambulatory-surgery-center-construction"
+        url="https://www.udgok.com/ambulatory-surgery-center-construction"
         specialization="Ambulatory Surgery Center Construction, Operating Room Construction, Sterile Processing Design, NFPA 99 Medical Gas, CMS Certification Readiness"
       />
       <ServicePage

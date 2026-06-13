@@ -5,20 +5,14 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Pre-Engineered Metal Buildings Tulsa OK | PEMB Red Iron | UDGOK",
     description: "Pre-engineered metal building contractor in Tulsa, Oklahoma. Red iron PEMB structures — 20–30% cheaper, 30% faster than conventional steel. Warehouses, shops, agricultural, and commercial metal buildings. $25–$50/sf turnkey.",
-    keywords: [
-        "pre-engineered metal buildings tulsa", "metal buildings tulsa ok", "PEMB contractor tulsa",
-        "red iron buildings oklahoma", "metal building construction tulsa", "steel building tulsa",
-        "metal building cost tulsa ok", "pre-engineered steel buildings oklahoma",
-        "metal building contractor tulsa", "metal shop building tulsa", "red iron building cost oklahoma",
-    ],
-    openGraph: { title: "Pre-Engineered Metal Buildings Tulsa OK | UDGOK", description: "PEMB contractor — red iron metal buildings 20–30% cheaper than conventional steel. Tulsa, Oklahoma.", url: "https://udgok.com/pre-engineered-metal-buildings-tulsa" },
-    alternates: { canonical: "https://udgok.com/pre-engineered-metal-buildings-tulsa" },
+    openGraph: { title: "Pre-Engineered Metal Buildings Tulsa OK | UDGOK", description: "PEMB contractor — red iron metal buildings 20–30% cheaper than conventional steel. Tulsa, Oklahoma.", url: "https://www.udgok.com/pre-engineered-metal-buildings-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/pre-engineered-metal-buildings-tulsa" },
 };
 
 export default function PEMBTulsaPage() {
     return (
         <>
-            <ServiceJsonLd name="Pre-Engineered Metal Buildings Tulsa" description="PEMB contractor in Tulsa, Oklahoma — red iron metal buildings for warehouses, shops, agricultural, and commercial use." url="https://udgok.com/pre-engineered-metal-buildings-tulsa" />
+            <ServiceJsonLd name="Pre-Engineered Metal Buildings Tulsa" description="PEMB contractor in Tulsa, Oklahoma — red iron metal buildings for warehouses, shops, agricultural, and commercial use." url="https://www.udgok.com/pre-engineered-metal-buildings-tulsa" />
             <ServicePage
                 label="Metal Buildings"
                 title="Pre-Engineered Metal Buildings in Tulsa, Oklahoma"

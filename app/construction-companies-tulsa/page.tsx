@@ -5,35 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Construction Companies in Tulsa OK | Commercial, Medical & Industrial | UDGOK",
     description: "Top-rated construction company in Tulsa, Oklahoma. UDGOK builds commercial, medical, dental, industrial, and retail projects. 100+ projects, 2M+ SF delivered. Free estimates within 48 hours. Design-build, GMP pricing, AI-powered estimating.",
-    keywords: [
-        "construction companies in tulsa",
-        "construction companies in tulsa ok",
-        "construction company tulsa",
-        "construction company tulsa ok",
-        "tulsa construction companies",
-        "tulsa construction company",
-        "commercial construction tulsa",
-        "construction companies tulsa oklahoma",
-        "best construction company tulsa",
-        "top construction companies tulsa ok",
-        "general contractor tulsa ok",
-        "tulsa general contractor",
-        "commercial contractor tulsa oklahoma",
-        "design build tulsa ok",
-        "medical construction tulsa",
-        "industrial construction tulsa ok",
-        "construction company near me tulsa",
-        "commercial builders tulsa",
-        "building contractor tulsa",
-        "construction firms tulsa oklahoma",
-    ],
     openGraph: {
         title: "Construction Companies in Tulsa OK — The Complete 2026 Guide",
         description: "Everything about construction in Tulsa: costs per square foot, building types, neighborhoods, permits, timelines. 100+ projects delivered by UDGOK.",
-        url: "https://udgok.com/construction-companies-tulsa",
+        url: "https://www.udgok.com/construction-companies-tulsa",
         type: "website",
     },
-    alternates: { canonical: "https://udgok.com/construction-companies-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/construction-companies-tulsa" },
 };
 
 /* ── FAQ JSON-LD (16 Q&As for rich snippets) ── */
@@ -81,9 +59,9 @@ function LocalBusinessJsonLd() {
                 "@type": "GeneralContractor",
                 name: "UDGOK — Upscale Development Group of Oklahoma",
                 alternateName: "UDGOK",
-                url: "https://udgok.com",
-                logo: "https://udgok.com/logo.png",
-                image: "https://udgok.com/og-image.png",
+                url: "https://www.udgok.com",
+                logo: "https://www.udgok.com/logo.png",
+                image: "https://www.udgok.com/og-image.png",
                 description: "Top-rated construction company in Tulsa, Oklahoma. UDGOK builds commercial, medical, dental, industrial, and retail projects. 100+ projects delivered. Design-build, GMP pricing, AI-powered estimating.",
                 telephone: "+1-918-520-3823",
                 email: "projects@udgok.com",
@@ -143,7 +121,7 @@ export default function ConstructionCompaniesTulsaPage() {
             <ServiceJsonLd
                 name="Construction Companies in Tulsa OK"
                 description="Top-rated construction company in Tulsa, Oklahoma. Commercial, medical, dental, industrial, and retail construction. 100+ projects delivered. Design-build, GMP pricing, AI-powered estimating."
-                url="https://udgok.com/construction-companies-tulsa"
+                url="https://www.udgok.com/construction-companies-tulsa"
             />
             <PillarFaqJsonLd />
             <LocalBusinessJsonLd />

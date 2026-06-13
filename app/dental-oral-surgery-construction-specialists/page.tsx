@@ -6,29 +6,15 @@ export const metadata: Metadata = {
     "Dental Office & Oral Surgery Center Construction Specialists | UDGOK",
   description:
     "UDGOK specializes in dental office construction, oral surgery center build-outs, and medical gas installation. Zero-downtime methodology, NFPA 99 certified medical gas, HIPAA-compliant layouts. Serving Oklahoma and Texas.",
-  keywords: [
-    "dental office construction",
-    "oral surgery center construction",
-    "dental construction specialist",
-    "medical gas installation dental",
-    "dental clinic build out",
-    "oral surgery suite design",
-    "dental operatory construction",
-    "CBCT room construction",
-    "dental vacuum system installation",
-    "zero downtime dental renovation",
-    "dental office construction cost",
-    "nitrous oxide piping dental",
-  ],
   openGraph: {
     title: "Dental & Oral Surgery Construction Specialists | UDGOK",
     description:
       "The only contractor exclusively focused on dental offices, oral surgery centers, and small medical clinics. Zero-downtime construction methodology.",
-    url: "https://udgok.com/dental-oral-surgery-construction-specialists",
+    url: "https://www.udgok.com/dental-oral-surgery-construction-specialists",
     type: "website",
   },
   alternates: {
-    canonical: "https://udgok.com/dental-oral-surgery-construction-specialists",
+    canonical: "https://www.udgok.com/dental-oral-surgery-construction-specialists",
   },
 };
 
@@ -41,13 +27,13 @@ function DentalSchema() {
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "GeneralContractor",
-          "@id": "https://udgok.com/#organization",
+          "@id": "https://www.udgok.com/#organization",
           name: "UDGOK - Dental & Oral Surgery Construction Specialists",
           alternateName: "Upscale Development Group",
           description:
             "UDGOK is a construction company specializing in dental offices, oral surgery centers, and small medical clinics. We specialize in medical gas installation, zero-downtime construction, and regulatory compliance for healthcare environments.",
-          url: "https://udgok.com",
-          logo: "https://udgok.com/logo.png",
+          url: "https://www.udgok.com",
+          logo: "https://www.udgok.com/logo.png",
           email: "projects@udgok.com",
           address: {
             "@type": "PostalAddress",

@@ -5,32 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Commercial Contractor Tulsa OK | Office, Retail & TI | UDGOK",
     description: "Tulsa's top commercial contractor. UDGOK delivers tenant improvements, ground-up commercial buildings, office build-outs, restaurant construction, and retail spaces across Tulsa, Oklahoma. 100+ projects delivered.",
-    keywords: [
-        "commercial contractor Tulsa",
-        "commercial contractor Tulsa OK",
-        "commercial construction company Tulsa",
-        "commercial builder Tulsa Oklahoma",
-        "commercial builders Tulsa",
-        "commercial construction Tulsa",
-        "tulsa commercial construction",
-        "commercial construction company in Tulsa OK",
-        "best general contractor Tulsa Oklahoma",
-        "tenant improvement contractor Tulsa",
-        "office build-out Tulsa OK",
-        "restaurant construction Tulsa",
-        "commercial renovation Tulsa",
-        "commercial general contractor Tulsa",
-        "Tulsa commercial construction company",
-        "commercial building contractor Oklahoma",
-        "construction in Tulsa OK",
-    ],
     openGraph: {
         title: "Commercial Contractor Tulsa OK | 100+ Projects | UDGOK",
         description: "Tenant improvements, ground-up commercial buildings, office build-outs, and restaurant construction across Tulsa, Oklahoma.",
-        url: "https://udgok.com/commercial-contractor-tulsa",
+        url: "https://www.udgok.com/commercial-contractor-tulsa",
         type: "website",
     },
-    alternates: { canonical: "https://udgok.com/commercial-contractor-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/commercial-contractor-tulsa" },
 };
 
 export default function CommercialContractorTulsaPage() {
@@ -39,7 +20,7 @@ export default function CommercialContractorTulsaPage() {
             <ServiceJsonLd
                 name="Commercial Contractor Tulsa"
                 description="Commercial general contractor in Tulsa, Oklahoma. Tenant improvements, ground-up builds, office and restaurant construction."
-                url="https://udgok.com/commercial-contractor-tulsa"
+                url="https://www.udgok.com/commercial-contractor-tulsa"
             />
             <ServicePage
                 label="Commercial Construction"

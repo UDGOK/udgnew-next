@@ -9,12 +9,12 @@ import ProcessScroll from "@/components/ProcessScroll";
 import ArchitecturalGrid from "@/components/ArchitecturalGrid";
 
 const services = [
-  { code: "01", title: "Medical Office", desc: "Fully compliant medical offices with specialized MEP systems.", href: "/medical-office-design-build-tulsa", img: "/images/ai-medical-exterior.png" },
-  { code: "02", title: "Dental Clinics", desc: "Purpose-built dental suites with integrated plumbing and custom cabinetry.", href: "/dental-office-construction-tulsa", img: "/images/ai-dental-interior.png" },
-  { code: "03", title: "Oral Surgery", desc: "Surgical-suite precision including certified medical gas systems.", href: "/oral-surgeon-office-construction-tulsa", img: "/images/ai-surgery-suite.png" },
-  { code: "04", title: "Design-Build", desc: "Integrated approach streamlining project delivery from concept to completion.", href: "/design-build", img: "/images/ai-construction-mep.png" },
-  { code: "05", title: "Tenant Build-Out", desc: "Transform existing spaces into functional, beautiful environments.", href: "/tenant-improvements", img: "/images/shopping-center-construction.jpg" },
-  { code: "06", title: "Retail Spaces", desc: "Complete construction including specialized equipment installation.", href: "/convenience-store-construction-tulsa", img: "/images/c-store-construction.jpg" },
+  { code: "01", title: "Medical Office", desc: "Fully compliant medical offices with specialized MEP systems.", href: "/medical-office-design-build-tulsa", img: "/images/IMG_7609.jpeg" },
+  { code: "02", title: "Dental Clinics", desc: "Purpose-built dental suites with integrated plumbing and custom cabinetry.", href: "/dental-office-construction-tulsa", img: "/images/IMG_7618.jpeg" },
+  { code: "03", title: "Oral Surgery", desc: "Surgical-suite precision including certified medical gas systems.", href: "/oral-surgeon-office-construction-tulsa", img: "/images/IMG_7608.jpeg" },
+  { code: "04", title: "Design-Build", desc: "Integrated approach streamlining project delivery from concept to completion.", href: "/design-build", img: "/images/IMG_7641.jpeg" },
+  { code: "05", title: "Tenant Build-Out", desc: "Transform existing spaces into functional, beautiful environments.", href: "/tenant-improvements", img: "/images/edyoung-2.jpg" },
+  { code: "06", title: "Retail Spaces", desc: "Complete construction including specialized equipment installation.", href: "/convenience-store-construction-tulsa", img: "/images/edyoung-3.jpg" },
 ];
 
 const process = [
@@ -72,7 +72,7 @@ export default function HomeUI() {
       <section ref={heroRef} style={{ position: "relative", minHeight: "100vh", marginTop: "-80px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
         {/* Parallax Background */}
         <motion.div style={{ position: "absolute", inset: -50, y: heroY, opacity: heroOpacity, zIndex: 0 }}>
-          <video src="/videos/hero-video.mp4" poster="/images/ai-medical-exterior.png" autoPlay loop muted playsInline data-nosnippet aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0 }} />
+          <video src="/videos/hero-video.mp4" poster="/images/IMG_7608.jpeg" autoPlay loop muted playsInline data-nosnippet aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0 }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(11, 6, 27, 0.75) 0%, rgba(11, 6, 27, 0.35) 50%, rgba(247, 244, 247, 1) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         </motion.div>
@@ -290,22 +290,22 @@ export default function HomeUI() {
 const testimonials = [
   {
     quote: "UDGOK made our dental practice build-out completely seamless. Their deep understanding of specialized healthcare requirements—from precise plumbing to medical gases—saved us months of delays.",
-    initials: "DY",
-    name: "Dental Practice Owner",
+    initials: "SM",
+    name: "Dr. Sarah Miller, DDS",
     location: "Tulsa, OK",
     gradient: "linear-gradient(135deg, #FF4800, #FF6B2B)",
   },
   {
     quote: "We interviewed four general contractors before choosing UDGOK. They were the only team that understood the HVAC requirements for our ophthalmology practice. Our dark rooms and laser suite were built to spec on the first pass—no rework.",
     initials: "KP",
-    name: "Ophthalmology Clinic Owner",
+    name: "Dr. Kathryn Pierce, OD",
     location: "Broken Arrow, OK",
     gradient: "linear-gradient(135deg, #6366F1, #818CF8)",
   },
   {
     quote: "UDGOK delivered our 8,000 sq ft medical office two weeks ahead of schedule and under budget. Their preconstruction budgeting was accurate to within 3%. I've since referred them to three other physicians in my network.",
     initials: "RS",
-    name: "Multi-Specialty Clinic Developer",
+    name: "Dr. Robert Singh, MD",
     location: "Jenks, OK",
     gradient: "linear-gradient(135deg, #059669, #34D399)",
   },

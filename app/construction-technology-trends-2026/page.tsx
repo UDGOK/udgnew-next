@@ -4,31 +4,14 @@ import ConstructionTechUI from "./ConstructionTechUI";
 export const metadata: Metadata = {
     title: "10 Construction Technologies Reshaping Building in 2026 | UDGOK",
     description: "From bricklaying robots to 3D-printed homes and AI-powered scheduling — the 10 construction technologies transforming how we build in 2026. Real-world video demos, cost impacts, and adoption timelines.",
-    keywords: [
-        "construction technology 2026",
-        "construction robots",
-        "3D printed construction",
-        "AI construction",
-        "construction drones",
-        "Hadrian X bricklaying robot",
-        "ICON 3D printed homes",
-        "Dusty Robotics FieldPrinter",
-        "digital twin construction",
-        "construction automation",
-        "modular construction",
-        "AR VR construction",
-        "construction technology trends",
-        "smart construction",
-        "construction innovation",
-    ],
     openGraph: {
         title: "10 Construction Technologies Reshaping Building in 2026",
         description: "Bricklaying robots, 3D-printed neighborhoods, AI schedulers, and drone swarms — the tech that's already on jobsites today.",
-        url: "https://udgok.com/construction-technology-trends-2026",
+        url: "https://www.udgok.com/construction-technology-trends-2026",
         type: "article",
-        images: [{ url: "https://udgok.com/images/construction-tech-2026-hero.png", width: 1200, height: 630, alt: "Construction Technology Trends 2026" }],
+        images: [{ url: "https://www.udgok.com/images/construction-tech-2026-hero.png", width: 1200, height: 630, alt: "Construction Technology Trends 2026" }],
     },
-    alternates: { canonical: "https://udgok.com/construction-technology-trends-2026" },
+    alternates: { canonical: "https://www.udgok.com/construction-technology-trends-2026" },
 };
 
 /* ── Article JSON-LD ── */
@@ -40,14 +23,14 @@ function ArticleJsonLd() {
                 "@type": "Article",
                 headline: "10 Construction Technologies Reshaping Building in 2026",
                 description: "From bricklaying robots to 3D-printed homes and AI-powered scheduling — the 10 construction technologies transforming how we build in 2026.",
-                image: "https://udgok.com/images/construction-tech-2026-hero.png",
+                image: "https://www.udgok.com/images/construction-tech-2026-hero.png",
                 datePublished: "2026-03-25",
                 dateModified: "2026-03-25",
                 author: {
                     "@type": "Organization",
                     name: "Upscale Development Group",
                     alternateName: "UDGOK",
-                    url: "https://udgok.com",
+                    url: "https://www.udgok.com",
                     sameAs: [
                         "https://www.linkedin.com/company/upscale-development-group",
                         "https://www.facebook.com/udgok",
@@ -57,9 +40,9 @@ function ArticleJsonLd() {
                 publisher: {
                     "@type": "Organization",
                     name: "Upscale Development Group",
-                    logo: { "@type": "ImageObject", url: "https://udgok.com/logo.png" },
+                    logo: { "@type": "ImageObject", url: "https://www.udgok.com/logo.png" },
                 },
-                mainEntityOfPage: { "@type": "WebPage", "@id": "https://udgok.com/construction-technology-trends-2026" },
+                mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.udgok.com/construction-technology-trends-2026" },
                 speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", "[data-speakable]"] },
             })
         }} />

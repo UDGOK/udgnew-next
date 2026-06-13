@@ -4,20 +4,13 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Community Involvement Tulsa | UDGOK",
   description: "UDGOK's commitment to the Tulsa and Oklahoma community. Local hiring, workforce development, sponsorships, and building healthcare facilities that serve our neighbors.",
-  keywords: [
-    "community involvement Tulsa",
-    "UDGOK community Oklahoma",
-    "construction company community Tulsa",
-    "local hiring construction Oklahoma",
-    "workforce development construction Tulsa",
-  ],
   openGraph: {
     title: "Community Involvement | UDGOK Construction",
     description: "We don't just build in Oklahoma communities — we're part of them.",
-    url: "https://udgok.com/community",
+    url: "https://www.udgok.com/community",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/community" },
+  alternates: { canonical: "https://www.udgok.com/community" },
 };
 
 export default function CommunityPage() {

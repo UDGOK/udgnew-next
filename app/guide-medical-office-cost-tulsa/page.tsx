@@ -5,21 +5,13 @@ import MedicalCostGuideUI from "./MedicalCostGuideUI";
 export const metadata: Metadata = {
   title: "Cost to Build a Medical Office in Tulsa (2026 Guide)",
   description: "How much does a 3,000 SF medical office cost in Tulsa? $150–$350/sf. Full 2026 cost breakdown, timeline, and budget guide from UDGOK's 100+ healthcare projects.",
-  keywords: [
-    "medical office construction cost Tulsa",
-    "cost to build medical office Oklahoma",
-    "medical office build out cost per square foot",
-    "healthcare construction cost 2026",
-    "medical office construction budget Tulsa OK",
-    "3000 sq ft medical office cost",
-  ],
   openGraph: {
     title: "Cost to Build a Medical Office in Tulsa — 2026 Guide | UDGOK",
     description: "Full cost breakdown from Oklahoma's most experienced medical construction contractor — 100+ facilities delivered.",
-    url: "https://udgok.com/guide-medical-office-cost-tulsa",
+    url: "https://www.udgok.com/guide-medical-office-cost-tulsa",
     type: "article",
   },
-  alternates: { canonical: "https://udgok.com/guide-medical-office-cost-tulsa" },
+  alternates: { canonical: "https://www.udgok.com/guide-medical-office-cost-tulsa" },
 };
 
 const articleSchema = {
@@ -27,12 +19,12 @@ const articleSchema = {
   "@type": "Article",
   headline: "Cost to Build a Medical Office in Tulsa (2026 Guide)",
   description: "Complete 2026 cost breakdown for building a medical office in Tulsa, Oklahoma — per-square-foot pricing, timelines, and budget strategies from 100+ delivered projects.",
-  author: { "@type": "Organization", name: "UDGOK — Upscale Development Group", url: "https://udgok.com" },
-  publisher: { "@type": "Organization", name: "UDGOK", url: "https://udgok.com" },
+  author: { "@type": "Organization", name: "UDGOK — Upscale Development Group", url: "https://www.udgok.com" },
+  publisher: { "@type": "Organization", name: "UDGOK", url: "https://www.udgok.com" },
   datePublished: "2026-03-01",
   dateModified: "2026-03-21",
-  mainEntityOfPage: "https://udgok.com/guide-medical-office-cost-tulsa",
-  image: "https://udgok.com/images/ai-medical-exterior.png",
+  mainEntityOfPage: "https://www.udgok.com/guide-medical-office-cost-tulsa",
+  image: "https://www.udgok.com/images/ai-medical-exterior.png",
 };
 
 const faqSchema = {

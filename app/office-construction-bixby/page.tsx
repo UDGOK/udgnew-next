@@ -5,27 +5,13 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Office Construction Bixby OK | Commercial Office Build-Outs | UDGOK",
     description: "Office construction contractor in Bixby, Oklahoma. UDGOK builds professional office spaces, medical offices, coworking facilities, and commercial office build-outs in Bixby.",
-    keywords: [
-        "office construction Bixby",
-        "office construction Bixby OK",
-        "office build-out Bixby Oklahoma",
-        "commercial office construction Bixby",
-        "professional office build-out Bixby",
-        "medical office construction Bixby",
-        "office contractor Bixby OK",
-        "office renovation Bixby Oklahoma",
-        "office space build-out Bixby",
-        "office tenant improvement Bixby",
-        "coworking space construction Bixby",
-        "office building contractor Bixby OK",
-    ],
     openGraph: {
         title: "Office Construction Bixby OK | UDGOK",
         description: "Professional office spaces, medical offices, and commercial office build-outs in Bixby, Oklahoma.",
-        url: "https://udgok.com/office-construction-bixby",
+        url: "https://www.udgok.com/office-construction-bixby",
         type: "website",
     },
-    alternates: { canonical: "https://udgok.com/office-construction-bixby" },
+    alternates: { canonical: "https://www.udgok.com/office-construction-bixby" },
 };
 
 export default function OfficeConstructionBixbyPage() {
@@ -34,7 +20,7 @@ export default function OfficeConstructionBixbyPage() {
             <ServiceJsonLd
                 name="Office Construction Bixby"
                 description="Office construction contractor in Bixby, Oklahoma — professional offices, medical offices, and commercial office build-outs."
-                url="https://udgok.com/office-construction-bixby"
+                url="https://www.udgok.com/office-construction-bixby"
             />
             <ServicePage
                 label="Office Construction"

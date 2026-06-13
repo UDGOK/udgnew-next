@@ -27,6 +27,10 @@ interface BlogPostLayoutProps {
   tldr?: string;
   /** Question-and-answer pairs rendered as an FAQ section with auto JSON-LD */
   faqs?: FAQ[];
+  authorName?: string;
+  authorTitle?: string;
+  datePublished?: string;
+  dateModified?: string;
   children: React.ReactNode;
 }
 
@@ -40,6 +44,10 @@ export default function BlogPostLayout({
   toc,
   tldr,
   faqs,
+  authorName,
+  authorTitle,
+  datePublished,
+  dateModified,
   children
 }: BlogPostLayoutProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -64,35 +72,33 @@ export default function BlogPostLayout({
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": `https://udgok.com/${typeof window !== "undefined" ? window.location.pathname.replace(/^\//, "") : ""}#article`,
+    "@id": `https://www.udgok.com/${typeof window !== "undefined" ? window.location.pathname.replace(/^\//, "") : ""}#article`,
     "headline": title,
     "description": description,
-    "image": `https://udgok.com${heroImage}`,
-    "datePublished": date,
-    "dateModified": date,
+    "image": `https://www.udgok.com${heroImage}`,
+    "datePublished": datePublished || "2026-01-15",
+    "dateModified": dateModified || "2026-03-26",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://udgok.com/${typeof window !== "undefined" ? window.location.pathname.replace(/^\//, "") : ""}`
+      "@id": `https://www.udgok.com/${typeof window !== "undefined" ? window.location.pathname.replace(/^\//, "") : ""}`
     },
     "author": {
-      "@type": "Organization",
-      "name": "Upscale Development Group",
-      "alternateName": "UDGOK",
-      "url": "https://udgok.com",
+      "@type": "Person",
+      "name": authorName || "Yasir Jahangir",
+      "jobTitle": authorTitle || "Owner & Lead Estimator",
+      "url": "https://www.udgok.com/about",
       "sameAs": [
-        "https://www.linkedin.com/company/upscale-development-group",
-        "https://www.facebook.com/udgok",
-        "https://www.instagram.com/udgok"
+        "https://www.linkedin.com/company/upscale-development-group"
       ]
     },
     "publisher": {
       "@type": "Organization",
       "name": "Upscale Development Group",
       "alternateName": "UDGOK",
-      "url": "https://udgok.com",
+      "url": "https://www.udgok.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://udgok.com/images/udgok-logo.png"
+        "url": "https://www.udgok.com/images/udgok-logo.png"
       }
     },
     "speakable": {
@@ -162,7 +168,7 @@ export default function BlogPostLayout({
                 {title}
               </h1>
               <div className="flex items-center gap-4 text-white/50 text-sm font-semibold uppercase tracking-widest">
-                <span>By UDGOK Intelligence</span>
+                <span>By {authorName || "Yasir Jahangir"} ({authorTitle || "Owner & Lead Estimator"})</span>
                 <span>•</span>
                 <span>{date}</span>
               </div>

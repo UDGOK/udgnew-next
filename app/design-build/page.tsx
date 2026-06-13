@@ -5,26 +5,13 @@ import { ServiceJsonLd, LocalBusinessJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Design-Build Contractor Tulsa & Oklahoma City | Medical & Dental",
   description: "Tulsa's top design-build contractor for medical & dental projects. One contract, one team. 100+ projects delivered 20% faster with 15% cost savings.",
-  keywords: [
-    "integrated design-build services Oklahoma",
-    "design-build contractor Tulsa",
-    "design-build construction Oklahoma",
-    "integrated design-build Tulsa OK",
-    "design-build vs design-bid-build",
-    "commercial design-build Tulsa",
-    "healthcare design-build Oklahoma",
-    "design-build services Oklahoma",
-    "single-source contractor Tulsa",
-    "turnkey construction Oklahoma",
-    "integrated design-build contractor Oklahoma",
-  ],
   openGraph: {
     title: "Design-Build Contractor Tulsa OK | 100+ Projects | UDGOK",
     description: "One contract, one team. Tulsa's most experienced design-build contractor for medical, dental, and commercial projects.",
-    url: "https://udgok.com/design-build",
+    url: "https://www.udgok.com/design-build",
     type: "website",
   },
-  alternates: { canonical: "https://udgok.com/design-build" },
+  alternates: { canonical: "https://www.udgok.com/design-build" },
 };
 
 export default function DesignBuildPage() {
@@ -33,11 +20,11 @@ export default function DesignBuildPage() {
       <ServiceJsonLd
         name="Design-Build Construction"
         description="Integrated design-build delivery for medical, dental, and commercial construction. One contract, one team, zero gaps between design and construction."
-        url="https://udgok.com/design-build"
+        url="https://www.udgok.com/design-build"
       />
       <LocalBusinessJsonLd
         description="Tulsa, Oklahoma's leading design-build contractor for medical, dental, and commercial construction. 100+ projects delivered 20% faster with 15% cost savings versus traditional design-bid-build."
-        url="https://udgok.com/design-build"
+        url="https://www.udgok.com/design-build"
         specialization="Design-build construction, Integrated design-build, Medical design-build, Dental design-build, Commercial design-build, Guaranteed Maximum Price, Fast-track construction"
       />
       <ServicePage

@@ -5,24 +5,12 @@ import { ServiceJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
     title: "Construction Company South Tulsa OK | Medical, Commercial & Retail | UDGOK",
     description: "South Tulsa's most active construction company. UDGOK has completed 30+ commercial, medical, dental, and retail projects along the Memorial and Yale corridors. Design-build, GMP pricing. Free estimates.",
-    keywords: [
-        "construction company south tulsa",
-        "south tulsa construction",
-        "commercial construction south tulsa",
-        "medical office construction south tulsa",
-        "dental construction south tulsa ok",
-        "contractor south tulsa",
-        "general contractor south tulsa ok",
-        "retail construction south memorial tulsa",
-        "construction companies south tulsa ok",
-        "south tulsa builder",
-    ],
     openGraph: {
         title: "Construction Company South Tulsa | UDGOK",
         description: "30+ projects delivered in South Tulsa. Medical, dental, commercial, and retail construction along Memorial and Yale corridors.",
-        url: "https://udgok.com/construction-company-south-tulsa",
+        url: "https://www.udgok.com/construction-company-south-tulsa",
     },
-    alternates: { canonical: "https://udgok.com/construction-company-south-tulsa" },
+    alternates: { canonical: "https://www.udgok.com/construction-company-south-tulsa" },
 };
 
 export default function ConstructionCompanySouthTulsaPage() {
@@ -31,7 +19,7 @@ export default function ConstructionCompanySouthTulsaPage() {
             <ServiceJsonLd
                 name="Construction Company South Tulsa"
                 description="South Tulsa's most active commercial and medical construction company. 30+ projects along Memorial and Yale corridors."
-                url="https://udgok.com/construction-company-south-tulsa"
+                url="https://www.udgok.com/construction-company-south-tulsa"
             />
             <ServicePage
                 label="South Tulsa"
