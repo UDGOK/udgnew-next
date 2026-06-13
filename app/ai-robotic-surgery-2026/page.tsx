@@ -1,3 +1,4 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import BlogPostLayout from "@/components/BlogPostLayout";
 import MarqueeBanner from "@/components/MarqueeBanner";
@@ -23,9 +24,15 @@ const toc = [
 ];
 
 export default function AIRoboticSurgeryPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "AI & Robotic Surgery in 2026: How Autonomous Systems Are Redefining Care", url: "https://www.udgok.com/ai-robotic-surgery-2026" }
+  ];
+  return (
         <>
-            <BlogPostLayout
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><BlogPostLayout
                 title="AI & Robotic Surgery in 2026"
                 description="By 2026, artificial intelligence and robotic systems are transforming surgical practices — shifting care from isolated tasks to seamlessly integrated, highly precise, and increasingly autonomous workflows."
                 category="Healthcare Technology"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import BlogPostLayout from "@/components/BlogPostLayout";
 import MarqueeBanner from "@/components/MarqueeBanner";
-import { LocalBusinessJsonLd, ArticleJsonLd } from "@/components/JsonLd";
+import { LocalBusinessJsonLd, ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Complete Guide to Dental Office Construction Costs in Oklahoma",
@@ -19,9 +19,15 @@ const toc = [
 ];
 
 export default function DentalConstructionCosts() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Complete Guide to Dental Office Construction Costs in Oklahoma", url: "https://www.udgok.com/dental-construction-costs" }
+  ];
   return (
     <>
-      <LocalBusinessJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><LocalBusinessJsonLd
         description="Comprehensive guide to dental office construction costs in Tulsa and Oklahoma. UDGOK has built 80+ dental offices and provides transparent per-square-foot pricing for general, specialty, and surgical dental build-outs."
         url="https://www.udgok.com/dental-construction-costs"
         specialization="Dental construction costs, Dental office build-out pricing, Dental operatory rough-in cost, Medical gas system cost, Dental office construction budget"

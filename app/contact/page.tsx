@@ -1,3 +1,4 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ContactUI from "./ContactUI";
 
@@ -27,9 +28,15 @@ const contactFaqs = [
 ];
 
 export default function ContactPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Contact Us", url: "https://www.udgok.com/contact" }
+  ];
   return (
     <>
-      {/* FAQPage JSON-LD for contact page */}
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />{/* FAQPage JSON-LD for contact page */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",

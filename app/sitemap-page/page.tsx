@@ -1,3 +1,4 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 
@@ -128,9 +129,15 @@ const sitemapData = [
 ];
 
 export default function SitemapPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "HTML Sitemap", url: "https://www.udgok.com/sitemap-page" }
+  ];
   return (
     <>
-      <PageHero label="Navigation" title="HTML Sitemap" description="Complete index of UDGOK website pages." />
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><PageHero label="Navigation" title="HTML Sitemap" description="Complete index of UDGOK website pages." />
       <section style={{ maxWidth: "1200px", margin: "4rem auto", padding: "0 2rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "4rem" }}>
         {sitemapData.map((section, i) => (
           <div key={i}>

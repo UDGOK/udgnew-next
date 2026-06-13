@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import DigitalTwinUI from "./DigitalTwinUI";
-import { ArticleJsonLd, FAQJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Digital Twin Technology in Construction: 2026 Guide | UDGOK",
@@ -15,9 +15,15 @@ export const metadata: Metadata = {
 };
 
 export default function DigitalTwinPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Digital Twin Technology in Construction: 2026 Guide", url: "https://www.udgok.com/digital-twin-technology" }
+  ];
   return (
     <>
-      <ArticleJsonLd
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><ArticleJsonLd
         title="The 2026 Guide to Digital Twin Technology"
         description="How AI, IoT, and 3D virtual replicas are transforming commercial construction, energy, and smart cities across Texas, Oklahoma, and California."
         url="https://www.udgok.com/digital-twin-technology"

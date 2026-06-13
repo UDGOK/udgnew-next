@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import TulsaConstructionCostsUI from "./TulsaConstructionCostsUI";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Tulsa Construction Costs 2026 | Cost Per Square Foot by Building Type | UDGOK",
@@ -40,9 +40,15 @@ function CostFaqJsonLd() {
 }
 
 export default function TulsaConstructionCostsPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Tulsa Construction Costs 2026", url: "https://www.udgok.com/tulsa-construction-costs" }
+  ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><ServiceJsonLd
                 name="Tulsa Construction Cost Index 2026"
                 description="Real construction cost data and free estimator for Tulsa, Oklahoma. Cost per square foot by building type, historical trends, and cost drivers."
                 url="https://www.udgok.com/tulsa-construction-costs"

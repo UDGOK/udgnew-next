@@ -1,3 +1,4 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ServicesUI from "./ServicesUI";
 
@@ -8,5 +9,15 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return <ServicesUI />;
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction Services", url: "https://www.udgok.com/services" }
+  ];
+  return (
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <ServicesUI />
+    </>
+  );
 }

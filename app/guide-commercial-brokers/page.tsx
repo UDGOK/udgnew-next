@@ -1,3 +1,4 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import BlogPostLayout from "@/components/BlogPostLayout";
 
@@ -28,8 +29,15 @@ export default function GuideBrokersPage() {
     <p>UDGOK is a resource for brokers representing healthcare and commercial tenants. We'll provide free budget consultation during your deal-making process so your clients understand true build-out costs before signing a lease. We participate in landlord-tenant negotiations to help structure TI allowances appropriately. And when the lease is signed, we deliver on time — which protects your reputation as the broker who brought a great tenant that executed without drama. Call us early, not after the lease is signed.</p>
   `;
 
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Commercial Broker", url: "https://www.udgok.com/guide-commercial-brokers" }
+  ];
   return (
-    <BlogPostLayout
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <BlogPostLayout
       title="The Commercial Broker's Guide to Construction"
       description="Everything a Tulsa commercial real estate broker needs to know to better serve healthcare and commercial tenants through their build-out process."
       date="February 2026"
@@ -46,5 +54,7 @@ export default function GuideBrokersPage() {
     >
       <div dangerouslySetInnerHTML={{ __html: customHTML }} />
     </BlogPostLayout>
+  
+    </>
   );
 }

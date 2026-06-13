@@ -1,3 +1,4 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ConstructionTechUI from "./ConstructionTechUI";
 
@@ -76,9 +77,15 @@ function FaqJsonLd() {
 }
 
 export default function ConstructionTechTrends2026Page() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "10 Construction Technologies Reshaping Building in 2026", url: "https://www.udgok.com/construction-technology-trends-2026" }
+  ];
+  return (
         <>
-            <ArticleJsonLd />
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><ArticleJsonLd />
             <FaqJsonLd />
             <ConstructionTechUI />
         </>

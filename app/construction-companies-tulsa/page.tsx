@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ConstructionCompaniesTulsaUI from "./ConstructionCompaniesTulsaUI";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Construction Companies in Tulsa OK | Commercial, Medical & Industrial | UDGOK",
@@ -116,9 +116,15 @@ function LocalBusinessJsonLd() {
 }
 
 export default function ConstructionCompaniesTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction Companies in Tulsa OK", url: "https://www.udgok.com/construction-companies-tulsa" }
+  ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><ServiceJsonLd
                 name="Construction Companies in Tulsa OK"
                 description="Top-rated construction company in Tulsa, Oklahoma. Commercial, medical, dental, industrial, and retail construction. 100+ projects delivered. Design-build, GMP pricing, AI-powered estimating."
                 url="https://www.udgok.com/construction-companies-tulsa"

@@ -1,3 +1,4 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import ToolsUI from "./ToolsUI";
 
@@ -8,5 +9,15 @@ export const metadata: Metadata = {
 };
 
 export default function ToolsPage() {
-  return <ToolsUI />;
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Construction Calculators & Tools", url: "https://www.udgok.com/tools" }
+  ];
+  return (
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <ToolsUI />
+    </>
+  );
 }

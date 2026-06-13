@@ -1,3 +1,4 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import BlogPostLayout from "@/components/BlogPostLayout";
 
@@ -28,8 +29,15 @@ export default function GuideDevelopersPage() {
     <p>Engage UDGOK at the earliest stage possible — ideally at site selection — to get accurate cost feedback during feasibility. Our preconstruction team provides free conceptual budgets for serious development opportunities. We'll participate in tenant negotiations to ensure lease TI allowances reflect actual market costs. Our design-build model gives you a single point of accountability from schematic design through certificate of occupancy, with real-time cost reporting throughout.</p>
   `;
 
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Developer", url: "https://www.udgok.com/guide-developers" }
+  ];
   return (
-    <BlogPostLayout
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <BlogPostLayout
       title="The Developer's Guide to Medical Office Construction"
       description="From site selection through certificate of occupancy — everything a real estate developer needs to know to deliver a successful medical office project in Oklahoma."
       date="March 2026"
@@ -46,5 +54,7 @@ export default function GuideDevelopersPage() {
     >
       <div dangerouslySetInnerHTML={{ __html: customHTML }} />
     </BlogPostLayout>
+  
+    </>
   );
 }

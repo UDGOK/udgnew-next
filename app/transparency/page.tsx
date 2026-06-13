@@ -1,3 +1,4 @@
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import TransparencyUI from "./TransparencyUI";
 
@@ -14,5 +15,15 @@ export const metadata: Metadata = {
 };
 
 export default function TransparencyPage() {
-    return <TransparencyUI />;
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "AI Transparency", url: "https://www.udgok.com/transparency" }
+  ];
+  return (
+    <>
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} />
+      <TransparencyUI />
+    </>
+  );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import IndustrialBuildingsUI from "./IndustrialBuildingsUI";
-import { ServiceJsonLd } from "@/components/JsonLd";
+import { ServiceJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Industrial Building Contractor Tulsa OK | Metal Buildings & Warehouses | UDGOK",
@@ -46,9 +46,15 @@ function IndustrialFaqJsonLd() {
 }
 
 export default function IndustrialBuildingsTulsaPage() {
-    return (
+    
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Industrial Building Contractor Tulsa OK", url: "https://www.udgok.com/industrial-buildings-tulsa" }
+  ];
+  return (
         <>
-            <ServiceJsonLd
+            
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><ServiceJsonLd
                 name="Industrial Building Contractor Tulsa"
                 description="Industrial building contractor in Tulsa, Oklahoma — pre-engineered metal buildings, warehouses, manufacturing facilities, cold storage, self-storage, and flex space construction."
                 url="https://www.udgok.com/industrial-buildings-tulsa"

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import TulsaMedicalUI from "./TulsaMedicalUI";
-import { MedicalBusinessJsonLd, FAQJsonLd } from "@/components/JsonLd";
+import { MedicalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Tulsa Medical Construction | Healthcare Construction Contractors Oklahoma | UDGOK",
@@ -24,9 +24,15 @@ const faqs = [
 ];
 
 export default function TulsaMedicalPage() {
+  
+  const PAGE_BREADCRUMBS = [
+    { name: "Home", url: "https://www.udgok.com" },
+    { name: "Tulsa Medical Construction", url: "https://www.udgok.com/tulsa-medical-construction" }
+  ];
   return (
     <>
-      <FAQJsonLd questions={faqs} />
+      
+      <BreadcrumbJsonLd items={PAGE_BREADCRUMBS} /><FAQJsonLd questions={faqs} />
       <MedicalBusinessJsonLd
         name="UDGOK — Healthcare Construction Contractors"
         description="Tulsa's most trusted healthcare construction contractor — 100+ medical and dental facilities delivered across the metro."
