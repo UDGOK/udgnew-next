@@ -84,7 +84,7 @@ export default function BlogPostLayout({
     },
     "author": {
       "@type": "Person",
-      "name": authorName || "Yasir Jahangir",
+      "name": authorName || "Zack H.",
       "jobTitle": authorTitle || "Owner & Lead Estimator",
       "url": "https://www.udgok.com/about",
       "sameAs": [
@@ -168,7 +168,7 @@ export default function BlogPostLayout({
                 {title}
               </h1>
               <div className="flex items-center gap-4 text-white/50 text-sm font-semibold uppercase tracking-widest">
-                <span>By {authorName || "Yasir Jahangir"} ({authorTitle || "Owner & Lead Estimator"})</span>
+                <span>By {authorName || "Zack H."} ({authorTitle || "Owner & Lead Estimator"})</span>
                 <span>•</span>
                 <span>{date}</span>
               </div>

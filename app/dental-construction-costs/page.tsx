@@ -42,7 +42,7 @@ export default function DentalConstructionCosts() {
         readTime="8 Min Read"
         heroImage="/images/ai-dental-interior.png"
         toc={toc}
-        authorName="Yasir Jahangir"
+        authorName="Zack H."
         authorTitle="Owner & Lead Estimator"
         datePublished="2026-01-15"
         dateModified="2026-03-26"

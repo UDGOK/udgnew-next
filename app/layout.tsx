@@ -94,7 +94,7 @@ export default function RootLayout({
               description: "Top-rated construction company in Tulsa, Oklahoma. UDGOK builds commercial, medical, dental, industrial, and retail projects. 100+ projects delivered. Design-build, GMP pricing, AI-powered estimating.",
               founder: {
                 "@type": "Person",
-                name: "Yasir Jahangir",
+                name: "Zack H.",
                 jobTitle: "Principal / Owner",
                 sameAs: [
                   "https://www.linkedin.com/company/upscale-development-group"

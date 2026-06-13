@@ -137,7 +137,7 @@ export function ArticleJsonLd({
     ...(image && { image }),
     author: {
       "@type": "Person",
-      name: authorName || "Yasir Jahangir",
+      name: authorName || "Zack H.",
       jobTitle: authorTitle || "Owner & Lead Estimator",
       url: "https://www.udgok.com/about",
     },
