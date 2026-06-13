@@ -14,12 +14,21 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.udgok.com/guide-dental-buildout-checklist-oklahoma" },
 };
 
-const articleSchema = {
+const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "Dental Office Build-Out Checklist for Oklahoma",
   description: "Complete step-by-step checklist for building a dental office in Oklahoma — from site selection through certificate of occupancy.",
   totalTime: "PT5M",
+  author: {
+    "@type": "Person",
+    name: "Zack H.",
+    jobTitle: "Lead Estimator / Project Manager",
+    url: "https://www.udgok.com/about",
+    sameAs: ["https://www.linkedin.com/company/upscale-development-group"]
+  },
+  datePublished: "2026-03-01",
+  dateModified: "2026-06-13",
   step: [
     { "@type": "HowToStep", position: 1, name: "Pre-Design Planning", text: "Secure financing, select a site, define your operatory count, and assemble your design-build team." },
     { "@type": "HowToStep", position: 2, name: "Design & Engineering", text: "Complete architectural plans, MEP engineering, equipment layouts, and IT infrastructure planning." },
@@ -27,6 +36,36 @@ const articleSchema = {
     { "@type": "HowToStep", position: 4, name: "Construction", text: "Execute demolition, framing, under-slab plumbing, electrical, HVAC, finishes, and casework." },
     { "@type": "HowToStep", position: 5, name: "Equipment & Commissioning", text: "Install dental equipment, test medical gas systems, complete final inspections, and obtain CO." },
   ],
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Dental Office Build-Out Checklist for Oklahoma (2026)",
+  description: "Step-by-step dental office build-out checklist from pre-design to move-in. Cost per operatory, equipment rough-in specs, and regulatory requirements for Oklahoma.",
+  image: "https://www.udgok.com/images/dental-financing-guide-hero.png",
+  datePublished: "2026-03-01",
+  dateModified: "2026-06-13",
+  author: {
+    "@type": "Person",
+    name: "Zack H.",
+    jobTitle: "Lead Estimator / Project Manager",
+    url: "https://www.udgok.com/about",
+    sameAs: ["https://www.linkedin.com/company/upscale-development-group"]
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "UDGOK",
+    url: "https://www.udgok.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.udgok.com/images/logo.png"
+    }
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://www.udgok.com/guide-dental-buildout-checklist-oklahoma"
+  }
 };
 
 const faqSchema = {
@@ -45,6 +84,9 @@ export default function GuideDentalChecklistPage() {
   return (
     <>
       <Script id="schema-howto" type="application/ld+json">
+        {JSON.stringify(howToSchema)}
+      </Script>
+      <Script id="schema-article" type="application/ld+json">
         {JSON.stringify(articleSchema)}
       </Script>
       <Script id="schema-faq" type="application/ld+json">

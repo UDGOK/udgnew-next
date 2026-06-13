@@ -83,8 +83,8 @@ export default function PembVsSteelUI() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
             style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}
           >
-            {["12-Point Comparison", "Oklahoma-Specific Data", "Updated March 2026"].map((tag) => (
-              <span key={tag} style={{ padding: "0.5rem 1rem", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "100px", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}>{tag}</span>
+            {["12-Point Comparison", "Oklahoma-Specific Data", "Published March 1, 2026", "Last Updated June 13, 2026", "By Zack H. (Lead Estimator / Project Manager)"].map((tag) => (
+              <span key={tag} style={{ padding: "0.5rem 1rem", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "100px", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: tag.startsWith("By ") ? "#FF4800" : "rgba(255,255,255,0.5)" }}>{tag}</span>
             ))}
           </motion.div>
         </div>

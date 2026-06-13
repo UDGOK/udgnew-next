@@ -138,7 +138,7 @@ export function ArticleJsonLd({
     author: {
       "@type": "Person",
       name: authorName || "Zack H.",
-      jobTitle: authorTitle || "Owner & Lead Estimator",
+      jobTitle: authorTitle || "Lead Estimator / Project Manager",
       url: "https://www.udgok.com/about",
     },
     publisher: {

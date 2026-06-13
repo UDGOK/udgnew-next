@@ -25,12 +25,12 @@ function ArticleJsonLd() {
                 description: "From bricklaying robots to 3D-printed homes and AI-powered scheduling — the 10 construction technologies transforming how we build in 2026.",
                 image: "https://www.udgok.com/images/construction-tech-2026-hero.png",
                 datePublished: "2026-03-25",
-                dateModified: "2026-03-25",
+                dateModified: "2026-06-13",
                 author: {
-                    "@type": "Organization",
-                    name: "Upscale Development Group",
-                    alternateName: "UDGOK",
-                    url: "https://www.udgok.com",
+                    "@type": "Person",
+                    name: "Zack H.",
+                    jobTitle: "Lead Estimator / Project Manager",
+                    url: "https://www.udgok.com/about",
                     sameAs: [
                         "https://www.linkedin.com/company/upscale-development-group",
                         "https://www.facebook.com/udgok",

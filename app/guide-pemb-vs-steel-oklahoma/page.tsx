@@ -19,10 +19,16 @@ const articleSchema = {
   "@type": "Article",
   headline: "PEMB vs Conventional Steel for Oklahoma Warehouses (2026 Data)",
   description: "Comprehensive comparison of pre-engineered metal buildings versus conventional steel construction for warehouses and industrial facilities in Oklahoma.",
-  author: { "@type": "Organization", name: "UDGOK — Upscale Development Group", url: "https://www.udgok.com" },
+  author: {
+    "@type": "Person",
+    name: "Zack H.",
+    jobTitle: "Lead Estimator / Project Manager",
+    url: "https://www.udgok.com/about",
+    sameAs: ["https://www.linkedin.com/company/upscale-development-group"]
+  },
   publisher: { "@type": "Organization", name: "UDGOK", url: "https://www.udgok.com" },
   datePublished: "2026-03-01",
-  dateModified: "2026-03-21",
+  dateModified: "2026-06-13",
   mainEntityOfPage: "https://www.udgok.com/guide-pemb-vs-steel-oklahoma",
 };
 

@@ -170,9 +170,10 @@ export default function DentalConstructionGuideUI() {
                     {/* Article meta */}
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.6 }}
                         style={{ display: "flex", gap: "2rem", marginTop: "2rem", flexWrap: "wrap" }}>
-                        <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>March 2026</div>
+                        <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>Published March 12, 2026</div>
+                        <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>Last Updated June 13, 2026</div>
                         <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>15 Min Read</div>
-                        <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#FF4800" }}>By UDGOK</div>
+                        <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#FF4800" }}>By Zack H. (Lead Estimator / Project Manager)</div>
                     </motion.div>
 
                     {/* Stats bar */}

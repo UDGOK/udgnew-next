@@ -38,11 +38,13 @@ const articleSchema = {
     "A comprehensive guide to dental practice financing options, remodel vs. rebuild analysis, 2026 tax strategies, and local SEO protection during renovation for Tulsa, Oklahoma dentists.",
   image: "https://www.udgok.com/images/dental-financing-guide-hero.png",
   datePublished: "2026-03-13",
-  dateModified: "2026-03-13",
+  dateModified: "2026-06-13",
   author: {
-    "@type": "Organization",
-    name: "UDGOK — Upscale Development Group",
-    url: "https://www.udgok.com",
+    "@type": "Person",
+    name: "Zack H.",
+    jobTitle: "Lead Estimator / Project Manager",
+    url: "https://www.udgok.com/about",
+    sameAs: ["https://www.linkedin.com/company/upscale-development-group"]
   },
   publisher: {
     "@type": "Organization",

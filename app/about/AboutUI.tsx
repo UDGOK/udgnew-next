@@ -147,7 +147,7 @@ export default function AboutUI() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Zack H.", role: "Principal & Owner", img: "/images/edyoung-1.jpg" },
+              { name: "Zack H.", role: "Lead Estimator / Project Manager", img: "/images/edyoung-1.jpg" },
               { name: "Operations Team", role: "Project Management", img: "/images/IMG_7602.jpeg" },
               { name: "Field Crew", role: "Construction Specialists", img: "/images/IMG_7607.jpeg" },
             ].map((m, i) => (

@@ -43,7 +43,7 @@ export default function DentalConstructionCosts() {
         heroImage="/images/ai-dental-interior.png"
         toc={toc}
         authorName="Zack H."
-        authorTitle="Owner & Lead Estimator"
+        authorTitle="Lead Estimator / Project Manager"
         datePublished="2026-01-15"
         dateModified="2026-03-26"
         tldr="Dental office construction in Tulsa, Oklahoma costs $140–$280 per square foot for standard build-outs and $250–$350/sq ft for practices with surgical suites. A typical 2,500 SF dental office runs $425,000–$700,000 in construction costs, plus $80,000–$200,000+ for dental equipment. Each operatory requires $10,000–$18,000 in utility infrastructure including under-slab plumbing, compressed air, electrical, and data cabling."

@@ -85,7 +85,7 @@ export default function BlogPostLayout({
     "author": {
       "@type": "Person",
       "name": authorName || "Zack H.",
-      "jobTitle": authorTitle || "Owner & Lead Estimator",
+      "jobTitle": authorTitle || "Lead Estimator / Project Manager",
       "url": "https://www.udgok.com/about",
       "sameAs": [
         "https://www.linkedin.com/company/upscale-development-group"
@@ -168,7 +168,7 @@ export default function BlogPostLayout({
                 {title}
               </h1>
               <div className="flex items-center gap-4 text-white/50 text-sm font-semibold uppercase tracking-widest">
-                <span>By {authorName || "Zack H."} ({authorTitle || "Owner & Lead Estimator"})</span>
+                <span>By {authorName || "Zack H."} ({authorTitle || "Lead Estimator / Project Manager"})</span>
                 <span>•</span>
                 <span>{date}</span>
               </div>

@@ -151,7 +151,7 @@ export default function ConstructionTechUI() {
                             <span className="inline-flex items-center gap-2 py-1.5 px-4 border border-[#FF4800]/40 text-[0.6rem] font-black tracking-[0.25em] uppercase text-[#FF4800] bg-[#FF4800]/10 backdrop-blur-sm">
                                 <span className="w-1.5 h-1.5 bg-[#FF4800] animate-pulse" /> Construction Technology
                             </span>
-                            <span className="text-white/40 text-[0.6rem] font-bold tracking-[0.2em] uppercase">March 25, 2026 • 14 MIN READ</span>
+                            <span className="text-white/40 text-[0.6rem] font-bold tracking-[0.2em] uppercase">Published March 25, 2026 • Updated June 13, 2026 • 14 MIN READ • By Zack H. (Lead Estimator / Project Manager)</span>
                         </div>
                         <h1 className="text-[clamp(2rem,5vw,4.5rem)] font-black tracking-tight leading-[1] mb-6">
                             10 Technologies{" "}

@@ -19,10 +19,16 @@ const articleSchema = {
   "@type": "Article",
   headline: "Cost to Build a Medical Office in Tulsa (2026 Guide)",
   description: "Complete 2026 cost breakdown for building a medical office in Tulsa, Oklahoma — per-square-foot pricing, timelines, and budget strategies from 100+ delivered projects.",
-  author: { "@type": "Organization", name: "UDGOK — Upscale Development Group", url: "https://www.udgok.com" },
+  author: {
+    "@type": "Person",
+    name: "Zack H.",
+    jobTitle: "Lead Estimator / Project Manager",
+    url: "https://www.udgok.com/about",
+    sameAs: ["https://www.linkedin.com/company/upscale-development-group"]
+  },
   publisher: { "@type": "Organization", name: "UDGOK", url: "https://www.udgok.com" },
   datePublished: "2026-03-01",
-  dateModified: "2026-03-21",
+  dateModified: "2026-06-13",
   mainEntityOfPage: "https://www.udgok.com/guide-medical-office-cost-tulsa",
   image: "https://www.udgok.com/images/ai-medical-exterior.png",
 };
