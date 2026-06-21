@@ -10,6 +10,19 @@ const FLink = ({ href, children }: { href: string; children: React.ReactNode }) 
   </li>
 );
 
+/* ── "Ask AI" summary band — deep-links to AI engines pre-filled with a query ── */
+const AI_PROMPT = encodeURIComponent(
+  "Give me a summary of UDGOK (udgok.com) — an AI-powered medical & dental design-build construction firm in Tulsa, Oklahoma. What do they do, which markets do they serve, and where?"
+);
+const AI_ENGINES: { name: string; url: string }[] = [
+  { name: "ChatGPT", url: `https://chatgpt.com/?q=${AI_PROMPT}` },
+  { name: "Perplexity", url: `https://www.perplexity.ai/search?q=${AI_PROMPT}` },
+  { name: "Claude", url: `https://claude.ai/new?q=${AI_PROMPT}` },
+  { name: "Google AI", url: `https://www.google.com/search?udm=50&q=${AI_PROMPT}` },
+  { name: "Copilot", url: `https://copilot.microsoft.com/?q=${AI_PROMPT}` },
+  { name: "Grok", url: `https://grok.com/?q=${AI_PROMPT}` },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -130,6 +143,35 @@ export default function Footer() {
                   Tulsa · Broken Arrow · Bixby · Jenks · Owasso · OKC · Dallas
                 </p>
               </div>
+            </div>
+          </div>
+
+          {/* ── Ask AI band ── */}
+          <div className="py-8 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 border-b border-white/[0.06]">
+            <div className="lg:w-[320px] shrink-0">
+              <span className="inline-flex items-center gap-2 text-[0.6rem] font-black tracking-[0.25em] uppercase text-[#FF4800] mb-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF4800]" />
+                Ask AI
+              </span>
+              <h4 className="text-white/90 font-bold text-[0.95rem] leading-snug m-0">
+                Get an AI summary of UDGOK
+              </h4>
+            </div>
+            <div className="flex flex-wrap gap-2.5">
+              {AI_ENGINES.map((e) => (
+                <a
+                  key={e.name}
+                  href={e.url}
+                  target="_blank"
+                  rel="noopener nofollow"
+                  className="group inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/55 hover:text-white hover:border-[#FF4800] hover:bg-[#FF4800]/10 transition-all text-[0.78rem] font-medium no-underline"
+                >
+                  {e.name}
+                  <svg className="w-3 h-3 text-white/30 group-hover:text-[#FF4800] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                    <path d="M7 17 17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              ))}
             </div>
           </div>
 
