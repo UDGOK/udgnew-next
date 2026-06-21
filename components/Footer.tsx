@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Script from "next/script";
+import { useState } from "react";
 
 const FLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <li>
@@ -10,21 +11,42 @@ const FLink = ({ href, children }: { href: string; children: React.ReactNode }) 
   </li>
 );
 
-/* ── "Ask AI" summary band — deep-links to AI engines pre-filled with a query ── */
-const AI_PROMPT = encodeURIComponent(
-  "Give me a summary of UDGOK (udgok.com) — an AI-powered medical & dental design-build construction firm in Tulsa, Oklahoma. What do they do, which markets do they serve, and where?"
-);
+/* ── "Ask AI" summary band — deep-links to AI engines pre-filled with a query ──
+   Many engines (ChatGPT, Perplexity, Claude, Google AI Mode) auto-submit the
+   ?q= prompt. Others (Copilot, and several newer engines) open but no longer
+   reliably prefill the box, so on click we ALSO copy the prompt to the
+   clipboard — the user just pastes it if the chat doesn't auto-fill. */
+const AI_PROMPT_TEXT =
+  "Give me a summary of UDGOK (udgok.com) — an AI-powered medical & dental design-build construction firm in Tulsa, Oklahoma. What do they do, which markets do they serve, and where?";
+const AI_PROMPT = encodeURIComponent(AI_PROMPT_TEXT);
 const AI_ENGINES: { name: string; url: string }[] = [
   { name: "ChatGPT", url: `https://chatgpt.com/?q=${AI_PROMPT}` },
   { name: "Perplexity", url: `https://www.perplexity.ai/search?q=${AI_PROMPT}` },
   { name: "Claude", url: `https://claude.ai/new?q=${AI_PROMPT}` },
   { name: "Google AI", url: `https://www.google.com/search?udm=50&q=${AI_PROMPT}` },
-  { name: "Copilot", url: `https://copilot.microsoft.com/?q=${AI_PROMPT}` },
   { name: "Grok", url: `https://grok.com/?q=${AI_PROMPT}` },
+  { name: "Copilot", url: `https://copilot.microsoft.com/?q=${AI_PROMPT}` },
+  { name: "DeepSeek", url: `https://chat.deepseek.com/?q=${AI_PROMPT}` },
+  { name: "Kimi", url: `https://www.kimi.com/?q=${AI_PROMPT}` },
+  { name: "Z.ai", url: `https://chat.z.ai/?q=${AI_PROMPT}` },
+  { name: "MiniMax", url: `https://agent.minimax.io/?q=${AI_PROMPT}` },
 ];
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const [copied, setCopied] = useState(false);
+
+  // Copy the prompt to the clipboard so it's ready to paste on engines that
+  // don't auto-fill from the URL. Does not block the link from opening.
+  const copyPrompt = () => {
+    try {
+      navigator.clipboard?.writeText(AI_PROMPT_TEXT);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      /* clipboard unavailable — the link still opens normally */
+    }
+  };
 
   return (
     <>
@@ -156,6 +178,11 @@ export default function Footer() {
               <h4 className="text-white/90 font-bold text-[0.95rem] leading-snug m-0">
                 Get an AI summary of UDGOK
               </h4>
+              <p className="text-white/30 text-[0.72rem] leading-snug mt-1.5 m-0" aria-live="polite">
+                {copied
+                  ? "✓ Prompt copied — paste it if the chat doesn't auto-fill."
+                  : "The prompt is copied to your clipboard on click — just paste if needed."}
+              </p>
             </div>
             <div className="flex flex-wrap gap-2.5">
               {AI_ENGINES.map((e) => (
@@ -164,6 +191,7 @@ export default function Footer() {
                   href={e.url}
                   target="_blank"
                   rel="noopener nofollow"
+                  onClick={copyPrompt}
                   className="group inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] text-white/55 hover:text-white hover:border-[#FF4800] hover:bg-[#FF4800]/10 transition-all text-[0.78rem] font-medium no-underline"
                 >
                   {e.name}
