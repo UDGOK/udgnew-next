@@ -51,10 +51,10 @@ export default function CalculatorUI() {
           <div>
             <label className="form-label" style={{ display: "block", marginBottom: "0.5rem", fontWeight: 700, fontSize: "0.85rem", textTransform: "uppercase" }}>Brick Size</label>
             <select className="form-select" value={brickSize} onChange={(e) => setBrickSize(e.target.value)}>
-              <option value="modular">Modular (3-5/8" x 2-1/4" x 7-5/8")</option>
-              <option value="standard">Standard (3-5/8" x 2-1/4" x 8")</option>
-              <option value="jumbo">Jumbo (3-5/8" x 2-3/4" x 8")</option>
-              <option value="utility">Utility (3-5/8" x 3-5/8" x 11-5/8")</option>
+              <option value="modular">Modular (3-5/8&quot; x 2-1/4&quot; x 7-5/8&quot;)</option>
+              <option value="standard">Standard (3-5/8&quot; x 2-1/4&quot; x 8&quot;)</option>
+              <option value="jumbo">Jumbo (3-5/8&quot; x 2-3/4&quot; x 8&quot;)</option>
+              <option value="utility">Utility (3-5/8&quot; x 3-5/8&quot; x 11-5/8&quot;)</option>
             </select>
           </div>
           <button type="submit" style={{ padding: "1.25rem", background: "#0B061B", color: "#fff", fontWeight: 700, textTransform: "uppercase", border: "none", cursor: "pointer" }}>Calculate Material</button>
@@ -70,7 +70,7 @@ export default function CalculatorUI() {
               <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "#FF4800", marginBottom: "0.5rem" }}>Mortar Bags (70 lb)</div>
               <div style={{ fontSize: "3rem", fontWeight: 900, lineHeight: 1 }}>{result.mortar}</div>
             </div>
-            <p style={{ gridColumn: "span 2", color: "#666", textAlign: "center", fontSize: "0.85rem" }}>Includes standard 3/8" mortar joints and 5% waste factor for bricks.</p>
+            <p style={{ gridColumn: "span 2", color: "#666", textAlign: "center", fontSize: "0.85rem" }}>Includes standard 3/8&quot; mortar joints and 5% waste factor for bricks.</p>
           </div>
         )}
       </section>

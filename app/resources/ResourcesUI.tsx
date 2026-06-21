@@ -151,7 +151,7 @@ export default function ResourcesUI() {
               Build <br /><span className="text-[#FF4800]">Intelligence</span>
             </h1>
             <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-medium leading-relaxed">
-              Proprietary market data, expert development guides, and algorithmic estimating tools from Oklahoma's premier design-build firm.
+              Proprietary market data, expert development guides, and algorithmic estimating tools from Oklahoma&apos;s premier design-build firm.
             </p>
           </motion.div>
         </div>

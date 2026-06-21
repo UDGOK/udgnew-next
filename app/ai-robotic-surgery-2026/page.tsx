@@ -95,7 +95,7 @@ export default function AIRoboticSurgeryPage() {
                     In the operating room, advanced imaging provides rapid 3-D reconstructions, while AI-driven algorithms offer real-time analytics and guidance to support intraoperative decision-making. Surgeons can overlay preoperative CT or MRI data directly onto the live surgical field, creating an augmented reality that highlights critical structures like blood vessels and nerves that must be preserved.
                 </p>
                 <blockquote>
-                    AI doesn't replace the surgeon's judgment — it amplifies it. Real-time tissue analysis, anomaly detection, and predictive modeling give the surgical team superhuman awareness during the most critical moments.
+                    AI doesn&apos;t replace the surgeon&apos;s judgment — it amplifies it. Real-time tissue analysis, anomaly detection, and predictive modeling give the surgical team superhuman awareness during the most critical moments.
                 </blockquote>
 
                 {/* ── Section 3: Autonomous Surgery ── */}
@@ -157,7 +157,7 @@ export default function AIRoboticSurgeryPage() {
                 </div>
 
                 <p>
-                    In 2025, the world's first intercontinental robotic cardiac telesurgery was successfully conducted remotely from France to an operating room in India. This landmark achievement proved that surgical expertise can be delivered anywhere on the planet where the infrastructure exists to support it.
+                    In 2025, the world&apos;s first intercontinental robotic cardiac telesurgery was successfully conducted remotely from France to an operating room in India. This landmark achievement proved that surgical expertise can be delivered anywhere on the planet where the infrastructure exists to support it.
                 </p>
                 <p>
                     Alongside telesurgery, remote tele-proctoring allows experienced surgeons to mentor those in underserved regions, bridging the specialist gap that affects billions of people worldwide. For trainees, AI-driven virtual reality (VR) simulation environments allow them to practice on lifelike cases, accelerating proficiency and reducing operative times before they ever enter a real clinical setting.
@@ -166,7 +166,7 @@ export default function AIRoboticSurgeryPage() {
                 {/* ── Section 5: Infrastructure ── */}
                 <h2 id="infrastructure">New Infrastructure and Governance Demands</h2>
                 <p>
-                    To support this high-tech transformation, healthcare facilities are being forced to radically update their infrastructure. The construction implications are massive — and this is exactly where UDGOK's expertise becomes critical.
+                    To support this high-tech transformation, healthcare facilities are being forced to radically update their infrastructure. The construction implications are massive — and this is exactly where UDGOK&apos;s expertise becomes critical.
                 </p>
                 <p>
                     <strong>Power systems:</strong> Surgical robots require highly reliable, medical-grade power systems (such as IEC 60601-1 compliant structures) to prevent catastrophic power failures during procedures. A robotic system failure mid-surgery is a life-threatening event. Facilities need:
@@ -182,7 +182,7 @@ export default function AIRoboticSurgeryPage() {
                     <strong>Network infrastructure:</strong> Telesurgery demands ultra-low-latency, high-bandwidth connectivity. Facilities supporting remote surgery need dedicated fiber pathways, redundant network connections, and cybersecurity frameworks that protect patient data during live surgical transmission.
                 </p>
                 <p>
-                    <strong>Regulatory frameworks:</strong> The rise of AI and remote surgery has sparked the need for entirely new regulatory frameworks to address ethical considerations, standard of care, and legal accountability when a patient's life is on the line. Healthcare facility builders must stay ahead of these evolving requirements.
+                    <strong>Regulatory frameworks:</strong> The rise of AI and remote surgery has sparked the need for entirely new regulatory frameworks to address ethical considerations, standard of care, and legal accountability when a patient&apos;s life is on the line. Healthcare facility builders must stay ahead of these evolving requirements.
                 </p>
                 <blockquote>
                     UDGOK designs and constructs the surgical environments that make this future possible — from IEC 60601-1 compliant power infrastructure to reinforced OR floors and dedicated robotic storage. Contact us to discuss your next-generation surgical facility.

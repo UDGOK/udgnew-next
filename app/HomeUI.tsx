@@ -17,12 +17,6 @@ const services = [
   { code: "06", title: "Retail Spaces", desc: "Complete construction including specialized equipment installation.", href: "/convenience-store-construction-tulsa", img: "/images/edyoung-3.jpg" },
 ];
 
-const process = [
-  { n: "01", t: "Discovery", d: "Deep analysis of program requirements and site conditions." },
-  { n: "02", t: "Design", d: "Collaborative engineering with accurate cost estimates." },
-  { n: "03", t: "Build", d: "Expert execution with weekly transparency updates." },
-  { n: "04", t: "Commissioning", d: "Complete system walk-throughs and final sign-offs." }
-];
 
 const homeFaqs = [
   { q: "How much does medical office construction cost in Tulsa?", a: "Medical office construction in Tulsa costs $150–$350 per square foot depending on specialty. A standard 3,000 sq ft primary care office runs $450,000–$750,000. Specialty practices with surgical suites or medical gas systems cost more. UDGOK provides free preconstruction budgets." },

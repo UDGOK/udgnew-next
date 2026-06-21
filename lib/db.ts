@@ -225,14 +225,3 @@ export function getConstructionDocs(): ConstructionDoc[] {
   return [];
 }
 
-export function getUsers(): User[] {
-  try {
-    const f = path.join(SEED_DIR, "users.json");
-    if (fs.existsSync(f)) return JSON.parse(fs.readFileSync(f, "utf-8"));
-  } catch { /* empty */ }
-  return [];
-}
-
-export function getUserByEmail(email: string): User | undefined {
-  return getUsers().find(u => u.email.toLowerCase() === email.toLowerCase());
-}

@@ -63,6 +63,7 @@ export default function Navigation() {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMobileOpen(false);
     setActiveMenu(null);
     setHoveredItem(null);

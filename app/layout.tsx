@@ -72,9 +72,14 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <ClerkProvider>
-      <html lang="en">
+  // Only mount ClerkProvider when a publishable key is configured. In production
+  // Clerk throws "Missing publishableKey" without it, which would crash every
+  // page since this provider wraps the whole site. The /portal routes still
+  // require the key to be set in the environment to function.
+  const hasClerk = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
+  const tree = (
+    <html lang="en">
         <head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -173,6 +178,7 @@ export default function RootLayout({
           <ScrollUI />
         </body>
       </html>
-    </ClerkProvider>
   );
+
+  return hasClerk ? <ClerkProvider>{tree}</ClerkProvider> : tree;
 }

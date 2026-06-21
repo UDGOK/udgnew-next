@@ -27,9 +27,6 @@ interface VideoShowcaseProps {
  */
 export default function VideoShowcase({
   src,
-  label = "Video Tour",
-  headingStart = "Walk Through Our",
-  headingAccent = "Work",
   hideWatermark = true,
   aspectClass = "aspect-video",
 }: VideoShowcaseProps) {

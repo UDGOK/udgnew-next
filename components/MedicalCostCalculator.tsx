@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import { motion } from "framer-motion";
 import EstimateModal from "@/components/EstimateModal";
 
 type PracticeType = "dental" | "medical" | "asc";
@@ -46,7 +45,10 @@ export default function MedicalCostCalculator({ defaultType = "dental" }: { defa
   const [isClient, setIsClient] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => setIsClient(true), []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsClient(true);
+  }, []);
 
   const calculations = useMemo(() => {
     const d = DATA[type];

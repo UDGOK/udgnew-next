@@ -134,7 +134,7 @@ export default function DentalConstructionCosts() {
         <h3>3. Radiation Shielding</h3>
         <p>X-ray rooms require lead-lined walls and doors:</p>
         <ul>
-          <li>Lead-lined drywall (1/16" to 1/8"): $8,000-20,000</li>
+          <li>Lead-lined drywall (1/16&quot; to 1/8&quot;): $8,000-20,000</li>
           <li>Lead glass windows: $3,000-8,000</li>
           <li>Physics consultation and plans: $2,000-5,000</li>
           <li>State certification: $1,000-3,000</li>

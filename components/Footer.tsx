@@ -2,19 +2,6 @@
 import Link from "next/link";
 import Script from "next/script";
 
-const LI = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <li>
-    <Link
-      href={href}
-      style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontSize: "0.9rem", lineHeight: "2" }}
-      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#FF4800"; }}
-      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.6)"; }}
-    >
-      {children}
-    </Link>
-  </li>
-);
-
 const FLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <li>
     <Link href={href} className="block text-white/45 hover:text-[#FF4800] transition-colors text-[0.8rem] leading-[2.1] no-underline">

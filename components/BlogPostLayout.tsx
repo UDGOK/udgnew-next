@@ -46,8 +46,6 @@ export default function BlogPostLayout({
   faqs,
   authorName,
   authorTitle,
-  datePublished,
-  dateModified,
   children
 }: BlogPostLayoutProps) {
   const containerRef = useRef<HTMLDivElement>(null);

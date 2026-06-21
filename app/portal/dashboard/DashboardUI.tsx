@@ -89,7 +89,10 @@ export default function DashboardUI({ user }: { user: UserInfo }) {
     setLoading(false);
   }, []);
 
-  useEffect(() => { fetchProjects(); }, [fetchProjects]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchProjects();
+  }, [fetchProjects]);
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this project? This cannot be undone.")) return;
@@ -707,7 +710,10 @@ function ConstructionDocsSection({ user, isAdmin, projects }: { user: UserInfo; 
     setLoading(false);
   }, []);
 
-  useEffect(() => { fetchDocs(); }, [fetchDocs]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchDocs();
+  }, [fetchDocs]);
 
   const handleUpload = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -937,6 +943,7 @@ function DocumentPreviewModal({ doc, onClose }: { doc: { url: string; name: stri
             title={doc.name}
           />
         ) : isImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={doc.url}
             alt={doc.name}

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect } from "react";
 import MarqueeBanner from "@/components/MarqueeBanner";
 import AnimateIn from "@/components/AnimateIn";
 import CountUp from "@/components/CountUp";
@@ -523,7 +523,7 @@ export default function ServicePage({
           <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10 text-center">
             <AnimateIn>
               <div className="text-[clamp(6rem,12vw,15rem)] font-black text-[#FF4800] leading-none opacity-20 absolute -top-8 md:-top-16 left-1/2 -translate-x-1/2 pointer-events-none select-none">
-                "
+                &quot;
               </div>
               <p className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-10 leading-[1.3] max-w-4xl mx-auto relative z-10 drop-shadow-xl">
                 {testimonial.quote}

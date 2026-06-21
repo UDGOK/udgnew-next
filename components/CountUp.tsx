@@ -20,6 +20,7 @@ export default function CountUp({ value, duration = 1.8 }: { value: string; dura
     if (!isInView || started.current) return;
     started.current = true;
     const { prefix, num, suffix } = parse(value);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (num === 0) { setDisplay(value); return; }
 
     let start: number | null = null;

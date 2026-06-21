@@ -209,7 +209,7 @@ export default function AboutUI() {
             Ready to <span className="text-[#FF4800]">Build</span>?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-            Whether you're opening your first practice or expanding an established one, UDGOK brings the expertise and integrity your project deserves.
+            Whether you&apos;re opening your first practice or expanding an established one, UDGOK brings the expertise and integrity your project deserves.
           </p>
           <Link href="/contact" className="inline-flex items-center justify-center px-10 py-5 bg-[#0B061B] text-white font-bold text-sm tracking-[0.2em] uppercase hover:bg-[#FF4800] transition-colors rounded-full shadow-2xl hover:shadow-[#FF4800]/50">
             Start Your Project

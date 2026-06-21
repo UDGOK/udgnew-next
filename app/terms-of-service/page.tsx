@@ -1,4 +1,4 @@
-import { FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

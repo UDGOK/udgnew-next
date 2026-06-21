@@ -1,4 +1,3 @@
-import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import DashboardUI from "./DashboardUI";

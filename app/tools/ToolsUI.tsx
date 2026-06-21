@@ -62,7 +62,7 @@ function ConcreteCalc() {
         <div><label style={labelStyle}>Length (ft)</label><input type="number" required min="1" step="0.1" style={inputStyle} value={l} onChange={e => setL(e.target.value)} /></div>
         <div><label style={labelStyle}>Width (ft)</label><input type="number" required min="1" step="0.1" style={inputStyle} value={w} onChange={e => setW(e.target.value)} /></div>
       </div>
-      <div><label style={labelStyle}>Thickness (in)</label><select style={inputStyle} value={t} onChange={e => setT(e.target.value)}><option value="4">4" (Standard)</option><option value="5">5"</option><option value="6">6" (Heavy)</option><option value="8">8"</option><option value="12">12"</option></select></div>
+      <div><label style={labelStyle}>Thickness (in)</label><select style={inputStyle} value={t} onChange={e => setT(e.target.value)}><option value="4">4&quot; (Standard)</option><option value="5">5&quot;</option><option value="6">6&quot; (Heavy)</option><option value="8">8&quot;</option><option value="12">12&quot;</option></select></div>
       <button type="submit" style={btnStyle}>Calculate</button>
       {r !== null && <div style={resultBoxStyle}><div style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: "0.5rem" }}>Estimated Volume</div><div style={bigNum}>{r} <span style={smallUnit}>cu. yd.</span></div><p style={note}>Includes 5% waste factor.</p></div>}
     </form>
@@ -101,7 +101,7 @@ function BrickCalc() {
       </div>
       <div><label style={labelStyle}>Brick Size</label><select style={inputStyle} value={bs} onChange={e => setBs(e.target.value)}><option value="modular">Modular (3⅝×2¼×7⅝)</option><option value="standard">Standard (3⅝×2¼×8)</option><option value="jumbo">Jumbo</option><option value="utility">Utility</option></select></div>
       <button type="submit" style={btnStyle}>Calculate</button>
-      {r && <div style={{ ...resultBoxStyle, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>{[{ label: "Bricks", val: r.bricks }, { label: "Mortar Bags (70lb)", val: r.mortar }].map((x, i) => (<div key={i}><div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: "0.3rem" }}>{x.label}</div><div style={{ ...bigNum, fontSize: "2rem" }}>{x.val}</div></div>))}<p style={{ ...note, gridColumn: "span 2" }}>Includes 5% waste with ⅜" mortar joints.</p></div>}
+      {r && <div style={{ ...resultBoxStyle, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>{[{ label: "Bricks", val: r.bricks }, { label: "Mortar Bags (70lb)", val: r.mortar }].map((x, i) => (<div key={i}><div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: "0.3rem" }}>{x.label}</div><div style={{ ...bigNum, fontSize: "2rem" }}>{x.val}</div></div>))}<p style={{ ...note, gridColumn: "span 2" }}>Includes 5% waste with ⅜&quot; mortar joints.</p></div>}
     </form>
   );
 }
