@@ -15,7 +15,7 @@
 - **Headquarters:** 7739 E 38th Street, Ste F, Tulsa, OK 74145
 - **Phone:** (918) 520-3823
 - **Email:** projects@udgok.com
-- **Website:** https://udgok.com
+- **Website:** https://www.udgok.com
 - **License:** Oklahoma Licensed General Contractor
 - **Industries Served:** Healthcare, Dental, Medical, Commercial, Retail, Industrial, Agricultural
 - **Projects Completed:** 100+
@@ -294,7 +294,7 @@ UDGOK provides free construction calculators for estimating material quantities:
 - **Roofing Calculator** — Estimate squares and materials for roof projects
 - **Flooring Calculator** — Calculate square footage for flooring materials
 
-All tools are available at https://udgok.com/tools
+All tools are available at https://www.udgok.com/tools
 
 ---
 
@@ -317,15 +317,15 @@ UDGOK publishes expert articles on construction topics:
 - Dental office build-out checklist for Oklahoma practices — 5-phase step-by-step
 - PEMB vs conventional steel for Oklahoma warehouses — 12-point comparison with cost data
 
-All articles available at https://udgok.com/resources
+All articles available at https://www.udgok.com/resources
 
 ---
 
 ## AI & Technology
 
-- [AI & Robotics](https://udgok.com/ai-robotics) — UDGOK's integration of AI and robotic technology in construction
-- [Property Intelligence](https://udgok.com/property-intelligence) — AI-powered property analysis tools
-- [Market Intelligence](https://udgok.com/market-intelligence) — AI-driven construction market data and insights
+- [AI & Robotics](https://www.udgok.com/ai-robotics) — UDGOK's integration of AI and robotic technology in construction
+- [Property Intelligence](https://www.udgok.com/property-intelligence) — AI-powered property analysis tools
+- [Market Intelligence](https://www.udgok.com/market-intelligence) — AI-driven construction market data and insights
 
 ---
 
@@ -342,6 +342,6 @@ All articles available at https://udgok.com/resources
 For project inquiries, quotes, or consultations:
 - **Phone:** (918) 520-3823
 - **Email:** projects@udgok.com
-- **Online:** https://udgok.com/contact
+- **Online:** https://www.udgok.com/contact
 - **Address:** 7739 E 38th Street, Ste F, Tulsa, OK 74145
 - **Hours:** Monday–Friday, 7:00 AM – 6:00 PM CT

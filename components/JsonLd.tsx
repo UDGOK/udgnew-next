@@ -1,24 +1,18 @@
-/* ─── Shared org reference ─── */
-const ORG = {
-  "@type": "Organization",
-  name: "Upscale Development Group",
-  alternateName: "UDGOK",
-  url: "https://www.udgok.com",
-  logo: "https://www.udgok.com/images/logo.png",
-};
+import { ID, NAP, areaServedNodes } from "@/lib/schema";
 
-const AREA_SERVED = [
-  { "@type": "City", name: "Tulsa", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-  { "@type": "City", name: "Broken Arrow", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-  { "@type": "City", name: "Bixby", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-  { "@type": "City", name: "Jenks", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-  { "@type": "City", name: "Owasso", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-  { "@type": "City", name: "Sapulpa", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-  { "@type": "City", name: "Haskell", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-  { "@type": "City", name: "Sand Springs", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-  { "@type": "City", name: "Oklahoma City", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-  { "@type": "City", name: "Dallas", containedInPlace: { "@type": "State", name: "Texas" } },
-];
+/**
+ * Per-page JSON-LD helpers.
+ *
+ * The Organization / LocalBusiness identity is emitted ONCE from app/layout.tsx
+ * via lib/schema.ts. Nodes here must REFERENCE that entity by @id rather than
+ * restating its facts — restating them is how `name`, `logo`, address and
+ * opening hours drifted apart across three files in the first place.
+ */
+
+/* ─── Shared org reference — an @id pointer, not a copy ─── */
+const ORG_REF = { "@id": ID.organization };
+
+const AREA_SERVED = areaServedNodes;
 
 /* ─── BreadcrumbList ─── */
 export function BreadcrumbJsonLd({ items }: { items: { name: string; url: string }[] }) {
@@ -53,7 +47,7 @@ export function ServiceJsonLd({
     description,
     url,
     ...(image && { image }),
-    provider: ORG,
+    provider: ORG_REF,
     areaServed: AREA_SERVED,
     serviceType: "Design-Build Construction",
     category: "Construction",
@@ -141,10 +135,7 @@ export function ArticleJsonLd({
       jobTitle: authorTitle || "Lead Estimator / Project Manager",
       url: "https://www.udgok.com/about",
     },
-    publisher: {
-      ...ORG,
-      logo: { "@type": "ImageObject", url: "https://www.udgok.com/images/logo.png" },
-    },
+    publisher: ORG_REF,
   };
   return (
     <script
@@ -154,9 +145,20 @@ export function ArticleJsonLd({
   );
 }
 
-/* ─── LocalBusiness (for Tulsa service pages) ─── */
+/* ─── LocalBusiness (service / location pages) ─── */
+/**
+ * Emits the canonical LocalBusiness node BY REFERENCE, adding only the
+ * page-specific bits. It deliberately does NOT restate address, phone, geo,
+ * hours, priceRange or sameAs — those live in lib/schema.ts and are emitted once
+ * from the root layout.
+ *
+ * Before this change each of these props was duplicated here and DISAGREED with
+ * the layout: geo 36.1054/-95.8838 vs 36.0998/-95.8830, priceRange "$$$$" vs
+ * "$$$", telephone "+19185203823" vs "+1-918-520-3823", closing time 18:00 vs
+ * 17:00, plus a sameAs pointing at a LinkedIn URL that 404s. Contradictory
+ * markup gets discounted or ignored outright, so consistency is the whole point.
+ */
 export function LocalBusinessJsonLd({
-  name = "Upscale Development Group",
   description,
   url,
   specialization,
@@ -169,52 +171,13 @@ export function LocalBusinessJsonLd({
   const schema = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "GeneralContractor"],
-    name,
-    alternateName: "UDGOK",
+    "@id": ID.localBusiness,
+    name: NAP.name,
     description,
     url,
-    telephone: "+19185203823",
-    email: "projects@udgok.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "7739 E 38th Street, Ste F",
-      addressLocality: "Tulsa",
-      addressRegion: "OK",
-      postalCode: "74145",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 36.1054,
-      longitude: -95.8838,
-    },
-    areaServed: [
-      { "@type": "City", name: "Tulsa", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-      { "@type": "City", name: "Broken Arrow", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-      { "@type": "City", name: "Bixby", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-      { "@type": "City", name: "Jenks", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-      { "@type": "City", name: "Owasso", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-      { "@type": "City", name: "Sand Springs", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-      { "@type": "City", name: "Sapulpa", containedInPlace: { "@type": "State", name: "Oklahoma" } },
-    ],
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "07:00",
-      closes: "18:00",
-    },
     ...(specialization && {
-      knowsAbout: specialization.split(",").map((s) => s.trim()),
+      knowsAbout: specialization.split(",").map((v) => v.trim()),
     }),
-    sameAs: [
-      "https://www.facebook.com/udgok",
-      "https://www.linkedin.com/company/udgok",
-    ],
-    logo: "https://www.udgok.com/images/logo.png",
-    image: "https://www.udgok.com/images/logo.png",
-    priceRange: "$$$$",
-    foundingDate: "2015",
-    numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 50 },
   };
   return (
     <script
@@ -224,60 +187,48 @@ export function LocalBusinessJsonLd({
   );
 }
 
-/* ─── MedicalBusiness (for Healthcare pages) ─── */
-export function MedicalBusinessJsonLd({
-  name = "Upscale Development Group",
+/* ─── Healthcare-facility construction service ─── */
+/**
+ * Replaces the old MedicalBusinessJsonLd.
+ *
+ * That helper typed UDGOK as `MedicalBusiness` / `Dentist` / `Hospital`. UDGOK
+ * is none of those — it is a general contractor that BUILDS them. Asserting
+ * "@type": "Dentist" tells every consumer that this business practices
+ * dentistry, which is both false and actively harmful to entity resolution:
+ * it invites Google to classify the company in the wrong vertical entirely.
+ *
+ * The correct modelling is a Service whose `provider` is the contractor and
+ * whose `audience` is the healthcare practice.
+ */
+export function HealthcareConstructionJsonLd({
+  name = "Healthcare Facility Construction",
   description,
   url,
   specialization,
-  medicalType = "MedicalBusiness",
+  audienceType = "Healthcare practice",
 }: {
   name?: string;
   description: string;
   url: string;
   specialization?: string;
+  /** kept for call-site compatibility; no longer used as an @type */
   medicalType?: "MedicalBusiness" | "Dentist" | "Hospital";
+  audienceType?: string;
 }) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": [medicalType, "GeneralContractor"],
+    "@type": "Service",
     name,
-    alternateName: "UDGOK",
     description,
     url,
-    telephone: "+19185203823",
-    email: "projects@udgok.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "7739 E 38th Street, Ste F",
-      addressLocality: "Tulsa",
-      addressRegion: "OK",
-      postalCode: "74145",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 36.1054,
-      longitude: -95.8838,
-    },
+    serviceType: "Healthcare facility design-build construction",
+    category: "Construction",
+    provider: ORG_REF,
     areaServed: AREA_SERVED,
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "07:00",
-      closes: "18:00",
-    },
+    audience: { "@type": "BusinessAudience", audienceType },
     ...(specialization && {
-      knowsAbout: specialization.split(",").map((s) => s.trim()),
+      keywords: specialization.split(",").map((v) => v.trim()).join(", "),
     }),
-    sameAs: [
-      "https://www.facebook.com/udgok",
-      "https://www.linkedin.com/company/udgok",
-    ],
-    logo: "https://www.udgok.com/images/logo.png",
-    image: "https://www.udgok.com/images/logo.png",
-    priceRange: "$$$$",
-    foundingDate: "2015",
   };
   return (
     <script
@@ -286,3 +237,9 @@ export function MedicalBusinessJsonLd({
     />
   );
 }
+
+/**
+ * @deprecated Use HealthcareConstructionJsonLd. Kept as an alias so existing
+ * call sites keep working; it no longer emits a MedicalBusiness type.
+ */
+export const MedicalBusinessJsonLd = HealthcareConstructionJsonLd;
