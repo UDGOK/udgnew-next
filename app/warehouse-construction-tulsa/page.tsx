@@ -3,9 +3,9 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Warehouse Construction Tulsa OK | Distribution Centers & PEMB",
-    description: "Tulsa warehouse construction company. Clear-span warehouses from 10,000 to 200,000+ SF — pre-engineered metal, dock-high loading, ESFR sprinklers, heavy-duty slabs. UDGOK delivers turnkey warehouse projects at $25–$90/sf.",
-    openGraph: { title: "Warehouse Construction Tulsa OK | UDGOK", description: "Clear-span warehouses and distribution centers from 10,000 to 200,000+ SF in Tulsa, Oklahoma.", url: "https://www.udgok.com/warehouse-construction-tulsa" },
+    title: "Warehouse Construction Tulsa OK | Distribution",
+    description: "Tulsa warehouse construction company. Clear-span warehouses from 10,000 to 200,000+ SF — pre-engineered metal, dock-high loading, ESFR sprinklers.",
+    openGraph: { images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }], title: "Warehouse Construction Tulsa OK | UDGOK", description: "Clear-span warehouses and distribution centers from 10,000 to 200,000+ SF in Tulsa, Oklahoma.", url: "https://www.udgok.com/warehouse-construction-tulsa" },
     alternates: { canonical: "https://www.udgok.com/warehouse-construction-tulsa" },
 };
 

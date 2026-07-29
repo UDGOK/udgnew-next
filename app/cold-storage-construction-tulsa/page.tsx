@@ -3,9 +3,9 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Cold Storage Construction Tulsa OK | Food Processing Facilities",
-    description: "Cold storage and food processing construction in Tulsa, Oklahoma. Temperature-controlled facilities, insulated metal panels, USDA/FDA compliant. Walk-in coolers, freezers, blast chillers. $120–$250/sf.",
-    openGraph: { title: "Cold Storage Construction Tulsa OK | UDGOK", description: "Temperature-controlled facilities, USDA/FDA compliant, $120–$250/sf.", url: "https://www.udgok.com/cold-storage-construction-tulsa" },
+    title: "Cold Storage Construction Tulsa OK",
+    description: "Cold storage and food processing construction in Tulsa, Oklahoma. Temperature-controlled facilities, insulated metal panels, USDA/FDA compliant.",
+    openGraph: { images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }], title: "Cold Storage Construction Tulsa OK | UDGOK", description: "Temperature-controlled facilities, USDA/FDA compliant, $120–$250/sf.", url: "https://www.udgok.com/cold-storage-construction-tulsa" },
     alternates: { canonical: "https://www.udgok.com/cold-storage-construction-tulsa" },
 };
 

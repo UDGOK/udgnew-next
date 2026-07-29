@@ -4,8 +4,9 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "General Contractor Tulsa OK | Design-Build",
-  description: "Tulsa's best general contractor. UDGOK delivers integrated design-build for medical, dental, commercial, and retail construction across Tulsa, Oklahoma. 100+ projects delivered.",
+  description: "Tulsa's best general contractor. UDGOK delivers integrated design-build for medical, dental, commercial, and retail construction across Tulsa, Oklahoma.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Design-Build Contractor Tulsa OK",
     description: "Tulsa's integrated design-build contractor for medical, dental, and commercial construction. 100+ projects delivered.",
     url: "https://www.udgok.com/tulsa-ok-design-build",

@@ -5,8 +5,9 @@ import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd"
 export const metadata: Metadata = {
   title: "Permitting & Code Compliance Tulsa Oklahoma",
   description:
-    "Expert construction permitting and code compliance services in Tulsa, Broken Arrow, Jenks, and Owasso. We navigate IBC 2018, ADA, NFPA, and local zoning so you can build faster with zero delays.",
+    "Expert construction permitting and code compliance services in Tulsa, Broken Arrow, Jenks, and Owasso.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Permitting & Code Compliance Tulsa",
     description:
       "We cut through the red tape. Expert navigation of building codes and municipal processes in Tulsa and surrounding areas.",

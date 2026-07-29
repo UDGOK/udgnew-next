@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Office Construction Bixby OK | Commercial Office Build-Outs",
-    description: "Office construction contractor in Bixby, Oklahoma. UDGOK builds professional office spaces, medical offices, coworking facilities, and commercial office build-outs in Bixby.",
+    title: "Office Construction Bixby OK",
+    description: "Office construction contractor in Bixby, Oklahoma. UDGOK builds professional office spaces, medical offices, coworking facilities.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Office Construction Bixby OK | UDGOK",
         description: "Professional office spaces, medical offices, and commercial office build-outs in Bixby, Oklahoma.",
         url: "https://www.udgok.com/office-construction-bixby",

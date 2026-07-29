@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero";
 export const metadata = {
   title: "HTML Sitemap",
   description: "Navigate all pages on the UDGOK website. Find medical, dental, and commercial construction services, locations, tools, and insights.",
+  alternates: { canonical: "https://www.udgok.com/sitemap-page" },
 };
 
 const sitemapData = [

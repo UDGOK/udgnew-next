@@ -4,8 +4,9 @@ import TransparencyUI from "./TransparencyUI";
 
 export const metadata: Metadata = {
     title: "AI Transparency | Responsible AI Use in Construction",
-    description: "How UDGOK uses artificial intelligence in construction — full disclosure of AI tools, data protection, human oversight, and our commitment to responsible AI. NIST AI RMF 1.0 aligned.",
+    description: "How UDGOK uses artificial intelligence in construction — full disclosure of AI tools, data protection, human oversight.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "AI Transparency | Responsible AI in Construction | UDGOK",
         description: "Full disclosure of how UDGOK uses AI in construction — tools, data protection, human oversight, and accountability.",
         url: "https://www.udgok.com/transparency",

@@ -3,9 +3,10 @@ import TulsaConstructionCostsUI from "./TulsaConstructionCostsUI";
 import { ServiceJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Tulsa Construction Costs 2026 | Cost Per Square Foot by Building Type",
-    description: "Real construction cost data for Tulsa, Oklahoma (2026). Cost per square foot for medical, dental, commercial, industrial, retail, restaurant, and warehouse construction. Interactive estimator tool. Based on 100+ completed projects.",
+    title: "Tulsa Construction Costs 2026 | Cost Per Sq Ft",
+    description: "Real construction cost data for Tulsa, Oklahoma (2026). Cost per square foot for medical, dental, commercial, industrial, retail, restaurant.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Tulsa Construction Cost Index 2026 | Free Estimator",
         description: "Real construction costs by building type in Tulsa, OK. Interactive estimator, historical trends, and cost drivers. Based on 100+ completed projects.",
         url: "https://www.udgok.com/tulsa-construction-costs",

@@ -4,8 +4,9 @@ import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd"
 
 export const metadata: Metadata = {
   title: "Shopping Center Construction Tulsa Oklahoma",
-  description: "Shopping center and strip mall construction in Tulsa and Oklahoma. UDGOK builds multi-tenant retail centers, anchored strip plazas, and mixed-use developments. 500K+ SF delivered.",
+  description: "Shopping center and strip mall construction in Tulsa and Oklahoma. UDGOK builds multi-tenant retail centers, anchored strip plazas.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Shopping Center Construction Tulsa OK | 500K+ SF",
     description: "Multi-tenant retail centers, strip plazas, and mixed-use developments built for developer returns.",
     url: "https://www.udgok.com/shopping-center-construction-tulsa",

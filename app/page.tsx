@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import HomeUI from "./HomeUI";
 
 export const metadata: Metadata = {
-  title: "Medical & Dental Design-Build Contractor | Tulsa & Oklahoma City",
+  title: "Medical & Dental Design-Build Contractor | Tulsa OK",
   description:
     "Tulsa's premier medical & dental design-build contractor. 100+ healthcare projects delivered 30–40% faster. Serving Oklahoma & North Texas since 2015.",
   alternates: { canonical: "https://www.udgok.com" },

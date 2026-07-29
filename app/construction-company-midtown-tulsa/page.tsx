@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Construction Company Midtown Tulsa OK | Cherry Street & Brookside",
-    description: "Midtown Tulsa construction company. UDGOK builds boutique retail, medical offices, restaurants, and office renovations along Cherry Street, Brookside, and the Midtown corridor. 20+ projects delivered.",
+    title: "Construction Company Midtown Tulsa OK",
+    description: "Midtown Tulsa construction company. UDGOK builds boutique retail, medical offices, restaurants, and office renovations along Cherry Street, Brookside.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Construction Company Midtown Tulsa | Cherry Street & Brookside | UDGOK",
         description: "Boutique retail, medical, restaurant, and office construction in Tulsa's Midtown, Cherry Street, and Brookside districts.",
         url: "https://www.udgok.com/construction-company-midtown-tulsa",

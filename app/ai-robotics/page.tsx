@@ -4,8 +4,9 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "AI & Robotics in Construction",
-  description: "UDGOK leverages AI, robotics, and advanced technology to deliver faster, smarter, and more precise construction for medical and commercial projects across Oklahoma and Texas.",
+  description: "UDGOK leverages AI, robotics, and advanced technology to deliver faster, smarter, and more precise construction for medical and commercial projects across.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "AI & Robotics in Construction",
     description: "AI-powered estimating, robotic layout, drone photogrammetry, and generative design for construction projects.",
     url: "https://www.udgok.com/ai-robotics",

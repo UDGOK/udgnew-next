@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms of Service for Upscale Development Group (UDGOK). Governs use of our website, bid portal, construction calculators, and outlines project engagement terms, liability limitations, and dispute resolution.",
+    "Terms of Service for Upscale Development Group (UDGOK). Governs use of our website, bid portal, construction calculators.",
   alternates: { canonical: "https://www.udgok.com/terms-of-service" },
 };
 

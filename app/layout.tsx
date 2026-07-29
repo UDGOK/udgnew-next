@@ -45,9 +45,13 @@ export const metadata: Metadata = {
       "Tulsa's trusted Design-Build partner for medical offices, dental clinics, and commercial construction. Serving Oklahoma and North Texas.",
     images: ["https://www.udgok.com/images/og-default.png"],
   },
-  alternates: {
-    canonical: "https://www.udgok.com",
-  },
+  // NOTE: no `alternates.canonical` here, deliberately.
+  //
+  // A canonical declared in the root layout is INHERITED by every child page
+  // that does not declare its own — which is why /portal and /sitemap-page both
+  // emitted <link rel="canonical" href="https://www.udgok.com">, telling Google
+  // they were duplicates of the homepage. Canonicals are per-page by
+  // definition; app/page.tsx sets the homepage's own.
   robots: {
     index: true,
     follow: true,

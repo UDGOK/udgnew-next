@@ -5,9 +5,10 @@ import { ArticleJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd"
 export const metadata: Metadata = {
   title: "Digital Twin Technology in Construction: 2026 Guide",
   description:
-    "A complete guide to how Digital Twin Technology, BIM, IoT, and AI are transforming construction, healthcare, energy, and smart cities in Texas, Oklahoma, and California.",
+    "A complete guide to how Digital Twin Technology, BIM, IoT, and AI are transforming construction, healthcare, energy, and smart cities in Texas, Oklahoma.",
   alternates: { canonical: "https://www.udgok.com/digital-twin-technology" },
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "The 2026 Guide to Digital Twin Technology",
     description: "How AI, IoT, and 3D virtual replicas are transforming commercial construction, energy, and smart cities.",
     type: "article",

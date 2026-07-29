@@ -4,8 +4,9 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "Builder & Contractor Jenks OK | Design-Build",
-  description: "Jenks builder and construction contractor. UDGOK serves Jenks, Oklahoma with medical, dental, and commercial design-build, tenant improvements, and ground-up construction.",
+  description: "Jenks builder and construction contractor. UDGOK serves Jenks, Oklahoma with medical, dental, and commercial design-build, tenant improvements.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Design-Build Contractor Jenks OK",
     description: "Medical, dental, and commercial construction serving Jenks and the South Tulsa corridor.",
     url: "https://www.udgok.com/jenks-ok-design-build",

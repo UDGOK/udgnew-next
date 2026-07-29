@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import DentalChecklistUI from "./DentalChecklistUI";
 
 export const metadata: Metadata = {
-  title: "Dental Office Build-Out Checklist for Oklahoma (2026)",
-  description: "Step-by-step dental office build-out checklist from pre-design to move-in. Cost per operatory, equipment rough-in specs, and regulatory requirements for Oklahoma.",
+  title: "Dental Office Build-Out Checklist Oklahoma 2026",
+  description: "Step-by-step dental office build-out checklist from pre-design to move-in. Cost per operatory, equipment rough-in specs.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Dental Office Build-Out Checklist — Oklahoma 2026",
     description: "80+ dental offices built. The complete build-out checklist for Oklahoma dental practices.",
     url: "https://www.udgok.com/guide-dental-buildout-checklist-oklahoma",

@@ -4,8 +4,9 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "Subcontractor Portal | Bid Opportunities",
-  description: "UDGOK subcontractor prequalification and bid opportunities. Join our network of trusted trade partners for medical, dental, and commercial construction projects in Oklahoma and Texas.",
+  description: "UDGOK subcontractor prequalification and bid opportunities. Join our network of trusted trade partners for medical, dental.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Subcontractor Portal | UDGOK Construction",
     description: "Join UDGOK's trade partner network. Net 30 pay, 200+ projects, and a fair bid process.",
     url: "https://www.udgok.com/subcontractors",

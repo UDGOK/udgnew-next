@@ -7,6 +7,9 @@ import Image from "next/image";
 export const metadata = {
   title: "Subcontractor Bid Portal",
   description: "Access the UDGOK Subcontractor Bid Portal to view active projects, download construction documents, and submit competitive bids.",
+  alternates: { canonical: "https://www.udgok.com/portal" },
+  // Auth-gated funnel page: keep it out of the index, but let link equity flow.
+  robots: { index: false, follow: true },
 };
 
 const FEATURES = [

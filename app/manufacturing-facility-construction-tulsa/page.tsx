@@ -3,9 +3,9 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Manufacturing Facility Construction Tulsa OK | Crane Systems & Heavy Industrial",
-    description: "Manufacturing facility construction in Tulsa, Oklahoma. Overhead crane systems up to 50 tons, reinforced foundations, high bay clear heights 30–60 ft, 3-phase power infrastructure. $90–$200/sf.",
-    openGraph: { title: "Manufacturing Facility Construction Tulsa OK | UDGOK", description: "Heavy industrial — crane systems, reinforced foundations, high bay clear heights. $90–$200/sf.", url: "https://www.udgok.com/manufacturing-facility-construction-tulsa" },
+    title: "Manufacturing Facility Construction Tulsa OK",
+    description: "Manufacturing facility construction in Tulsa, Oklahoma. Overhead crane systems up to 50 tons, reinforced foundations, high bay clear heights 30–60 ft.",
+    openGraph: { images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }], title: "Manufacturing Facility Construction Tulsa OK | UDGOK", description: "Heavy industrial — crane systems, reinforced foundations, high bay clear heights. $90–$200/sf.", url: "https://www.udgok.com/manufacturing-facility-construction-tulsa" },
     alternates: { canonical: "https://www.udgok.com/manufacturing-facility-construction-tulsa" },
 };
 

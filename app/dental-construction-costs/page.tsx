@@ -4,7 +4,7 @@ import MarqueeBanner from "@/components/MarqueeBanner";
 import { LocalBusinessJsonLd, ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Complete Guide to Dental Office Construction Costs in Oklahoma",
+  title: "Dental Office Construction Costs Oklahoma 2026",
   description: "Comprehensive breakdown of per-square-foot costs, equipment requirements, and budget factors for dental builds in Tulsa and surrounding areas.",
   alternates: { canonical: "https://www.udgok.com/dental-construction-costs" },
 };

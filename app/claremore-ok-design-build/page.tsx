@@ -5,7 +5,7 @@ import { LocalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/J
 export const metadata: Metadata = {
   title: "Commercial Construction & Design-Build Claremore OK",
   description:
-    "Claremore's premier commercial design-build contractor. Specializing in medical clinics, retail centers, and industrial facilities in Rogers County. View our Oklahoma portfolio.",
+    "Claremore's premier commercial design-build contractor. Specializing in medical clinics, retail centers, and industrial facilities in Rogers County.",
   openGraph: {
     title: "Commercial Construction & Design-Build | Claremore OK",
     description: "Premium commercial construction and design-build services in Claremore, Oklahoma. Medical, retail, and industrial facilities.",

@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Construction Company North Tulsa OK | Commercial & Community",
-    description: "North Tulsa construction company. UDGOK builds commercial, medical, retail, and community facilities across North Tulsa. Design-build with GMP pricing. Free estimates within 48 hours.",
+    title: "Construction Company North Tulsa OK",
+    description: "North Tulsa construction company. UDGOK builds commercial, medical, retail, and community facilities across North Tulsa. Design-build with GMP pricing.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Construction Company North Tulsa | UDGOK",
         description: "Commercial, medical, retail, and community construction across North Tulsa.",
         url: "https://www.udgok.com/construction-company-north-tulsa",

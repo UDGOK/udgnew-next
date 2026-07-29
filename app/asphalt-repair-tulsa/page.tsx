@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Asphalt Repair Contractors Tulsa OK | Paving & Sealcoating",
-    description: "Asphalt repair contractors near Tulsa, Oklahoma. UDGOK provides parking lot repair, asphalt patching, sealcoating, overlay, and full repaving for commercial properties across the Tulsa metro.",
+    title: "Asphalt Repair Contractors Tulsa OK",
+    description: "Asphalt repair contractors near Tulsa, Oklahoma. UDGOK provides parking lot repair, asphalt patching, sealcoating, overlay.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Asphalt Repair Contractors Tulsa OK | UDGOK",
         description: "Commercial asphalt repair, paving, sealcoating, and parking lot maintenance in Tulsa, Oklahoma.",
         url: "https://www.udgok.com/asphalt-repair-tulsa",

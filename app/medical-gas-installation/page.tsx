@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Medical Gas Installation Oklahoma | NFPA 99 Certified",
-  description: "Certified NFPA 99 medical gas installation in Tulsa and Oklahoma. UDGOK installs and certifies oxygen, nitrous oxide, medical air, and vacuum systems for dental and medical practices.",
+  title: "Medical Gas Installation Oklahoma | NFPA 99",
+  description: "Certified NFPA 99 medical gas installation in Tulsa and Oklahoma. UDGOK installs and certifies oxygen, nitrous oxide, medical air.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Medical Gas Installation Oklahoma | NFPA 99",
     description: "ASSE 6010 certified medical gas installation for dental and medical facilities. Oxygen, N2O, medical air, and vacuum systems across Oklahoma.",
     url: "https://www.udgok.com/medical-gas-installation",

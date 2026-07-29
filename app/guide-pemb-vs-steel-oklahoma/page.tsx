@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import PembVsSteelUI from "./PembVsSteelUI";
 
 export const metadata: Metadata = {
-  title: "PEMB vs Conventional Steel for Oklahoma Warehouses (2026)",
-  description: "Pre-engineered metal buildings vs conventional steel: cost, timeline, and performance comparison. PEMB $18–$35/sf vs conventional $30–$60/sf. Oklahoma-specific data.",
+  title: "PEMB vs Steel for Oklahoma Warehouses (2026)",
+  description: "Pre-engineered metal buildings vs conventional steel: cost, timeline, and performance comparison. PEMB $18–$35/sf vs conventional $30–$60/sf.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "PEMB vs Conventional Steel — Oklahoma 2026",
     description: "Side-by-side comparison with real cost data from Oklahoma's top industrial building contractor.",
     url: "https://www.udgok.com/guide-pemb-vs-steel-oklahoma",

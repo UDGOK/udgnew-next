@@ -7,8 +7,9 @@ export const metadata: Metadata = {
   title: "Ambulatory Surgery Center Construction Oklahoma",
 // ...
   description:
-    "Turnkey ambulatory surgery center (ASC) and outpatient facility construction in Tulsa, Oklahoma City, and Dallas. AAAHC/CMS-ready operating rooms, sterile processing, medical gas, and HVAC. 100% NFPA 99 first-pass certification.",
+    "Turnkey ambulatory surgery center (ASC) and outpatient facility construction in Tulsa, Oklahoma City, and Dallas.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Ambulatory Surgery Center Construction",
     description:
       "Turnkey ASC and outpatient facility construction. AAAHC/CMS-ready operating rooms, sterile processing, NFPA 99 medical gas. Serving Oklahoma and Texas.",

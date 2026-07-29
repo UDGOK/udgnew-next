@@ -5,8 +5,9 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Design-Build Contractor Haskell OK",
   description:
-    "Medical and commercial construction contractor serving Haskell, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects in Haskell and the surrounding Muskogee County area.",
+    "Medical and commercial construction contractor serving Haskell, Oklahoma. UDGOK builds dental offices, medical clinics.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Design-Build Contractor Haskell OK",
     description:
       "Medical, dental, and commercial construction in Haskell, Oklahoma. Tulsa-based design-build contractor serving Haskell and Muskogee County.",

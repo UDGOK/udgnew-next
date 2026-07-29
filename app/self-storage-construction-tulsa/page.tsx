@@ -3,9 +3,9 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Self-Storage Facility Construction Tulsa OK | Climate-Controlled & Drive-Up",
-    description: "Self-storage facility construction in Tulsa, Oklahoma. Drive-up units, climate-controlled multi-story, boat/RV storage. Roll-up doors, hallway systems, security infrastructure. $35–$85/sf.",
-    openGraph: { title: "Self-Storage Construction Tulsa OK | UDGOK", description: "Drive-up and climate-controlled self-storage facilities. $35–$85/sf.", url: "https://www.udgok.com/self-storage-construction-tulsa" },
+    title: "Self-Storage Construction Tulsa OK",
+    description: "Self-storage facility construction in Tulsa, Oklahoma. Drive-up units, climate-controlled multi-story, boat/RV storage.",
+    openGraph: { images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }], title: "Self-Storage Construction Tulsa OK | UDGOK", description: "Drive-up and climate-controlled self-storage facilities. $35–$85/sf.", url: "https://www.udgok.com/self-storage-construction-tulsa" },
     alternates: { canonical: "https://www.udgok.com/self-storage-construction-tulsa" },
 };
 

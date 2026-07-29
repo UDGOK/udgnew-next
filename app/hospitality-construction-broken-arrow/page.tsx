@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Hospitality Construction Broken Arrow OK | Hotels & Restaurants",
-    description: "Hospitality construction contractor serving Broken Arrow, Oklahoma. UDGOK builds hotels, restaurants, QSR, and food service facilities throughout Broken Arrow and the BA Expressway corridor.",
+    title: "Hospitality Construction Broken Arrow OK",
+    description: "Hospitality construction contractor serving Broken Arrow, Oklahoma. UDGOK builds hotels, restaurants, QSR.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Hospitality Construction Broken Arrow OK | UDGOK",
         description: "Hotels, restaurants, QSR, and food service construction throughout Broken Arrow, Oklahoma.",
         url: "https://www.udgok.com/hospitality-construction-broken-arrow",

@@ -4,8 +4,9 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "Community Involvement Tulsa",
-  description: "UDGOK's commitment to the Tulsa and Oklahoma community. Local hiring, workforce development, sponsorships, and building healthcare facilities that serve our neighbors.",
+  description: "UDGOK's commitment to the Tulsa and Oklahoma community. Local hiring, workforce development, sponsorships.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Community Involvement | UDGOK Construction",
     description: "We don't just build in Oklahoma communities — we're part of them.",
     url: "https://www.udgok.com/community",

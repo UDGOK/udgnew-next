@@ -4,8 +4,9 @@ import ContactUI from "./ContactUI";
 
 export const metadata: Metadata = {
   title: "Contact Us | Medical Construction Tulsa OK",
-  description: "Contact UDGOK for medical office, dental clinic, and commercial construction in Tulsa, Oklahoma City, and Dallas. Call (918) 520-3823 or submit a project inquiry online.",
+  description: "Contact UDGOK for medical office, dental clinic, and commercial construction in Tulsa, Oklahoma City, and Dallas.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Contact Us | Medical Construction Tulsa OK",
     description: "Call (918) 520-3823 or submit a project inquiry. UDGOK serves Oklahoma and North Texas.",
     url: "https://www.udgok.com/contact",

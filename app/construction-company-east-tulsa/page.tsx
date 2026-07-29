@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Construction Company East Tulsa OK | Industrial & Commercial",
-    description: "East Tulsa construction company. UDGOK builds warehouses, industrial facilities, convenience stores, and commercial projects along the I-44 corridor. Pre-engineered metal buildings, flex space, distribution centers.",
+    title: "Construction Company East Tulsa OK",
+    description: "East Tulsa construction company. UDGOK builds warehouses, industrial facilities, convenience stores, and commercial projects along the I-44 corridor.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Construction Company East Tulsa | Industrial & Commercial | UDGOK",
         description: "Industrial, warehouse, convenience store, and commercial construction along East Tulsa's I-44 corridor.",
         url: "https://www.udgok.com/construction-company-east-tulsa",

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Oklahoma City Medical Office Construction",
   description: "UDGOK provides expert medical office and dental clinic construction across Oklahoma City. Design-build services for healthcare providers in the OKC metro.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Oklahoma City Medical Construction",
     description: "Tulsa's premier healthcare construction expertise now serving the Oklahoma City metro area.",
     url: "https://www.udgok.com/oklahoma-city-medical-construction",

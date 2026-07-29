@@ -4,8 +4,9 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "Digital Twin Construction Guide 2026",
-  description: "Learn how UDGOK leverages Digital Twin technology and BIM to eliminate clashes, optimize schedules, and reduce costs in medical office construction. Complete 2026 guide.",
+  description: "Learn how UDGOK leverages Digital Twin technology and BIM to eliminate clashes, optimize schedules, and reduce costs in medical office construction.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Digital Twin Construction Guide 2026",
     description: "The definitive guide to AI-powered Digital Twins in medical construction. Clash detection, energy modeling, and 4D scheduling.",
     url: "https://www.udgok.com/digital-twin-technology-guide-2026",

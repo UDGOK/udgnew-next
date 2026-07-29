@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Hospitality Construction Bixby OK | Hotels & Restaurants",
-    description: "Hospitality construction contractor in Bixby, Oklahoma. UDGOK builds hotels, restaurants, QSR, event venues, and food service facilities in one of Tulsa's fastest-growing suburbs.",
+    title: "Hospitality Construction Bixby OK",
+    description: "Hospitality construction contractor in Bixby, Oklahoma. UDGOK builds hotels, restaurants, QSR, event venues.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Hospitality Construction Bixby OK | UDGOK",
         description: "Hotels, restaurants, QSR, and food service construction in Bixby, Oklahoma.",
         url: "https://www.udgok.com/hospitality-construction-bixby",

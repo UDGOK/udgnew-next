@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Office Construction Company Tulsa OK | Commercial Office Build-Outs",
-    description: "Tulsa's top office construction company. UDGOK delivers commercial office buildouts, professional office spaces, corporate interiors, and tenant improvements across Tulsa and Oklahoma.",
+    title: "Office Construction Company Tulsa OK",
+    description: "Tulsa's top office construction company. UDGOK delivers commercial office buildouts, professional office spaces, corporate interiors.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Office Construction Company Tulsa OK | UDGOK",
         description: "Commercial office buildouts, professional offices, and tenant improvements in Tulsa, Oklahoma.",
         url: "https://www.udgok.com/office-construction-tulsa",

@@ -4,8 +4,9 @@ import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd"
 
 export const metadata: Metadata = {
   title: "Construction Safety Program | OSHA Compliant",
-  description: "UDGOK's comprehensive jobsite safety program. Industry-leading 0.7 EMR, OSHA 30 certified supervision, daily toolbox talks, and zero-incident culture across all Oklahoma and Texas projects.",
+  description: "UDGOK's comprehensive jobsite safety program. Industry-leading 0.7 EMR, OSHA 30 certified supervision, daily toolbox talks.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Construction Safety Program | 0.7 EMR",
     description: "Industry-leading safety with 0.7 EMR, OSHA 30 supervision, and zero lost-time incident goal.",
     url: "https://www.udgok.com/safety-program",

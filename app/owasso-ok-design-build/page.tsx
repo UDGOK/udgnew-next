@@ -4,8 +4,9 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "Design-Build Contractor Owasso OK",
-  description: "Medical and commercial construction in Owasso, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects in one of northeast Tulsa's fastest-growing communities.",
+  description: "Medical and commercial construction in Owasso, Oklahoma. UDGOK builds dental offices, medical clinics.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Design-Build Contractor Owasso OK",
     description: "Medical, dental, and commercial construction serving Owasso's rapidly growing north Tulsa metro corridor.",
     url: "https://www.udgok.com/owasso-ok-design-build",

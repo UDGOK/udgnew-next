@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Retail Construction Tulsa OK | Store & Restaurant Build-Outs",
-    description: "Retail construction contractor in Tulsa, Oklahoma. UDGOK builds store fit-outs, restaurant spaces, strip center tenant improvements, and retail renovations. 500K+ SF delivered.",
+    title: "Retail Construction Tulsa OK | Store Build-Outs",
+    description: "Retail construction contractor in Tulsa, Oklahoma. UDGOK builds store fit-outs, restaurant spaces, strip center tenant improvements.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Retail Construction Tulsa OK | 500K+ SF | UDGOK",
         description: "Store fit-outs, restaurant build-outs, and retail tenant improvements in Tulsa, Oklahoma.",
         url: "https://www.udgok.com/retail-construction-tulsa",

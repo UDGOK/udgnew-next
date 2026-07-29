@@ -4,8 +4,9 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "Design-Build Contractor Broken Arrow OK",
-  description: "Design-build and medical construction contractor serving Broken Arrow, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects throughout Broken Arrow and the Rose District.",
+  description: "Design-build and medical construction contractor serving Broken Arrow, Oklahoma. UDGOK builds dental offices, medical clinics.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Design-Build Contractor Broken Arrow OK",
     description: "Medical, dental, and commercial construction throughout Broken Arrow — from the Rose District to the BA Expressway corridor.",
     url: "https://www.udgok.com/broken-arrow-ok-design-build",

@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import ConstructionTechUI from "./ConstructionTechUI";
 
 export const metadata: Metadata = {
-    title: "10 Construction Technologies Reshaping Building in 2026",
-    description: "From bricklaying robots to 3D-printed homes and AI-powered scheduling — the 10 construction technologies transforming how we build in 2026. Real-world video demos, cost impacts, and adoption timelines.",
+    title: "10 Construction Technologies for 2026",
+    description: "From bricklaying robots to 3D-printed homes and AI-powered scheduling — the 10 construction technologies transforming how we build in 2026.",
     openGraph: {
         title: "10 Construction Technologies Reshaping Building in 2026",
         description: "Bricklaying robots, 3D-printed neighborhoods, AI schedulers, and drone swarms — the tech that's already on jobsites today.",

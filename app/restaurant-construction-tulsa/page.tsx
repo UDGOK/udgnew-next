@@ -5,8 +5,9 @@ import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd"
 export const metadata: Metadata = {
   title: "Restaurant & Commercial Kitchen Construction Tulsa",
   description:
-    "Restaurant construction, commercial kitchen build-outs, and food service facility renovations in Tulsa, Oklahoma. Hood ventilation, grease traps, walk-in coolers, ADA compliance, and health department-ready construction.",
+    "Restaurant construction, commercial kitchen build-outs, and food service facility renovations in Tulsa, Oklahoma.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Restaurant & Commercial Kitchen Construction Tulsa",
     description:
       "Full-service restaurant construction from kitchen rough-in to grand opening. Hood ventilation, grease traps, bar build-outs, and health department compliance.",

@@ -5,8 +5,9 @@ import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd"
 export const metadata: Metadata = {
   title: "PMP Construction Project Management Tulsa",
   description:
-    "PMP-certified construction project management in Tulsa, Oklahoma. CPM scheduling, risk management, real-time cost control, and cloud-based communication for commercial builds.",
+    "PMP-certified construction project management in Tulsa, Oklahoma. CPM scheduling, risk management, real-time cost control.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "PMP-Certified Project Management | UDGOK Tulsa",
     description:
       "Professional PMI methodologies applied to commercial construction. On time. On budget. No surprises.",

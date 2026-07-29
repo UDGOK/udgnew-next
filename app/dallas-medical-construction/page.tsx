@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Dallas-Fort Worth Medical Construction",
   description: "Medical and dental office construction in Dallas-Fort Worth, TX. UDGOK delivers healthcare facility construction in DFW with NFPA 99 and AAAHC-ready expertise.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Dallas-Fort Worth Medical Construction",
     description: "Oklahoma's most trusted medical construction contractor now serving Dallas-Fort Worth with 100+ healthcare projects of experience.",
     url: "https://www.udgok.com/dallas-medical-construction",

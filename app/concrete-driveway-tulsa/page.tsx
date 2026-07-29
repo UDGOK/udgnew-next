@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Concrete Driveway Contractor Tulsa OK | Install, Repair & Removal",
-    description: "Tulsa's trusted concrete driveway contractor. UDGOK builds, repairs, and replaces concrete driveways across Tulsa, Bixby, Broken Arrow & Oklahoma. Stamped, brushed & exposed aggregate. Free estimates.",
+    title: "Concrete Driveway Contractor Tulsa OK",
+    description: "Tulsa's trusted concrete driveway contractor. UDGOK builds, repairs, and replaces concrete driveways across Tulsa, Bixby, Broken Arrow & Oklahoma.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Concrete Driveway Contractor Tulsa OK | UDGOK",
         description: "Professional concrete driveway installation, repair, and removal in Tulsa, Oklahoma. Stamped, brushed & exposed aggregate finishes.",
         url: "https://www.udgok.com/concrete-driveway-tulsa",

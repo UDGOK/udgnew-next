@@ -5,8 +5,9 @@ import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd"
 export const metadata: Metadata = {
   title: "Adaptive Reuse & Building Conversion Tulsa Oklahoma",
   description:
-    "Adaptive reuse and building conversion construction in Tulsa, Oklahoma. Transform vacant offices, warehouses, and retail spaces into medical clinics, restaurants, and modern commercial facilities. 15-30% cost savings vs new construction.",
+    "Adaptive reuse and building conversion construction in Tulsa, Oklahoma. Transform vacant offices, warehouses, and retail spaces into medical clinics.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Adaptive Reuse & Building Conversion | UDGOK Tulsa",
     description:
       "Transform underperforming buildings into high-value assets. Office-to-medical, warehouse-to-retail, retail-to-restaurant conversions. 15–30% cost savings vs new construction.",

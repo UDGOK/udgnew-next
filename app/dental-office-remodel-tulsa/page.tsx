@@ -5,7 +5,7 @@ import { ServiceJsonLd, LocalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from 
 export const metadata: Metadata = {
   title: "Dental Office Remodel & Renovation Tulsa OK",
   description:
-    "Tulsa's top-rated dental office remodel contractor. Minimal-downtime renovations for existing practices — operatory upgrades, ADA compliance retrofits, and full cosmetic overhauls. 80+ dental projects completed.",
+    "Tulsa's top-rated dental office remodel contractor. Minimal-downtime renovations for existing practices.",
   openGraph: {
     title: "Dental Office Remodel & Renovation | Tulsa OK",
     description: "Minimal-downtime dental renovations in Tulsa. Operatory upgrades, ADA retrofits, and cosmetic overhauls — 80+ dental projects completed.",

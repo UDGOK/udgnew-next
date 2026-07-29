@@ -5,7 +5,7 @@ import { ServiceJsonLd, LocalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from 
 export const metadata: Metadata = {
   title: "Orthodontic Office Construction Tulsa OK",
   description:
-    "Tulsa's only contractor specializing in orthodontist office design-build. Open bay layouts, Invisalign scan stations, 3D print labs, teen-friendly design, and iTero integration — built by UDGOK.",
+    "Tulsa's only contractor specializing in orthodontist office design-build. Open bay layouts, Invisalign scan stations, 3D print labs, teen-friendly design.",
   openGraph: {
     title: "Orthodontic Office Construction | Tulsa OK",
     description: "Tulsa's specialist orthodontic office builder. Open bay layouts, digital workflow integration, and teen-friendly design. Call (918) 520-3823.",

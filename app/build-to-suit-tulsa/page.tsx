@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Build to Suit Tulsa OK | Custom Commercial Development",
-    description: "Build to suit construction and custom commercial development in Tulsa, Oklahoma. UDGOK delivers build-to-suit projects for medical, retail, office, and industrial tenants. Developers and landlords trust UDGOK.",
+    title: "Build to Suit Tulsa OK | Commercial Development",
+    description: "Build to suit construction and custom commercial development in Tulsa, Oklahoma. UDGOK delivers build-to-suit projects for medical, retail, office.",
     openGraph: {
+      images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
         title: "Build to Suit Tulsa OK | Custom Development | UDGOK",
         description: "Custom build-to-suit development for medical, retail, office, and industrial tenants in Tulsa, Oklahoma.",
         url: "https://www.udgok.com/build-to-suit-tulsa",

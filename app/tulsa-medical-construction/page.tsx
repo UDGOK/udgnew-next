@@ -3,9 +3,10 @@ import TulsaMedicalUI from "./TulsaMedicalUI";
 import { MedicalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Tulsa Medical Construction | Healthcare Construction Contractors Oklahoma",
-  description: "Healthcare construction contractors serving Oklahoma and Tulsa. UDGOK has built 100+ medical and dental facilities, from dental offices to ambulatory surgery centers. Oklahoma's most trusted healthcare builder.",
+  title: "Tulsa Medical Construction | Healthcare Contractors",
+  description: "Healthcare construction contractors serving Oklahoma and Tulsa. UDGOK has built 100+ medical and dental facilities.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Tulsa Medical Construction | 100+ Facilities",
     description: "Tulsa's #1 medical and dental construction contractor. 100+ healthcare facilities delivered across the metro.",
     url: "https://www.udgok.com/tulsa-medical-construction",

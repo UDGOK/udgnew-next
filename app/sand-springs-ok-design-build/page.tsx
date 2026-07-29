@@ -4,8 +4,9 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title: "Design-Build Contractor Sand Springs OK",
-  description: "Medical and commercial construction in Sand Springs, Oklahoma. UDGOK delivers design-build, tenant improvements, and healthcare construction in Sand Springs and West Tulsa.",
+  description: "Medical and commercial construction in Sand Springs, Oklahoma. UDGOK delivers design-build, tenant improvements.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Design-Build Contractor Sand Springs OK",
     description: "Medical, dental, and commercial construction serving Sand Springs and the West Tulsa market.",
     url: "https://www.udgok.com/sand-springs-ok-design-build",

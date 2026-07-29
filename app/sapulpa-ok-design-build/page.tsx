@@ -5,8 +5,9 @@ import ServicePage from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Design-Build Contractor Sapulpa OK",
   description:
-    "Medical and commercial construction contractor in Sapulpa, Oklahoma. UDGOK delivers dental office construction, medical clinic build-outs, and commercial design-build along Historic Route 66 and the Sapulpa corridor.",
+    "Medical and commercial construction contractor in Sapulpa, Oklahoma. UDGOK delivers dental office construction, medical clinic build-outs.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Design-Build Contractor Sapulpa OK",
     description:
       "Medical, dental, and commercial construction in Sapulpa, Oklahoma. Trusted local design-build contractor serving the Route 66 corridor.",

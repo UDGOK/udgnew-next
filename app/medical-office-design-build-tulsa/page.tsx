@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, MedicalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Medical Office Design-Build Contractor Tulsa OK | 100+ Facilities",
+  title: "Medical Office Design-Build Tulsa OK | 100+ Built",
   description: "Tulsa's top medical office design-build contractor. 100+ healthcare facilities delivered. $150–$350/sf with ADA, HIPAA, and ASHRAE 170 compliance.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Medical Office Design-Build Tulsa OK",
     description: "Turnkey medical office construction in Tulsa. Specialized HVAC, ADA compliance, and medical-grade systems for clinics and specialty practices.",
     url: "https://www.udgok.com/medical-office-design-build-tulsa",

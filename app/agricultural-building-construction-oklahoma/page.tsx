@@ -3,9 +3,9 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Agricultural Building Construction Oklahoma | Barns, Shops & Equipment Shelters",
-    description: "Agricultural building construction in Oklahoma. Barns, equipment shelters, hay storage, livestock facilities, grain storage, and shop buildings. Pre-engineered metal and conventional construction. UDGOK serves Tulsa metro and statewide.",
-    openGraph: { title: "Agricultural Building Construction Oklahoma | UDGOK", description: "Barns, equipment shelters, livestock facilities, and shop buildings.", url: "https://www.udgok.com/agricultural-building-construction-oklahoma" },
+    title: "Agricultural Building Construction Oklahoma",
+    description: "Agricultural building construction in Oklahoma. Barns, equipment shelters, hay storage, livestock facilities, grain storage, and shop buildings.",
+    openGraph: { images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }], title: "Agricultural Building Construction Oklahoma | UDGOK", description: "Barns, equipment shelters, livestock facilities, and shop buildings.", url: "https://www.udgok.com/agricultural-building-construction-oklahoma" },
     alternates: { canonical: "https://www.udgok.com/agricultural-building-construction-oklahoma" },
 };
 

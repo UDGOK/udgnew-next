@@ -3,9 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, LocalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Design-Build Contractor Tulsa & Oklahoma City | Medical & Dental",
+  title: "Design-Build Contractor Tulsa & Oklahoma City",
   description: "Tulsa's top design-build contractor for medical & dental projects. One contract, one team. 100+ projects delivered 20% faster with 15% cost savings.",
   openGraph: {
+    images: [{ url: "https://www.udgok.com/images/og-default.png", width: 1200, height: 630, alt: "UDGOK — Medical & Dental Design-Build Construction in Tulsa, Oklahoma" }],
     title: "Design-Build Contractor Tulsa OK | 100+ Projects",
     description: "One contract, one team. Tulsa's most experienced design-build contractor for medical, dental, and commercial projects.",
     url: "https://www.udgok.com/design-build",

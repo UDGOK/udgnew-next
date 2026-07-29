@@ -4,7 +4,7 @@ import DentalFinancingGuideUI from "./DentalFinancingGuideUI";
 
 export const metadata: Metadata = {
   title:
-    "Financing Your Tulsa Dental Practice: Remodel vs. Rebuild & 2026 Tax Strategies",
+    "Dental Practice Financing Tulsa: Remodel vs Rebuild",
   description:
     "Weighing a remodel vs. rebuild for your Tulsa dental practice? Learn 2026 financing options, tax strategies, and ROI tips to fund your dream clinic.",
   openGraph: {
