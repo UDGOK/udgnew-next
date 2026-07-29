@@ -154,6 +154,7 @@ export default function Footer() {
                 <ul className="list-none p-0 m-0 space-y-0.5">
                   <FLink href="/about">About Us</FLink>
                   <FLink href="/projects">Our Work</FLink>
+                  <FLink href="/insights">Insights</FLink>
                   <FLink href="/resources">Resources</FLink>
                   <FLink href="/tools">Tools &amp; Calculators</FLink>
                   <FLink href="/subcontractors">Subcontractor Portal</FLink>

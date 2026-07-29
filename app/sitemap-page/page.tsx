@@ -18,6 +18,7 @@ const sitemapData = [
       { t: "Projects", h: "/projects" },
       { t: "Services", h: "/services" },
       { t: "Resource Hub", h: "/resources" },
+      { t: "Insights", h: "/insights" },
     ]
   },
   {

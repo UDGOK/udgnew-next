@@ -39,7 +39,8 @@ const menuContent = {
   resources: {
     title: "Intelligence",
     items: [
-      { top: "Insights", sub: "Knowledge Center", href: "/resources", img: "/images/IMG_7609.jpeg" },
+      { top: "Insights", sub: "Guides & Analysis", href: "/insights", img: "/images/IMG_7609.jpeg" },
+      { top: "Resources", sub: "Knowledge Center", href: "/resources", img: "/images/medical-office-design-build.png" },
       { top: "Tools", sub: "Calculators", href: "/tools", img: "/images/tools-hero.png" },
       { top: "Future", sub: "AI & Robotics", href: "/ai-robotics", img: "/images/ring-futuristic.png" },
       { top: "Guides", sub: "For Developers", href: "/guide-developers", img: "/images/ai_tulsa_skyline_architecture.png" },
