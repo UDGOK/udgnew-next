@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Design-Build Contractor Tulsa & Oklahoma City | Medical & Dental",
   description: "Tulsa's top design-build contractor for medical & dental projects. One contract, one team. 100+ projects delivered 20% faster with 15% cost savings.",
   openGraph: {
-    title: "Design-Build Contractor Tulsa OK | 100+ Projects | UDGOK",
+    title: "Design-Build Contractor Tulsa OK | 100+ Projects",
     description: "One contract, one team. Tulsa's most experienced design-build contractor for medical, dental, and commercial projects.",
     url: "https://www.udgok.com/design-build",
     type: "website",

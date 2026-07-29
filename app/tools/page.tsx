@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import ToolsUI from "./ToolsUI";
 
 export const metadata: Metadata = {
-  title: "Construction Calculators & Tools | UDGOK",
+  title: "Construction Calculators & Tools",
   description: "Free construction cost calculators from UDGOK. Estimate concrete, drywall, brick, flooring, paint, and roofing materials for your project in Oklahoma.",
   alternates: { canonical: "https://www.udgok.com/tools" },
 };

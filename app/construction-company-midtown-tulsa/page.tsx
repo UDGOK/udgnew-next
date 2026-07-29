@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Construction Company Midtown Tulsa OK | Cherry Street & Brookside | UDGOK",
+    title: "Construction Company Midtown Tulsa OK | Cherry Street & Brookside",
     description: "Midtown Tulsa construction company. UDGOK builds boutique retail, medical offices, restaurants, and office renovations along Cherry Street, Brookside, and the Midtown corridor. 20+ projects delivered.",
     openGraph: {
         title: "Construction Company Midtown Tulsa | Cherry Street & Brookside | UDGOK",

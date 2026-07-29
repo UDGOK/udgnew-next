@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Digital Twin Construction Guide 2026 | UDGOK",
+  title: "Digital Twin Construction Guide 2026",
   description: "Learn how UDGOK leverages Digital Twin technology and BIM to eliminate clashes, optimize schedules, and reduce costs in medical office construction. Complete 2026 guide.",
   openGraph: {
-    title: "Digital Twin Construction Guide 2026 | UDGOK",
+    title: "Digital Twin Construction Guide 2026",
     description: "The definitive guide to AI-powered Digital Twins in medical construction. Clash detection, energy modeling, and 4D scheduling.",
     url: "https://www.udgok.com/digital-twin-technology-guide-2026",
     type: "website",

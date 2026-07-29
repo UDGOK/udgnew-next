@@ -3,11 +3,11 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Restaurant & Commercial Kitchen Construction Tulsa | UDGOK",
+  title: "Restaurant & Commercial Kitchen Construction Tulsa",
   description:
     "Restaurant construction, commercial kitchen build-outs, and food service facility renovations in Tulsa, Oklahoma. Hood ventilation, grease traps, walk-in coolers, ADA compliance, and health department-ready construction.",
   openGraph: {
-    title: "Restaurant & Commercial Kitchen Construction Tulsa | UDGOK",
+    title: "Restaurant & Commercial Kitchen Construction Tulsa",
     description:
       "Full-service restaurant construction from kitchen rough-in to grand opening. Hood ventilation, grease traps, bar build-outs, and health department compliance.",
     url: "https://www.udgok.com/restaurant-construction-tulsa",

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Edmond's leading contractor for premium medical and dental office construction. Design-build expertise for clinics, surgery centers, and specialized healthcare facilities.",
   openGraph: {
-    title: "Medical Office Construction | Edmond OK | UDGOK",
+    title: "Medical Office Construction | Edmond OK",
     description: "Premium medical, dental, and healthcare facility construction in Edmond, Oklahoma. A specialized design-build approach.",
     url: "https://www.udgok.com/edmond-ok-medical-construction",
     type: "website",

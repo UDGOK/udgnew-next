@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Dental Office Construction Contractor Tulsa OK | 80+ Clinics Built",
   description: "Tulsa's most experienced dental office contractor. 80+ clinics built with medical gas, infection control HVAC, and operatory plumbing. $140–$280/sf.",
   openGraph: {
-    title: "Dental Office Construction Tulsa OK | 80+ Clinics Built | UDGOK",
+    title: "Dental Office Construction Tulsa OK | 80+ Clinics Built",
     description: "Tulsa's most experienced dental office contractor. 80+ clinics built with specialized plumbing, medical gas, and infection control HVAC.",
     url: "https://www.udgok.com/dental-office-construction-tulsa",
     type: "website",

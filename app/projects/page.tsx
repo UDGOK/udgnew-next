@@ -4,7 +4,7 @@ import { PROJECTS } from "./ProjectsData";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Our Projects | UDGOK",
+  title: "Our Projects",
   description: "Explore UDGOK's portfolio of medical office, dental office, oral surgery, and commercial construction projects across Oklahoma and Texas.",
   alternates: { canonical: "https://www.udgok.com/projects" },
 };

@@ -3,7 +3,7 @@ import CalculatorUI from "./CalculatorUI";
 import { HowToJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Concrete Calculator | UDGOK",
+  title: "Concrete Calculator",
   description: "Estimate the cubic yards of concrete needed for slabs, footings, and foundations.",
   alternates: { canonical: "https://www.udgok.com/calculator-concrete" },
 };

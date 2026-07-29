@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "PMP Construction Project Management Tulsa | UDGOK",
+  title: "PMP Construction Project Management Tulsa",
   description:
     "PMP-certified construction project management in Tulsa, Oklahoma. CPM scheduling, risk management, real-time cost control, and cloud-based communication for commercial builds.",
   openGraph: {

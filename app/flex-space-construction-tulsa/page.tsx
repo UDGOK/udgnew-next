@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Flex Space Construction Tulsa OK | Light Industrial & Office/Warehouse | UDGOK",
+    title: "Flex Space Construction Tulsa OK | Light Industrial & Office/Warehouse",
     description: "Flex space and light industrial construction in Tulsa, Oklahoma. Hybrid office/warehouse buildings with storefront entries and rear dock loading. Multi-tenant or single-user. $40–$90/sf.",
     openGraph: { title: "Flex Space Construction Tulsa OK | UDGOK", description: "Hybrid office/warehouse buildings — multi-tenant or single-user. $40–$90/sf.", url: "https://www.udgok.com/flex-space-construction-tulsa" },
     alternates: { canonical: "https://www.udgok.com/flex-space-construction-tulsa" },

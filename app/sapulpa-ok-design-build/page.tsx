@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Design-Build Contractor Sapulpa OK | UDGOK",
+  title: "Design-Build Contractor Sapulpa OK",
   description:
     "Medical and commercial construction contractor in Sapulpa, Oklahoma. UDGOK delivers dental office construction, medical clinic build-outs, and commercial design-build along Historic Route 66 and the Sapulpa corridor.",
   openGraph: {
-    title: "Design-Build Contractor Sapulpa OK | UDGOK",
+    title: "Design-Build Contractor Sapulpa OK",
     description:
       "Medical, dental, and commercial construction in Sapulpa, Oklahoma. Trusted local design-build contractor serving the Route 66 corridor.",
     url: "https://www.udgok.com/sapulpa-ok-design-build",

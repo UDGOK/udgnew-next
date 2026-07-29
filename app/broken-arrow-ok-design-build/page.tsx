@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Design-Build Contractor Broken Arrow OK | UDGOK",
+  title: "Design-Build Contractor Broken Arrow OK",
   description: "Design-build and medical construction contractor serving Broken Arrow, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects throughout Broken Arrow and the Rose District.",
   openGraph: {
-    title: "Design-Build Contractor Broken Arrow OK | UDGOK",
+    title: "Design-Build Contractor Broken Arrow OK",
     description: "Medical, dental, and commercial construction throughout Broken Arrow — from the Rose District to the BA Expressway corridor.",
     url: "https://www.udgok.com/broken-arrow-ok-design-build",
     type: "website",

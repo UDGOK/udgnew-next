@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Claremore's premier commercial design-build contractor. Specializing in medical clinics, retail centers, and industrial facilities in Rogers County. View our Oklahoma portfolio.",
   openGraph: {
-    title: "Commercial Construction & Design-Build | Claremore OK | UDGOK",
+    title: "Commercial Construction & Design-Build | Claremore OK",
     description: "Premium commercial construction and design-build services in Claremore, Oklahoma. Medical, retail, and industrial facilities.",
     url: "https://www.udgok.com/claremore-ok-design-build",
     type: "website",

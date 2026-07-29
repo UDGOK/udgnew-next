@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Subcontractor Portal | Bid Opportunities | UDGOK",
+  title: "Subcontractor Portal | Bid Opportunities",
   description: "UDGOK subcontractor prequalification and bid opportunities. Join our network of trusted trade partners for medical, dental, and commercial construction projects in Oklahoma and Texas.",
   openGraph: {
     title: "Subcontractor Portal | UDGOK Construction",

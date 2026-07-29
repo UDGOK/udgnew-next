@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Construction Company East Tulsa OK | Industrial & Commercial | UDGOK",
+    title: "Construction Company East Tulsa OK | Industrial & Commercial",
     description: "East Tulsa construction company. UDGOK builds warehouses, industrial facilities, convenience stores, and commercial projects along the I-44 corridor. Pre-engineered metal buildings, flex space, distribution centers.",
     openGraph: {
         title: "Construction Company East Tulsa | Industrial & Commercial | UDGOK",

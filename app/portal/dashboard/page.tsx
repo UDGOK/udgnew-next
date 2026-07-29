@@ -4,7 +4,7 @@ import DashboardUI from "./DashboardUI";
 import { isAdmin } from "@/lib/db";
 
 export const metadata = {
-  title: "Bid Portal Dashboard | UDGOK",
+  title: "Bid Portal Dashboard",
   description: "View active projects and submit bids on the UDGOK Subcontractor Portal.",
 };
 

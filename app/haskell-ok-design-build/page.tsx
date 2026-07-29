@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Design-Build Contractor Haskell OK | UDGOK",
+  title: "Design-Build Contractor Haskell OK",
   description:
     "Medical and commercial construction contractor serving Haskell, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects in Haskell and the surrounding Muskogee County area.",
   openGraph: {
-    title: "Design-Build Contractor Haskell OK | UDGOK",
+    title: "Design-Build Contractor Haskell OK",
     description:
       "Medical, dental, and commercial construction in Haskell, Oklahoma. Tulsa-based design-build contractor serving Haskell and Muskogee County.",
     url: "https://www.udgok.com/haskell-ok-design-build",

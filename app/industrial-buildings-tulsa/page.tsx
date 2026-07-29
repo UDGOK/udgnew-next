@@ -3,7 +3,7 @@ import IndustrialBuildingsUI from "./IndustrialBuildingsUI";
 import { ServiceJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Industrial Building Contractor Tulsa OK | Metal Buildings & Warehouses | UDGOK",
+    title: "Industrial Building Contractor Tulsa OK | Metal Buildings & Warehouses",
     description: "Tulsa's top industrial building contractor. UDGOK builds pre-engineered metal buildings (PEMB), warehouses, manufacturing facilities, cold storage, self-storage, and flex space. PEMB costs $25–$50/sf — 30% cheaper than conventional steel. 100+ industrial projects delivered.",
     openGraph: {
         title: "Industrial Building Contractor Tulsa OK | UDGOK",

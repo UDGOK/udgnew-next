@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Design-Build Contractor Sand Springs OK | UDGOK",
+  title: "Design-Build Contractor Sand Springs OK",
   description: "Medical and commercial construction in Sand Springs, Oklahoma. UDGOK delivers design-build, tenant improvements, and healthcare construction in Sand Springs and West Tulsa.",
   openGraph: {
-    title: "Design-Build Contractor Sand Springs OK | UDGOK",
+    title: "Design-Build Contractor Sand Springs OK",
     description: "Medical, dental, and commercial construction serving Sand Springs and the West Tulsa market.",
     url: "https://www.udgok.com/sand-springs-ok-design-build",
     type: "website",

@@ -3,7 +3,7 @@ import CalculatorUI from "./CalculatorUI";
 import { HowToJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Drywall Calculator | UDGOK",
+  title: "Drywall Calculator",
   description: "Estimate panels, screws, and joint compound needed for commercial framing.",
   alternates: { canonical: "https://www.udgok.com/calculator-drywall" },
 };

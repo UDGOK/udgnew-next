@@ -3,7 +3,7 @@ import CalculatorUI from "./CalculatorUI";
 import { HowToJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Paint Calculator | UDGOK",
+  title: "Paint Calculator",
   description: "Estimate the gallons of paint needed for your commercial space.",
   alternates: { canonical: "https://www.udgok.com/calculator-paint" },
 };

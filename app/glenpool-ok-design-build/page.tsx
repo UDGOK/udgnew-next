@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Glenpool's premier commercial design-build contractor. Specializing in retail, medical, and light industrial construction along the Highway 75 corridor.",
   openGraph: {
-    title: "Commercial Construction & Design-Build | Glenpool OK | UDGOK",
+    title: "Commercial Construction & Design-Build | Glenpool OK",
     description: "Premium commercial construction services in Glenpool, Oklahoma. Retail, medical, and industrial facilities.",
     url: "https://www.udgok.com/glenpool-ok-design-build",
     type: "website",

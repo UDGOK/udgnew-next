@@ -3,10 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Oral Surgery Center Construction Tulsa OK | UDGOK",
+  title: "Oral Surgery Center Construction Tulsa OK",
   description: "Specialized oral surgery office construction in Tulsa, Oklahoma. UDGOK builds AAOMS-compliant surgery suites with medical gas systems, recovery rooms, and sedation infrastructure.",
   openGraph: {
-    title: "Oral Surgery Center Construction Tulsa | UDGOK",
+    title: "Oral Surgery Center Construction Tulsa",
     description: "AAOMS-compliant oral surgery center construction with medical gas, sedation infrastructure, and recovery rooms.",
     url: "https://www.udgok.com/oral-surgeon-office-construction-tulsa",
     type: "website",

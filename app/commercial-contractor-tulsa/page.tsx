@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Commercial Contractor Tulsa OK | Office, Retail & TI | UDGOK",
+    title: "Commercial Contractor Tulsa OK | Office, Retail & TI",
     description: "Tulsa's top commercial contractor. UDGOK delivers tenant improvements, ground-up commercial buildings, office build-outs, restaurant construction, and retail spaces across Tulsa, Oklahoma. 100+ projects delivered.",
     openGraph: {
         title: "Commercial Contractor Tulsa OK | 100+ Projects | UDGOK",

@@ -3,7 +3,7 @@ import ConstructionCompaniesTulsaUI from "./ConstructionCompaniesTulsaUI";
 import { ServiceJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Construction Companies in Tulsa OK | Commercial, Medical & Industrial | UDGOK",
+    title: "Construction Companies in Tulsa OK | Commercial, Medical & Industrial",
     description: "Top-rated construction company in Tulsa, Oklahoma. UDGOK builds commercial, medical, dental, industrial, and retail projects. 100+ projects, 2M+ SF delivered. Free estimates within 48 hours. Design-build, GMP pricing, AI-powered estimating.",
     openGraph: {
         title: "Construction Companies in Tulsa OK — The Complete 2026 Guide",

@@ -44,39 +44,20 @@ export default function HomePage() {
         })
       }} />
 
-      {/* AggregateRating & Reviews JSON-LD — enables star ratings in SERPs */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "@id": "https://www.udgok.com/#organization",
-          name: "UDGOK — Upscale Development Group of Oklahoma",
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            bestRating: "5",
-            worstRating: "1",
-            ratingCount: "47",
-            reviewCount: "47",
-          },
-          review: [
-            {
-              "@type": "Review",
-              "author": { "@type": "Person", "name": "Dr. Sarah Miller, DDS" },
-              "datePublished": "2025-11-12",
-              "reviewBody": "UDGOK made our dental practice build-out completely seamless. Their deep understanding of specialized plumbing and medical gas certification saved us months of delays.",
-              "reviewRating": { "@type": "Rating", "ratingValue": "5" }
-            },
-            {
-              "@type": "Review",
-              "author": { "@type": "Person", "name": "Dr. Robert Singh, MD" },
-              "datePublished": "2026-02-18",
-              "reviewBody": "Delivered our 8,000 sq ft medical clinic ahead of schedule. Budgeting was accurate to within 3% of the preconstruction estimate.",
-              "reviewRating": { "@type": "Rating", "ratingValue": "5" }
-            }
-          ]
-        })
-      }} />
+      {/*
+        NOTE: Self-serving AggregateRating/Review JSON-LD was removed here.
+
+        Google has disallowed review markup that a business supplies about ITSELF
+        on LocalBusiness/Organization types since September 2019 ("self-serving
+        reviews"). It is ignored at best, and inventing reviewer identities is a
+        structured-data spam violation that risks a site-wide manual action.
+
+        Star ratings for a local business come from the Google Business Profile,
+        not from first-party JSON-LD. Collect genuine reviews on GBP instead.
+
+        Do not re-add aggregateRating/review to this file.
+        See: https://developers.google.com/search/docs/appearance/structured-data/review-snippet
+      */}
 
       <HomeUI />
     </>

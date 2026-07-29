@@ -3,7 +3,7 @@ import CalculatorUI from "./CalculatorUI";
 import { HowToJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Roofing Calculator | UDGOK",
+  title: "Roofing Calculator",
   description: "Estimate roofing squares and bundles based on footprint area and roof pitch.",
   alternates: { canonical: "https://www.udgok.com/calculator-roofing" },
 };

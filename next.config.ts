@@ -24,8 +24,11 @@ const nextConfig: NextConfig = {
       { source: "/post/:slug", destination: "/resources", permanent: true },
       // ── Old Wix project pages → projects page ──
       { source: "/project/:slug", destination: "/projects", permanent: true },
-      // ── Old /news route → insights ──
-      { source: "/news", destination: "/insights", permanent: true },
+      // ── Old /news route → resources ──
+      // NOTE: this previously pointed at /insights, which does not exist and
+      // returns 404 — i.e. a permanent redirect into a dead page. Repoint it at
+      // /insights only once that route actually ships.
+      { source: "/news", destination: "/resources", permanent: true },
       // ── Catch-all: strip .html extension and 301 redirect ──
       {
         source: "/:slug([\\w-]+)\\.html",

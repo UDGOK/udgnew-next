@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Asphalt Repair Contractors Tulsa OK | Paving & Sealcoating | UDGOK",
+    title: "Asphalt Repair Contractors Tulsa OK | Paving & Sealcoating",
     description: "Asphalt repair contractors near Tulsa, Oklahoma. UDGOK provides parking lot repair, asphalt patching, sealcoating, overlay, and full repaving for commercial properties across the Tulsa metro.",
     openGraph: {
         title: "Asphalt Repair Contractors Tulsa OK | UDGOK",

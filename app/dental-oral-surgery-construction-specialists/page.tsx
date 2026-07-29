@@ -4,11 +4,11 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
   title:
-    "Dental Office & Oral Surgery Center Construction Specialists | UDGOK",
+    "Dental Office & Oral Surgery Center Construction Specialists",
   description:
     "UDGOK specializes in dental office construction, oral surgery center build-outs, and medical gas installation. Zero-downtime methodology, NFPA 99 certified medical gas, HIPAA-compliant layouts. Serving Oklahoma and Texas.",
   openGraph: {
-    title: "Dental & Oral Surgery Construction Specialists | UDGOK",
+    title: "Dental & Oral Surgery Construction Specialists",
     description:
       "The only contractor exclusively focused on dental offices, oral surgery centers, and small medical clinics. Zero-downtime construction methodology.",
     url: "https://www.udgok.com/dental-oral-surgery-construction-specialists",

@@ -3,12 +3,12 @@ import DigitalTwinUI from "./DigitalTwinUI";
 import { ArticleJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Digital Twin Technology in Construction: 2026 Guide | UDGOK",
+  title: "Digital Twin Technology in Construction: 2026 Guide",
   description:
     "A complete guide to how Digital Twin Technology, BIM, IoT, and AI are transforming construction, healthcare, energy, and smart cities in Texas, Oklahoma, and California.",
   alternates: { canonical: "https://www.udgok.com/digital-twin-technology" },
   openGraph: {
-    title: "The 2026 Guide to Digital Twin Technology | UDGOK",
+    title: "The 2026 Guide to Digital Twin Technology",
     description: "How AI, IoT, and 3D virtual replicas are transforming commercial construction, energy, and smart cities.",
     type: "article",
   },

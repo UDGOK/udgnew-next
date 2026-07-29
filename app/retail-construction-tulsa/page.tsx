@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Retail Construction Tulsa OK | Store & Restaurant Build-Outs | UDGOK",
+    title: "Retail Construction Tulsa OK | Store & Restaurant Build-Outs",
     description: "Retail construction contractor in Tulsa, Oklahoma. UDGOK builds store fit-outs, restaurant spaces, strip center tenant improvements, and retail renovations. 500K+ SF delivered.",
     openGraph: {
         title: "Retail Construction Tulsa OK | 500K+ SF | UDGOK",

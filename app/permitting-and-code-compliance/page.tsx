@@ -3,11 +3,11 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Permitting & Code Compliance Tulsa Oklahoma | UDGOK",
+  title: "Permitting & Code Compliance Tulsa Oklahoma",
   description:
     "Expert construction permitting and code compliance services in Tulsa, Broken Arrow, Jenks, and Owasso. We navigate IBC 2018, ADA, NFPA, and local zoning so you can build faster with zero delays.",
   openGraph: {
-    title: "Permitting & Code Compliance Tulsa | UDGOK",
+    title: "Permitting & Code Compliance Tulsa",
     description:
       "We cut through the red tape. Expert navigation of building codes and municipal processes in Tulsa and surrounding areas.",
     url: "https://www.udgok.com/permitting-and-code-compliance",

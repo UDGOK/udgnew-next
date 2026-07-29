@@ -3,7 +3,7 @@ import CalculatorUI from "./CalculatorUI";
 import { HowToJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Brick Calculator | UDGOK",
+  title: "Brick Calculator",
   description: "Estimate the number of bricks and mortar required for a wall.",
   alternates: { canonical: "https://www.udgok.com/calculator-brick" },
 };

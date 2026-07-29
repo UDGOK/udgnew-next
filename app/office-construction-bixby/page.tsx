@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Office Construction Bixby OK | Commercial Office Build-Outs | UDGOK",
+    title: "Office Construction Bixby OK | Commercial Office Build-Outs",
     description: "Office construction contractor in Bixby, Oklahoma. UDGOK builds professional office spaces, medical offices, coworking facilities, and commercial office build-outs in Bixby.",
     openGraph: {
         title: "Office Construction Bixby OK | UDGOK",

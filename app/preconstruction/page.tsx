@@ -3,10 +3,10 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Preconstruction Services Tulsa Oklahoma | UDGOK",
+  title: "Preconstruction Services Tulsa Oklahoma",
   description: "Expert preconstruction services in Tulsa and Oklahoma. UDGOK provides early budgeting, constructability review, scheduling, and value engineering to de-risk your project before breaking ground.",
   openGraph: {
-    title: "Preconstruction Services Tulsa OK | ±5% Budget Accuracy | UDGOK",
+    title: "Preconstruction Services Tulsa OK | ±5% Budget Accuracy",
     description: "Early-stage budgeting, value engineering, and constructability reviews for medical and commercial projects.",
     url: "https://www.udgok.com/preconstruction",
     type: "website",

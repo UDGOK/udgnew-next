@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Pre-Engineered Metal Buildings Tulsa OK | PEMB Red Iron | UDGOK",
+    title: "Pre-Engineered Metal Buildings Tulsa OK | PEMB Red Iron",
     description: "Pre-engineered metal building contractor in Tulsa, Oklahoma. Red iron PEMB structures — 20–30% cheaper, 30% faster than conventional steel. Warehouses, shops, agricultural, and commercial metal buildings. $25–$50/sf turnkey.",
     openGraph: { title: "Pre-Engineered Metal Buildings Tulsa OK | UDGOK", description: "PEMB contractor — red iron metal buildings 20–30% cheaper than conventional steel. Tulsa, Oklahoma.", url: "https://www.udgok.com/pre-engineered-metal-buildings-tulsa" },
     alternates: { canonical: "https://www.udgok.com/pre-engineered-metal-buildings-tulsa" },

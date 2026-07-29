@@ -5,7 +5,7 @@ import MarqueeBanner from "@/components/MarqueeBanner";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-    title: "AI & Robotic Surgery in 2026: How Autonomous Systems Are Redefining Care | UDGOK",
+    title: "AI & Robotic Surgery in 2026: How Autonomous Systems Are Redefining Care",
     description: "By 2026, AI-enabled robotic surgery delivers superior precision, autonomous procedures, and intercontinental telesurgery — demanding radical healthcare infrastructure upgrades.",
     openGraph: {
         title: "AI & Robotic Surgery in 2026 | UDGOK Intelligence",

@@ -4,7 +4,7 @@ import DentalConstructionGuideUI from "./DentalConstructionGuideUI";
 
 export const metadata: Metadata = {
     title:
-        "The Ultimate 2026 Guide to Dental Office Construction in Tulsa | UDGOK",
+        "The Ultimate 2026 Guide to Dental Office Construction in Tulsa",
     description:
         "Planning a dental clinic in Tulsa? Discover 2026 costs, timelines, and expert tips to successfully build your dream practice. Get a quote today!",
     openGraph: {

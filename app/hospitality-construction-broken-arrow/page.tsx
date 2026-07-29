@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Hospitality Construction Broken Arrow OK | Hotels & Restaurants | UDGOK",
+    title: "Hospitality Construction Broken Arrow OK | Hotels & Restaurants",
     description: "Hospitality construction contractor serving Broken Arrow, Oklahoma. UDGOK builds hotels, restaurants, QSR, and food service facilities throughout Broken Arrow and the BA Expressway corridor.",
     openGraph: {
         title: "Hospitality Construction Broken Arrow OK | UDGOK",

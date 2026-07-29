@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Commercial Property Intelligence Tulsa | Site Evaluation | UDGOK",
+  title: "Commercial Property Intelligence Tulsa | Site Evaluation",
   description: "AI-driven property intelligence to evaluate medical and dental office sites in Tulsa and Dallas. GIS demographics, utility assessment, and construction feasibility studies before you sign a lease.",
   openGraph: {
-    title: "Property Intelligence | Site Evaluation | UDGOK",
+    title: "Property Intelligence | Site Evaluation",
     description: "AI-driven site evaluation for medical and dental office locations in Tulsa and Dallas.",
     url: "https://www.udgok.com/property-intelligence",
     type: "website",

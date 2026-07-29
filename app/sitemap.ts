@@ -1,162 +1,167 @@
+import { execSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.udgok.com";
-  const now = new Date().toISOString();
+const BASE = "https://www.udgok.com";
+const APP_DIR = path.join(process.cwd(), "app");
 
-  // ── Core Pages ──
-  const core: MetadataRoute.Sitemap = [
-    { url: base, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/projects`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${base}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/resources`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-  ];
+/**
+ * Routes that exist but must NOT be submitted to search engines.
+ * Everything else with a page file is discovered automatically, so the sitemap
+ * can never again drift out of sync with what actually ships.
+ *
+ * (Before this change the sitemap was a hand-maintained array and HAD drifted:
+ * 9 submitted URLs returned 404, and 3 live pages were never submitted at all.)
+ */
+const EXCLUDED = new Set([
+  "api",
+  "portal", // auth-gated; also Disallow'd in robots.ts
+]);
 
-  // ── Service Pages ──
-  const services = [
-    "design-build",
-    "medical-office-design-build-tulsa",
-    "dental-office-construction-tulsa",
-    "oral-surgeon-office-construction-tulsa",
-    "eye-clinic-construction-tulsa",
-    "medical-gas-installation",
-    "tenant-improvements",
-    "preconstruction",
-    "virtual-design-construction",
-    "safety-program",
-    "convenience-store-construction-tulsa",
-    "shopping-center-construction-tulsa",
-    "commercial-contractor-tulsa",
-    "construction-companies-tulsa",
-    "retail-construction-tulsa",
-    "hospitality-construction-bixby",
-    "hospitality-construction-broken-arrow",
-    "office-construction-bixby",
-    "office-construction-tulsa",
-    "build-to-suit-tulsa",
-    "industrial-buildings-tulsa",
-    "construction-company-south-tulsa",
-    "construction-company-midtown-tulsa",
-    "construction-company-downtown-tulsa",
-    "construction-company-east-tulsa",
-    "construction-company-north-tulsa",
-    "tulsa-construction-costs",
-    "warehouse-construction-tulsa",
-    "pre-engineered-metal-buildings-tulsa",
-    "cold-storage-construction-tulsa",
-    "manufacturing-facility-construction-tulsa",
-    "flex-space-construction-tulsa",
-    "self-storage-construction-tulsa",
-    "agricultural-building-construction-oklahoma",
-    "industrial-renovation-tulsa",
-    "concrete-driveway-tulsa",
-    "asphalt-repair-tulsa",
-    "ai-robotics",
-    "property-intelligence",
-    "market-intelligence",
-    "ambulatory-surgery-center-construction",
-    "restaurant-construction-tulsa",
-    "sustainable-construction-tulsa",
-    "adaptive-reuse-construction-tulsa",
-    "dental-office-remodel-tulsa",
-    "orthodontic-office-construction-tulsa",
-  ].map((slug) => ({
-    url: `${base}/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+type Hints = {
+  priority: number;
+  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+};
 
-  // ── Location Pages ──
-  const locations = [
-    "tulsa-ok-design-build",
-    "broken-arrow-ok-design-build",
-    "bixby-ok-design-build",
-    "jenks-ok-design-build",
-    "owasso-ok-design-build",
-    "sapulpa-ok-design-build",
-    "haskell-ok-design-build",
-    "sand-springs-ok-design-build",
-    "claremore-ok-design-build",
-    "glenpool-ok-design-build",
-    "oklahoma-city-medical-construction",
-    "edmond-ok-medical-construction",
-    "dallas-medical-construction",
-    "tulsa-medical-construction",
-    "bixby-dental-construction",
-  ].map((slug) => ({
-    url: `${base}/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+/** Per-route sitemap hints. Anything not listed falls through to inferHints(). */
+const PRIORITY: Record<string, Hints> = {
+  "": { priority: 1.0, changeFrequency: "weekly" },
+  about: { priority: 0.9, changeFrequency: "monthly" },
+  contact: { priority: 0.9, changeFrequency: "monthly" },
+  projects: { priority: 0.9, changeFrequency: "weekly" },
+  services: { priority: 0.9, changeFrequency: "monthly" },
+  resources: { priority: 0.8, changeFrequency: "weekly" },
+  insights: { priority: 0.8, changeFrequency: "weekly" },
+  transparency: { priority: 0.4, changeFrequency: "yearly" },
+  community: { priority: 0.4, changeFrequency: "yearly" },
+  partners: { priority: 0.4, changeFrequency: "yearly" },
+  subcontractors: { priority: 0.4, changeFrequency: "yearly" },
+  "privacy-policy": { priority: 0.3, changeFrequency: "yearly" },
+  "terms-of-service": { priority: 0.3, changeFrequency: "yearly" },
+  "sitemap-page": { priority: 0.3, changeFrequency: "yearly" },
+};
 
-  // ── Articles, Blogs & Knowledge Hub ──
-  const articles = [
-    "dental-construction-costs",
-    "dental-construction-insights",
-    "digital-twin-technology",
-    "digital-twin-technology-guide-2026",
-    "guide-commercial-brokers",
-    "guide-developers",
-    "ai-robotic-surgery-2026",
-    "construction-technology-trends-2026",
-    "guide-dental-office-construction-tulsa",
-    "guide-dental-practice-financing-tulsa",
-    "insights",
-    "article-ada-compliance-healthcare",
-    "article-dental-office-construction-timeline",
-    "article-medical-gas-installation-guide",
-    "article-medical-office-design-checklist",
-    "blog-dental-construction-costs-oklahoma",
-    "blog-medical-office-design-checklist",
-    "guide-medical-office-cost-tulsa",
-    "guide-dental-buildout-checklist-oklahoma",
-    "guide-pemb-vs-steel-oklahoma",
-  ].map((slug) => ({
-    url: `${base}/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
-
-
-  // ── Tools & Calculators ──
-  const tools = [
-    "tools",
-    "calculator-concrete",
-    "calculator-drywall",
-    "calculator-paint",
-    "calculator-brick",
-    "calculator-roofing",
-    "calculator-flooring",
-  ].map((slug) => ({
-    url: `${base}/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.5,
-  }));
-
-  // ── Community & Company ──
-  const company = [
-    "community",
-    "partners",
-    "subcontractors",
-    "subcontractor-dashboard",
-    "transparency",
-    "portal",
-    "privacy-policy",
-    "terms-of-service",
-    "sitemap-page",
-  ].map((slug) => ({
-    url: `${base}/${slug}`,
-    lastModified: now,
-    changeFrequency: "yearly" as const,
-    priority: 0.3,
-  }));
-
-  return [...core, ...services, ...locations, ...articles, ...tools, ...company];
+/** Lower-priority buckets matched by slug shape. */
+function inferHints(slug: string): Hints {
+  if (PRIORITY[slug]) return PRIORITY[slug];
+  if (slug === "tools" || slug.startsWith("calculator-")) {
+    return { priority: 0.5, changeFrequency: "monthly" };
+  }
+  if (slug.startsWith("guide-") || slug.startsWith("article-") || slug.startsWith("blog-")) {
+    return { priority: 0.6, changeFrequency: "monthly" };
+  }
+  return { priority: 0.7, changeFrequency: "monthly" };
 }
 
+/**
+ * Real per-URL lastmod, rather than one shared `new Date()`.
+ *
+ * Google discounts lastmod entirely when every URL in a sitemap carries an
+ * identical timestamp — which is exactly what the previous implementation did
+ * (all 103 URLs stamped with the build time).
+ *
+ * Git commit dates are the source of truth. A CI checkout rewrites every file's
+ * mtime to the clone time, so mtime alone would collapse right back to a single
+ * value on Vercel. We build the git map once, then fall back to mtime (and
+ * finally to now) if git is unavailable or the clone is too shallow.
+ */
+const gitDates: Map<string, number> = (() => {
+  const map = new Map<string, number>();
+  try {
+    // One pass over history: `%cI` commit date lines followed by changed paths.
+    const out = execSync("git log --name-only --format=%cI --diff-filter=AM -- app", {
+      cwd: process.cwd(),
+      encoding: "utf-8",
+      maxBuffer: 64 * 1024 * 1024,
+      stdio: ["ignore", "pipe", "ignore"],
+    });
+    let current = 0;
+    for (const line of out.split("\n")) {
+      const t = line.trim();
+      if (!t) continue;
+      if (/^\d{4}-\d{2}-\d{2}T/.test(t)) {
+        current = Date.parse(t);
+      } else if (current && !map.has(t)) {
+        // git log is newest-first, so the first sighting is the latest change.
+        map.set(t, current);
+      }
+    }
+  } catch {
+    // No git in the build environment — mtime fallback below still applies.
+  }
+  return map;
+})();
+
+function lastModifiedFor(routeDir: string): Date {
+  try {
+    const files = ["page.tsx", "page.ts"]
+      .map((f) => path.join(routeDir, f))
+      .filter((f) => fs.existsSync(f));
+    if (!files.length) return new Date();
+
+    const stamps = files.map((f) => {
+      const rel = path.relative(process.cwd(), f).split(path.sep).join("/");
+      return gitDates.get(rel) ?? fs.statSync(f).mtimeMs;
+    });
+    return new Date(Math.max(...stamps));
+  } catch {
+    return new Date();
+  }
+}
+
+/** Recursively collect every static route that has a page file. */
+function collectRoutes(dir: string, prefix = ""): string[] {
+  const out: string[] = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const name = entry.name;
+    // Skip private folders, route groups, parallel/intercepted routes and
+    // dynamic segments — none are directly indexable static URLs.
+    if (
+      name.startsWith("_") ||
+      name.startsWith("(") ||
+      name.startsWith("@") ||
+      name.startsWith("[")
+    ) {
+      continue;
+    }
+    if (!prefix && EXCLUDED.has(name)) continue;
+
+    const full = path.join(dir, name);
+    const slug = prefix ? `${prefix}/${name}` : name;
+    if (
+      fs.existsSync(path.join(full, "page.tsx")) ||
+      fs.existsSync(path.join(full, "page.ts"))
+    ) {
+      out.push(slug);
+    }
+    out.push(...collectRoutes(full, slug));
+  }
+  return out;
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const slugs = collectRoutes(APP_DIR).sort();
+
+  const root: MetadataRoute.Sitemap = [
+    {
+      url: BASE,
+      lastModified: lastModifiedFor(APP_DIR),
+      changeFrequency: PRIORITY[""].changeFrequency,
+      priority: PRIORITY[""].priority,
+    },
+  ];
+
+  const pages: MetadataRoute.Sitemap = slugs.map((slug) => {
+    const { priority, changeFrequency } = inferHints(slug);
+    return {
+      url: `${BASE}/${slug}`,
+      lastModified: lastModifiedFor(path.join(APP_DIR, slug)),
+      changeFrequency,
+      priority,
+    };
+  });
+
+  return [...root, ...pages];
+}

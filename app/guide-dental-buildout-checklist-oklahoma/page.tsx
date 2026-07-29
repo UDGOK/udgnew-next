@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Dental Office Build-Out Checklist for Oklahoma (2026)",
   description: "Step-by-step dental office build-out checklist from pre-design to move-in. Cost per operatory, equipment rough-in specs, and regulatory requirements for Oklahoma.",
   openGraph: {
-    title: "Dental Office Build-Out Checklist — Oklahoma 2026 | UDGOK",
+    title: "Dental Office Build-Out Checklist — Oklahoma 2026",
     description: "80+ dental offices built. The complete build-out checklist for Oklahoma dental practices.",
     url: "https://www.udgok.com/guide-dental-buildout-checklist-oklahoma",
     type: "article",

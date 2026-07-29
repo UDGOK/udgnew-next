@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-    title: "Industrial Renovation Contractor Tulsa OK | Retrofits, Crane Rails & Mezzanines | UDGOK",
+    title: "Industrial Renovation Contractor Tulsa OK | Retrofits, Crane Rails & Mezzanines",
     description: "Industrial renovation contractor in Tulsa, Oklahoma. Structural retrofits, crane rail installation, mezzanine additions, energy efficiency upgrades, and code compliance renovations for existing industrial buildings.",
     openGraph: { title: "Industrial Renovation Contractor Tulsa OK | UDGOK", description: "Structural retrofits, crane rails, mezzanines, and code compliance renovations.", url: "https://www.udgok.com/industrial-renovation-tulsa" },
     alternates: { canonical: "https://www.udgok.com/industrial-renovation-tulsa" },

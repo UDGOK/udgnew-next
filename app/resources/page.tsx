@@ -3,7 +3,7 @@ import ResourcesUI from "./ResourcesUI";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Resources & Insights | UDGOK Oklahoma & Texas",
+  title: "Construction Resources & Insights | Oklahoma & Texas",
   description: "Explore UDGOK's Knowledge Hub. Detailed guides, calculators, and articles on medical, dental, and commercial construction costs, compliance, and design.",
   alternates: { canonical: "https://www.udgok.com/resources" },
 };

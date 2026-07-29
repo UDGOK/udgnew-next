@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Medical Office Design-Build Contractor Tulsa OK | 100+ Facilities",
   description: "Tulsa's top medical office design-build contractor. 100+ healthcare facilities delivered. $150–$350/sf with ADA, HIPAA, and ASHRAE 170 compliance.",
   openGraph: {
-    title: "Medical Office Design-Build Tulsa OK | UDGOK",
+    title: "Medical Office Design-Build Tulsa OK",
     description: "Turnkey medical office construction in Tulsa. Specialized HVAC, ADA compliance, and medical-grade systems for clinics and specialty practices.",
     url: "https://www.udgok.com/medical-office-design-build-tulsa",
     type: "website",

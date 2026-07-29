@@ -4,12 +4,12 @@ import { ServiceJsonLd, MedicalBusinessJsonLd, FAQJsonLd, BreadcrumbJsonLd } fro
 
 export const metadata: Metadata = {
 // ... existing metadata
-  title: "Ambulatory Surgery Center Construction Oklahoma | UDGOK",
+  title: "Ambulatory Surgery Center Construction Oklahoma",
 // ...
   description:
     "Turnkey ambulatory surgery center (ASC) and outpatient facility construction in Tulsa, Oklahoma City, and Dallas. AAAHC/CMS-ready operating rooms, sterile processing, medical gas, and HVAC. 100% NFPA 99 first-pass certification.",
   openGraph: {
-    title: "Ambulatory Surgery Center Construction | UDGOK",
+    title: "Ambulatory Surgery Center Construction",
     description:
       "Turnkey ASC and outpatient facility construction. AAAHC/CMS-ready operating rooms, sterile processing, NFPA 99 medical gas. Serving Oklahoma and Texas.",
     url: "https://www.udgok.com/ambulatory-surgery-center-construction",

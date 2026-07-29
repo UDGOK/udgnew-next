@@ -3,11 +3,11 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Sustainable & Green Construction Tulsa Oklahoma | UDGOK",
+  title: "Sustainable & Green Construction Tulsa Oklahoma",
   description:
     "Sustainable commercial construction in Tulsa, Oklahoma. LEED-ready builds, energy-efficient HVAC, recycled materials, solar-ready design, low-VOC finishes, and Oklahoma green building tax incentives. Building a better future.",
   openGraph: {
-    title: "Sustainable & Green Construction Tulsa | UDGOK",
+    title: "Sustainable & Green Construction Tulsa",
     description:
       "Eco-conscious commercial construction. Energy-efficient systems, recycled materials, and LEED-ready delivery for forward-thinking businesses in Oklahoma.",
     url: "https://www.udgok.com/sustainable-construction-tulsa",

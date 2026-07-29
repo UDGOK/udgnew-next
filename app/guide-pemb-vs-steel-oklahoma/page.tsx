@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "PEMB vs Conventional Steel for Oklahoma Warehouses (2026)",
   description: "Pre-engineered metal buildings vs conventional steel: cost, timeline, and performance comparison. PEMB $18–$35/sf vs conventional $30–$60/sf. Oklahoma-specific data.",
   openGraph: {
-    title: "PEMB vs Conventional Steel — Oklahoma 2026 | UDGOK",
+    title: "PEMB vs Conventional Steel — Oklahoma 2026",
     description: "Side-by-side comparison with real cost data from Oklahoma's top industrial building contractor.",
     url: "https://www.udgok.com/guide-pemb-vs-steel-oklahoma",
     type: "article",

@@ -3,7 +3,7 @@ import ServicePage from "@/components/ServicePage";
 import { ServiceJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Adaptive Reuse & Building Conversion Tulsa Oklahoma | UDGOK",
+  title: "Adaptive Reuse & Building Conversion Tulsa Oklahoma",
   description:
     "Adaptive reuse and building conversion construction in Tulsa, Oklahoma. Transform vacant offices, warehouses, and retail spaces into medical clinics, restaurants, and modern commercial facilities. 15-30% cost savings vs new construction.",
   openGraph: {

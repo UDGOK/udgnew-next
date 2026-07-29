@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Community Involvement Tulsa | UDGOK",
+  title: "Community Involvement Tulsa",
   description: "UDGOK's commitment to the Tulsa and Oklahoma community. Local hiring, workforce development, sponsorships, and building healthcare facilities that serve our neighbors.",
   openGraph: {
     title: "Community Involvement | UDGOK Construction",

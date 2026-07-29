@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Cost to Build a Medical Office in Tulsa (2026 Guide)",
   description: "How much does a 3,000 SF medical office cost in Tulsa? $150–$350/sf. Full 2026 cost breakdown, timeline, and budget guide from UDGOK's 100+ healthcare projects.",
   openGraph: {
-    title: "Cost to Build a Medical Office in Tulsa — 2026 Guide | UDGOK",
+    title: "Cost to Build a Medical Office in Tulsa — 2026 Guide",
     description: "Full cost breakdown from Oklahoma's most experienced medical construction contractor — 100+ facilities delivered.",
     url: "https://www.udgok.com/guide-medical-office-cost-tulsa",
     type: "article",

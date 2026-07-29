@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Subcontractor Bid Portal | UDGOK",
+  title: "Subcontractor Bid Portal",
   description: "Access the UDGOK Subcontractor Bid Portal to view active projects, download construction documents, and submit competitive bids.",
 };
 

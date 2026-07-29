@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import TransparencyUI from "./TransparencyUI";
 
 export const metadata: Metadata = {
-    title: "AI Transparency | Responsible AI Use in Construction | UDGOK",
+    title: "AI Transparency | Responsible AI Use in Construction",
     description: "How UDGOK uses artificial intelligence in construction — full disclosure of AI tools, data protection, human oversight, and our commitment to responsible AI. NIST AI RMF 1.0 aligned.",
     openGraph: {
         title: "AI Transparency | Responsible AI in Construction | UDGOK",

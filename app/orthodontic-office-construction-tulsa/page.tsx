@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Tulsa's only contractor specializing in orthodontist office design-build. Open bay layouts, Invisalign scan stations, 3D print labs, teen-friendly design, and iTero integration — built by UDGOK.",
   openGraph: {
-    title: "Orthodontic Office Construction | Tulsa OK | UDGOK",
+    title: "Orthodontic Office Construction | Tulsa OK",
     description: "Tulsa's specialist orthodontic office builder. Open bay layouts, digital workflow integration, and teen-friendly design. Call (918) 520-3823.",
     url: "https://www.udgok.com/orthodontic-office-construction-tulsa",
     type: "website",

@@ -3,7 +3,7 @@ import CalculatorUI from "./CalculatorUI";
 import { HowToJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Commercial Flooring Calculator | UDGOK",
+  title: "Commercial Flooring Calculator",
   description: "Estimate the total square footage and boxes needed for commercial flooring.",
   alternates: { canonical: "https://www.udgok.com/calculator-flooring" },
 };

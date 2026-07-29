@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Partners & Affiliations | UDGOK Construction",
+  title: "Partners & Affiliations | Oklahoma Construction",
   description: "UDGOK's industry partnerships and professional affiliations. Members of AGC, ABC, ASSE certified, and active participants in Tulsa's healthcare and commercial construction community.",
   openGraph: {
-    title: "Partners & Affiliations | UDGOK",
+    title: "Partners & Affiliations",
     description: "AGC and ABC member. ASSE and NFPA certified. Partnered with top architectural firms and medical equipment vendors.",
     url: "https://www.udgok.com/partners",
     type: "website",

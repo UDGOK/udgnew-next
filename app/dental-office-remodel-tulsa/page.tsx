@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Tulsa's top-rated dental office remodel contractor. Minimal-downtime renovations for existing practices — operatory upgrades, ADA compliance retrofits, and full cosmetic overhauls. 80+ dental projects completed.",
   openGraph: {
-    title: "Dental Office Remodel & Renovation | Tulsa OK | UDGOK",
+    title: "Dental Office Remodel & Renovation | Tulsa OK",
     description: "Minimal-downtime dental renovations in Tulsa. Operatory upgrades, ADA retrofits, and cosmetic overhauls — 80+ dental projects completed.",
     url: "https://www.udgok.com/dental-office-remodel-tulsa",
     type: "website",

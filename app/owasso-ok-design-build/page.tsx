@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Design-Build Contractor Owasso OK | UDGOK",
+  title: "Design-Build Contractor Owasso OK",
   description: "Medical and commercial construction in Owasso, Oklahoma. UDGOK builds dental offices, medical clinics, and commercial projects in one of northeast Tulsa's fastest-growing communities.",
   openGraph: {
-    title: "Design-Build Contractor Owasso OK | UDGOK",
+    title: "Design-Build Contractor Owasso OK",
     description: "Medical, dental, and commercial construction serving Owasso's rapidly growing north Tulsa metro corridor.",
     url: "https://www.udgok.com/owasso-ok-design-build",
     type: "website",
